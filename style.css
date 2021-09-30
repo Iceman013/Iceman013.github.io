@@ -20,7 +20,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrbES87SbNpfXtDbhVFLGKTbMMys8-BwK3xg&usqp=CAU");
   color: white;
   position: absolute;
-  width: 100%;
+  width: 98%;
   height: 300px;
 }
 .effect {
