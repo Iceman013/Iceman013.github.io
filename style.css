@@ -17,10 +17,10 @@
 .box-map {
   width: 40%;
 }
-html {
+.effect html {
   background-color: rgb(255,0,0);
 }
-body {
+.effect body {
   margin: 50px;
   background-color: rgb(32,32,32);
 }
