@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<style>
+* {
+  box-sizing: border-box;
+}
+[class *= "box-"]{
+  float: left;
+  padding: 10px;
+  border: 2px solid powderblue;
+}
+.box-filter {
+  width: 30%;
+  background-color: rgb(255,0,0);
+}
+.box-list {
+  width: 50%;
+}
+.box-map {
+  width: 20%;
+}
+.box li {
+  list-style-type: none;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: rgb(32,192,255);
+  color: rgb(255,255,255);
+  box-shadow: 0 2px 5px rgb(128,128,128);
+</style>
+<head>
+<title>Home</title>
+</head>
+<body style = "background-color: azure">
+<h1 style = "color:grey">Test</h1>
+<p>This will be the main page for the website</p>
+<div class = "box-filter">
+  <li>1</li>
+  <li>a</li>
+</div>
+<div class = "box-list">
+  <li>I smart</li>
+</div>
+<div class = "box-map">
+ <li>Map</li>
+ <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 20;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 33.9558, lng: -83.3773};
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 32,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+    </script>
+    <h3>Reall Cool Map goes here</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABOpPePTTJCcXkxufAgUTuvVkIfoS_q7Q&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+</div>
+</body>
+</html>
+<script>
+</script>
