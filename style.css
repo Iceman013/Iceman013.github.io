@@ -17,4 +17,11 @@
 .box-map {
   width: 40%;
 }
+html {
+  background-color: rgb(255,0,0);
+}
+body {
+  margin: 50px;
+  background-color: rgb(32,32,32);
+}
 </style>
