@@ -1,1 +1,1 @@
-@@include[map.js](includes/map.js)
+@@include[map.js](map.js)
