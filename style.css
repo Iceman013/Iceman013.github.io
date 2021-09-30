@@ -18,9 +18,11 @@
   width: 40%;
 }
 .effect {
+  height: 100%;
+  width: 100%;
   border-style: solid;
   border-width: 10px;
-  border-color: rgb(255,0,0);
-  background-color: rgb(32,32,32);
+  border-color: rgb(224,224,224);
+  background-color: rgb(255,255,255);
 }
 </style>
