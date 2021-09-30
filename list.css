@@ -1,4 +1,12 @@
 <style>
+* {
+  box-sizing: border-box;
+}
+[class *= "box-"]{
+  float: left;
+  padding: 10px;
+  border: 2px solid black;
+}
 .box-list {
   width: 35%;
 }
