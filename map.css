@@ -2,7 +2,7 @@
 * {
   box-sizing: border-box;
 }
-.box-map {
+.map {
   float: left;
   padding: 10px;
   border: 2px solid black;
