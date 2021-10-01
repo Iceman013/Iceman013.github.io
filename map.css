@@ -2,12 +2,10 @@
 * {
   box-sizing: border-box;
 }
-[class *= "box-"]{
+.box-map {
   float: left;
   padding: 10px;
   border: 2px solid black;
-}
-.box-map {
   width: 40%;
 }
 </style>
