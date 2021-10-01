@@ -2,7 +2,7 @@
 * {
   box-sizing: border-box;
 }
-.box-filter {
+.filter {
   float: left;
   padding: 10px;
   border: 2px solid black;
