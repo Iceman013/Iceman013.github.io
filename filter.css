@@ -2,15 +2,11 @@
 * {
   box-sizing: border-box;
 }
-.effect {
-  border-style: solid;
-  border-width: 15px;
-  border-color: rgb(224,224,224);
+.filter {
+  float: left;
+  padding: 10px;
+  border: 2px solid black;
+  width: 30%;
   background-color: white;
-}
-.row::after{
-  content: "";
-  clear: both;
-  display: table;
 }
 </style>
