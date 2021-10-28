@@ -14,20 +14,22 @@ function displayMap(map) {
             b = map[a].length - 200;
         }
         while (b < map[a].length) {
+            const tile = map[a][b];
             item = document.createElement("text");
-            item.style.backgroundImage = map[a][b].getImage();
+            item.style.backgroundImage = tile.getImage();
             //item.style.transform = "translate(" + -2*map[a][b].getAltitude() + "px," + -4*map[a][b].getAltitude() + "px)";
-            item.style.width = (600/map[a].length) + "px";
-            item.style.height = (600/map.length) + "px";
+            item.style.width = (100/map[a].length) + "%";
+            item.style.height = (100/map.length) + "%";
             item.xpos = a;
             item.ypos = b;
             item.addEventListener("click", function() {
                 select(map[this.xpos][this.ypos]);
             });
             imag = document.createElement("img");
-            if (map[a][b].getResource() != "empty") {
-                imag.src = map[a][b].getTop();
-            }
+            imag.src = tile.getTop();
+            tile.setId("(" + a + "," + b + ")");
+            imag.id = "(" + a + "," + b + ")";
+            imag.draggable = false;
             item.appendChild(imag);
             hBox.appendChild(item);
             b = b + 1;

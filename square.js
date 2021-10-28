@@ -1,7 +1,12 @@
 function Square() {
     this.altitude = 0;
-    this.hType = "undefined";
-    this.resource = "empty";
+    this.hType = "Undefined";
+    this.resource = "Empty";
+    this.building = "None";
+    this.id = "";
+    this.setId = function(id) {
+        this.id = id;
+    }
     this.getAltitude = function() {
         return this.altitude;
     }
@@ -13,19 +18,34 @@ function Square() {
         return this.resource;
     }
     this.setResource = function(resource) {
-        if (this.hType != "oceanWater" && this.hType != "shallowWater") {
+        if (tryResource(this, resource) && this.getResource() == "Empty") {
             this.resource = resource;
+            return true;
         }
+        return false;
+    }
+    this.getBuilding = function() {
+        return this.building;
+    }
+    this.setBuilding = function(building) {
+        this.building = building;
     }
     this.getTop = function() {
         var out = "";
         var typ = this.getResource();
-        if (typ == "empty") {
-            out = "";
-        } else if (typ == "forest") {
+        if (this.getBuilding() != "None" && this.getResource() != "Empty") {
+            typ = this.getBuilding();
+        }
+        if (typ == "Empty") {
+            out = "Images/Blank.png";
+        } else if (typ == "Forest") {
             out = "Images/Trees.png";
-        } else if (typ == "rock") {
+        } else if (typ == "Rock") {
             out = "Images/Rocks.png";
+        } else if (typ == "Lumber Hut") {
+            out = "Images/LumberHut.png"
+        } else if (typ == "Mine") {
+            out = "Images/Mine.gif"
         }
         return out;
     }
@@ -33,39 +53,61 @@ function Square() {
         return this.getAltitude().toFixed(3);
     }
     this.setHType = function() {
-        var out = "undefined";
+        var out = "Undefined";
         var hei = this.getAltitude();
         if (hei < 0.025) {
-            out = "oceanWater";
+            out = "Ocean Water";
         } else if (hei < 0.1) {
-            out = "shallowWater";
+            out = "Shallow Water";
         } else if (hei < 0.3) {
-            out = "sand";
+            out = "Sand";
         } else if (hei < 0.6) {
-            out = "meadow";
+            out = "Meadow";
         } else if (hei < 0.925) {
-            out = "ground";
+            out = "Ground";
         } else {
-            out = "highGround";
+            out = "High Ground";
         }
         this.hType = out;
+    }
+    this.getHType = function() {
+        return this.hType;
     }
     this.getImage = function() {
         var ht = this.hType;
         var out = "";
-        if (ht == "oceanWater") {
+        if (ht == "Ocean Water") {
             out = "url('Images/OceanWater.png')";
-        } else if (ht == "shallowWater") {
+        } else if (ht == "Shallow Water") {
             out = "url('Images/ShallowWater.png')";
-        } else if (ht == "sand") {
+        } else if (ht == "Sand") {
             out = "url('Images/Sand.png')";
-        } else if (ht == "meadow") {
+        } else if (ht == "Meadow") {
             out = "url('Images/Meadow.png')";
-        } else if (ht == "ground") {
+        } else if (ht == "Ground") {
             out = "url('Images/Ground.png')";
-        } else if (ht == "highGround") {
+        } else if (ht == "High Ground") {
             out = "url('Images/HighGround.png')";
         }
         return out;
     }
+}
+function tryResource(square, resource) {
+    var out = true;
+    if (resource == "Forest") {
+        if (square.getHType() == "Ocean Water") {
+            out = false;
+        } else if (square.getHType() == "Shallow Water") {
+            out = false;
+        } else if (square.getHType() == "Sand") {
+            out = false;
+        }
+    } else if (resource == "Rock") {
+        if (square.getHType() == "Ocean Water") {
+            out = false;
+        } else if (square.getHType() == "Shallow Water") {
+            out = false;
+        }
+    }
+    return out;
 }

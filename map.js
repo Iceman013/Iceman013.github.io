@@ -141,7 +141,7 @@ function addTrees(map) {
     var c = 0;
     var rnga = 0;
     var rngb = 0;
-    while (a < 3) {
+    while (a < 5) {
         rnga = Math.floor(1 + (map.length - 2)*Math.random());
         rngb = Math.floor(1 + (map.length - 2)*Math.random());
         b = -1;
@@ -149,21 +149,23 @@ function addTrees(map) {
             c = -1;
             while (c < 2) {
                 if (Math.random() < 0.5) {
-                    map[rnga + b][rngb + c].setResource("forest");
+                    if (map[rnga + b][rngb + c].setResource("Forest")) {
+                        a = a + 1;
+                    }
                 }
                 c = c + 1;
             }
             b = b + 1;
         }
-        a = a + 1;
     }
     return map;
 }
 function addRocks(map) {
     var a = 0;
-    while (a < 5) {
-        map[Math.floor(map.length*Math.random())][Math.floor(map.length*Math.random())].setResource("rock");
-        a = a + 1;
+    while (a < 3) {
+        if (map[Math.floor(map.length*Math.random())][Math.floor(map.length*Math.random())].setResource("Rock")) {
+            a = a + 1;
+        }
     }
     return map;
 }
