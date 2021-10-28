@@ -1,10 +1,14 @@
 function Upgrade(name) {
     this.name = name;
     this.image = "";
+    this.description = "";
     this.resource = new Array();
     this.previous = new Array();
-    this.addImage = function(image) {
+    this.setImage = function(image) {
         this.image = image;
+    }
+    this.setDescription = function(description) {
+        this.description = description;
     }
     this.addResource = function(type) {
         this.resource.push(type);

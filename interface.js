@@ -46,14 +46,14 @@ function makeUpgradeBox(element, number, square) {
     element.appendChild(title);
 
     description = document.createElement("text");
-    description.innerHTML = "Ooh. I'm a thing. I do stuff.";
+    description.innerHTML = upgrades[number].description;
     element.appendChild(description);
 
     button = document.createElement("button");
     button.innerHTML = "Purchase";
     button.addEventListener("click", function() {
         square.setBuilding(upgrades[number].name);
-        document.getElementById(square.id).src = square.getTop();
+        document.getElementById(square.getId()).src = square.getTop();
         select(square);
     });
     element.appendChild(button);

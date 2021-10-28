@@ -27,8 +27,8 @@ function displayMap(map) {
             });
             imag = document.createElement("img");
             imag.src = tile.getTop();
-            tile.setId("(" + a + "," + b + ")");
-            imag.id = "(" + a + "," + b + ")";
+            tile.setId(a,b);
+            imag.id = tile.getId();
             imag.draggable = false;
             item.appendChild(imag);
             hBox.appendChild(item);
@@ -38,3 +38,10 @@ function displayMap(map) {
         a = a + 1;
     }
 }
+function disableselect(e) {
+    return false;
+}
+document.onselectstart = new function() {
+    return false;
+}
+document.onmousedown = disableselect;

@@ -3,9 +3,14 @@ function Square() {
     this.hType = "Undefined";
     this.resource = "Empty";
     this.building = "None";
-    this.id = "";
-    this.setId = function(id) {
-        this.id = id;
+    this.xpos = 0;
+    this.ypos = 0;
+    this.setId = function(xpos, ypos) {
+        this.xpos = xpos;
+        this.ypos = ypos;
+    }
+    this.getId = function() {
+        return "(" + this.xpos + "," + this.ypos + ")";
     }
     this.getAltitude = function() {
         return this.altitude;
@@ -31,21 +36,25 @@ function Square() {
         this.building = building;
     }
     this.getTop = function() {
-        var out = "";
-        var typ = this.getResource();
-        if (this.getBuilding() != "None" && this.getResource() != "Empty") {
-            typ = this.getBuilding();
-        }
-        if (typ == "Empty") {
-            out = "Images/Blank.png";
-        } else if (typ == "Forest") {
-            out = "Images/Trees.png";
-        } else if (typ == "Rock") {
-            out = "Images/Rocks.png";
-        } else if (typ == "Lumber Hut") {
-            out = "Images/LumberHut.png"
-        } else if (typ == "Mine") {
-            out = "Images/Mine.gif"
+        var out = "Images/Blank.png";
+        if (this.getBuilding() == "None") {
+            var typ = this.getResource();
+            if (typ == "Empty") {
+                out = "Images/Blank.png"
+            } else if (typ == "Forest") {
+                out = "Images/Trees.png";
+            } else if (typ == "Rock") {
+                out = "Images/Rocks.png";
+            }
+        } else {
+            var a = 0;
+            var typ = this.getBuilding();
+            while (a < upgrades.length) {
+                if (typ == upgrades[a].name) {
+                    out = upgrades[a].image;
+                }
+                a = a + 1;
+            }
         }
         return out;
     }
@@ -77,13 +86,13 @@ function Square() {
         var ht = this.hType;
         var out = "";
         if (ht == "Ocean Water") {
-            out = "url('Images/OceanWater.png')";
+            out = "url('Images/OceanWater.gif')";
         } else if (ht == "Shallow Water") {
-            out = "url('Images/ShallowWater.png')";
+            out = "url('Images/ShallowWater.gif')";
         } else if (ht == "Sand") {
             out = "url('Images/Sand.png')";
         } else if (ht == "Meadow") {
-            out = "url('Images/Meadow.png')";
+            out = "url('Images/Meadow.gif')";
         } else if (ht == "Ground") {
             out = "url('Images/Ground.png')";
         } else if (ht == "High Ground") {
