@@ -36,7 +36,6 @@
     width: 300px;
     height: 500px;
     outline: 1px solid black;
-    text-align: center;
     white-space: pre-line;
 }
 .controller .head {
@@ -67,6 +66,8 @@
 .controller .upgrades object {
     float: left;
     font-weight: bold;
+    font-size: 25px;
+    width: 80%;
 }
 .controller .upgrades img {
     float: left;
@@ -93,4 +94,18 @@
 .controller .upgrades button:active {
     transform: translate(0.5px,1px);
     box-shadow: 0px 0px;
+}
+.controller .upgrades .cost {
+    display: inline-block;
+    width: 100%;
+}
+.controller .upgrades .cost img {
+    float: left;
+    width: 10%;
+}
+.controller .upgrades .cost text {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    width: 90%;
 }

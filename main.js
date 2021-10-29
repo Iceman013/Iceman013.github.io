@@ -17,7 +17,6 @@ function displayMap(map) {
             const tile = map[a][b];
             item = document.createElement("text");
             item.style.backgroundImage = tile.getImage();
-            //item.style.transform = "translate(" + -2*map[a][b].getAltitude() + "px," + -4*map[a][b].getAltitude() + "px)";
             item.style.width = (100/map[a].length) + "%";
             item.style.height = (100/map.length) + "%";
             item.xpos = a;

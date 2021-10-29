@@ -29,35 +29,56 @@ function select(item) {
     var a = 0;
     while (a < upgrades.length) {
         if (upgrades[a].isBuildable(item)) {
-            upg = makeUpgradeBox(upg, a, item);
+            upg = makeUpgradeBox(upg, upgrades[a], item);
         }
         a = a + 1;
     }
     upgList.appendChild(upg);
     document.getElementById("sidebar").appendChild(upgList);
 }
-function makeUpgradeBox(element, number, square) {
+function makeUpgradeBox(element, upgrade, square) {
     upgImg = document.createElement("img");
-    upgImg.src = upgrades[number].image;
+    upgImg.src = upgrade.image;
     element.appendChild(upgImg);
 
     title = document.createElement("object");
-    title.innerHTML = upgrades[number].name;
+    title.innerHTML = upgrade.name;
     element.appendChild(title);
 
     description = document.createElement("text");
-    description.innerHTML = upgrades[number].description;
+    description.innerHTML = upgrade.description;
     element.appendChild(description);
+
+    cost = document.createElement("div");
+    var a = 0;
+    while (a < upgrade.costs.length) {
+        if (upgrade.costs[a][1] != 0) {
+            payment = document.createElement("div");
+            payment.classList.add("cost");
+            imag = document.createElement("img");
+            imag.src = upgrade.costs[a][2];
+            payment.appendChild(imag);
+            price = document.createElement("text");
+            price.innerHTML = upgrade.costs[a][0] + ": " + upgrade.costs[a][1];
+            payment.appendChild(price);
+            cost.appendChild(payment);
+        }
+        a = a + 1;
+    }
+    element.appendChild(cost);
 
     button = document.createElement("button");
     button.innerHTML = "Purchase";
     button.addEventListener("click", function() {
-        square.setBuilding(upgrades[number].name);
-        document.getElementById(square.getId()).src = square.getTop();
-        select(square);
+        purchase(square, upgrade.name);
     });
     element.appendChild(button);
 
     element.classList.add("upgrades");
     return element;
+}
+function purchase(square, upgrade) {
+    square.setBuilding(upgrade);
+    document.getElementById(square.getId()).src = square.getTop();
+    select(square);
 }
