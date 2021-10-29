@@ -13,8 +13,10 @@
 <body onload = "start()">
   <div class = "map" id = "main"></div>
   <div class = "controller" id = "sidebar"></div>
-  <div>
-    <button onclick = "produce(3,3)">Next</button>
+  <div id = "sys">
+    <div id = "cash"></div>
+    <div id = "prod"></div>
+    <button onclick = "next()">Next</button>
   </div>
   <audio autoplay loop>
     <source src="Happy-Days.mp3" type="audio/mpeg">

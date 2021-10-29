@@ -70,7 +70,7 @@ function makeUpgradeBox(element, upgrade, square) {
     button = document.createElement("button");
     button.innerHTML = "Purchase";
     button.addEventListener("click", function() {
-        purchase(square, upgrade.name);
+        purchase(square, upgrade);
     });
     element.appendChild(button);
 
@@ -78,7 +78,60 @@ function makeUpgradeBox(element, upgrade, square) {
     return element;
 }
 function purchase(square, upgrade) {
-    square.setBuilding(upgrade);
-    document.getElementById(square.getId()).src = square.getTop();
-    select(square);
+    var bought = true;
+    var a = 0;
+    while (a < cash.length) {
+        if (cash[a] < upgrade.costs[a][1]) {
+            bought = false;
+        }
+        a = a + 1;
+    }
+    if (bought) {
+        a = 0;
+        while (a < cash.length) {
+            cash[a] = cash[a] - upgrade.costs[a][1];
+            a = a + 1;
+        }
+        square.setBuilding(upgrade.name);
+        document.getElementById(square.getId()).src = square.getTop();
+        select(square);
+        showCash("cash", cash);
+        produce(false);
+    }
+}
+function produce(todo) {
+    var prod = new Array(cash.length);
+    prod.fill(0);
+    var a = 0;
+    var b = 0;
+    while (a < map.length) {
+        b = 0;
+        while (b < map[a].length) {
+            var temp = map[a][b].produce();
+            var c = 0;
+            while (c < temp.length) {
+                if (todo) {
+                    cash[c] = cash[c] + temp[c];
+                } else {
+                    prod[c] = prod[c] + temp[c];
+                }
+                c = c + 1;
+            }
+            b = b + 1;
+        }
+        a = a + 1;
+    }
+    if (todo) {
+        showCash("cash", cash);
+    } else {
+        showCash("prod", prod);
+    }
+}
+function showCash(id, arr) {
+    console.log(arr);
+    document.getElementById(id).innerHTML = arr;
+}
+function next() {
+    produce(true);
+    produce(false);
 }

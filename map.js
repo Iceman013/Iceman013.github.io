@@ -162,7 +162,7 @@ function addTrees(map) {
 }
 function addRocks(map) {
     var a = 0;
-    while (a < 3) {
+    while (a < 5) {
         if (map[Math.floor(map.length*Math.random())][Math.floor(map.length*Math.random())].setResource("Rock")) {
             a = a + 1;
         }
