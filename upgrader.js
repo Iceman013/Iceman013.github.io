@@ -19,15 +19,15 @@ function Upgrade(name) {
             0
         ],
         [
-            "Glass",
-            0,
-            "Images/Glass.gif",
-            0
-        ],
-        [
             "Clay",
             0,
             "Images/Clay.gif",
+            0
+        ],
+        [
+            "Glass",
+            0,
+            "Images/Glass.gif",
             0
         ]
     ];
@@ -48,7 +48,6 @@ function Upgrade(name) {
             }
             a = a + 1;
         }
-        console.log(this.costs);
     }
     this.setImage = function(image) {
         this.image = image;

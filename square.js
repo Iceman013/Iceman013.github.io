@@ -5,6 +5,21 @@ function Square() {
     this.building = "None";
     this.xpos = 0;
     this.ypos = 0;
+    this.produce = function() {
+        var out = new Array();
+        var a = 0;
+        while (a < upgrades.length) {
+            if (upgrades[a].name == this.getBuilding()) {
+                var b = 0;
+                while (b < upgrades[a].costs.length) {
+                    out.push(upgrades[a].costs[b][3]);
+                    b = b + 1;
+                }
+            }
+            a = a + 1;
+        }
+        return out;
+    }
     this.setId = function(xpos, ypos) {
         this.xpos = xpos;
         this.ypos = ypos;
@@ -42,9 +57,9 @@ function Square() {
             if (typ == "Empty") {
                 out = "Images/Blank.png"
             } else if (typ == "Forest") {
-                out = "Images/Trees.png";
+                out = "Images/Trees.gif";
             } else if (typ == "Rock") {
-                out = "Images/Rocks.png";
+                out = "Images/Rocks.gif";
             }
         } else {
             var a = 0;
@@ -90,13 +105,13 @@ function Square() {
         } else if (ht == "Shallow Water") {
             out = "url('Images/ShallowWater.gif')";
         } else if (ht == "Sand") {
-            out = "url('Images/Sand.png')";
+            out = "url('Images/Sand.gif')";
         } else if (ht == "Meadow") {
             out = "url('Images/Meadow.gif')";
         } else if (ht == "Ground") {
-            out = "url('Images/Ground.png')";
+            out = "url('Images/Ground.gif')";
         } else if (ht == "High Ground") {
-            out = "url('Images/HighGround.png')";
+            out = "url('Images/HighGround.gif')";
         }
         return out;
     }

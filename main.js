@@ -1,7 +1,8 @@
 var size = 2;
 var variation = 0.5;
+var map;
 function start() {
-    var map = makeMap(size);
+    map = makeMap(size);
     displayMap(map);
 }
 function displayMap(map) {
@@ -36,6 +37,26 @@ function displayMap(map) {
         document.getElementById("main").appendChild(hBox);
         a = a + 1;
     }
+}
+function produce() {
+    var out = new Array(upgrades[0].costs.length);
+    out.fill(0);
+    var a = 0;
+    var b = 0;
+    while (a < map.length) {
+        b = 0;
+        while (b < map[a].length) {
+            var temp = map[a][b].produce();
+            var c = 0;
+            while (c < temp.length) {
+                out[c] = out[c] + temp[c];
+                c = c + 1;
+            }
+            b = b + 1;
+        }
+        a = a + 1;
+    }
+    console.log(out);
 }
 function disableselect(e) {
     return false;
