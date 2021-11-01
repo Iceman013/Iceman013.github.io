@@ -95,7 +95,8 @@ function purchase(square, upgrade) {
         square.setBuilding(upgrade.name);
         document.getElementById(square.getId()).src = square.getTop();
         select(square);
-        showCash("cash", cash);
+        showCash("cash", cash, "Materials");
+        showCash("prod", prod, "Production");
         produce(false);
     }
 }
@@ -121,17 +122,32 @@ function produce(todo) {
         }
         a = a + 1;
     }
-    if (todo) {
-        showCash("cash", cash);
-    } else {
-        showCash("prod", prod);
+    showCash("cash", cash, "Materials");
+    showCash("prod", prod, "Production");
+}
+function showCash(id, arr, named) {
+    document.getElementById(id).textContent = "";
+    title = document.createElement("b");
+    title.innerHTML = named;
+    document.getElementById(id).appendChild(title);
+    var a = 0;
+    while (a < arr.length) {
+        group = document.createElement("div");
+        imag = document.createElement("img");
+        imag.src = upgrades[0].costs[a][2];
+        li = document.createElement("text");
+        li.innerHTML = arr[a];
+        group.appendChild(imag);
+        group.appendChild(li);
+        document.getElementById(id).appendChild(group);
+        document.getElementById(id).appendChild(document.createElement("br"));
+        a = a + 1;
     }
 }
-function showCash(id, arr) {
-    console.log(arr);
-    document.getElementById(id).innerHTML = arr;
-}
+var turn = 0;
 function next() {
+    turn = turn + 1;
     produce(true);
     produce(false);
+    document.getElementById("turn").innerHTML = turn;
 }

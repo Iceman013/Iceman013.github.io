@@ -109,3 +109,24 @@
     font-weight: bold;
     width: 90%;
 }
+.sys {
+    float: left;
+    position: relative;
+    width: 300px;
+    height: 500px;
+    outline: 1px solid black;
+}
+.money {
+    display: inline-block;
+    width: 100%;
+}
+.money img {
+    float: left;
+    width: 10%;
+}
+.money text {
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+    width: 90%;
+}
