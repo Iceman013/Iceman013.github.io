@@ -49,23 +49,8 @@ function makeUpgradeBox(element, upgrade, square) {
     description.innerHTML = upgrade.description;
     element.appendChild(description);
 
-    cost = document.createElement("div");
-    var a = 0;
-    while (a < upgrade.costs.length) {
-        if (upgrade.costs[a][1] != 0) {
-            payment = document.createElement("div");
-            payment.classList.add("cost");
-            imag = document.createElement("img");
-            imag.src = upgrade.costs[a][2];
-            payment.appendChild(imag);
-            price = document.createElement("text");
-            price.innerHTML = upgrade.costs[a][0] + ": " + upgrade.costs[a][1];
-            payment.appendChild(price);
-            cost.appendChild(payment);
-        }
-        a = a + 1;
-    }
-    element.appendChild(cost);
+    element.appendChild(showResources(upgrade, "Cost", 1));
+    element.appendChild(showResources(upgrade, "Production", 3));
 
     button = document.createElement("button");
     button.innerHTML = "Purchase";
@@ -75,6 +60,28 @@ function makeUpgradeBox(element, upgrade, square) {
     element.appendChild(button);
 
     element.classList.add("upgrades");
+    return element;
+}
+function showResources(upgrade, name, loc) {
+    element = document.createElement("div");
+    title = document.createElement("text");
+    title.innerHTML = name;
+    element.appendChild(title);
+    var a = 0;
+    while (a < upgrade.costs.length) {
+        if (upgrade.costs[a][loc] != 0) {
+            reses = document.createElement("div");
+            reses.classList.add("resource");
+            imag = document.createElement("img");
+            imag.src = upgrade.costs[a][2];
+            reses.appendChild(imag);
+            price = document.createElement("text");
+            price.innerHTML = upgrade.costs[a][0] + ": " + upgrade.costs[a][loc];
+            reses.appendChild(price);
+            element.appendChild(reses);
+        }
+        a = a + 1;
+    }
     return element;
 }
 function purchase(square, upgrade) {
@@ -137,6 +144,10 @@ function showCash(id, arr, named) {
         imag.src = upgrades[0].costs[a][2];
         li = document.createElement("text");
         li.innerHTML = arr[a];
+        if (id == "prod") {
+            li.innerHTML = "+" + arr[a];
+            li.style.color = "rgb(0,255,0)";
+        }
         group.appendChild(imag);
         group.appendChild(li);
         document.getElementById(id).appendChild(group);

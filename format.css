@@ -2,7 +2,7 @@
     cursor: pointer;
     float: left;
     position: relative;
-    width: 500px;
+    width: 45%;
     line-height: 0px;
     background-color: 4px 8px rgb(128,128,128);
     margin-right: 10px;
@@ -33,10 +33,11 @@
 .controller {
     float: left;
     position: relative;
-    width: 300px;
+    width: 25%;
     height: 500px;
     outline: 1px solid black;
     white-space: pre-line;
+    overflow-y: scroll;
 }
 .controller .head {
     display: inline-block;
@@ -95,38 +96,38 @@
     transform: translate(0.5px,1px);
     box-shadow: 0px 0px;
 }
-.controller .upgrades .cost {
+.controller .upgrades .resource {
     display: inline-block;
-    width: 100%;
+    width: 50%;
 }
-.controller .upgrades .cost img {
+.controller .upgrades .resource img {
     float: left;
-    width: 10%;
+    width: 20%;
 }
-.controller .upgrades .cost text {
+.controller .upgrades .resource text {
     float: left;
     font-size: 20px;
     font-weight: bold;
-    width: 90%;
+    width: 80%;
 }
 .sys {
     float: left;
     position: relative;
-    width: 300px;
-    height: 500px;
+    width: 25%;
+    height: 100%;
     outline: 1px solid black;
 }
-.money {
-    display: inline-block;
-    width: 100%;
-}
-.money img {
+.sys .resource {
+    width: 50%;
     float: left;
-    width: 10%;
 }
-.money text {
+.sys .resource img {
+    float: left;
+    width: 20%;
+}
+.sys .resource text {
     float: left;
     font-size: 30px;
     font-weight: bold;
-    width: 90%;
+    width: 80%;
 }

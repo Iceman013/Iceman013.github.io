@@ -15,9 +15,6 @@ function displayMap(map) {
     while (a < map.length) {
         hBox = document.createElement("div");
         b = 0;
-        if (map[a].length > 200) {
-            b = map[a].length - 200;
-        }
         while (b < map[a].length) {
             const tile = map[a][b];
             item = document.createElement("text");
@@ -38,7 +35,7 @@ function displayMap(map) {
             hBox.appendChild(item);
             b = b + 1;
         }
-        document.getElementById("main").appendChild(hBox);
+        document.getElementById("map").appendChild(hBox);
         a = a + 1;
     }
 }

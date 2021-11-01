@@ -1,7 +1,7 @@
 function Upgrade(name) {
     this.name = name;
-    this.image = "";
-    this.description = "";
+    this.image = "Images/WorkInProgress.gif";
+    this.description = "Work in progess";
     this.resource = new Array();
     this.previous = new Array();
     this.heights = new Array();
@@ -28,6 +28,12 @@ function Upgrade(name) {
             "Glass",
             0,
             "Images/Glass.gif",
+            0
+        ],
+        [
+            "Concrete",
+            0,
+            "Images/Concrete.gif",
             0
         ]
     ];
