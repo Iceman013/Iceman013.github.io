@@ -24,7 +24,6 @@ function select(item) {
 
     document.getElementById("sidebar").appendChild(titles);
 
-    upgList = document.createElement("div");
     upg = document.createElement("div");
     var a = 0;
     while (a < upgrades.length) {
@@ -33,32 +32,36 @@ function select(item) {
         }
         a = a + 1;
     }
-    upgList.appendChild(upg);
-    document.getElementById("sidebar").appendChild(upgList);
+    document.getElementById("sidebar").appendChild(upg);
 }
 function makeUpgradeBox(element, upgrade, square) {
+    box = document.createElement("div");
+    box.classList.add("individual");
     upgImg = document.createElement("img");
     upgImg.src = upgrade.image;
-    element.appendChild(upgImg);
+    box.appendChild(upgImg);
 
     title = document.createElement("object");
     title.innerHTML = upgrade.name;
-    element.appendChild(title);
+    box.appendChild(title);
 
     description = document.createElement("text");
     description.innerHTML = upgrade.description;
-    element.appendChild(description);
+    box.appendChild(description);
 
-    element.appendChild(showResources(upgrade, "Cost", 1));
-    element.appendChild(showResources(upgrade, "Production", 3));
+    box.appendChild(showResources(upgrade, "Cost", 2));
+    box.appendChild(showResources(upgrade, "Production", 3));
+    box.appendChild(showResources(upgrade, "Multipliers", 4));
 
     button = document.createElement("button");
     button.innerHTML = "Purchase";
     button.addEventListener("click", function() {
         purchase(square, upgrade);
     });
-    element.appendChild(button);
+    box.appendChild(button);
+    box.appendChild(document.createElement("br"));
 
+    element.appendChild(box);
     element.classList.add("upgrades");
     return element;
 }
@@ -73,7 +76,7 @@ function showResources(upgrade, name, loc) {
             reses = document.createElement("div");
             reses.classList.add("resource");
             imag = document.createElement("img");
-            imag.src = upgrade.costs[a][2];
+            imag.src = upgrade.costs[a][1];
             reses.appendChild(imag);
             price = document.createElement("text");
             price.innerHTML = upgrade.costs[a][0] + ": " + upgrade.costs[a][loc];
@@ -88,7 +91,7 @@ function purchase(square, upgrade) {
     var bought = true;
     var a = 0;
     while (a < cash.length) {
-        if (cash[a] < upgrade.costs[a][1]) {
+        if (cash[a] < upgrade.costs[a][2]) {
             bought = false;
         }
         a = a + 1;
@@ -96,7 +99,7 @@ function purchase(square, upgrade) {
     if (bought) {
         a = 0;
         while (a < cash.length) {
-            cash[a] = cash[a] - upgrade.costs[a][1];
+            cash[a] = cash[a] - upgrade.costs[a][2];
             a = a + 1;
         }
         square.setBuilding(upgrade.name);
@@ -110,27 +113,36 @@ function purchase(square, upgrade) {
 function produce(todo) {
     var prod = new Array(cash.length);
     prod.fill(0);
+    var boos = new Array(cash.length);
+    boos.fill(1);
     var a = 0;
     var b = 0;
     while (a < map.length) {
         b = 0;
         while (b < map[a].length) {
-            var temp = map[a][b].produce();
+            var tempa = map[a][b].produce();
+            var tempb = map[a][b].boost();
             var c = 0;
-            while (c < temp.length) {
-                if (todo) {
-                    cash[c] = cash[c] + temp[c];
-                } else {
-                    prod[c] = prod[c] + temp[c];
-                }
+            while (c < tempa.length) {
+                prod[c] = prod[c] + tempa[c];
+                boos[c] = boos[c] + tempb[c];
                 c = c + 1;
             }
             b = b + 1;
         }
         a = a + 1;
     }
+    a = 0;
+    while (a < prod.length) {
+        prod[a] = prod[a]*boos[a];
+        if (todo) {
+            cash[a] = cash[a] + prod[a];
+        }
+        a = a + 1;
+    }
     showCash("cash", cash, "Materials");
     showCash("prod", prod, "Production");
+    showCash("boos", boos, "Multipliers");
 }
 function showCash(id, arr, named) {
     document.getElementById(id).textContent = "";
@@ -141,7 +153,7 @@ function showCash(id, arr, named) {
     while (a < arr.length) {
         group = document.createElement("div");
         imag = document.createElement("img");
-        imag.src = upgrades[0].costs[a][2];
+        imag.src = upgrades[0].costs[a][1];
         li = document.createElement("text");
         li.innerHTML = arr[a];
         if (id == "prod") {
@@ -161,4 +173,5 @@ function next() {
     produce(true);
     produce(false);
     document.getElementById("turn").innerHTML = turn;
+    console.log(turn);
 }

@@ -8,32 +8,37 @@ function Upgrade(name) {
     this.costs = [
         [
             "Wood",
-            0,
             "Images/Wood.gif",
+            0,
+            0,
             0
         ],
         [
             "Rock",
-            0,
             "Images/Rock.gif",
+            0,
+            0,
             0
         ],
         [
             "Clay",
-            0,
             "Images/Clay.gif",
+            0,
+            0,
             0
         ],
         [
             "Glass",
-            0,
             "Images/Glass.gif",
+            0,
+            0,
             0
         ],
         [
             "Concrete",
-            0,
             "Images/Concrete.gif",
+            0,
+            0,
             0
         ]
     ];
@@ -41,7 +46,7 @@ function Upgrade(name) {
         var a = 0;
         while (a < this.costs.length) {
             if (type == this.costs[a][0]) {
-                this.costs[a][1] = price;
+                this.costs[a][2] = price;
             }
             a = a + 1;
         }
@@ -51,6 +56,15 @@ function Upgrade(name) {
         while (a < this.costs.length) {
             if (type == this.costs[a][0]) {
                 this.costs[a][3] = quantity;
+            }
+            a = a + 1;
+        }
+    }
+    this.setBoost = function(type, amount) {
+        var a = 0;
+        while (a < this.costs.length) {
+            if (type == this.costs[a][0]) {
+                this.costs[a][4] = this.costs[a][4] + amount;
             }
             a = a + 1;
         }

@@ -34,7 +34,7 @@
     float: left;
     position: relative;
     width: 25%;
-    height: 500px;
+    height: 575px;
     outline: 1px solid black;
     white-space: pre-line;
     overflow-y: scroll;
@@ -63,6 +63,12 @@
     display: inline-block;
     width: 100%;
     outline: 1px solid black;
+}
+.controller .upgrades .individual {
+    outline: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: calc(100% - 20px);
 }
 .controller .upgrades object {
     float: left;
@@ -118,16 +124,16 @@
     outline: 1px solid black;
 }
 .sys .resource {
-    width: 50%;
+    width: 33%;
     float: left;
 }
 .sys .resource img {
     float: left;
-    width: 20%;
+    width: 30%;
 }
 .sys .resource text {
     float: left;
     font-size: 30px;
     font-weight: bold;
-    width: 80%;
+    width: 70%;
 }

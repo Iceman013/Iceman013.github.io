@@ -20,6 +20,21 @@ function Square() {
         }
         return out;
     }
+    this.boost = function() {
+        var out = new Array();
+        var a = 0;
+        while (a < upgrades.length) {
+            if (upgrades[a].name == this.getBuilding()) {
+                var b = 0;
+                while (b < upgrades[a].costs.length) {
+                    out.push(upgrades[a].costs[b][4]);
+                    b = b + 1;
+                }
+            }
+            a = a + 1;
+        }
+        return out;
+    }
     this.setId = function(xpos, ypos) {
         this.xpos = xpos;
         this.ypos = ypos;
