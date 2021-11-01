@@ -133,6 +133,7 @@ function smoothMap(map) {
 function addResources(map) {
     map = addTrees(map);
     map = addRocks(map);
+    map = addAbandoned(map);
     return map;
 }
 function addTrees(map) {
@@ -164,6 +165,20 @@ function addRocks(map) {
     var a = 0;
     while (a < 5) {
         if (map[Math.floor(map.length*Math.random())][Math.floor(map.length*Math.random())].setResource("Rock")) {
+            a = a + 1;
+        }
+    }
+    return map;
+}
+function addAbandoned(map) {
+    var a = 0;
+    var rnga = 0;
+    var rngb = 0;
+    while (a < 1) {
+        rnga = Math.floor(1 + (map.length - 2)*Math.random());
+        rngb = Math.floor(1 + (map.length - 2)*Math.random());
+        if (map[rnga][rngb].setResource("Rock")) {
+            map[rnga][rngb].setBuilding("Abandoned Mine");
             a = a + 1;
         }
     }

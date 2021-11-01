@@ -9,11 +9,21 @@ up.setCost("Wood", 4);
 up.setProduction("Wood", 1);
 upgrades.push(up);
 
+var up = new Upgrade("Stone Based Lumber Hut");
+up.setImage("Images/LumberHut.gif");
+up.setDescription("This is a simple resource collection building. It collects wood.");
+up.addResource("Forest");
+up.addPrevious("None");
+up.setCost("Rock", 2);
+up.setProduction("Wood", 1);
+upgrades.push(up);
+
 var up = new Upgrade("Lumber Mill");
 up.setImage("Images/LumberMill.gif");
 up.setDescription("This is a simple resource collection building. It collects wood.");
 up.addResource("Forest");
 up.addPrevious("Lumber Hut");
+up.addPrevious("Stone Based Lumber Hut");
 up.setCost("Wood", 10);
 up.setCost("Rock", 5);
 up.setProduction("Wood", 3);
@@ -26,6 +36,24 @@ up.addResource("Rock");
 up.addPrevious("None");
 up.setCost("Wood", 6);
 up.setProduction("Rock", 1);
+upgrades.push(up);
+
+var up = new Upgrade("Abandoned Mine");
+up.setImage("Images/AbandonedMine.gif");
+up.setDescription("This is a simple resource collection building. It collects wood.");
+up.addResource("Rock");
+up.addPrevious("NA");
+upgrades.push(up);
+
+var up = new Upgrade("Large Mine");
+up.setImage("Images/LargeMine.gif");
+up.setDescription("This is a simple resource collection building. It collects wood.");
+up.addResource("Rock");
+up.addPrevious("Mine");
+up.addPrevious("Abandoned Mine");
+up.setCost("Wood", 8);
+up.setCost("Rock", 6);
+up.setProduction("Rock", 4);
 upgrades.push(up);
 
 var up = new Upgrade("Glass Factory");
