@@ -1,48 +1,86 @@
-var size = 2;
-var variation = 0.5;
-var map;
-var cash = new Array(upgrades[0].costs.length);
-cash.fill(0);
-function start() {
-    map = makeMap(size);
-    displayMap(map);
-    cash[0] = 10;
-    next();
+var iWord = words.length;
+var size = 5;
+var guesses = [];
+var reqs = "";
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var i = 0;
+while (i < size) {
+    guesses[i] = new letter();
+    i = i + 1;
 }
-function displayMap(map) {
+function start() {
+    addInput();
+}
+function getGuess() {
+    var values = score();
+    var mo = 0;
     var a = 0;
-    var b = 0;
-    while (a < map.length) {
-        hBox = document.createElement("div");
-        b = 0;
-        while (b < map[a].length) {
-            const tile = map[a][b];
-            item = document.createElement("text");
-            item.style.backgroundImage = tile.getImage();
-            item.style.width = (100/map[a].length) + "%";
-            item.style.height = (100/map.length) + "%";
-            item.xpos = a;
-            item.ypos = b;
-            item.addEventListener("click", function() {
-                select(map[this.xpos][this.ypos]);
-            });
-            imag = document.createElement("img");
-            imag.src = tile.getTop();
-            tile.setId(a,b);
-            imag.id = tile.getId();
-            imag.draggable = false;
-            item.appendChild(imag);
-            hBox.appendChild(item);
-            b = b + 1;
+    while (a < values.length) {
+        if (values[a] > values[mo]) {
+            mo = a;
         }
-        document.getElementById("map").appendChild(hBox);
         a = a + 1;
     }
+    displayRec(words[mo]);
 }
-function disableselect(e) {
-    return false;
+function score() {
+    var list = filter();
+    var scores = [];
+    var a = 0;
+    var b = 0;
+    while (a < iWord) {
+        scores[a] = 0;
+        if (meets(words[a])) {
+            b = 0;
+            while (b < size) {
+                scores[a] = scores[a] + list[b][alphabet.indexOf(words[a].substring(b, b + 1))];
+                b = b + 1;
+            }
+        }
+        a = a + 1;
+    }
+    return scores;
 }
-document.onselectstart = new function() {
-    return false;
+function filter() {
+    var letters = [[],[],[],[],[]];
+    var a = 0;
+    var b = 0;
+    var c = 0;
+    while (a < size) {
+        b = 0;
+        while (b < alphabet.length) {
+            letters[a][b] = 0;
+            c = 0;
+            while (c < iWord) {
+                if (meets(words[c])) {
+                    if (words[c].substring(a, a + 1) == alphabet.substring(b, b + 1)) {
+                        letters[a][b] = letters[a][b] + 1;
+                    }
+                }
+                c = c + 1;
+            }
+            letters[a][b] = letters[a][b]/iWord;
+            b = b + 1;
+        }
+        a = a + 1;
+    }
+    return letters;
 }
-document.onmousedown = disableselect;
+function meets(guess) {
+    var out = true;
+    var a = 0;
+    while (a < size) {
+        if (!guesses[a].includes(guess.substring(a, a + 1))) {
+            out = false;
+        }
+        a = a + 1;
+    }
+    a = 0;
+    while (a < reqs.length) {
+        if (!guess.includes(reqs.substring(a, a + 1))) {
+            out = false;
+        }
+        a = a + 1;
+    }
+    return out;
+}

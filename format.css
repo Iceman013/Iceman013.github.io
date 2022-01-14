@@ -1,139 +1,26 @@
-.map {
-    cursor: pointer;
-    float: left;
-    position: relative;
-    width: 45%;
-    line-height: 0px;
-    background-color: 4px 8px rgb(128,128,128);
-    margin-right: 10px;
-}
-.map text {
-    position: relative;
+.input text {
+    border: 1px solid black;
+    font-size: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
     display: inline-block;
-    /*background-color: rgb(255,0,0);*/
-    outline: 1px solid rgb(200,200,200);
-    background-size: cover;
-    box-shadow: 4px 8px rgb(128,128,128);
-    transition: transform 0.25s;
-    z-index: 3;
 }
-.map text:hover {
-    transform: translate(-2px,-4px);
-}
-.map text:active {
-    filter: brightness(95%);
-    transform: translate(2px,4px);
-}
-.map img {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 2;
-}
-.controller {
-    float: left;
-    position: relative;
-    width: 25%;
-    height: 575px;
-    outline: 1px solid black;
-    white-space: pre-line;
-    overflow-y: scroll;
-}
-.controller .head {
-    display: inline-block;
-    width: 100%;
-    outline: 1px solid black;
-}
-.controller .head text {
-    float: right;
-    width: 70%;
-    outline: 1px solid black;
-}
-.controller .head object {
-    float: left;
-    width: 30%;
-    height: width;
-    background-size: cover;
-}
-.controller .head img {
-    width: 100%;
-    height: 100%;
-}
-.controller .upgrades {
-    display: inline-block;
-    width: 100%;
-    outline: 1px solid black;
-}
-.controller .upgrades .individual {
-    outline: 1px solid black;
-    margin: 5px;
-    padding: 5px;
-    width: calc(100% - 20px);
-}
-.controller .upgrades object {
-    float: left;
-    font-weight: bold;
-    font-size: 25px;
-    width: 80%;
-}
-.controller .upgrades img {
-    float: left;
-    width: 20%;
-}
-.controller .upgrades text {
-    display: inline-block;
-    text-align: left;
-    width: 100%;
-}
-.controller .upgrades button {
-    float: right;
-    margin: 1px 0.5px;
-    border: none;
-    border-radius: 2px;
-    background-color: rgb(255,0,0);
-    box-shadow: 0.5px 1px rgb(128,128,128);
+.input button {
+    border: 1px solid black;
+    font-size: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0.5px, 1px rgb(128, 128, 128);
     transition: 0.125s;
 }
-.controller .upgrades button:hover {
-    transform: translate(-0.5px,-1px);
-    box-shadow: 1px 2px rgb(128,128,128);
-}
-.controller .upgrades button:active {
-    transform: translate(0.5px,1px);
+.input button:active {
+    transform: translate(0.5px, 1px);
     box-shadow: 0px 0px;
 }
-.controller .upgrades .resource {
-    display: inline-block;
-    width: 50%;
-}
-.controller .upgrades .resource img {
+.letter {
     float: left;
-    width: 20%;
-}
-.controller .upgrades .resource text {
-    float: left;
-    font-size: 20px;
-    font-weight: bold;
-    width: 80%;
-}
-.sys {
-    float: left;
+    white-space: nowrap;
     position: relative;
-    width: 25%;
-    height: 100%;
-    outline: 1px solid black;
-}
-.sys .resource {
-    width: 33%;
-    float: left;
-}
-.sys .resource img {
-    float: left;
-    width: 30%;
-}
-.sys .resource text {
-    float: left;
-    font-size: 30px;
-    font-weight: bold;
-    width: 70%;
 }
