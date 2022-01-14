@@ -1,4 +1,8 @@
 function addInput() {
+    document.getElementById("g").value = 0;
+    document.getElementById("r").value = 0;
+    document.getElementById("e").value = 0;
+    document.getElementById("v").value = 0;
     var a = 0;
     while (a < size) {
         const b = a;
@@ -37,6 +41,11 @@ function addInput() {
     }
 }
 function displayRec(input) {
+    document.getElementById("g").value = document.getElementById("g").value + 1;
+    document.getElementById("g").innerHTML = document.getElementById("g").value;
+    document.getElementById("r").innerHTML = document.getElementById("r").value;
+    document.getElementById("e").innerHTML = document.getElementById("e").value;
+    document.getElementById("v").innerHTML = document.getElementById("v").value;
     var a = 0;
     while (a < size) {
         if (!guesses[a].correct) {

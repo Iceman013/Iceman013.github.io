@@ -7,9 +7,30 @@
         <script src = "main.js" type = "text/javascript"></script>
     </head>
     <body onload = "start()">
-        <h1>My Thing</h1>
+        <h1>Better Than Simon's Blog</h1>
         <div class = "input" id = "input">
         </div>
-        <button onclick = "getGuess()">Next Guess</button>
+        <div class = "feedback">
+            <button onclick = "getGuess()">Next Guess</button>
+            <br>
+            <div class = "table">
+                <text>Guesses:</text>
+                <br>
+                <text>Remaining:</text>
+                <br>
+                <text>Evaluation:</text>
+                <br>
+                <text>Value:</text>
+            </div>
+            <div class = "table" style = "float: right">
+                <text id = "g">0</text>
+                <br>
+                <text id = "r">?</text>
+                <br>
+                <text id = "e">?</text>
+                <br>
+                <text id = "v">?</text>
+            </div>
+        </div>
     </body>
 </html>
