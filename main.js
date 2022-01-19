@@ -1,105 +1,94 @@
-var iWord = words.length;
-var size = 5;
-var guesses = [];
-var reqs = "";
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
-var i = 0;
-while (i < size) {
-    guesses[i] = new letter();
-    i = i + 1;
+var words;
+if (false) {
+    words = acceptable;
+} else {
+    words = corrects;
 }
+var main = new word(5);
 function start() {
     addInput();
 }
 function getGuess() {
-    var values = score();
+    var values = [];
+    var ties = [];
     var mo = 0;
     var a = 0;
-    var acc = 0;
+    values = common();
     while (a < values.length) {
-        if (values[a] > values[mo]) {
+        if (values[a] < values[mo]) {
             mo = a;
-        }
-        if (values[a] != 0) {
-            acc = acc + 1;
         }
         a = a + 1;
     }
-    document.getElementById("r").value = acc;
-    document.getElementById("e").value = values[mo];
-    if (acc > 0) {
+    a = 0;
+    while (a < values.length) {
+        if (values[a] == values[mo]) {
+            ties[ties.length] = words[a];
+        }
+        a = a + 1;
+    }
+    console.log(ties);
+    console.log(values[mo]);
+    document.getElementById("r").value = words.length;
+    if (words.length > 0) {
         displayRec(words[mo]);
     } else {
         displayRec("-----");
     }
 }
-function score() {
-    var list = filter();
+function refresh() {
+    var a = 0;
+    var w = [];
+    while (a < words.length) {
+        if (main.meets(words[a])) {
+            w[w.length] = words[a];
+        }
+        a = a + 1;
+    }
+    words = w;
+}
+function common() {
+    refresh();
     var scores = [];
     var a = 0;
-    var b = 0;
-    var eva = 0;
-    var max = 0;
-    while (a < iWord) {
+    while (a < words.length) {
         scores[a] = 0;
-        if (meets(words[a])) {
-            eva = 1;
-            b = 0;
-            while (b < size) {
-                eva = eva * (1 - list[b][alphabet.indexOf(words[a].substring(b, b + 1))]);
-                scores[a] = scores[a] + list[b][alphabet.indexOf(words[a].substring(b, b + 1))];
-                b = b + 1;
-            }
-            if (eva > max) {
-                max = eva;
-            }
-            scores[a] = scores[a]/size;
-        }
+        scores[a] = cancels(words[a]);
+        //console.log((Math.floor(100*(a/words.length))).toString() + "%");
         a = a + 1;
     }
-    document.getElementById("v").value = max;
     return scores;
 }
-function filter() {
-    var letters = [[],[],[],[],[]];
-    var a = 0;
-    var b = 0;
-    var c = 0;
-    while (a < size) {
-        b = 0;
-        while (b < alphabet.length) {
-            letters[a][b] = 0;
-            c = 0;
-            while (c < iWord) {
-                if (meets(words[c])) {
-                    if (words[c].substring(a, a + 1) == alphabet.substring(b, b + 1)) {
-                        letters[a][b] = letters[a][b] + 1;
-                    }
-                }
-                c = c + 1;
+function cancels(guess) {
+    var max = 0;
+    var count = new modct(this.length);
+    while (count.running()) {
+        var poss = new word(main.length);
+        poss.setAll(main);
+        var a = 0;
+        while (a < main.length) {
+            if (count.getPosition(a) == 0) {
+                poss.remove(guess.substring(a, a + 1));
+            } else if (count.getPosition(a) == 1) {
+                poss.yellow(a, guess.substring(a, a + 1));
+            } else {
+                poss.confirm(a, guess.substring(a, a + 1));
             }
-            letters[a][b] = letters[a][b]/iWord;
-            b = b + 1;
+            a = a + 1;
         }
-        a = a + 1;
-    }
-    return letters;
-}
-function meets(guess) {
-    var out = true;
-    var a = 0;
-    while (a < size) {
-        if (!guesses[a].includes(guess.substring(a, a + 1))) {
-            out = false;
+        var a = 0;
+        var b = 0;
+        while (a < words.length) {
+            if (poss.meets(words[a])) {
+                b = b + 1;
+            }
+            a = a + 1;
         }
-        a = a + 1;
-    }
-    a = 0;
-    while (a < reqs.length) {
-        if (!guess.includes(reqs.substring(a, a + 1))) {
-            out = false;
+        if (b > max) {
+            max = b;
         }
-        a = a + 1;
+        count.increment();
     }
-    return out;
+    //console.log(guess + ": " + max.toString());
+    return max;
 }

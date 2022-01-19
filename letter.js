@@ -11,12 +11,20 @@ function letter() {
         return this.acceptable.includes(input);
     }
     this.remove = function(input) {
-        if (this.includes(input)) {
+        if (this.includes(input) && !this.correct) {
             this.acceptable.splice(this.acceptable.indexOf(input), 1);
         }
     }
     this.confirm = function(input) {
         this.acceptable = [input];
         this.correct = true;
+    }
+    this.setAll = function(acc, cor) {
+        var a = 0;
+        while (a < acc.length) {
+            this.acceptable[a] = acc[a];
+            a = a + 1;
+        }
+        this.correct = cor;
     }
 }
