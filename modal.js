@@ -9,7 +9,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 function openModal() {
-    modal.style.display = "block"
+  modal.style.display = "block"
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -29,12 +29,15 @@ window.onclick = function(event) {
  * content is an element
  */
 function makeModal(title, ...content) {
-    document.getElementById("modalTitle").innerHTML = title;
-    var a = 0;
-    while (a < content.length) {
-        document.getElementById("modal").appendChild(content[a]);
-        a = a + 1;
-    }
+  while (document.getElementById("modal").firstChild) {
+    document.getElementById("modal").removeChild(document.getElementById("modal").firstChild);
+  }
+  document.getElementById("modalTitle").innerHTML = title;
+  var a = 0;
+  while (a < content.length) {
+    document.getElementById("modal").appendChild(content[a]);
+    a = a + 1;
+  }
 }
 
 var demo = document.createElement("p");
