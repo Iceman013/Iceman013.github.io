@@ -4,6 +4,7 @@
   - Use primary as fuel
 - Black, white paint
 - Mixing wild colors
+- Core money is $
 
 **Big Plans (Future Goals)**
 - Quests
