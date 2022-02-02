@@ -2,39 +2,3 @@ body {
     position: absolute;
     padding: 5px;
 }
-.input text {
-    border: 1px solid black;
-    font-size: 50px;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-}
-.input button {
-    border: 1px solid black;
-    font-size: 50px;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    box-shadow: 0.5px, 1px rgb(128, 128, 128);
-    transition: 0.125s;
-}
-.input button:active {
-    transform: translate(0.5px, 1px);
-    box-shadow: 0px 0px;
-}
-.letter {
-    float: left;
-    white-space: nowrap;
-    position: relative;
-}
-.feedback {
-    width: 100%;
-    border: 1px solid black;
-    display: inline-block;
-}
-.table {
-    float: left;
-    white-space: nowrap;
-    position: relative;
-}
