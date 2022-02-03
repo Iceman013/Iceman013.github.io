@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang = "en-US">
+    <head>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
     <body id = "body">
-        <button onclick = "showPlans()">Plans</button>
+        <div class = "row menu">
+            <div class = "col-10">
+                <button onclick = "showPlans()">Plans</button>
+            </div>
+            <div class = "col-95">
+            </div>
+        </div>
         <div class = "row">
             <div class = "col-30 box">
                 <p>Hi</p>
@@ -50,14 +59,12 @@
                     <span class = "close"></span>
                     <div id = "modalTitle"></div>
                 </div>
-                <div class = "modal-body">
-                    <div id = "modal"></div>
+                <div class = "modal-body" id = "modal">
                 </div>
             </div>
         </div>
     </body>
     <head>
-        <link rel = "icon" href = "weezer.png" type = "image/png">
         <link href='https://fonts.googleapis.com/css?family=Caveat Brush' rel='stylesheet'>
         <link rel = "stylesheet" type = "text/css" href = "format.css" />
         <link rel = "stylesheet" type = "text/css" href = "columns.css" />
