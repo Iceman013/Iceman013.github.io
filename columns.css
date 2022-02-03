@@ -5,11 +5,9 @@
     content: "";
     clear: both;
     display: table;
-  }
+}
 [class *= "col-"] {
     float: left;
-    padding: 10px;
-    border: 1px solid black;
 }
 .col-5 { width: 5%; }
 .col-10 { width: 10%; }

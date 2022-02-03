@@ -4,3 +4,7 @@
     font-family: 'Caveat Brush';
     /* font-weight: 1000; */
 }
+.box {
+    padding: 10px;
+    border: 1px solid black;
+}
