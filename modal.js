@@ -42,6 +42,6 @@ function makeModal(title, ...content) {
 
 var demo = document.createElement("p");
 demo.innerHTML = "This is stuff.";
-var deldo = document.createElement("p");
-deldo.innerHTML = "This is more stuff.";
-makeModal("Information", demo, deldo);
+var con = document.createElement("p");
+con.innerHTML = "This is more stuff.";
+makeModal("Information", demo, con);

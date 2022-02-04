@@ -8,7 +8,11 @@
     padding: 10px;
     border: 1px solid black;
 }
+.page {
+    display: none;
+}
 .menu button {
+    transition: 0.125s;
     text-align: center;
     font-size: xx-large;
     padding-top: 3vh;
@@ -17,9 +21,16 @@
     height: 100%;
     border-radius: 0;
     border: 0;
+    border-top: 1px solid rebeccapurple;
+    border-bottom: 1px solid rebeccapurple;
+    border-right: 1px solid rebeccapurple;
     background-color: rgba(102, 51, 153, 0.5);
 }
 .menu button:hover {
     color: white;
     backdrop-filter: brightness(85%);
+}
+.menu button:active {
+    padding-top: 3.5vh;
+    padding-bottom: 2.5vh;
 }
