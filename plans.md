@@ -6,6 +6,11 @@
 - Mixing wild colors
 - Core money is $
 
+**Paints**
+- Matte, Semi-Matte, Semi-Gloss, Gloss
+- Glow in the dark paint
+- Light paint (rgb) for full customization
+
 **Vats**
 - Buy dye supplies (not red) (not for mixes)
   - Upgrades for making packages cheaper
