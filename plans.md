@@ -40,11 +40,12 @@
 - Redacted script/Redacted
   - Game lore
 
-Drinking paint is valid!
-It doesn't harm anybody!
-You're free to consume whatever you want!
-Don't let others tell you otherwise!
-Warning labels are put by the government!
-Big Food is hiding the real cuisine from you!
-Drink paint every day!
-Lead based tastes better!
+**Other**
+- Drinking paint is valid!
+  - It doesn't harm anybody!
+  - You're free to consume whatever you want!
+  - Don't let others tell you otherwise!
+  - Warning labels are put by the government!
+  - Big Food is hiding the real cuisine from you!
+  - Drink paint every day!
+  - Lead based tastes better!
