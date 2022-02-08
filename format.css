@@ -11,6 +11,25 @@
 .page {
     display: none;
 }
+.vat {
+    border: 1px solid black;
+}
+.vat p {
+    text-align: center;
+}
+.vat button {
+    border-radius: 0;
+    border: 0px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 100%;
+}
+.vat button:hover {
+    filter: brightness(85%);
+}
+.vat button:disabled {
+    filter: brightness(15%);
+}
 .menu button {
     transition: 0.125s;
     text-align: center;

@@ -18,11 +18,13 @@
                 <button onclick = "setPage(3)">Market</button>
             </div>
             <div class = "col-60">
-                <button onclick = "showPlans()">Plans</button>
+                <button onclick = "showPlans()">MPlans</button>
             </div>
         </div>
         <div class = "page" id = "manual">
             <p>This is the hand clicking page</p>
+            <div class = "col-25" id = "demo">
+            </div>
         </div>
         <div class = "page" id = "mixer">
             <p>This is a mixing page. Needs to be made.</p>
@@ -50,12 +52,17 @@
         <link rel = "stylesheet" type = "text/css" href = "columns.css" />
         <link rel = "stylesheet" type = "text/css" href = "modal.css" />
 
-        <script src = "color.js" type = "text/javascript"></script>
+        <script src = "constants.js" type = "text/javascript"></script>
+        <script src = "basics.js" type = "text/javascript"></script>
+
+        <script src = "paints.js" type = "text/javascript"></script>
+        <script src = "vat.js" type = "text/javascript"></script>
         <script src = "modal.js" type = "text/javascript"></script>
         <script src = "help.js" type = "text/javascript"></script>
         <script src = "pages.js" type = "text/javascript"></script>
-        <script src = "start.js" type = "text/javascript"></script>
         <script src = "main.js" type = "text/javascript"></script>
+        
+        <script src = "start.js" type = "text/javascript"></script>
         <title>Paint Bot</title>
     </head>
 </html>

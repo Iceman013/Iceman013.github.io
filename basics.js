@@ -42,3 +42,26 @@ function colorize(r, y, b) {
     }
     return "rgb(" + outputs[0] + "," + outputs[1] + "," + outputs[2] + ")";
 }
+function fixNumber(input) {
+    var abs = ["", "K", "M", "B", "T", "q", "Q"];
+    var output = 0;
+    var pos = 0;
+    output = input;
+    while (output/1000 >= 1) {
+        output = output/1000;
+        pos = pos + 1;
+    }
+    var ns = Math.pow(10, NUMSIZE - Math.floor(Math.log10(output)) - 1);
+    output = Math.floor(output*ns)/ns;
+    var end;
+    if (pos >= abs.length) {
+        end = "x10^(" + (3*pos + 1).toString() + ")";
+    } else {
+        end = abs[pos];
+    }
+    return output.toString() + end;
+}
+function capitalize(input) {
+    var output = input[0].toUpperCase() +input.substring(1);
+    return output;
+}
