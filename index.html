@@ -6,16 +6,16 @@
     <body id = "body">
         <div class = "row menu">
             <div class = "col-10">
-                <button onclick = "setPage(0)">Manual</button>
+                <button onclick = "setPage(0)" id = "manualButton">Manual</button>
             </div>
             <div class = "col-10">
-                <button onclick = "setPage(1)">Mixer</button>
+                <button onclick = "setPage(1)" id = "mixerButton">Mixer</button>
             </div>
             <div class = "col-10">
-                <button onclick = "setPage(2)">Manage</button>
+                <button onclick = "setPage(2)" id = "manageButton">Manage</button>
             </div>
             <div class = "col-10">
-                <button onclick = "setPage(3)">Market</button>
+                <button onclick = "setPage(3)" id = "marketButton">Market</button>
             </div>
             <div class = "col-60">
                 <button onclick = "showPlans()">MPlans</button>
@@ -27,6 +27,8 @@
             </div>
         </div>
         <div class = "page" id = "mixer">
+            <table class = "col-20" id = "supply">
+            </table>
             <p>This is a mixing page. Needs to be made.</p>
         </div>
         <div class = "page" id = "manage">

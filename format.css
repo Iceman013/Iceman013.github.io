@@ -11,6 +11,19 @@
 .page {
     display: none;
 }
+table {
+    border-collapse: collapse;
+}
+th, td {
+    outline: 1px solid black;
+    padding: 8px;
+}
+th {
+    text-align: left;
+}
+td {
+    text-align: right;
+}
 .vat {
     border: 1px solid black;
 }
@@ -52,4 +65,8 @@
 .menu button:active {
     padding-top: 3.5vh;
     padding-bottom: 2.5vh;
+}
+.menu .pressed {
+    color: white;
+    backdrop-filter: brightness(85%);
 }

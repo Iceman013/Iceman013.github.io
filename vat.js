@@ -51,6 +51,7 @@ function vat(paint) {
         if (this.count >= this.time) {
             this.count = 0;
             this.busy = false;
+            this.paint.increase(1);
         }
         this.update();
     }

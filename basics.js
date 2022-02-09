@@ -32,15 +32,18 @@ function ryb(...ryb) {
     }
     return values;
 }
-function colorize(r, y, b) {
+function colorize(r, y, b, w, k) {
     var colors = ryb(r, y, b);
     var outputs = [0,0,0];
     var a = 0;
     while (a < outputs.length) {
-        outputs[a] = Math.floor(255*colors[a]);
+        outputs[a] = ((r+y+b+w)/(r+y+b+k))*Math.floor(255*colors[a]);
         a = a + 1;
     }
-    return "rgb(" + outputs[0] + "," + outputs[1] + "," + outputs[2] + ")";
+    return "rgba(" + outputs[0] + "," + outputs[1] + "," + outputs[2] + ",1)";
+}
+function brighten(input) {
+    return input.substring(0, input.length - 2) + "0.5)"
 }
 function fixNumber(input) {
     var abs = ["", "K", "M", "B", "T", "q", "Q"];
