@@ -4,6 +4,9 @@
     font-family: 'Caveat Brush';
     margin: 0;
     cursor: context-menu;
+    user-select: none;
+    -webkit-user-select: none; /*Safari*/
+    -moz-user-select: none; /*Firefox*/
 }
 .box {
     padding: 10px;
