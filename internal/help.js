@@ -1,6 +1,6 @@
 function showPlans() {
     var file = document.createElement("embed");
-    file.src = "plans.md";
+    file.src = "internal/plans.md";
     file.type = "text/markdown";
     file.style.overflow = "hidden";
     file.width = "100%";

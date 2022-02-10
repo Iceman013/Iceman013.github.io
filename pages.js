@@ -1,5 +1,5 @@
 function setPage(input) {
-    var pages = ["manual","mixer","manage","market"];
+    var pages = ["manual","mixer","material","manage","market"];
     var a = 0;
     while (a < pages.length) {
         document.getElementById(pages[a]).style.display = "none";

@@ -17,6 +17,7 @@ function tick() {
         a = a + 1;
     }
     table.update();
+    store.update();
     showStats()
 }
 

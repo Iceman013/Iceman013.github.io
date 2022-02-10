@@ -1,25 +1,121 @@
+var supplies = [
+    new supply("Red Rock", 0),
+    new supply("Shiny Yellow Metal", 1),
+    new supply("Failed Mana Potions", 2),
+    new supply("Bottled White", 3),
+    new supply("Really Dark Gray", 4)
+];
 var paints = [
-    new paint("red", 1, 0, 0, 0, 0, 1),
-    new paint("yellow", 0, 1, 0, 0, 0, 1),
-    new paint("blue", 0, 0, 1, 0, 0, 1),
-    new paint("white", 0, 0, 0, 1, 0, 1),
-    new paint("black", 0, 0, 0, 0, 1, 1),
-    new paint("orange", 1, 1, 0, 0, 0, 2),
-    new paint("green", 0, 1, 1, 0, 0, 2),
-    new paint("purple", 1, 0, 1, 0, 0, 2)
+    new paint("red", 1, 1),
+    new paint("yellow", 3, 0, 1),
+    new paint("blue", 6, 0, 0, 1),
+    new paint("white", 14, 0, 0, 0, 1),
+    new paint("black", 30, 0, 0, 0, 0, 1),
 ];
 
-function paint(name, red, yellow, blue, white, black, price) {
+function supply(name, position) {
     this.name = name;
-    this.red = red;
-    this.yellow = yellow;
-    this.blue = blue;
-    this.white = white;
-    this.black = black;
+    this.position = position;
+    this.amount = 0;
+    this.cost = function() {
+        return Math.floor(paints[this.position].price/2);
+    }
+    this.canBuy = function() {
+        return this.cost() <= money;
+    }
+    this.buy = function() {
+        if (this.canBuy()) {
+            money = money - this.cost();
+            this.amount = this.amount + 1;
+        }
+    }
+    this.use = function() {
+        this.amount = this.amount - 1;
+    }
+}
+function supTable() {
+    this.elem = document.getElementById("store");
+    this.values = [];
+    this.check = function() {
+        var tempV = [];
+        tempV[0] = money;
+        var a = 0;
+        while (a < supplies.length) {
+            tempV[a + 1] = supplies[a].amount;
+            a = a + 1;
+        }
+        return tempV;
+    }
+    this.clear = function() {
+        while (this.elem.firstChild) {
+            this.elem.removeChild(this.elem.firstChild);
+        }
+    }
+    this.build = function() {
+        var drow = document.createElement("tr");
+        var heads = ["Name","Amount","Cost","Buy"];
+        var a = 0;
+        while (a < heads.length) {
+            var item = document.createElement("th");
+            item.innerHTML = heads[a];
+            drow.appendChild(item);
+            a = a + 1;
+        }
+        this.elem.appendChild(drow);
+        a = 0;
+        while (a < supplies.length) {
+            var row = document.createElement("tr");
+            row.style.backgroundColor = brighten(paints[supplies[a].position].rgb());
+            var name = document.createElement("th");
+            name.innerHTML = supplies[a].name;
+            var amo = document.createElement("td");
+            amo.innerHTML = supplies[a].amount;
+            var cos = document.createElement("td");
+            cos.innerHTML = supplies[a].cost();
+            var sup = document.createElement("button");
+            sup.innerHTML = "Buy One";
+            const tempSup = supplies[a];
+            sup.addEventListener("click", function() {
+                tempSup.buy();
+            });
+
+            row.appendChild(name);
+            row.appendChild(amo);
+            row.appendChild(cos);
+            row.appendChild(sup);
+            this.elem.appendChild(row);
+            a = a + 1;
+        }
+    }
+    this.update = function() {
+        var a = 0;
+        var next = false;
+        var temp = this.check();
+        while (a < temp.length && a < this.values.length) {
+            if (temp[a] != this.values[a]) {
+                next = true;
+            }
+            a = a + 1;
+        }
+        if (next) {
+            this.clear();
+            this.build();
+            this.values = this.check();
+        } else {
+            this.values = this.check();
+        }
+    }
+}
+function paint(name, price, ...ingrediants) {
+    this.name = name;
+    this.colors = ingrediants;
+    while (this.colors.length < supplies.length) {
+        this.colors[this.colors.length] = 0;
+    }
     this.price = price;
     this.value = 0;
     this.rgb = function() {
-        return colorize(this.red, this.yellow, this.blue, this.white, this.black);
+        return colorize(this.colors[0], this.colors[1], this.colors[2], this.colors[3], this.colors[4]);
     }
     this.increase = function(input) {
         this.value = this.value + input;
@@ -31,10 +127,13 @@ function paint(name, red, yellow, blue, white, black, price) {
     this.getValue = function() {
         return this.value;
     }
+    this.getSupplies = function() {
+        return this.colors;
+    }
 }
 function table() {
     this.elem = document.getElementById("supply");
-    this.values = [0];
+    this.values = [];
     this.clear = function() {
         while (this.elem.firstChild) {
             this.elem.removeChild(this.elem.firstChild);
@@ -50,18 +149,16 @@ function table() {
             name.innerHTML = capitalize(paints[a].name);
             var supply = document.createElement("td");
             supply.innerHTML = paints[a].getValue();
-            var sbox = document.createElement("td");
             var seller = document.createElement("button");
             seller.innerHTML = "Sell All";
             const tempPaint = paints[a];
             seller.addEventListener("click", function() {
                 tempPaint.sellAll();
             });
-            sbox.appendChild(seller);
 
             row.appendChild(name);
             row.appendChild(supply);
-            row.appendChild(sbox);
+            row.appendChild(seller);
             this.elem.appendChild(row);
             a = a + 1;
         }

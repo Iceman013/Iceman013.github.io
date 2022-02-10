@@ -1,5 +1,9 @@
 var vats = [
-    new vat(paints[0])
+    new vat(paints[0]),
+    new vat(paints[1]),
+    new vat(paints[2]),
+    new vat(paints[3]),
+    new vat(paints[4])
 ];
 
 function vat(paint) {
@@ -38,13 +42,35 @@ function vat(paint) {
     elem.appendChild(text);
     elem.appendChild(button);
     this.update = function() {
-        text.innerHTML = "Time Remaining: " + this.getTimeLeft();
-        button.disabled = this.busy;
+        text.innerHTML = this.getTimeLeft();
+        button.disabled = (this.busy || !this.canMix());
     }
     this.mix = function() {
         this.busy = true;
+        var a = 0;
+        while (a < supplies.length) {
+            if (paints[supplies[a].position] == this.paint) {
+                supplies[a].use();
+            }
+            a = a + 1;
+        }
     }
-    this.tick = function() {
+    this.canMix = function() {
+        var output = false;
+        var a = 0;
+        var pos = -1;
+        while (a < paints.length) {
+            if (this.paint == paints[a]) {
+                pos = a;
+            }
+            a = a + 1;
+        }
+        if (supplies[pos].amount > 0) {
+            output = true;
+        }
+        return output;
+    }
+    this.tick = function() {        
         if (this.busy) {
             this.count = this.count + 1;
         }
