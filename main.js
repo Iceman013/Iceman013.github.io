@@ -23,5 +23,5 @@ function tick() {
 
 function showStats() {
     var elem = document.getElementById("moneyBox");
-    elem.innerHTML = money;
+    elem.innerHTML = Math.floor(money);
 }

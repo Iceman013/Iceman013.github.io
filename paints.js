@@ -7,10 +7,20 @@ var supplies = [
 ];
 var paints = [
     new paint("red", 1, 1),
-    new paint("yellow", 3, 0, 1),
-    new paint("blue", 6, 0, 0, 1),
-    new paint("white", 14, 0, 0, 0, 1),
-    new paint("black", 30, 0, 0, 0, 0, 1),
+    new paint("yellow", 5, 0, 1),
+    new paint("blue", 25, 0, 0, 1),
+    new paint("white", 125, 0, 0, 0, 1),
+    new paint("black", 625, 0, 0, 0, 0, 1),
+    new paint("orange", 0, 1, 1),
+    new paint("purple", 0, 1, 0, 1),
+    new paint("green", 0, 0, 1, 1),
+    new paint("light red", 0, 1, 0, 0, 1),
+    new paint("light yellow", 0, 0, 1, 0, 1),
+    new paint("light blue", 0, 0, 0, 1, 1),
+    new paint("dark red", 0, 1, 0, 0, 0, 1),
+    new paint("dark yellow", 0, 0, 1, 0, 0, 1),
+    new paint("dark blue", 0, 0, 0, 1, 0, 1),
+    new paint("gray", 0, 0, 0, 0, 1, 1)
 ];
 
 function supply(name, position) {
@@ -18,7 +28,7 @@ function supply(name, position) {
     this.position = position;
     this.amount = 0;
     this.cost = function() {
-        return Math.floor(paints[this.position].price/2);
+        return Math.floor(paints[this.position].price/markup);
     }
     this.canBuy = function() {
         return this.cost() <= money;
@@ -120,15 +130,52 @@ function paint(name, price, ...ingrediants) {
     this.increase = function(input) {
         this.value = this.value + input;
     }
-    this.sellAll = function() {
-        money = money + this.value*this.price;
-        this.value = 0;
-    }
     this.getValue = function() {
         return this.value;
     }
     this.getSupplies = function() {
         return this.colors;
+    }
+    this.mixes = function() {
+        var a = 0;
+        var mixes = 0;
+        while (a < this.colors.length) {
+            if (this.colors[a] != 0) {
+                mixes = mixes + 1;
+            }
+            a = a + 1;
+        }
+        return mixes;
+    }
+    this.preqs = function() {
+        var a = 0;
+        var output = [];
+        while (a < this.colors.length) {
+            if (this.colors[a] != 0) {
+                output[output.length] = paints[a];
+            }
+            a = a + 1;
+        }
+        return output;
+    }
+    this.updatePrice = function() {
+        if (this.mixes() != 1) {
+            this.price = 0;
+            var temp = this.preqs();
+            var a = 0;
+            while (a < temp.length) {
+                this.price = this.price + temp[a].price*mixup;
+                a = a + 1;
+            }
+        }
+    }
+    this.use = function() {
+        this.value = this.value - 1;
+    }
+    this.sellAll = function() {
+        this.updatePrice();
+        money = money + this.value*this.price;
+        this.value = 0;
     }
 }
 function table() {

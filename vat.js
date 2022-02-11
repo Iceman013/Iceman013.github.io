@@ -1,10 +1,9 @@
-var vats = [
-    new vat(paints[0]),
-    new vat(paints[1]),
-    new vat(paints[2]),
-    new vat(paints[3]),
-    new vat(paints[4])
-];
+var vats = [];
+var i = 0;
+while (i < paints.length) {
+    vats[i] = new vat(paints[i]);
+    i = i + 1;
+}
 
 function vat(paint) {
     const hold = this;
@@ -47,26 +46,48 @@ function vat(paint) {
     }
     this.mix = function() {
         this.busy = true;
-        var a = 0;
-        while (a < supplies.length) {
-            if (paints[supplies[a].position] == this.paint) {
-                supplies[a].use();
+        if (this.paint.mixes() == 1) {
+            var a = 0;
+            while (a < supplies.length) {
+                if (paints[supplies[a].position] == this.paint) {
+                    supplies[a].use();
+                }
+                a = a + 1;
             }
-            a = a + 1;
+        } else {
+            var res = this.paint.preqs();
+            var a = 0;
+            while (a < res.length) {
+                res[a].use();
+                a = a + 1;
+            }
         }
     }
     this.canMix = function() {
         var output = false;
-        var a = 0;
-        var pos = -1;
-        while (a < paints.length) {
-            if (this.paint == paints[a]) {
-                pos = a;
+        if (this.paint.mixes() == 1) {
+            output = false;
+            var a = 0;
+            var pos = -1;
+            while (a < paints.length) {
+                if (this.paint == paints[a]) {
+                    pos = a;
+                }
+                a = a + 1;
             }
-            a = a + 1;
-        }
-        if (supplies[pos].amount > 0) {
+            if (supplies[pos].amount > 0) {
+                output = true;
+            }
+        } else {
             output = true;
+            var res = this.paint.preqs();
+            var a = 0;
+            while (a < res.length) {
+                if (res[a].getValue() < 1) {
+                    output = false;
+                }
+                a = a + 1;
+            }
         }
         return output;
     }
