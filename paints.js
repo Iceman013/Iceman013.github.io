@@ -37,6 +37,7 @@ function supply(name, position) {
         if (this.canBuy()) {
             money = money - this.cost();
             this.amount = this.amount + 1;
+            document.cookie = money;
         }
     }
     this.use = function() {
@@ -176,6 +177,7 @@ function paint(name, price, ...ingrediants) {
         this.updatePrice();
         money = money + this.value*this.price;
         this.value = 0;
+        document.cookie = money;
     }
 }
 function table() {

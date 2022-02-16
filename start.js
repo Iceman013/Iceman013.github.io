@@ -1,4 +1,8 @@
 var money = 0;
+var x = document.cookie;
+if (x.length != 0){
+    money = parseInt(x)
+}
 var markup = 1.25;
 var mixup = 1.25;
 
