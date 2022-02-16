@@ -2,7 +2,7 @@ var money = 0;
 var x = document.cookie;
 if (x.length != 0){
     var cookieAr = x.split(";")
-    money = parseInt(x[0].substring(7,x[0].length))
+    money = parseInt(x[0].substring(6,x[0].length))
 }
 var markup = 1.25;
 var mixup = 1.25;
