@@ -37,7 +37,7 @@ function supply(name, position) {
         if (this.canBuy()) {
             money = money - this.cost();
             this.amount = this.amount + 1;
-            document.cookie = money;
+            document.cookie = "money=" + money + "; expires=Thu, 7 Dec 2056 12:00:00 UTC;";
         }
     }
     this.use = function() {
@@ -177,7 +177,7 @@ function paint(name, price, ...ingrediants) {
         this.updatePrice();
         money = money + this.value*this.price;
         this.value = 0;
-        document.cookie = money;
+        document.cookie = "money=" + money + "; expires=Thu, 7 Dec 2056 12:00:00 UTC;";
     }
 }
 function table() {
