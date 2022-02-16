@@ -1,5 +1,5 @@
 var money = 0;
-var x = document.cookie;
+var x = decodeURIComponent(document.cookie);
 if (x.length != 0){
     var cookieAr = x.split(";")
     money = parseInt(x[0].substring(6,x[0].length))
