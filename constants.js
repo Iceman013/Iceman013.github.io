@@ -1,0 +1,1 @@
+const maxG = 6;

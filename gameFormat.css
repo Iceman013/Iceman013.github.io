@@ -21,6 +21,9 @@
     width: 40px;
     font-weight: 900;
 }
+.breaker {
+    margin-left: 14px;
+}
 .empty {
     height: 25.6px;
 }

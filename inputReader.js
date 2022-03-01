@@ -1,3 +1,4 @@
+const sEvent = new Event("submit");
 function Guess(length, element) {
     this.value = "";
     this.price = "";
@@ -62,7 +63,11 @@ function Guess(length, element) {
             } else {
                 letter = "";
             }
-            base.appendChild(this.getTile(letter));
+            var tile = this.getTile(letter);
+            if (i == this.length) {
+                tile.classList.toggle("breaker");
+            }
+            base.appendChild(tile);
         }
     }
     this.getShow = function(base) {
@@ -81,6 +86,9 @@ function Guess(length, element) {
                 des = "correct";
             }
             tile.classList.toggle(des);
+            if (i == this.length) {
+                tile.classList.toggle("breaker");
+            }
             base.appendChild(tile);
         }
     }
@@ -89,6 +97,7 @@ function Guess(length, element) {
         if (this.value.length == this.length && this.price.length == mp) {
             this.edit = false;
             this.getShow(this.element);
+            window.dispatchEvent(sEvent);
         }
     }
 
@@ -110,4 +119,9 @@ function Guess(length, element) {
         this.edit = true;
         this.add("NULL");
     }
+    this.start = function() {
+        this.turnOn();
+        this.edit = false;
+    }
+    this.start();
 }
