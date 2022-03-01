@@ -39,9 +39,12 @@ const buttons = [
     "M",
     "."
 ];
-for (let i = 0; i < buttons.length; i++) {
-    const button = buttons[i];
-    document.getElementById(button).addEventListener("click", function() {
-        g.add(button);
-    });
+function updateKeys(input) {
+    const g = input;
+    for (let i = 0; i < buttons.length; i++) {
+        const button = buttons[i];
+        document.getElementById(button).addEventListener("click", function() {
+            g.add(button);
+        });
+    }
 }

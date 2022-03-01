@@ -1,4 +1,5 @@
 const sEvent = new Event("submit");
+const wEvent = new Event("win");
 function Guess(length, element) {
     this.value = "";
     this.price = "";
@@ -85,6 +86,7 @@ function Guess(length, element) {
             if (today.whole().substring(i, i+1) == letter) {
                 des = "correct";
             }
+            document.getElementById(letter).classList.add(des);
             tile.classList.toggle(des);
             if (i == this.length) {
                 tile.classList.toggle("breaker");
@@ -97,7 +99,11 @@ function Guess(length, element) {
         if (this.value.length == this.length && this.price.length == mp) {
             this.edit = false;
             this.getShow(this.element);
-            window.dispatchEvent(sEvent);
+            if (this.value + this.price == today.whole()) {
+                window.dispatchEvent(wEvent);
+            } else {
+                window.dispatchEvent(sEvent);
+            }
         }
     }
 

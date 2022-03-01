@@ -1,9 +1,24 @@
+:root {
+    --green: #6aaa64;
+    --darkendGreen: #538d4e;
+    --yellow: #c9b458;
+    --darkendYellow: #b59f3b;
+    --lightGray: #d8d8d8;
+    --gray: #86888a;
+    --darkGray: #939598;
+    --white: #fff;
+    --black: #000000;
+}
 * {
     font-family: 'Alatsi';
     user-select: none;
 }
+body {
+    width: 780px;
+    background-color: var(--black);
+    color: var(--white);
+}
 .display {
-    border: 1px solid black;
     width: 780px
 }
 .row::after{

@@ -9,14 +9,17 @@ var attempt = 0;
 function setGuesser(guesser) {
     const g = guesser;
     g.turnOn();
+    updateKeys(g);
     window.addEventListener("keydown", function(event) {
         g.add(event.key);
     });
 }
+
 window.addEventListener("submit", function(event) {
     setGuesser(guesses[attempt]);
     attempt++;
 });
+
 function start() {
     for (let i = 0; i < maxG; i++) {
         var base = document.createElement("div");

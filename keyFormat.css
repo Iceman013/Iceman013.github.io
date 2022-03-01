@@ -15,7 +15,8 @@
     width: 484px;
 }
 .key {
-    background-color: var(--lightGray);
+    color: var(--white);
+    background-color: var(--gray);
     border-radius: 5px;
     float: left;
     margin: 2px;
@@ -30,4 +31,18 @@
 }
 .key:hover {
     filter: brightness(90%);
+}
+.yellow {
+    color: var(--white);
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+}
+.correct {
+    color: var(--white);
+    background-color: var(--green);
+    border-color: var(--green);
+}
+.incorrect {
+    color: var(--white);
+    background-color: var(--gray);
 }
