@@ -2,3 +2,12 @@
     font-family: 'Alatsi';
     user-select: none;
 }
+.display {
+    border: 1px solid black;
+    width: 768px
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}

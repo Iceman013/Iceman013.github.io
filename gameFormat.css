@@ -22,7 +22,7 @@
     font-weight: 900;
 }
 .empty {
-    height: 26px;
+    height: 25.6px;
 }
 .correct {
     color: var(--white);
@@ -37,9 +37,4 @@
 .incorrect {
     color: var(--white);
     background-color: var(--gray);
-}
-.row::after{
-    content: "";
-    clear: both;
-    display: table;
 }

@@ -10,7 +10,9 @@
     --black: #212121;
 }
 .keyboard {
-    margin-left: 375px;
+    margin-top: 10px;
+    margin-left: 142px;
+    width: 484px;
 }
 .key {
     background-color: var(--lightGray);
@@ -24,4 +26,8 @@
     font-size: 20px;
     width: 40px;
     font-weight: 900;
+    cursor: pointer;
+}
+.key:hover {
+    filter: brightness(90%);
 }
