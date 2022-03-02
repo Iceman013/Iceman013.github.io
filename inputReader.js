@@ -137,7 +137,10 @@ function Guess(length, element) {
             }
             this.getRow(this.element);
             if (input == "Enter") {
-                this.submit();
+                if (acceptable.includes(this.value) || today.name == this.value) {
+                    this.submit();
+                }
+                console.log("Invalid Guess");
             }
         }
     }
