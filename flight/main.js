@@ -26,11 +26,11 @@ function getState() {
     if (buttons["d"]) {
         xPos -= SPEED;
     }
-    if (xPos > 5600) {
-        xPos = 5600;
+    if (xPos > 1350) {
+        xPos = 1350;
     }
-    if (xPos < -4700) {
-        xPos = -4700;
+    if (xPos < 250) {
+        xPos = 250;
     }
 }
 function display() {
