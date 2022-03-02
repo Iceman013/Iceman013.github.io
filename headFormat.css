@@ -1,6 +1,22 @@
 .top h1 {
-    text-align: center;
+    margin-left: 335px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 hr {
+    border-top: 1px solid var(--gray);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
     margin: 10px -8px;
+}
+.top button {
+    font-size: 30px;
+    margin-top: 5px;
+    padding: 0px;
+    background-color: var(--black);
+    border: none;
+}
+.top button:hover {
+    cursor: pointer;
 }

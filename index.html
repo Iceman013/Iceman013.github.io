@@ -8,9 +8,10 @@
         <link rel = "stylesheet" type = "text/css" href = "keyFormat.css"/>
         <title>Retaildle</title>
     </head>
-    <body>
-        <div class = "top">
-            <h1>Retaildle</h1>
+    <body id = "body">
+        <div class = "top row">
+            <h1 style = "float: left;">Retaildle</h1>
+            <button onclick = "openModal('stats',true)" style = "float: right;">&#128202</button>
         </div>
         <hr>
         <div class = "display" id = "container">
@@ -66,6 +67,12 @@
                 </div>
             </div>
         </div>
+        <div class = "modal" id = "stats">
+            <h1>Statistics</h1>
+            <hr>
+            <button onclick = "copyStats()">Copy</button>
+            <p id = "wStat"></p>
+        </div>
     </body>
     <footer>
         <script src = "constants.js" type = "text/javascript"></script>
@@ -74,6 +81,9 @@
 
         <script src = "inputReader.js" type = "text/javascript"></script>
         <script src = "displayInput.js" type = "text/javascript"></script>
+
+        <script src = "copyStats.js" type = "text/javascript"></script>
+        <script src = "modals.js" type = "text/javascript"></script>
 
         <script src = "main.js" type = "text/javascript"></script>
 

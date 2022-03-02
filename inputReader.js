@@ -1,5 +1,4 @@
 const sEvent = new Event("submit");
-const wEvent = new Event("win");
 function Guess(length, element) {
     this.value = "";
     this.price = "";
@@ -100,9 +99,9 @@ function Guess(length, element) {
             this.edit = false;
             this.getShow(this.element);
             if (this.value + this.price == today.whole()) {
-                window.dispatchEvent(wEvent);
+                window.dispatchEvent(new Event("win"));
             } else {
-                window.dispatchEvent(sEvent);
+                window.dispatchEvent(new Event("submit"));
             }
         }
     }

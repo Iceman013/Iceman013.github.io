@@ -28,4 +28,8 @@ function start() {
         gameArea.appendChild(base);
     }
     window.dispatchEvent(sEvent);
+    window.addEventListener("win", function() {
+        document.getElementById("wStat").innerHTML = "YOU WON!";
+        openModal("stats", true);
+    });
 }
