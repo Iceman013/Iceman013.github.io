@@ -17,8 +17,14 @@ function setGuesser(guesser) {
 }
 
 window.addEventListener("submit", function(event) {
-    setGuesser(guesses[attempt]);
-    attempt++;
+    if (attempt < 6) {
+        setGuesser(guesses[attempt]);
+        attempt++;
+    } else {
+        document.getElementById("wStat").innerHTML = "You lose";
+        document.getElementById("correct").innerHTML = today.name + " $" + today.price;
+        openModal("stats", true);
+    }
 });
 
 function start() {
