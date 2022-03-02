@@ -87,7 +87,9 @@ function Guess(length, element) {
         var temp = this.value + this.price;
         var letet = [];
         for (let i = 0; i < today.whole().length; i++) {
-            letet.push(today.whole().substring(i, i+1));
+            if (today.whole().substring(i, i+1) != temp.substring(i, i+1)) {
+                letet.push(today.whole().substring(i, i+1));
+            }
         }
         for (let i = 0; i < this.length + mp; i++) {
             var letter = temp.substring(i, i+1);
