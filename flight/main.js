@@ -1,6 +1,6 @@
 var xPos = 0;
-const TICK = 10;
-const SPEED = 30;
+const TICK = 1;
+const SPEED = 10;
 var buttons = {};
 var mouse = {
     "x": 0,
@@ -50,7 +50,7 @@ function createDot(x, y) {
     var base = document.createElement("img");
     base.src = "https://cdn.discordapp.com/attachments/833507154828460062/948423580063006740/iu.png";
     base.classList.add("pew");
-    var ent = new Entity(x - 25 - xPos, y - 25);
+    var ent = new Entity(x - xPos, y, 50, 50);
     ent.setElement(base);
     entities.push(ent);
 }
@@ -61,9 +61,15 @@ function display() {
     while (temp.firstChild) {
         temp.removeChild(temp.firstChild);
     }
+    for (let i = entities.length - 1; i >= 0; i--) {
+        entities[i].update();
+        if (entities[i].remove()) {
+            entities.splice(i, 1);
+        }
+    }
     for (let i = 0; i < entities.length; i++) {
         var base = entities[i].element;
-        base.style.transform = "translate(" + (entities[i].x + xPos) + "px, " + entities[i].y + "px)";
+        base.style.transform = "translate(" + (entities[i].getX() + xPos) + "px, " + entities[i].getY() + "px)";
         document.getElementById("ents").appendChild(base);
     }
 }
