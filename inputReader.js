@@ -1,4 +1,14 @@
 const sEvent = new Event("submit");
+function stateIncludes(array, goal) {
+    var out = false;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == goal) {
+            out = true;
+        }
+    }
+    return out;
+}
+
 function Guess(length, element) {
     this.value = "";
     this.price = "";
@@ -75,12 +85,17 @@ function Guess(length, element) {
             base.removeChild(base.firstChild);
         }
         var temp = this.value + this.price;
+        var letet = [];
+        for (let i = 0; i < today.whole().length; i++) {
+            letet.push(today.whole().substring(i, i+1));
+        }
         for (let i = 0; i < this.length + mp; i++) {
             var letter = temp.substring(i, i+1);
             var tile = this.getTile(letter);
             var des = "incorrect";
-            if (today.whole().includes(letter)) {
+            if (stateIncludes(letet, letter)) {
                 des = "yellow";
+                letet.splice(letet.indexOf(letter), 1);
             }
             if (today.whole().substring(i, i+1) == letter) {
                 des = "correct";
