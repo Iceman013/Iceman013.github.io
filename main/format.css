@@ -1,0 +1,43 @@
+:root {
+    --black: rgb(0,0,0);
+    --white: rgb(255,255,255);
+}
+* {
+    font-family: 'Alata';
+    user-select: none;
+    color: blue;
+}
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+.menu::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.partition {
+    float: left;
+    padding: 0px;
+    margin: 0px;
+}
+.tag {
+    /* Tag */
+}
+.label {
+    font-size: larger;
+    padding: 10px;
+}
+.label:hover {
+    filter: brightness(85%);
+    backdrop-filter: brightness(85%);
+}
+.link {
+    margin: 0px;
+    cursor: pointer;
+    padding: 10px;
+}
+.link:hover {
+    filter: brightness(85%);
+    backdrop-filter: brightness(85%);
+}
