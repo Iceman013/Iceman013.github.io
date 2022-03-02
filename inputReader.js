@@ -31,20 +31,21 @@ function Guess(length, element) {
     this.addNumber = function(input) {
         input = input.toUpperCase();
         var numbers = "0123456789";
+        if (numbers.includes(input)) {
+            if (this.price.length < mp) {
+                this.price += input;
+            }
+        }
         if (this.price.length == mp - 3) {
-            if (input == ".") {
-                this.price += ".";
-            }
-        } else {
-            if (numbers.includes(input)) {
-                if (this.price.length < mp) {
-                    this.price += input;
-                }
-            }
+            this.price += ".";
         }
         if (input == "BACKSPACE") {
             if (this.price.length > 0) {
-                this.price = this.price.substring(0, this.price.length - 1);
+                if (this.price.length == 4) {
+                    this.price = this.price.substring(0, this.price.length - 2);
+                } else {
+                    this.price = this.price.substring(0, this.price.length - 1);
+                }
             } else {
                 this.value = this.value.substring(0, this.value.length - 1);
             }
@@ -68,10 +69,14 @@ function Guess(length, element) {
         var temp = this.value + this.price;
         for (let i = 0; i < this.length + mp; i++) {
             var letter;
-            if (i < temp.length) {
-                letter = temp.substring(i, i+1);
+            if (i == today.whole().length - 3) {
+                letter = ".";
             } else {
-                letter = "";
+                if (i < temp.length) {
+                    letter = temp.substring(i, i+1);
+                } else {
+                    letter = "";
+                }
             }
             var tile = this.getTile(letter);
             if (i == this.length) {
