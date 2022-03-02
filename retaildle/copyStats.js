@@ -25,6 +25,6 @@ function copyStats() {
             output += ":black_large_square:";
         }
     }
-    output += "\nhttps://iceman013.github.io/";
+    output += "\nhttps://iceman013.github.io/retaildle/";
     navigator.clipboard.writeText(output);
 }
