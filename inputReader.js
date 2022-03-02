@@ -15,6 +15,7 @@ function Guess(length, element) {
     this.length = length;
     this.edit = false;
     this.element = element;
+    this.shaking = false;
 
     this.addLetter = function(input) {
         input = input.toUpperCase();
@@ -139,8 +140,13 @@ function Guess(length, element) {
             if (input == "Enter") {
                 if (acceptable[""+this.value.length].includes(this.value.toLowerCase()) || today.name == this.value) {
                     this.submit();
+                } else {
+                    if (this.shaking) {
+                        element.classList.toggle("shaking");
+                    }
+                    element.classList.toggle("shooking");
+                    this.shaking = true;
                 }
-                console.log("Invalid Guess");
             }
         }
     }
