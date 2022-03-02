@@ -1,11 +1,22 @@
+* {
+    user-select: none;
+}
 body {
     overflow: hidden;
+    cursor: none;
 }
 .back {
-    width: 100vw;
+    z-index: -1;
+    top: 0vh;
+    left: -110vw;
+    position: fixed;
+    width: 320vw;
     height: 100vh;
-    background-image: url("https://luxurylaunches.com/wp-content/uploads/2017/06/Verdenskortet.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
+}
+.cross {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 200px;
+    height: 200px;
 }
