@@ -70,6 +70,7 @@ function display() {
     for (let i = 0; i < entities.length; i++) {
         var base = entities[i].element;
         base.style.transform = "translate(" + (entities[i].getX() + xPos) + "px, " + entities[i].getY() + "px)";
+        base.draggable = "false";
         document.getElementById("ents").appendChild(base);
     }
 }
