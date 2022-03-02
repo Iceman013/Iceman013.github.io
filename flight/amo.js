@@ -1,5 +1,5 @@
 const shrink = 0.996;
-function Entity(x, y, w, h) {
+function Amo(x, y, w, h) {
     this.x = x;
     this.y = y;
     this.element;
