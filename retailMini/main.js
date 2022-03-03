@@ -225,11 +225,11 @@ const tester = function() {
     //return fillIn(W, H);
     //return diagonal(W, H);
     //return handMade(W, H);
-    return getOneDiagonal(W, H, 10);
+    return getOneDiagonal(W, H, 1);
 };
 function makeSet(attempts) {
     for (let i = 0; i < attempts; i++) {
-        if (i % (attempts/10) == 0) {
+        if (i % (attempts/10) == 0 && i != 0) {
             console.log(i/attempts);
         }
         var set = tester();
@@ -241,10 +241,15 @@ function makeSet(attempts) {
 function start() {
     makeSet(100);
 }
-start();
-/*
-cash
-hula
-atom
-tops
-*/
+function getSet() {
+    var goal = false;
+    var fset;
+    while (!goal) {
+        var set = getOneDiagonal(W, H, 1);
+        if (checkSet(set)) {
+            fset = set;
+            goal = true;
+        }
+    }
+    return fset;
+}
