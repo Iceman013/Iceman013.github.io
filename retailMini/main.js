@@ -60,6 +60,13 @@ function checkSet(set) {
             out = false;
         }
     }
+    for (let i = 0; i < tw.length - 1; i++) {
+        for (let j = i + 1; j < tw.length; j++) {
+            if (tw[i] == tw[j]) {
+                out = false;
+            }
+        }
+    }
     return out;
 }
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
