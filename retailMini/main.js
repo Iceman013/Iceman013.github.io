@@ -262,7 +262,7 @@ const tester = function() {
 function killPC() {
     var attempts = 1000000;
     for (let i = 0; i < attempts; i++) {
-        var set = getOneDiagonal(5, 5, 10);
+        var set = getOneDiagonal(5, 5, 1000);
         console.log("Please RNGesus");
         if (checkSet(set)) {
             console.log(set);
