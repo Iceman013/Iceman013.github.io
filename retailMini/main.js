@@ -4,12 +4,12 @@ function random(min, max) {
     return out;
 }
 function randomWord(length) {
-    var tempArr = acceptable[length.toString()];
+    var tempArr = allowed[length.toString()];
     var r = random(0, tempArr.length - 1);
     return tempArr[r];
 }
 function getOnStart(length, start) {
-    var sub = acceptable[length.toString()];
+    var sub = allowed[length.toString()];
     var out = [];
     for (let i = 0; i < sub.length; i++) {
         var word = sub[i];
@@ -49,7 +49,7 @@ function getWords(twod) {
 }
 function check(word) {
     var length = word.length;
-    var list = acceptable[length.toString()];
+    var list = allowed[length.toString()];
     return list.includes(word);
 }
 function checkSet(set) {
@@ -122,7 +122,93 @@ function fillIn(x, y) {
 }
 function diagonal(x, y) {
     var set = blankSet(x, y);
+    for (let i = 0; i < x && i < y; i++) {
+        if (i < x) {
+            var start = "";
+            for (let j = 0; j < i; j++) {
+                start += set[i][j];
+            }
+            var words = getOnStart(x, start);
+            var cho = "aaaaaaaaaa";
+            if (words.length > 0) {
+                var pos = random(0, words.length - 1);
+                cho = words[pos];
+            }
+            for (let j = i; j < x; j++) {
+                set[i][j] = cho.substring(j, j + 1);
+            }
+        }
+        if (i < y) {
+            var start = "";
+            for (let j = 0; j < i; j++) {
+                start += set[j][i];
+            }
+            var words = getOnStart(y, start);
+            var cho = "aaaaaaaaaa";
+            if (words.length > 0) {
+                var pos = random(0, words.length - 1);
+                cho = words[pos];
+            }
+            for (let j = i; j < y; j++) {
+                set[j][i] = cho.substring(j, j + 1);
+            }
+        }
+    }
     return set;
+}
+function getOneDiagonal(x, y, tries) {
+    var fset = blankSet(x, y);
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            fset[i][j] = "q";
+        }
+    }
+    var goal = true;
+    for (let t = 0; t < tries && goal; t++) {
+        var set = blankSet(x, y);
+        var busy = true;
+        for (let i = 0; i < x && i < y && busy; i++) {
+            if (i < x && busy) {
+                var start = "";
+                for (let j = 0; j < y; j++) {
+                    start += set[i][j];
+                }
+                var words = getOnStart(x, start);
+                var cho = "aaaaaaaaaa";
+                if (words.length > 0) {
+                    var pos = random(0, words.length - 1);
+                    cho = words[pos];
+                } else {
+                    busy = false;
+                }
+                for (let j = 0; j < y && busy; j++) {
+                    set[i][j] = cho.substring(j, j + 1);
+                }
+            }
+            if (i < y && busy) {
+                var start = "";
+                for (let j = 0; j < x; j++) {
+                    start += set[j][i];
+                }
+                var words = getOnStart(y, start);
+                var cho = "aaaaaaaaaa";
+                if (words.length > 0) {
+                    var pos = random(0, words.length - 1);
+                    cho = words[pos];
+                } else {
+                    busy = false;
+                }
+                for (let j = 0; j < x && busy; j++) {
+                    set[j][i] = cho.substring(j, j + 1);
+                }
+            }
+        }
+        if (busy) {
+            fset = set;
+            goal = false;
+        }
+    }
+    return fset;
 }
 function handMade() {
     var set = [
@@ -134,10 +220,18 @@ function handMade() {
     return set;
 }
 const tester = function() {
-    return fillIn(W, H);
+    //return bruteForce(W, H);
+    //return halfSet(W, H);
+    //return fillIn(W, H);
+    //return diagonal(W, H);
+    //return handMade(W, H);
+    return getOneDiagonal(W, H, 10);
 };
 function makeSet(attempts) {
     for (let i = 0; i < attempts; i++) {
+        if (i % (attempts/10) == 0) {
+            console.log(i/attempts);
+        }
         var set = tester();
         if (checkSet(set)) {
             console.log(set);
@@ -145,7 +239,7 @@ function makeSet(attempts) {
     }
 }
 function start() {
-    makeSet(1000);
+    makeSet(100);
 }
 start();
 /*
