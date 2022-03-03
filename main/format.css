@@ -1,13 +1,22 @@
 :root {
     --black: rgb(0,0,0);
     --white: rgb(255,255,255);
+    --back-0: rgb(40,230,180);
+    --back-1: rgb(50,255,200);
+    --back-2: rgb(70,255,220);
+    --mirr-0: rgb(50,200,230);
+    --mirr-1: rgb(70,220,255);
+    --mirr-2: rgb(100,245,255);
+    --dback: rgb(0,51,51);
+    --dmirr: rgb(0,62,77); 
 }
 * {
     font-family: 'Alata';
     user-select: none;
-    color: blue;
 }
 body {
+    background-color: var(--mirr-2);
+    color: var(--dmirr);
     margin: 0px;
     overflow: hidden;
 }
@@ -22,15 +31,16 @@ body {
     margin: 0px;
 }
 .tag {
-    /* Tag */
+    background-color: var(--back-0);
+    color: var(--dback);
 }
 .label {
     font-size: larger;
     padding: 10px;
 }
 .label:hover {
-    filter: brightness(85%);
-    backdrop-filter: brightness(85%);
+    filter: brightness(90%);
+    backdrop-filter: brightness(90%);
 }
 .link {
     margin: 0px;
@@ -38,6 +48,6 @@ body {
     padding: 10px;
 }
 .link:hover {
-    filter: brightness(85%);
-    backdrop-filter: brightness(85%);
+    filter: brightness(90%);
+    backdrop-filter: brightness(90%);
 }
