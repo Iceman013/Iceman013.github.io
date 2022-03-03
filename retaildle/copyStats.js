@@ -9,7 +9,7 @@ function stateIncludes(array, goal) {
 }
 function copyStats() {
     var tagged = document.getElementsByClassName("tile");
-    var output = "Retaildle #" + 0 + ": " + attempt.toString() + "/6";
+    var output = "Retaildle #" + (day - 1) + ": " + attempt.toString() + "/6";
     for (let i = 0; i < tagged.length; i++) {
         if (i % (maxG + today.length()) == 0) {
             output += "\n";
