@@ -70,8 +70,8 @@ function checkSet(set) {
     return out;
 }
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-const W = 4;
-const H = 4;
+const W = 5;
+const H = 5;
 function blankSet(x, y) {
     var set = [];
     for (let i = 0; i < x; i++) {
@@ -259,6 +259,16 @@ const tester = function() {
     //return handMade(W, H);
     return getOneDiagonal(W, H, 1);
 };
+function killPC() {
+    var attempts = 1000000;
+    for (let i = 0; i < attempts; i++) {
+        var set = getOneDiagonal(5, 5, 10);
+        console.log("Please RNGesus");
+        if (checkSet(set)) {
+            console.log(set);
+        }
+    }
+}
 function makeSet(attempts) {
     for (let i = 0; i < attempts; i++) {
         if (i % (attempts/10) == 0 && i != 0) {
