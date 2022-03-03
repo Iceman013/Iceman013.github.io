@@ -226,6 +226,31 @@ function handMade() {
     ];
     return set;
 }
+function doAll() {
+    var list = allowed["5"];
+    for (let a = 0; a < list.length - 4; a++) {
+        for (let b = a; b < list.length - 3; b++) {
+            for (let c = b; c < list.length - 2; c++) {
+                for (let d = c; d < list.length - 1; d++) {
+                    console.log("Another Attempt");
+                    for (let e = d; e < list.length; e++) {
+                        var set = blankSet(5, 5);
+                        var words = [list[a],list[b],list[c],list[d],list[e]];
+                        for (let i = 0; i < 5; i++) {
+                            var word = words[i];
+                            for (let j = 0; j < 5; j++) {
+                                set[i][j] = word.substring(j, j+1);
+                            }
+                        }
+                        if (checkSet(set)) {
+                            console.log(set);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 const tester = function() {
     //return bruteForce(W, H);
     //return halfSet(W, H);
