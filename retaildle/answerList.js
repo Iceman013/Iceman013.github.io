@@ -5,10 +5,8 @@ const answers = [
     new Answer("Pickles", "4.19"),
     new Answer("Pretzel", "3.59"),
     new Answer("Ramen", "2.99"),
-    new Answer("Dunkaccino","2.09")
-];
-
-const secondary = [
+    new Answer("Dunkaccino","2.09"),
+    
     new Answer("Bread", "1.19"),
     new Answer("Bike", "109.00"),
     new Answer("Waffles", "2.99"),
@@ -24,6 +22,3 @@ const secondary = [
     new Answer("Poster", "5.50"),
     new Answer("Hammer", "7.99"),
 ];
-for (let i = 0; i < secondary.length; i++) {
-    answers.push(secondary[i]);
-}
