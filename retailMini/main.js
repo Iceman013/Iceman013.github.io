@@ -260,7 +260,7 @@ const tester = function() {
     return getOneDiagonal(W, H, 1);
 };
 function killPC() {
-    var attempts = 1000000;
+    var attempts = 10000;
     for (let i = 0; i < attempts; i++) {
         var set = getOneDiagonal(5, 5, 1000);
         console.log("Please RNGesus");
