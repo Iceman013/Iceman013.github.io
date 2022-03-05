@@ -27,9 +27,12 @@ function clueq(type, length) {
 }
 function cluez() {
     var base = document.createElement("div");
-
+    base.appendChild(clueq(false, width));
+    base.appendChild(clueq(true, height));
+    return base;
 }
 function initiate() {
     document.getElementById("game").appendChild(build());
+    document.getElementById("clues").appendChild(cluez());
 }
 initiate();
