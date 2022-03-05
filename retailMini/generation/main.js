@@ -70,8 +70,8 @@ function checkSet(set) {
     return out;
 }
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-const W = 5;
-const H = 5;
+const W = 4;
+const H = 4;
 function blankSet(x, y) {
     var set = [];
     for (let i = 0; i < x; i++) {
@@ -257,7 +257,7 @@ const tester = function() {
     //return fillIn(W, H);
     //return diagonal(W, H);
     //return handMade(W, H);
-    return getOneDiagonal(W, H, 1);
+    return getOneDiagonal(W, H, 100000);
 };
 function killPC() {
     var attempts = 10000;
@@ -280,8 +280,22 @@ function makeSet(attempts) {
         }
     }
 }
+function logSet(set) {
+    console.log(set);
+}
+function findOne() {
+    var fset = blankSet(4,4);
+    var goal = false;
+    while (!goal) {
+        fset = getOneDiagonal(4, 4, 100000);
+        if (checkSet(fset)) {
+            goal = true;
+            logSet(fset);
+        }
+    }
+}
 function start() {
-    makeSet(100);
+    makeSet(1);
 }
 function getSet() {
     var goal = false;
@@ -295,3 +309,9 @@ function getSet() {
     }
     return fset;
 }
+/*
+0: (4) ['n', 'o', 'd', 's']
+1: (4) ['o', 'v', 'a', 'l']
+2: (4) ['v', 'e', 't', 'o']
+3: (4) ['a', 'n', 'e', 'w']
+*/

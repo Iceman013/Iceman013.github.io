@@ -2,3 +2,19 @@
     font-family: 'Alata';
     user-select: none;
 }
+table {
+    float: left;
+    border-collapse: collapse;
+}
+td {
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+}
+.clueArea {
+    float: left;
+    margin-left: 20px;
+    border: 1px solid black;
+}
