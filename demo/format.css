@@ -1,7 +1,10 @@
 * {
     margin: 10px;
+    text-align: center;
 }
 .bigBox {
+    margin-top: 30vh;
+    margin-left: 40%;
     border: 1px solid red;
     background-color: aqua;
     width: fit-content;
