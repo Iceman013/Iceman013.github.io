@@ -1,0 +1,20 @@
+* {
+    margin: 10px;
+}
+.bigBox {
+    border: 1px solid red;
+    background-color: aqua;
+    width: fit-content;
+    height: fit-content;
+}
+.row {
+    content: "";
+    clear: both;
+    display: table;
+}
+.column {
+    float: left;
+}
+.box {
+    border: 1px solid rebeccapurple;
+}
