@@ -5,6 +5,7 @@ const siteList = [
 
     new Site("Demo", "Unfinished", "https://iceman013.github.io/demo/"),
 
-    new Site("Github", "Other Links", "https://github.com/Iceman013/Iceman013.github.io"),
+    new Site("My Github", "Other Links", "https://github.com/Iceman013/Iceman013.github.io"),
+    new Site("Monkeytoes999 Github", "Other Links", "https://github.com/Monkeytoes999/monkeytoes999.github.io"),
     new Site("Syrup", "Other Links", "https://monkeytoes999.github.io/"),
 ];
