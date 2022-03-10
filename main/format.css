@@ -17,34 +17,6 @@ body {
     margin: 0px;
     overflow: hidden;
 }
-.menu::after{
-    content: "";
-    clear: both;
-    display: table;
-}
-.partition {
-    float: left;
-    padding: 0px;
-    margin: 0px;
-}
-.tag {
-    background-color: var(--box-1);
-    color: var(--text-1);
-}
-.label {
-    font-size: larger;
-    padding: 10px;
-}
-.label:hover {
-    filter: brightness(90%);
-    backdrop-filter: brightness(90%);
-}
-.link {
-    margin: 0px;
-    cursor: pointer;
-    padding: 10px;
-}
-.link:hover {
-    filter: brightness(90%);
-    backdrop-filter: brightness(90%);
+.head {
+    padding: 20px;
 }

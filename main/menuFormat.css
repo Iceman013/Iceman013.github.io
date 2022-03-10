@@ -1,0 +1,48 @@
+.menu::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.partition {
+    float: left;
+    padding: 0px;
+    margin: 0px;
+}
+.partition:hover {
+    filter: brightness(90%);
+    backdrop-filter: brightness(90%);
+}
+.tag {
+    border-bottom: 1px solid var(--text-1);
+    border-top: 1px solid var(--text-1);
+    background-color: var(--box-1);
+    color: var(--text-1);
+}
+.label {
+    font-size: larger;
+    cursor: pointer;
+    padding: 10px;
+}
+.label:after {
+    content: '\002B';
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: '\2212';
+    float: right;
+    margin-left: 5px;
+}
+.link {
+    border-right: 1px solid var(--text-1);
+    border-left: 1px solid var(--text-1);
+    filter: brightness(107%);
+    backdrop-filter: brightness(107%);
+    margin: 0px;
+    cursor: pointer;
+    padding: 10px;
+}
+.link:hover {
+    filter: brightness(100%);
+    backdrop-filter: brightness(100%);
+}

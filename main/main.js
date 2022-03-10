@@ -22,9 +22,11 @@ function addDividers() {
 
         base.addEventListener("mouseenter", function() {
             sub.style.display = "block";
+            label.classList.toggle("active");
         });
         base.addEventListener("mouseleave", function() {
             sub.style.display = "none";
+            label.classList.toggle("active");
         });
 
         const part = document.createElement("div");
