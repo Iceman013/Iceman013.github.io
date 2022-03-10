@@ -1,22 +1,19 @@
 :root {
     --black: rgb(0,0,0);
     --white: rgb(255,255,255);
-    --back-0: rgb(40,230,180);
-    --back-1: rgb(50,255,200);
-    --back-2: rgb(70,255,220);
-    --mirr-0: rgb(50,200,230);
-    --mirr-1: rgb(70,220,255);
-    --mirr-2: rgb(100,245,255);
-    --dback: rgb(0,51,51);
-    --dmirr: rgb(0,62,77); 
+    --back: #C5EFFC;
+    --box-1: #1481BA;
+    --box-2: #11B5E4;
+    --text-1: #001021;
+    --text-2: #034748;
 }
 * {
     font-family: 'Alata';
     user-select: none;
 }
 body {
-    background-color: var(--mirr-2);
-    color: var(--dmirr);
+    background-color: var(--back);
+    color: var(--black);
     margin: 0px;
     overflow: hidden;
 }
@@ -31,8 +28,8 @@ body {
     margin: 0px;
 }
 .tag {
-    background-color: var(--back-0);
-    color: var(--dback);
+    background-color: var(--box-1);
+    color: var(--text-1);
 }
 .label {
     font-size: larger;
