@@ -1,3 +1,10 @@
+.menu {
+    z-index: 1;
+    position: fixed;
+    top: 30vh;
+    height: 10vh;
+    width: 100vw;
+}
 .menu::after{
     content: "";
     clear: both;
@@ -7,7 +14,6 @@
     float: left;
     padding: 0px;
     margin: 0px;
-    margin-bottom: 20px;
 }
 .partition:hover {
     filter: brightness(90%);

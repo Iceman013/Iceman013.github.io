@@ -1,0 +1,7 @@
+.head {
+    position: fixed;
+    top: 0vh;
+    max-height: 30vh;
+    height: 30vh;
+    overflow: hidden;
+}

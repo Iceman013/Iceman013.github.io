@@ -10,13 +10,12 @@
 * {
     font-family: 'Alata';
     user-select: none;
+    margin: 0px;
+    padding: 0px;
 }
 body {
     background-color: var(--back);
     color: var(--black);
     margin: 0px;
     overflow: hidden;
-}
-.head {
-    padding: 20px;
 }

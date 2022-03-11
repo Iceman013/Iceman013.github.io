@@ -6,11 +6,11 @@ const answers = [
     new Answer("Pretzel", "3.59"),
     new Answer("Ramen", "2.99"),
     new Answer("Dunkaccino","2.09"),
-    
     new Answer("Bread", "1.19"),
     new Answer("Bike", "109.00"),
     new Answer("Waffles", "2.99"),
     new Answer("Vacuum", "59.99"),
+    
     new Answer("Ketchup", "3.99"),
     new Answer("Mirror", "7.00"),
     new Answer("Rice", "1.59"),
