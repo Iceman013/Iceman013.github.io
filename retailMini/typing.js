@@ -5,7 +5,8 @@ const width = today.set[0].length;
 var lx;
 var ly;
 var fir = false;
-var dver = true;
+var dver = false;
+var over = false;
 
 function nearbyify(x, y) {
     var base = document.getElementById("b" + x + "," + y);
@@ -105,15 +106,31 @@ function arrow(name) {
         }
     }
 };
+function check() {
+    var out = true;
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            var base = document.getElementById("b" + i + "," + j);
+            var letter = base.innerHTML;
+            if (letter != today.set[i][j]) {
+                out = false;
+            }
+        }
+    }
+    over = out;
+}
 document.addEventListener("keydown", function(event) {
-    var acceptable = "qwertyuiopasdfghjklzxcvbnm";
-    if (acceptable.includes(event.key)) {
-        typeIn(event.key);
-    }
-    if (event.key == "Backspace" || event.key == "Delete") {
-        backspace();
-    }
-    if (event.key.substring(0, 5) == "Arrow") {
-        arrow(event.key);
+    if (!over) {
+        var acceptable = "qwertyuiopasdfghjklzxcvbnm";
+        if (acceptable.includes(event.key)) {
+            typeIn(event.key);
+        }
+        if (event.key == "Backspace" || event.key == "Delete") {
+            backspace();
+        }
+        if (event.key.substring(0, 5) == "Arrow") {
+            arrow(event.key);
+        }
+        check();
     }
 });
