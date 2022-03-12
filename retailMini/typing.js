@@ -5,11 +5,27 @@ const width = today.set[0].length;
 var lx;
 var ly;
 var fir = false;
+var dver = true;
 
+function nearbyify(x, y) {
+    var base = document.getElementById("b" + x + "," + y);
+    base.classList.toggle("nearby");
+    console.log(x,y);
+}
 function setMain(x, y) {
     var base = document.getElementById("b" + x + "," + y);
     base.classList.toggle("typing");
-    console.log(x,y);
+    for (let i = 0; i < width; i++) {
+        if (dver) {
+            nearbyify(i, y);
+        } else {
+            nearbyify(x, i);
+        }
+    }
+}
+function typeIn(x, y, letter) {
+    var base = document.getElementById("b" + x + "," + y);
+    base.innerHTML = letter;
 }
 function createMain(x, y) {
     if (fir) {

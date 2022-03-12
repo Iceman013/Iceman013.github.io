@@ -33,6 +33,11 @@
 .key:hover {
     filter: brightness(90%);
 }
+.incorrect {
+    color: var(--white);
+    background-color: var(--iGray);
+    border-color: var(--iGray);
+}
 .yellow {
     color: var(--white);
     background-color: var(--darkendYellow);
@@ -42,9 +47,4 @@
     color: var(--white);
     background-color: var(--darkendGreen);
     border-color: var(--darkendGreen);
-}
-.incorrect {
-    color: var(--white);
-    background-color: var(--iGray);
-    border-color: var(--iGray);
 }

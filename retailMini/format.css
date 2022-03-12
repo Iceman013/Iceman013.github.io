@@ -25,9 +25,9 @@ td {
     border: 1px solid black;
     padding: 10px;
 }
-.typing {
-    background-color: var(--highlight);
-}
 .nearby {
     background-color: var(--near);
+}
+.typing {
+    background-color: var(--highlight);
 }
