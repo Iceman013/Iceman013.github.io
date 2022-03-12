@@ -10,7 +10,6 @@ var dver = true;
 function nearbyify(x, y) {
     var base = document.getElementById("b" + x + "," + y);
     base.classList.toggle("nearby");
-    console.log(x,y);
 }
 function setMain(x, y) {
     var base = document.getElementById("b" + x + "," + y);
@@ -23,13 +22,18 @@ function setMain(x, y) {
         }
     }
 }
-function typeIn(x, y, letter) {
-    var base = document.getElementById("b" + x + "," + y);
-    base.innerHTML = letter;
-}
 function createMain(x, y) {
+    if (x >= width) {
+        x = width - 1;
+    }
+    if (y >= height) {
+        y = height - 1;
+    }
     if (fir) {
         setMain(lx, ly);
+        if (lx == x && ly == y) {
+            dver = !dver;
+        }
     } else {
         fir = true;
     }
@@ -37,3 +41,21 @@ function createMain(x, y) {
     lx = x;
     ly = y;
 }
+function typeIn(letter) {
+    var x = lx;
+    var y = ly;
+    var base = document.getElementById("b" + x + "," + y);
+    base.innerHTML = letter;
+    if (dver) {
+        x++;
+    } else {
+        y++;
+    }
+    createMain(x,y);
+}
+document.addEventListener("keyup", function(event) {
+    var acceptable = "qwertyuiopasdfghjklzxcvbnm";
+    if (acceptable.includes(event.key)) {
+        typeIn(event.key);
+    }
+});

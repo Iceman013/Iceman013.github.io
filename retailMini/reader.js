@@ -33,5 +33,6 @@ function cluez() {
 function initiate() {
     document.getElementById("game").appendChild(build());
     document.getElementById("clues").appendChild(cluez());
+    createMain(0,0);
 }
 initiate();
