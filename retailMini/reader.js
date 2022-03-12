@@ -16,8 +16,13 @@ function build() {
     return base;
 }
 function clueq(type, length) {
-    var base = document.createElement("div");
     for (let i = 0; i < length; i++) {
+        var base;
+        if (type) {
+            base = document.getElementById("down");
+        } else {
+            base = document.getElementById("across");
+        }
         var par = document.createElement("p");
         par.innerHTML = today.getClue(i, type);
         base.appendChild(par);

@@ -31,3 +31,7 @@ td {
 .typing {
     background-color: var(--highlight);
 }
+.clueE {
+    float: left;
+    margin-right: 20px;
+}
