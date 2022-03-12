@@ -25,9 +25,19 @@ function setMain(x, y) {
 function createMain(x, y) {
     if (x >= width) {
         x = width - 1;
+        return;
     }
     if (y >= height) {
         y = height - 1;
+        return;
+    }
+    if (x < 0) {
+        x = 0;
+        return;
+    }
+    if (y < 0) {
+        y = 0;
+        return;
     }
     if (fir) {
         setMain(lx, ly);
@@ -53,9 +63,57 @@ function typeIn(letter) {
     }
     createMain(x,y);
 }
-document.addEventListener("keyup", function(event) {
+function backspace() {
+    var x = lx;
+    var y = ly;
+    var base = document.getElementById("b" + x + "," + y);
+    base.innerHTML = " ";
+    if (dver) {
+        x--;
+    } else {
+        y--;
+    }
+    createMain(x,y);
+}
+function arrow(name) {
+    if (name == "ArrowLeft") {
+        if (dver) {
+            createMain(lx, ly);
+        } else {
+            createMain(lx, ly - 1);
+        }
+    }
+    if (name == "ArrowRight") {
+        if (dver) {
+            createMain(lx, ly);
+        } else {
+            createMain(lx, ly + 1);
+        }
+    }
+    if (name == "ArrowUp") {
+        if (!dver) {
+            createMain(lx, ly);
+        } else {
+            createMain(lx - 1, ly);
+        }
+    }
+    if (name == "ArrowDown") {
+        if (!dver) {
+            createMain(lx, ly);
+        } else {
+            createMain(lx + 1, ly);
+        }
+    }
+};
+document.addEventListener("keydown", function(event) {
     var acceptable = "qwertyuiopasdfghjklzxcvbnm";
     if (acceptable.includes(event.key)) {
         typeIn(event.key);
+    }
+    if (event.key == "Backspace" || event.key == "Delete") {
+        backspace();
+    }
+    if (event.key.substring(0, 5) == "Arrow") {
+        arrow(event.key);
     }
 });
