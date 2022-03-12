@@ -1,3 +1,9 @@
+:root {
+    --black: rgb(0,0,0);
+    --white: rgb(255,255,255);
+    --highlight: yellow;
+    --near: skyBlue;
+}
 * {
     font-family: 'Alata';
     user-select: none;
@@ -18,4 +24,10 @@ td {
     margin-left: 20px;
     border: 1px solid black;
     padding: 10px;
+}
+.typing {
+    background-color: var(--highlight);
+}
+.nearby {
+    background-color: var(--near);
 }

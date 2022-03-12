@@ -1,15 +1,14 @@
-const day = Math.floor((new Date() - new Date(2022, 2, 5))/(24*60*60*1000));
-const today = answers[day];
-const height = today.set.length;
-const width = today.set[0].length;
-
 function build() {
     var base = document.createElement("table");
     for (let i = 0; i < height; i++) {
         var r = document.createElement("tr");
         for (let j = 0; j < width; j++) {
             var d = document.createElement("td");
-            d.innerHTML = today.set[i][j];
+            d.id = "b" + i + "," + j;
+            d.innerHTML = " ";
+            d.addEventListener("click", function() {
+                createMain(i, j);
+            })
             r.appendChild(d);
         }
         base.appendChild(r);
