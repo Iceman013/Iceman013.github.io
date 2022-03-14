@@ -130,7 +130,7 @@ function check() {
 }
 function win() {
     setMain(lx, ly);
-    console.log("Win");
+    document.getElementById("go").innerHTML = "YOU WON!";
 }
 document.addEventListener("keydown", function(event) {
     if (!over) {
