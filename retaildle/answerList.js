@@ -10,11 +10,11 @@ const answers = [
     new Answer("Bike", "109.00"),
     new Answer("Waffles", "2.99"),
     new Answer("Vacuum", "59.99"),
-    
     new Answer("Seltzer", "3.69"),
     new Answer("Ketchup", "3.99"),
     new Answer("Mirror", "7.00"),
     new Answer("Rice", "1.59"),
+    
     new Answer("Towel", "7.00"),
     new Answer("Crayons", "3.49"),
     new Answer("Monopoly", "20.99"),
