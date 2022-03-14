@@ -56,7 +56,8 @@ function checkSet(set) {
     var tw = getWords(set);
     var out = true;
     for (let i = 0; i < tw.length; i++) {
-        if (!check(tw[i])) {
+        if (check(tw[i])) {
+            console.log(tw[i]);
             out = false;
         }
     }
@@ -294,7 +295,6 @@ function findOne() {
     var fset = blankSet(4,4);
     var goal = false;
     while (!goal) {
-        console.log("TRYING");
         fset = getOneDiagonal(4, 4, 100000);
         if (checkSet(fset)) {
             goal = true;
