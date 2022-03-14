@@ -281,17 +281,30 @@ function makeSet(attempts) {
     }
 }
 function logSet(set) {
-    console.log(set);
+    console.log("Hey! I found one.");
+    for (let i = 0; i < set.length; i++) {
+        var ro = "";
+        for (let j = 0; j < set[i].length; j++) {
+            ro += set[i][j];
+        }
+        console.log(ro);
+    }
 }
 function findOne() {
     var fset = blankSet(4,4);
     var goal = false;
     while (!goal) {
+        console.log("TRYING");
         fset = getOneDiagonal(4, 4, 100000);
         if (checkSet(fset)) {
             goal = true;
             logSet(fset);
         }
+    }
+}
+function getSome(goal) {
+    for (let i = 0; i < goal; i++) {
+        findOne();
     }
 }
 function start() {
