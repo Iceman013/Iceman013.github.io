@@ -1,5 +1,6 @@
-const day = Math.floor((new Date() - new Date(2022, 2, 12))/(24*60*60*1000));
+const day = Math.floor((new Date() - new Date(2022, 2, 14))/(24*60*60*1000));
 const today = answers[day];
+const stime = Date.now();
 const height = today.set.length;
 const width = today.set[0].length;
 var lx;
@@ -15,6 +16,11 @@ function nearbyify(x, y) {
 function setMain(x, y) {
     var base = document.getElementById("b" + x + "," + y);
     base.classList.toggle("typing");
+    var nom = "ch" + x;
+    if (dver) {
+        nom = "cv" + y;
+    }
+    document.getElementById(nom).classList.toggle("nearby");
     for (let i = 0; i < width; i++) {
         if (dver) {
             nearbyify(i, y);
@@ -68,13 +74,16 @@ function backspace() {
     var x = lx;
     var y = ly;
     var base = document.getElementById("b" + x + "," + y);
-    base.innerHTML = " ";
-    if (dver) {
-        x--;
-    } else {
-        y--;
+    if (base.innerHTML == " ") {
+        if (dver) {
+            x--;
+        } else {
+            y--;
+        }
+        createMain(x,y);
+        base = document.getElementById("b" + x + "," + y);
     }
-    createMain(x,y);
+    base.innerHTML = " ";
 }
 function arrow(name) {
     if (name == "ArrowLeft") {
@@ -119,6 +128,10 @@ function check() {
     }
     over = out;
 }
+function win() {
+    setMain(lx, ly);
+    console.log("Win");
+}
 document.addEventListener("keydown", function(event) {
     if (!over) {
         var acceptable = "qwertyuiopasdfghjklzxcvbnm";
@@ -132,5 +145,8 @@ document.addEventListener("keydown", function(event) {
             arrow(event.key);
         }
         check();
+        if (over) {
+            win();
+        }
     }
 });
