@@ -1,23 +1,9 @@
 * {
-    margin: 10px;
-    text-align: center;
-}
-.bigBox {
-    margin-top: 30vh;
-    margin-left: 40%;
-    border: 1px solid red;
-    background-color: aqua;
-    width: fit-content;
-    height: fit-content;
-}
-.row {
-    content: "";
-    clear: both;
-    display: table;
-}
-.column {
-    float: left;
+    user-select: none;
 }
 .box {
-    border: 1px solid rebeccapurple;
+    float: left;
+    padding-left: 1px;
+    margin: 1px;
+    border-top: 1px solid black;
 }
