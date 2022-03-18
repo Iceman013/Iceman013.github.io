@@ -37,7 +37,11 @@ function Hand() {
         var out = "";
         for (let i = 0; i < this.cards.length; i++) {
             if (i > 0) {
-                out += "\n";
+                if (level == 0) {
+                    out += ", ";
+                } else {
+                    out += "\n";
+                }
             }
             out += this.cards[i].show(level);
         }

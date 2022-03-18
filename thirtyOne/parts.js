@@ -25,19 +25,35 @@ function startRound(players) {
     return pot;
 }
 function logRound(players, pot) {
+    var level = 0;
     for (let i = 0; i < players.length; i++) {
-        console.log(players[i].name);
-        console.log(players[i].hand.show(1));
-        console.log("Score: " + players[i].hand.score());
+        console.log(players[i].name + ": Score: " + players[i].hand.score());
+        console.log(players[i].hand.show(level));
     }
     console.log("Pot");
-    console.log(pot.show(1));
+    console.log(pot.show(level));
+    console.log("");
 }
 function doPlayer(player, pot) {
-    player.run(pot);
+    var out = true;
+    setTimeout(function() {
+        out = player.run(pot);
+    }, 1000);
+    return out;
 }
 function doRound(players) {
     var pot = startRound(players);
     logRound(players, pot);
-    doPlayer(players[0], pot);
+    let ct = 0;
+    var goal = false;
+    while (!goal) {
+        goal = doPlayer(players[ct%players.length], pot);
+        ct++;
+        logRound(players, pot);
+    }
+    for (let i = ct%players.length; i%players.length != (ct - 1)%players.length; i++) {
+        doPlayer(players[i%players.length], pot);
+        logRound(players, pot);
+    }
+    logRound(players, pot);
 }

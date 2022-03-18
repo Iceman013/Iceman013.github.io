@@ -16,6 +16,7 @@ function Com() {
         this.hand = hand;
     }
     this.run = function(pot) {
+        var finalT = false;
         var ms = 0;
         var pos = [0,0];
         for (let i = 0; i < 3; i++) {
@@ -30,7 +31,28 @@ function Com() {
                 if (i != 2) {
                     h.draw(this.hand.cards[2]);
                 }
+                h.draw(pot.cards[j]);
+                if (h.score() > ms) {
+                    pos[0] = i;
+                    pos[1] = j;
+                    ms = h.score();
+                }
             }
         }
+        if (pot.score() > ms) {
+            var tmp = pot.cards;
+            pot.cards = this.hand.cards;
+            this.hand.cards = tmp;
+            finalT = true;
+            console.log("SWAP");
+        } else if (this.hand.score() > ms) {
+            finalT = true;
+            console.log("PASS");
+        } else {
+            var temp = this.hand.swap(pos[0], pot.cards[pos[1]])
+            pot.swap(pos[1], temp);
+            console.log("NM");
+        }
+        return finalT;
     }
 }

@@ -34,7 +34,7 @@ function Card() {
         var names = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
         var bnames = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"];
         var suits = ["H","D","C","S"];
-        var bsuits = ["Hearts","Diamonds","Clubs","Spaces"];
+        var bsuits = ["Hearts","Diamonds","Clubs","Spades"];
         if (level == 0) {
             return this.getValue() + this.getSuit();
         } else if (level == 1) {
