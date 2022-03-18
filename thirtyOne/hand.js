@@ -4,6 +4,11 @@ function Hand() {
     this.draw = function(card) {
         this.cards.push(card);
     }
+    this.swap = function(inh, card) {
+        var temp = this.cards[inh];
+        this.cards[inh] = card;
+        return temp;
+    }
     this.score = function() {
         var suits = ["H","D","C","S"];
         var scores = [];
@@ -27,5 +32,15 @@ function Hand() {
             }
         }
         return max;
+    }
+    this.show = function(level) {
+        var out = "";
+        for (let i = 0; i < this.cards.length; i++) {
+            if (i > 0) {
+                out += "\n";
+            }
+            out += this.cards[i].show(level);
+        }
+        return out;
     }
 }
