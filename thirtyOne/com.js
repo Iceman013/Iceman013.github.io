@@ -44,14 +44,11 @@ function Com() {
             pot.cards = this.hand.cards;
             this.hand.cards = tmp;
             finalT = true;
-            console.log("SWAP");
         } else if (this.hand.score() > ms) {
             finalT = true;
-            console.log("PASS");
         } else {
             var temp = this.hand.swap(pos[0], pot.cards[pos[1]])
             pot.swap(pos[1], temp);
-            console.log("NM");
         }
         return finalT;
     }

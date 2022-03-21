@@ -25,21 +25,22 @@ function startRound(players) {
     return pot;
 }
 function logRound(players, pot) {
+    var out = "";
     var level = 0;
     for (let i = 0; i < players.length; i++) {
-        console.log(players[i].name + ": Score: " + players[i].hand.score());
-        console.log(players[i].hand.show(level));
+        out += players[i].name + ": Score: " + players[i].hand.score() + "\n";
+        out += players[i].hand.show(level) + "\n";
     }
-    console.log("Pot");
-    console.log(pot.show(level));
-    console.log("");
+    out += "Pot\n";
+    out += pot.show(level) + "\n";
+    var qqq = physicalHand(players, pot);
+    addToHeap(function() {
+        showHands(qqq);
+        console.log(out);
+    });
 }
 function doPlayer(player, pot) {
-    var out = true;
-    setTimeout(function() {
-        out = player.run(pot);
-    }, 1000);
-    return out;
+    return player.run(pot);
 }
 function doRound(players) {
     var pot = startRound(players);

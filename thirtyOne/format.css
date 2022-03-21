@@ -1,3 +1,7 @@
 * {
     user-select: none;
 }
+.card {
+    margin: 2px;
+    border: 1px solid black;
+}
