@@ -14,7 +14,6 @@ const answers = [
     new Answer("Ketchup", "3.99"),
     new Answer("Mirror", "7.00"),
     new Answer("Rice", "1.59"),
-    
     new Answer("Towel", "7.00"),
     new Answer("Crayons", "3.49"),
     new Answer("Monopoly", "20.99"),
@@ -22,4 +21,12 @@ const answers = [
     new Answer("Shirt", "5.00"),
     new Answer("Poster", "5.50"),
     new Answer("Hammer", "7.99"),
+    
+    new Answer("Crayons","4.99"),
+    new Answer("Quilt","93.99"),
+    new Answer("Crib","124.99"),
+    new Answer("Mattress","507.39"),
+    new Answer("Charger","19.99"),
+    new Answer("Earmuffs","10.00"),
+    new Answer("Watermelon","4.49")
 ];
