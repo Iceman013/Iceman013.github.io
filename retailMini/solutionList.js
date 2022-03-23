@@ -42,11 +42,12 @@ var answers = [
         ['The disfigured dogs','Whoops. Forgot to give a hint here','Prize for acting','Better than glue',
         'Rhyme writer','Some muslim thing (according to dictionary)','Twisted silk','Pig ____']),
     new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-        ['','','','','','','','']),
+        ['j','a','v','a'],
+        ['i','c','e','d'],
+        ['b','r','a','d'],
+        ['e','e','l','s']],
+        ['The coding language that gives you energy to start your day right.','If you make your drink like this, Bert will murder you and sell your soul.','You was born in a pitt.','The wet slimy slugs that do big ouch.',
+         'When you mock somebody\'s intestines.','When you need more farmland, sell your soul for another _.','When you murder sheep and then eat them.','math']),
     new Solution([
         ['','','',''],
         ['','','',''],
