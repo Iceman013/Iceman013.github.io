@@ -52,5 +52,6 @@ function Com() {
             pot.swap(pos[1], temp);
         }
         this.lh = finalT;
+        return true;
     }
 }

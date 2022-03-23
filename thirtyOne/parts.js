@@ -34,26 +34,26 @@ function logRound(players, pot) {
     out += "Pot\n";
     out += pot.show(level) + "\n";
     var qqq = physicalHand(players, pot);
-    addToHeap(function() {
-        showHands(qqq);
-        console.log(out);
-    });
+    showHands(qqq);
+    console.log(out);
 }
 function doPlayer(player, pot) {
     return player.run(pot);
 }
+
 function doRound(players) {
     var pot = startRound(players);
-    logRound(players, pot);
     let ct = 0;
     var goal = false;
-    while (!goal) {
+    var splinter = window.setInterval(function() {
         if (!players[ct%players.length].lh) {
-            doPlayer(players[ct%players.length], pot);
-            logRound(players, pot);
-            goal = true;
+            if (doPlayer(players[ct%players.length], pot)) {
+                logRound(players, pot);
+                ct++;
+            }
+        } else {
+            clearInterval(this);
         }
-        ct++;
-    }
+    }, TICK);
     logRound(players, pot);
 }

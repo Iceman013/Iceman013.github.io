@@ -5,19 +5,31 @@ var intervalId = window.setInterval(function() {
 function stop() {
     clearInterval(intervalId);
 }
+function makeCard(card) {
+    var base = document.createElement("text");
+    base.innerHTML = card.getValue();
+    if (card.getSuit() == "H" || card.getSuit() == "D") {
+        base.style.color = "var(--red)";
+    }
+    return base;
+}
 function physicalHand(players, pot) {
     var bb = document.createElement("div");
     for (let i = 0; i <= players.length; i++) {
         var base = document.createElement("div");
+        base.classList.add("hand");
         for (let j = 0; j < 3; j++) {
-            var ca = document.createElement("text");
-            ca.classList.add("card");
+            var da = document.createElement("div");
+            da.classList.add("card");
+            var cardy;
             if (i < players.length) {
-                ca.innerHTML = players[i].hand.cards[j].show(0);
+                cardy = players[i].hand.cards[j]
             } else {
-                ca.innerHTML = pot.cards[j].show(0);
+                cardy = pot.cards[j];
             }
-            base.appendChild(ca);
+            var ca = makeCard(cardy);
+            da.appendChild(ca);
+            base.appendChild(da);
         }
         bb.appendChild(base);
     }

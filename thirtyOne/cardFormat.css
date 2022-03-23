@@ -1,0 +1,27 @@
+:root {
+    --black: rgb(0,0,0);
+    --red: rgb(255,0,0);
+    --back: rgb(0,128,0);
+    --white: rgb(255,255,255);
+}
+.hand {
+    margin: 5px;
+    background-color: var(--back);
+    padding: 1px;
+    width: fit-content;
+}
+.hand::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.card {
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px;
+    background-color: var(--white);
+    float: left;
+    height: 90px;
+    width: 60px;
+    border: 1px solid black;
+}
