@@ -49,11 +49,12 @@ var answers = [
         ['The coding language that gives you energy to start your day right.','If you make your drink like this, Bert will murder you and sell your soul.','You was born in a pitt.','The wet slimy slugs that do big ouch.',
          'When you mock somebody\'s intestines.','When you need more farmland, sell your soul for another _.','When you murder sheep and then eat them.','math']),
     new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-        ['','','','','','','','']),
+        ['d','o','r','k'],
+        ['o','p','e','n'],
+        ['l','a','m','e'],
+        ['e','l','s','e']],
+        ['Me (garm) in a nutshell.','When you take a door, you throw it across the room, chop it into little tiny pieces, murder your secretary, jump out the window into the mattress you put there two and a half months ago just in case, the door casing is now _.','this hint compared to the last one','One of the only two coding condtionals you need',
+         'Those weirdos who make fruit cups that are really high on sugar.','Pearl + Amethyst.','When you do the dreaming but plural but like that\'s not actually what this word means but I don\'t care.','Caput, umeri, GENEI, et digiti']),
     new Solution([
         ['','','',''],
         ['','','',''],
