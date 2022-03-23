@@ -1,19 +1,15 @@
-const TICK = 1000;
-var intervalId = window.setInterval(function() {
-    tick();
-}, TICK);
-function stop() {
-    clearInterval(intervalId);
-}
+const TICK = 2000;
 function makeCard(card) {
     var base = document.createElement("text");
     base.innerHTML = card.getValue();
-    if (card.getSuit() == "H" || card.getSuit() == "D") {
-        base.style.color = "var(--red)";
+    if (card.visible) {
+        if (card.getSuit() == "H" || card.getSuit() == "D") {
+            base.style.color = "var(--red)";
+        }
+    } else {
+        base.style.color = "var(--caba)";
     }
-    if (card.getSuit() == "H") {
-        base.innerHTML += "HEART";
-    }
+    base.innerHTML = card.show(3);
     return base;
 }
 function physicalHand(players, pot) {
@@ -28,7 +24,11 @@ function physicalHand(players, pot) {
             if (i < players.length) {
                 cardy = players[i].hand.cards[j]
             } else {
+                base.classList.add("pot");
                 cardy = pot.cards[j];
+            }
+            if (cardy.moving) {
+                da.classList.add("mover");
             }
             var ca = makeCard(cardy);
             da.appendChild(ca);

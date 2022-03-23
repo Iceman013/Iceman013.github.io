@@ -1,7 +1,7 @@
 function makePlayers(size) {
     var players = [];
-    //players.push(new User());
-    for (let i = 0; i < size; i++) {
+    players.push(new User());
+    for (let i = 0; i < size - 1; i++) {
         players.push(new Com());
     }
     return players;
@@ -35,7 +35,7 @@ function logRound(players, pot) {
     out += pot.show(level) + "\n";
     var qqq = physicalHand(players, pot);
     showHands(qqq);
-    console.log(out);
+    //console.log(out);
 }
 function doPlayer(player, pot) {
     return player.run(pot);
@@ -44,8 +44,7 @@ function doPlayer(player, pot) {
 function doRound(players) {
     var pot = startRound(players);
     let ct = 0;
-    var goal = false;
-    var splinter = window.setInterval(function() {
+    window.setInterval(function() {
         if (!players[ct%players.length].lh) {
             if (doPlayer(players[ct%players.length], pot)) {
                 logRound(players, pot);

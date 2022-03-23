@@ -1,5 +1,5 @@
 function main() {
-    var players = makePlayers(2);
+    var players = makePlayers(4);
     doRound(players);
 }
 main();

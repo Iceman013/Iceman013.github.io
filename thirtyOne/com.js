@@ -40,16 +40,19 @@ function Com() {
                 }
             }
         }
-        if (pot.score() > ms) {
+        if (this.hand.score() >= ms) {
+            finalT = true;
+            document.getElementById("turn").innerHTML = "Pass";
+        } else if (pot.score() > ms) {
             var tmp = pot.cards;
             pot.cards = this.hand.cards;
             this.hand.cards = tmp;
             finalT = true;
-        } else if (this.hand.score() > ms) {
-            finalT = true;
+            document.getElementById("turn").innerHTML = "Swap Hand";
         } else {
             var temp = this.hand.swap(pos[0], pot.cards[pos[1]])
             pot.swap(pos[1], temp);
+            document.getElementById("turn").innerHTML = "Draw";
         }
         this.lh = finalT;
         return true;

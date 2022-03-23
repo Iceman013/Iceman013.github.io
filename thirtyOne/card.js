@@ -1,6 +1,7 @@
 function Card() {
     this.value;
     this.suit;
+    this.visible = true;
     this.setValue = function(input) {
         this.value = input;
     }
@@ -65,6 +66,24 @@ function Card() {
                 }
             }
             out += "; Score: " + this.points();
+            return out;
+        } else if (level == 3) {
+            var cname = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+            var sp = 0;
+            if (this.getSuit() == "H") {
+                sp = 127153;
+            } else if (this.getSuit() == "D") {
+                sp = 127169;
+            } else if (this.getSuit() == "C") {
+                sp = 127185;
+            } else if (this.getSuit() == "S") {
+                sp = 127137;
+            }
+            sp += cname.indexOf(this.getValue());
+            var out = "&#" + sp.toString();
+            if (!this.visible) {
+                out = "&#127136";
+            }
             return out;
         }
     }

@@ -1,3 +1,19 @@
 * {
     user-select: none;
 }
+.manager {
+    padding: 10px;
+    background-color: red;
+    position: absolute;
+    left: 260px;
+    top: 123px;
+}
+.manager button {
+    margin: 0px;
+    border: 0px;
+    height: 30px;
+    width: 108px;
+}
+.manager button:hover {
+    filter: brightness(85%);
+}
