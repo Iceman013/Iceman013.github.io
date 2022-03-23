@@ -1,5 +1,5 @@
 const day = Math.floor((new Date() - new Date(2022, 2, 1))/(24*60*60*1000));
-const today = answers[day];
+const today = answers[day%answers.length];
 
 const gameArea = document.getElementById("area");
 const guesses = [];

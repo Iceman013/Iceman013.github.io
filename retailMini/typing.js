@@ -1,5 +1,5 @@
 const day = Math.floor((new Date() - new Date(2022, 2, 16))/(24*60*60*1000));
-const today = answers[day];
+const today = answers[day%answers.length];
 const stime = Date.now();
 const height = today.set.length;
 const width = today.set[0].length;
