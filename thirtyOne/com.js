@@ -2,6 +2,7 @@ function Com() {
     this.lives = 1;
     this.hand;
     this.name;
+    this.lh = false;
     this.setName = function() {
         var r = Math.random();
         var names = ["Billy","Bobby","Brad","Sue","Anne","Tim","Mike","Jeff","Phillip","Jake","Dave"];
@@ -50,6 +51,6 @@ function Com() {
             var temp = this.hand.swap(pos[0], pot.cards[pos[1]])
             pot.swap(pos[1], temp);
         }
-        return finalT;
+        this.lh = finalT;
     }
 }

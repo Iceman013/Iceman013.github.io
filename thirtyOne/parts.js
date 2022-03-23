@@ -48,13 +48,12 @@ function doRound(players) {
     let ct = 0;
     var goal = false;
     while (!goal) {
-        goal = doPlayer(players[ct%players.length], pot);
+        if (!players[ct%players.length].lh) {
+            doPlayer(players[ct%players.length], pot);
+            logRound(players, pot);
+            goal = true;
+        }
         ct++;
-        logRound(players, pot);
-    }
-    for (let i = ct%players.length; i%players.length != (ct - 1)%players.length; i++) {
-        doPlayer(players[i%players.length], pot);
-        logRound(players, pot);
     }
     logRound(players, pot);
 }
