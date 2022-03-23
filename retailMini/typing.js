@@ -1,4 +1,4 @@
-const day = Math.floor((new Date() - new Date(2022, 2, 14))/(24*60*60*1000));
+const day = Math.floor((new Date() - new Date(2022, 2, 15))/(24*60*60*1000));
 const today = answers[day];
 const stime = Date.now();
 const height = today.set.length;
