@@ -11,6 +11,9 @@ function makeCard(card) {
     if (card.getSuit() == "H" || card.getSuit() == "D") {
         base.style.color = "var(--red)";
     }
+    if (card.getSuit() == "H") {
+        base.innerHTML += "HEART";
+    }
     return base;
 }
 function physicalHand(players, pot) {
