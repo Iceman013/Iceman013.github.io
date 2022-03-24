@@ -56,11 +56,12 @@ var answers = [
         ['Me (garm) in a nutshell.','When you take a door, you throw it across the room, chop it into little tiny pieces, murder your secretary, jump out the window into the mattress you put there two and a half months ago just in case, the door casing is now _.','this hint compared to the last one','One of the only two coding condtionals you need',
          'Those weirdos who make fruit cups that are really high on sugar.','Pearl + Amethyst.','When you do the dreaming but plural but like that\'s not actually what this word means but I don\'t care.','Caput, umeri, GENEI, et digiti']),
     new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-        ['','','','','','','','']),
+        ['m','e','w','s'],
+        ['a','c','h','e'],
+        ['p','r','o','w'],
+        ['s','u','m','s']],
+        ['That thing that the cat does when it really wants food and it\'s like hey you stupid idiotic human feed me or die.','You know, it\'s something that your back does after the cat attacks it because you didn\'t feed it.','That one part of a boat.','∑',
+         'The thing that was used to navigate your car back in the day when your mother was still young.','idk man it\'s some color just do the other clues and let this one fill itself in','Another form of who.','When you accidently rip your shirt, you have to ___ it back together, except throw on an s at the end because like this isn\'t actually a good scenario to use this word.']),
     new Solution([
         ['','','',''],
         ['','','',''],
