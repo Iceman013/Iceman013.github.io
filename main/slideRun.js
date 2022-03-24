@@ -1,4 +1,5 @@
 const TICK = 5000;
+var chosenOne = false;
 var slider = 0;
 function show() {
     slider = (slideList.length + slider) % slideList.length;
@@ -10,10 +11,12 @@ function show() {
 }
 function addButtons() {
     document.getElementById("shiftl").addEventListener("click", function() {
+        chosenOne = false;
         slider--;
         show();
     });
     document.getElementById("shiftr").addEventListener("click", function() {
+        chosenOne = false;
         slider++;
         show();
     });
@@ -24,6 +27,9 @@ function begin() {
 }
 begin();
 var intervalId = window.setInterval(function() {
-    slider++;
+    if (chosenOne) {
+        slider++;
+    }
+    chosenOne = true;
     show();
 }, TICK);
