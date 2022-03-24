@@ -1,18 +1,21 @@
 function User() {
     this.lives = 1;
     this.hand;
-    this.name = "BERT";
+    this.name = "You";
     this.lh = false;
+    this.prelh = false;
     this.myTurn = false;
     this.dt = false;
     this.pass = function() {
         if (this.myTurn) {
             this.dt = true;
+            this.prelh = true;
             document.getElementById("turn").innerHTML = "Pass";
         }
     }
     this.swap = function() {
         if (this.myTurn) {
+            this.prelh = true;
             document.getElementById("turn").innerHTML = "Swap";
         }
     }
@@ -31,6 +34,16 @@ function User() {
     }
     this.run = function(pot) {
         this.myTurn = true;
-        return this.dt;
+        if (this.dt) {
+            if (this.prelh) {
+                this.lh = true;
+            }
+            this.dt = false;
+            this.myTurn = false;
+            return true;
+        } else {
+            document.getElementById("turn").innerHTML = "None";
+            return false;
+        }
     }
 }

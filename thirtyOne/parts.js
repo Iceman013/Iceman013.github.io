@@ -38,6 +38,7 @@ function logRound(players, pot) {
     //console.log(out);
 }
 function doPlayer(player, pot) {
+    document.getElementById("name").innerHTML = player.name;
     return player.run(pot);
 }
 
