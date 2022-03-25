@@ -63,11 +63,12 @@ var answers = [
         ['That thing that the cat does when it really wants food and it\'s like hey you stupid idiotic human feed me or die.','You know, it\'s something that your back does after the cat attacks it because you didn\'t feed it.','That one part of a boat.','∑',
          'The thing that was used to navigate your car back in the day when your mother was still young.','idk man it\'s some color just do the other clues and let this one fill itself in','Another form of who.','When you accidently rip your shirt, you have to ___ it back together, except throw on an s at the end because like this isn\'t actually a good scenario to use this word.']),
     new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-        ['','','','','','','','']),
+        ['p','e','a','s'],
+        ['i','d','l','e'],
+        ['c','i','t','e'],
+        ['a','t','o','m']],
+        ['Little green balls.','The best tipe of video game.','The worst part of writing a research paper.','Little small things in the air.',
+         '_CHU (but not quite).','The actual worst part of writing a research paper.','A type of saxophone.','So it may']),
     new Solution([
         ['','','',''],
         ['','','',''],
