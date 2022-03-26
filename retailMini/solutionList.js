@@ -77,11 +77,12 @@ var answers = [
         ['F I N A L.','Where you go to show off how much of a nerd you is.','But ____, the donkeys could just not be stopped.','The things that go jingle jangle but not those things.',
          'That\'s a lot of damage.','The thing in the middle of a motorcycl tire. Rip bert\'s motorcycle: 11:36 pm.','When you tell your dog it no longer has a gender.','To throw something away, for example, a chance to ride a motorcycle.']),
     new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-        ['','','','','','','','']),
+        ['m','a','s','s'],
+        ['u','n','t','o'],
+        ['s','n','u','b'],
+        ['t','a','b','s']],
+        ['F/a','And he said ____ him, "Who is my neighbor?"','Steal a victory','Ctrl+t (feel free to try it)',
+        'I need to','____ Ng (Incorrect spelling)','____ your toe','You do this when you lose']),
     new Solution([
         ['','','',''],
         ['','','',''],
