@@ -70,11 +70,12 @@ var answers = [
         ['Little green balls.','The best tipe of video game.','The worst part of writing a research paper.','Little small things in the air.',
          '_CHU (but not quite).','The actual worst part of writing a research paper.','A type of saxophone.','So it may']),
     new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-            ['','','','','','','','']),
+        ['l','a','s','t'],
+        ['e','x','p','o'],
+        ['a','l','a','s'],
+        ['k','e','y','s']],
+        ['F I N A L.','Where you go to show off how much of a nerd you is.','But ____, the donkeys could just not be stopped.','The things that go jingle jangle but not those things.',
+         'That\'s a lot of damage.','The thing in the middle of a motorcycl tire. Rip bert\'s motorcycle: 11:36 pm.','When you tell your dog it no longer has a gender.','To throw something away, for example, a chance to ride a motorcycle.']),
     new Solution([
         ['','','',''],
         ['','','',''],
