@@ -21,12 +21,19 @@ const answers = [
     new Answer("Shirt", "5.00"),
     new Answer("Poster", "5.50"),
     new Answer("Hammer", "7.99"),
-    
     new Answer("Crayons","4.99"),
     new Answer("Quilt","93.99"),
     new Answer("Crib","124.99"),
     new Answer("Mattress","507.39"),
     new Answer("Charger","19.99"),
     new Answer("Earmuffs","10.00"),
-    new Answer("Watermelon","4.49")
+    new Answer("Watermelon","4.49"),
+
+    new Answer("Bleach", "4.69"),
+    new Answer("Silverware", "15.00"),
+    new Answer("Avocado", "0.95"),
+    new Answer("Lingerie", "20.00"),
+    new Answer("Stroller", "24.99"),
+    new Answer("Dictionary", "16.19"),
+    new Answer("Undershirts", "16.49")
 ];
