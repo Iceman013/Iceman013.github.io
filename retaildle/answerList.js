@@ -35,5 +35,6 @@ const answers = [
     new Answer("Lingerie", "20.00"),
     new Answer("Stroller", "24.99"),
     new Answer("Dictionary", "16.19"),
-    new Answer("Undershirts", "16.49")
+    new Answer("Undershirts", "16.49"),
+    new Answer("Lobotomy", "727.69")
 ];
