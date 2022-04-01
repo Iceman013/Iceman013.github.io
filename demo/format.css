@@ -1,9 +1,3 @@
 * {
     user-select: none;
 }
-.box {
-    float: left;
-    padding-left: 2px;
-    margin-left: 2px;
-    border-top: 2px solid black;
-}
