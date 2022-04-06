@@ -2,6 +2,8 @@ const siteList = [
     new Site("Retaildle", "Games", "https://iceman013.github.io/retaildle/"),
     new Site("Retail Mini", "Games", "https://iceman013.github.io/retailMini/"),
     new Site("Paint Bot", "Games", "https://iceman013.github.io/paintBot/"),
+    new Site("Map Game", "Games", "https://iceman013.github.io/mapGame/"),
+    new Site("5 Letter", "Games", "https://iceman013.github.io/fiveLetter/"),
 
     new Site("Demo", "Unfinished", "https://iceman013.github.io/demo/"),
     new Site("Thirty One", "Unfinished", "https://iceman013.github.io/thirtyOne/"),

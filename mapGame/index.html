@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "format.css" />
+    <script src = "square.js" type = "text/javascript"></script>
+    <script src = "upgrader.js" type = "text/javascript"></script>
+    <script src = "upgrades.js" type = "text/javascript"></script>
+    <script src = "map.js" type = "text/javascript"></script>
+    <script src = "interface.js" type = "text/javascript"></script>
+    <script src = "main.js" type = "text/javascript"></script>
+    <title>Home</title>
+  </head>
+<body onload = "start()">
+  <div class = "map" id = "map"></div>
+  <div class = "controller" id = "sidebar"></div>
+  <div class = "sys">
+    <div id = "cash" class = "resource"></div>
+    <div id = "prod" class = "resource"></div>
+    <div id = "boos" class = "resource"></div>
+    <button onclick = "next()">Next</button>
+    <br>
+    <b>Turn: </b>
+    <text id = "turn"></text>
+  </div>
+  <audio autoplay loop>
+    <source src="Happy-Days.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
