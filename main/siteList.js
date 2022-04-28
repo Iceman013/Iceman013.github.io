@@ -7,6 +7,7 @@ const siteList = [
 
     new Site("Demo", "Unfinished", "https://iceman013.github.io/demo/"),
     new Site("Thirty One", "Unfinished", "https://iceman013.github.io/thirtyOne/"),
+    new Site("Slidy", "Unfinished", "https://iceman013.github.io/slidy/"),
 
     new Site("My Github", "Other Links", "https://github.com/Iceman013/Iceman013.github.io"),
     new Site("Monkeytoes999 Github", "Other Links", "https://github.com/Monkeytoes999/monkeytoes999.github.io"),
