@@ -1,0 +1,6 @@
+* {
+    user-select: none;
+}
+.player {
+    position: absolute;
+}
