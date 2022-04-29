@@ -31,34 +31,43 @@ function newCells() {
         }
     }
 }
+var moving = false;
 function move() {
-    var velocity = 2;
-    var dividen = 0;
-    if (keys.w) {
-        dividen++;
+    if (keys.w || keys.a || keys.s || keys.d) {
+        if (!moving) {
+            document.getElementById("player").src = "images/Player/Player_Moving.gif";
+        }
+        moving = true;
+    } else {
+        if (moving) {
+            document.getElementById("player").src = "images/Player/Player_Up.gif";
+        }
+        moving = false;
     }
-    if (keys.a) {
-        dividen++;
+    var velocity = 2;
+    if (keys.d) {
+        document.getElementById("player").style.transform = "rotate(90deg)";
     }
     if (keys.s) {
-        dividen++;
+        document.getElementById("player").style.transform = "rotate(180deg)";
     }
-    if (keys.d) {
-        dividen++;
+    if (keys.a) {
+        document.getElementById("player").style.transform = "rotate(-90deg)";
     }
-    if (dividen > 1) {
-        velocity = Math.SQRT1_2*velocity;
+    if (keys.w) {
+        document.getElementById("player").style.transform = "rotate(0deg)";
     }
     if (keys["w"] && position.mapy < HEIGHT - SHEIGHT) {
+        document.getElementById("player").style.transform = "rotate(0deg)";
         position.pyoff += velocity;
-    }
-    if (keys["a"] && position.mapx < WIDTH - SWIDTH) {
+    } else if (keys["a"] && position.mapx < WIDTH - SWIDTH) {
+        document.getElementById("player").style.transform = "rotate(-90deg)";
         position.pxoff += velocity;
-    }
-    if (keys["s"] && position.mapy > 0) {
+    } else if (keys["s"] && position.mapy > 0) {
+        document.getElementById("player").style.transform = "rotate(180deg)";
         position.pyoff -= velocity;
-    }
-    if (keys["d"] && position.mapx > 0) {
+    } else if (keys["d"] && position.mapx > 0) {
+        document.getElementById("player").style.transform = "rotate(90deg)";
         position.pxoff -= velocity;
     }
 }

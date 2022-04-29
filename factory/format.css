@@ -18,8 +18,8 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 768px;
-    height: 512px;
+    width: 736px;
+    height: 480px;
     overflow: hidden;
 }
 .map {
@@ -27,8 +27,8 @@ body {
     top: 10px;
     left: 10px;
     border: 1px solid var(--back);
-    width: 768px; /* 24*32 */
-    height: 512px; /* 16*32 */
+    width: 736px; /* 24*32 */
+    height: 480px; /* 16*32 */
 }
 .map img {
     background-color: var(--error);
@@ -39,4 +39,9 @@ body {
 }
 .map img:hover {
     filter: brightness(85%);
+}
+.player img {
+    position: absolute;
+    left: 352px;
+    top: 224px;
 }
