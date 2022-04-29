@@ -7,9 +7,12 @@
     --error: #ff0000;
 
     --back: #121212;
+    --grid: #997755;
 }
 body {
+    cursor: url('images/Cursor.png'), auto;
     background-color: var(--back);
+    overflow: hidden;
 }
 .camera {
     position: absolute;
@@ -32,7 +35,7 @@ body {
     position: absolute;
     width: 32px;
     height: 32px;
-    outline: 1px solid black;
+    outline: 1px solid var(--grid);
 }
 .map img:hover {
     filter: brightness(85%);
