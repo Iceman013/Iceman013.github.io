@@ -1,4 +1,4 @@
-function Ground(id, name, frequency, cluster, img) {
+function Ore(id, name, frequency, cluster, img) {
     this.id = id;
     this.name = name;
     this.frequency = frequency;

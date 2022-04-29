@@ -1,7 +1,7 @@
 var cells = [[]];
 var position = {
-    "mapx": 0,
-    "mapy": 0,
+    "mapx": 1,
+    "mapy": 1,
     "pxoff": 0,
     "pyoff": 0
 };
@@ -12,6 +12,7 @@ function startGen() {
             cells[i][j] = new Cell();;
         }
     }
+    cells = makeMap(cells);
 }
 function newCells() {
     var map = document.getElementById("map");
@@ -23,16 +24,24 @@ function newCells() {
 
     for (let i = 0; i <= SWIDTH; i++) {
         for (let j = 0; j <= SHEIGHT; j++) {
-            var base = document.createElement("img");
-            base.src = "images/DefaultGround.png";
-            base.style.left = (32*i - 32) + "px";
-            base.style.top = (32*j - 32) + "px";
-            map.appendChild(base);
+            var images = [];
+            images[0] = document.createElement("img");
+            images[0].src = cells[position.mapx + i][position.mapy + j].getGround().img;
+
+            images[1] = document.createElement("img");
+            images[1].src = cells[position.mapx + i][position.mapy + j].getOre().img;
+
+            for (let k = 0; k < images.length; k++) {
+                images[k].style.left = 32*(SWIDTH - i - 1) + "px";
+                images[k].style.top = 32*(SHEIGHT - j - 1) + "px";
+                map.appendChild(images[k]);
+            }
         }
     }
 }
 var moving = false;
 function move() {
+    var velocity = 8;
     if (keys.w || keys.a || keys.s || keys.d) {
         if (!moving) {
             document.getElementById("player").src = "images/Player/Player_Moving.gif";
@@ -44,7 +53,6 @@ function move() {
         }
         moving = false;
     }
-    var velocity = 2;
     if (keys.d) {
         document.getElementById("player").style.transform = "rotate(90deg)";
     }
@@ -57,10 +65,10 @@ function move() {
     if (keys.w) {
         document.getElementById("player").style.transform = "rotate(0deg)";
     }
-    if (keys["w"] && position.mapy < HEIGHT - SHEIGHT) {
+    if (keys["w"] && position.mapy < HEIGHT - SHEIGHT - 1) {
         document.getElementById("player").style.transform = "rotate(0deg)";
         position.pyoff += velocity;
-    } else if (keys["a"] && position.mapx < WIDTH - SWIDTH) {
+    } else if (keys["a"] && position.mapx < WIDTH - SWIDTH - 1) {
         document.getElementById("player").style.transform = "rotate(-90deg)";
         position.pxoff += velocity;
     } else if (keys["s"] && position.mapy > 0) {

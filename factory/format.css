@@ -27,6 +27,7 @@ body {
     overflow: hidden;
 }
 .map {
+    background-color: var(--error);
     position: absolute;
     top: 10px;
     left: 10px;
@@ -35,14 +36,15 @@ body {
     height: 480px; /* 16*32 */
 }
 .map img {
-    background-color: var(--error);
     position: absolute;
     width: 32px;
     height: 32px;
     outline: 1px solid var(--grid);
 }
 .map img:hover {
-    filter: brightness(85%);
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--grid);
 }
 .player img {
     position: absolute;
