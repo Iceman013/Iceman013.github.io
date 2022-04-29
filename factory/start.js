@@ -1,4 +1,5 @@
 var cells = [[]];
+var player = new User();
 var position = {
     "mapx": 1,
     "mapy": 1,
@@ -41,7 +42,9 @@ function newCells() {
 }
 var moving = false;
 function move() {
-    var velocity = 8;
+    var velocity = player.getSpeed();
+    velocity = velocity*cells[Math.floor(SWIDTH/2) + position.mapx][Math.floor(SHEIGHT/2) + position.mapy].getGround().speed;
+    velocity = Math.ceil(velocity);
     if (keys.w || keys.a || keys.s || keys.d) {
         if (!moving) {
             document.getElementById("player").src = "images/Player/Player_Moving.gif";
