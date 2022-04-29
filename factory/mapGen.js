@@ -43,11 +43,22 @@ function makeOre(grid) {
     return grid;
 }
 function makeMap(grid) {
-    console.log("Begin map gen");
-    console.log("Begin ground gen");
+    console.group("Begin map gen");
+    console.time("Map Generation");
+
+    console.group("Begin ground gen");
+    console.time("Ground Generation");
     grid = makeGround(grid);
-    console.log("Begin ore gen");
+    console.timeEnd("Ground Generation");
+    console.groupEnd();
+
+    console.group("Begin ore gen");
+    console.time("Ore Generation");
     grid = makeOre(grid);
-    console.log("Map gen complete");
+    console.timeEnd("Ore Generation");
+    console.groupEnd();
+
+    console.timeEnd("Map Generation");
+    console.groupEnd
     return grid;
 }
