@@ -52,7 +52,6 @@ function move() {
     var velocity = player.getSpeed();
     velocity = velocity*cells[getCell().x][getCell().y].getGround().speed;
     velocity = Math.ceil(velocity);
-    console.log (velocity);
     if (keys.w || keys.a || keys.s || keys.d) {
         if (!moving) {
             document.getElementById("player").src = "images/Player/Player_Moving.gif";
