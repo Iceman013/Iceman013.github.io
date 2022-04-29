@@ -6,6 +6,13 @@ var position = {
     "pxoff": 0,
     "pyoff": 0
 };
+function getCell() {
+    var out = {
+        "x": Math.floor(SWIDTH/2) + position.mapx + Math.round(position.pxoff/32),
+        "y": Math.floor(SHEIGHT/2) + position.mapy + Math.round(position.pyoff/32)
+    };
+    return out;
+}
 function startGen() {
     for (let i = 0; i < WIDTH; i++) {
         cells[i] = [];
@@ -43,8 +50,9 @@ function newCells() {
 var moving = false;
 function move() {
     var velocity = player.getSpeed();
-    velocity = velocity*cells[Math.floor(SWIDTH/2) + position.mapx][Math.floor(SHEIGHT/2) + position.mapy].getGround().speed;
+    velocity = velocity*cells[getCell().x][getCell().y].getGround().speed;
     velocity = Math.ceil(velocity);
+    console.log (velocity);
     if (keys.w || keys.a || keys.s || keys.d) {
         if (!moving) {
             document.getElementById("player").src = "images/Player/Player_Moving.gif";
