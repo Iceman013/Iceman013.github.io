@@ -1,10 +1,6 @@
 .head {
-    position: fixed;
-    top: 0vh;
-    max-height: 20vh;
     height: 20vh;
+    width: 100vw;
     overflow: hidden;
-}
-.top {
-    padding: 10px;
+    background-color: var(--head);
 }

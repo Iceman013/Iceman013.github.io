@@ -1,6 +1,6 @@
 .menu {
-    position: absolute;
-    top: 20vh;
-    left: 20vh;
-    border: 1px solid black;
+    float: left;
+    overflow-y: auto;
+    height: 80vh;
+    width: 78vw;
 }

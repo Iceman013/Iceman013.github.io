@@ -1,0 +1,7 @@
+.sidebar {
+    float: left;
+    width: 22vw;
+    height: 80vh;
+    background-color: blue;
+    overflow-y: auto;
+}
