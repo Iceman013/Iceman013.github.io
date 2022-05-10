@@ -7,13 +7,13 @@ const siteList = [
     
     new Site("Map Game", ["Games","Approved"], "https://iceman013.github.io/mapGame/", "This is a turn based building game."),
     
-    new Site("5 Letter", ["Games"], "https://iceman013.github.io/fiveLetter/", "This is a program to solve wordle in minimal guesses."),
+    new Site("5 Letter", ["Other"], "https://iceman013.github.io/fiveLetter/", "This is a program to solve wordle in minimal guesses."),
     
-    new Site("Demo", ["Unfinished"], "https://iceman013.github.io/demo/", "This is just for testing purposes."),
+    new Site("Demo", ["Unfinished","Other"], "https://iceman013.github.io/demo/", "This is just for testing purposes."),
     
     new Site("Thirty One", ["Games","Unfinished"], "https://iceman013.github.io/thirtyOne/", "This is the card game thirty one."),
     
-    new Site("Slidy", ["Unfinished"], "https://iceman013.github.io/slidy/", "This is a physics engine."),
+    new Site("Slidy", ["Unfinished","Games"], "https://iceman013.github.io/slidy/", "This is a physics engine."),
     
     new Site("Factory Game", ["Games","Unfinished"], "https://iceman013.github.io/factory/", "This is a factory game on a large map."),
     

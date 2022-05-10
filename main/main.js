@@ -111,6 +111,7 @@ function makeSidebar() {
 
         base.appendChild(document.createElement("br"));
     }
+    document.getElementById("sort_0").checked = true;
 
     base = document.getElementById("tags");
     while (base.firstChild) {
