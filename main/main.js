@@ -28,6 +28,7 @@ function makeWidget(website) {
     }
     base.appendChild(ibase);
 
+    clickSite(base, website.getAddress());
     return base;
 }
 function tagSort(sites, tags) {
@@ -46,15 +47,9 @@ function tagSort(sites, tags) {
     return output;
 }
 function sortSites(sites, sort) {
-    var smeth = sortList[0];
-    for (let i = 0; i < sortList.length; i++) {
-        if (sort == sortList[i].getName()) {
-            smeth = sortList[i];
-        }
-    }
     for (let i = 0; i < sites.length - 1; i++) {
         for (let j = i + 1; j < sites.length; j++) {
-            if (!smeth.compare(sites[i], sites[j])) {
+            if (!sort.compare(sites[i], sites[j])) {
                 var temp = sites[i];
                 sites[i] = sites[j];
                 sites[j] = temp;
@@ -70,8 +65,18 @@ function makeWidgets() {
     }
 
     var tags = [];
+    for (let i = 0; i < tagList.length; i++) {
+        if (document.getElementById("tag_" + i.toString()).checked) {
+            tags[tags.length] = tagList[i].getName();
+        }
+    }
     var acceptSites = tagSort(siteList, tags);
-    var sort = sortList[0].getName();
+    var sort = sortList[0];
+    for (let i = 0; i < sortList.length; i++) {
+        if (document.getElementById("sort_" + i.toString()).checked) {
+            sort = sortList[i];
+        }
+    }
     acceptSites = sortSites(acceptSites, sort);
 
     var children = [];
@@ -82,7 +87,54 @@ function makeWidgets() {
         base.appendChild(children[i]);
     }
 }
+function makeSidebar() {
+    var base = document.getElementById("sidebar");
+    while (base.firstChild) {
+        base.removeChild(base.firstChild);
+    }
+
+    for (let i = 0; i < sortList.length; i++) {
+        var elem = document.createElement("input");
+        elem.type = "radio";
+        elem.value = sortList[i].getName();
+        elem.name = "Sort";
+        elem.id = "sort_" + i.toString();
+        if (i == 0) {
+            elem.checked = true;
+        }
+        elem.onchange = function() {
+            makeWidgets();
+        };
+        base.appendChild(elem);
+
+        var lab = document.createElement("label");
+        lab.for = sortList[i].getName();
+        lab.innerHTML = sortList[i].getName();
+        base.appendChild(lab);
+
+        base.appendChild(document.createElement("br"));
+    }
+
+    for (let i = 0; i < tagList.length; i++) {
+        var elem = document.createElement("input");
+        elem.type = "checkbox";
+        elem.value = tagList[i].getName();
+        elem.id = "tag_" + i.toString();
+        elem.onchange = function() {
+            makeWidgets();
+        };
+        base.appendChild(elem);
+
+        var lab = document.createElement("label");
+        lab.for = tagList[i].getName();
+        lab.innerHTML = tagList[i].getName();
+        base.appendChild(lab);
+
+        base.appendChild(document.createElement("br"));
+    }
+}
 function start() {
+    makeSidebar();
     makeWidgets();
     disableDrag();
 }
