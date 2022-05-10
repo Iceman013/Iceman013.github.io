@@ -95,17 +95,13 @@ var answers = [
         'Science smelling. Gently move the air. The safe way to smell the contents of your test tube.',
         'British bucks, Europe Country Coins, UK USD. EU currency. Its like a currency in Europe or something.',
         'Time periods. Vast stretches of time. An period of time that isnt actually based on time.',
-        'As you struggle with this clue, seconds turn into minutes, minutes into hours, and hours into ____. Happy ____ (American Sitcom). Ive lost track of these over Spring Break.']),
+        'As you struggle with this clue, seconds turn into minutes, minutes into hours, and hours into ____. Happy ____ (American Sitcom). Ive lost track of these over Spring Break.'])
+    /*
     new Solution([
         ['','','',''],
         ['','','',''],
         ['','','',''],
         ['','','','']],
         ['','','','','','','','']),
-    new Solution([
-        ['','','',''],
-        ['','','',''],
-        ['','','',''],
-        ['','','','']],
-        ['','','','','','','',''])
+    */
 ];

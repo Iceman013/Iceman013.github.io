@@ -5,7 +5,6 @@ const answers = [
     new Answer("Pickles", "4.19"),
     new Answer("Pretzel", "3.59"),
     new Answer("Ramen", "2.99"),
-    new Answer("Dunkaccino","2.09"),
     new Answer("Bread", "1.19"),
     new Answer("Bike", "109.00"),
     new Answer("Waffles", "2.99"),
@@ -27,14 +26,9 @@ const answers = [
     new Answer("Mattress","507.39"),
     new Answer("Charger","19.99"),
     new Answer("Earmuffs","10.00"),
-    new Answer("Watermelon","4.49"),
-
     new Answer("Bleach", "4.69"),
-    new Answer("Silverware", "15.00"),
     new Answer("Avocado", "0.95"),
     new Answer("Lingerie", "20.00"),
     new Answer("Stroller", "24.99"),
-    new Answer("Dictionary", "16.19"),
-    new Answer("Undershirt", "2.75"),
     new Answer("Lobotomy", "727.69")
 ];
