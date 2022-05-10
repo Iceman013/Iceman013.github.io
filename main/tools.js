@@ -1,9 +1,11 @@
-function changeSite(address) {
-    window.location.href = address;
-}
 function clickSite(base, address) {
-    base.addEventListener("click", function() {
-        changeSite(address);
+    base.addEventListener("mouseup", function(e) {
+        if (e.which == 1) {
+            window.open(address);
+        } else if (e.which == 2) {
+            e.preventDefault();
+            window.open(address, '_blank');
+        }
     });
 }
 function disableDrag() {

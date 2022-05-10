@@ -1,7 +1,28 @@
+:root {
+    --side: #c3e4e8;
+    --lab: #aadfe6;
+    --lshadow: #a3c3c7;
+}
 .sidebar {
     float: left;
     width: 22vw;
     height: 80vh;
-    background-color: blue;
+    background-color: var(--side);
     overflow-y: auto;
+    padding-top: 5px;
+}
+.sidebar label {
+    margin-left: 5px;
+    padding-right: 10px;
+    line-height: 3;
+    border: 10px solid var(--lab);
+    border-radius: 30px;
+    background-color: var(--lab);
+    box-shadow: 0px 0px 2px var(--lshadow);
+}
+.sidebar label:hover {
+    filter: brightness(95%);
+}
+.sidebar h2 {
+    margin-left: 5px;
 }

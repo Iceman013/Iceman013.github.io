@@ -88,7 +88,7 @@ function makeWidgets() {
     }
 }
 function makeSidebar() {
-    var base = document.getElementById("sidebar");
+    var base = document.getElementById("sorts");
     while (base.firstChild) {
         base.removeChild(base.firstChild);
     }
@@ -99,35 +99,36 @@ function makeSidebar() {
         elem.value = sortList[i].getName();
         elem.name = "Sort";
         elem.id = "sort_" + i.toString();
-        if (i == 0) {
-            elem.checked = true;
-        }
-        elem.onchange = function() {
-            makeWidgets();
-        };
-        base.appendChild(elem);
 
         var lab = document.createElement("label");
+        lab.appendChild(elem);
         lab.for = sortList[i].getName();
-        lab.innerHTML = sortList[i].getName();
+        lab.innerHTML += sortList[i].getName();
+        lab.onchange = function() {
+            makeWidgets();
+        };
         base.appendChild(lab);
 
         base.appendChild(document.createElement("br"));
     }
 
+    base = document.getElementById("tags");
+    while (base.firstChild) {
+        base.removeChild(base.firstChild);
+    }
     for (let i = 0; i < tagList.length; i++) {
         var elem = document.createElement("input");
         elem.type = "checkbox";
         elem.value = tagList[i].getName();
         elem.id = "tag_" + i.toString();
-        elem.onchange = function() {
-            makeWidgets();
-        };
-        base.appendChild(elem);
 
         var lab = document.createElement("label");
+        lab.appendChild(elem);
         lab.for = tagList[i].getName();
-        lab.innerHTML = tagList[i].getName();
+        lab.innerHTML += tagList[i].getName();
+        lab.onchange = function() {
+            makeWidgets();
+        };
         base.appendChild(lab);
 
         base.appendChild(document.createElement("br"));
