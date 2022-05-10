@@ -1,0 +1,35 @@
+.widget {
+    margin: 20px;
+    float: left;
+    width: 200px;
+    height: 250px;
+    background-color: var(--back);
+    filter: brightness(99%);
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px gray;
+    transition: 0.02s;
+    padding: 12px;
+    overflow: hidden;
+}
+.widget:hover {
+    filter: brightness(95%);
+}
+.widget .name {
+    height: 25%;
+    font-size: 25px;
+    color: red;
+}
+.widget .description {
+    height: 62.5%;
+    overflow: hidden;
+}
+.widget .icons {
+    height: 12.5%;
+}
+.widget .icons img {
+    width: 16px;
+    height: 16px;
+    background-color: gray;
+    padding: 6px;
+    border-radius: 100px;
+}

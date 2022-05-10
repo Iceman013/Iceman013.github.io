@@ -1,7 +1,7 @@
 :root {
     --black: rgb(0,0,0);
     --white: rgb(255,255,255);
-    --back: #C5EFFC;
+    --back: #d9fbff;
     --box-1: #1481BA;
     --box-2: #11B5E4;
     --text-1: #001021;
@@ -16,5 +16,4 @@ body {
     background-color: var(--back);
     color: var(--black);
     margin: 0px;
-    overflow: hidden;
 }
