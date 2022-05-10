@@ -1,11 +1,11 @@
 const siteList = [
-    new Site("Retaildle", ["Games"], "https://iceman013.github.io/retaildle/", "This is a wordle style game with a twist."),
+    new Site("Retaildle", ["Games","Approved"], "https://iceman013.github.io/retaildle/", "This is a wordle style game with a twist."),
 
-    new Site("Retail Mini", ["Games"], "https://iceman013.github.io/retailMini/", "This is a small timed daily crossword puzzle game."),
+    new Site("Retail Mini", ["Games","Approved"], "https://iceman013.github.io/retailMini/", "This is a small timed daily crossword puzzle game."),
 
     new Site("Paint Bot", ["Games"], "https://iceman013.github.io/paintBot/", "This is a simple idle game."),
     
-    new Site("Map Game", ["Games"], "https://iceman013.github.io/mapGame/", "This is a turn based building game."),
+    new Site("Map Game", ["Games","Approved"], "https://iceman013.github.io/mapGame/", "This is a turn based building game."),
     
     new Site("5 Letter", ["Games"], "https://iceman013.github.io/fiveLetter/", "This is a program to solve wordle in minimal guesses."),
     
@@ -21,5 +21,5 @@ const siteList = [
     
     new Site("Monkeytoes999 Github", ["Links"], "https://github.com/Monkeytoes999/monkeytoes999.github.io", "This is a github page of a co-worker."),
     
-    new Site("Syrup", ["Other"], "https://monkeytoes999.github.io/", "This is a startup page."),
+    new Site("Syrup", ["Other","Approved"], "https://monkeytoes999.github.io/", "This is a startup page."),
 ];
