@@ -111,7 +111,6 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    border: 1px solid var(--back);
     width: 736px; /* 24*32 */
     height: 480px; /* 16*32 */
 }

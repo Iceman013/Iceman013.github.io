@@ -2,7 +2,7 @@ var localId = 0;
 function Cell() {
     this.id = localId;
     localId++;
-    this.ground = resources.ground[0];
+    this.ground = resources.ground[1];
     this.ore = resources.ore[0];
     this.getId = function() {
         return this.id.toString();

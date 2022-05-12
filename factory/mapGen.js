@@ -3,18 +3,27 @@ function makeGround(grid) {
         for (let i = 1; i < grid.length - 1; i++) {
             for (let j = 1; j < grid[i].length - 1; j++) {
                 for (let k = 0; k < resources.ground.length; k++) {
-                    var nearby = 0;
-                    for (let x = -1; x <= 1; x++) {
-                        for (let y = -1; y <= 1; y++) {
-                            if (grid[i + x][j + y].getGround().id == resources.ground[k].id) {
-                                nearby++;
+                    if (resources.ground[k].id >= 0) {
+                        var nearby = 0;
+                        for (let x = -1; x <= 1; x++) {
+                            for (let y = -1; y <= 1; y++) {
+                                if (grid[i + x][j + y].getGround().id == resources.ground[k].id) {
+                                    nearby++;
+                                }
                             }
                         }
-                    }
-                    if (Math.random() < resources.ground[k].cluster*(nearby/9) + resources.ground[k].frequency) {
-                        grid[i][j].setGround(resources.ground[k]);    
+                        if (Math.random() < resources.ground[k].cluster*(nearby/9) + resources.ground[k].frequency) {
+                            grid[i][j].setGround(resources.ground[k]);    
+                        }
                     }
                 }
+            }
+        }
+    }
+    for (let x = 0; x < grid.length - 1; x++) {
+        for (let y = 0; y < grid[x].length - 1; y++) {
+            if (x <= Math.floor(SWIDTH/2) || y <= Math.floor(SHEIGHT/2) || x >= WIDTH - Math.ceil(SWIDTH/2) || y >= HEIGHT - Math.ceil(SHEIGHT/2)) {
+                grid[x][y].setGround(resources.ground[0]);
             }
         }
     }

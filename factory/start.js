@@ -1,8 +1,8 @@
 var cells = [[]];
 var player = new User();
 var position = {
-    "mapx": 1,
-    "mapy": 1,
+    "mapx": Math.floor(WIDTH/2),
+    "mapy": Math.floor(HEIGHT/2),
     "pxoff": 0,
     "pyoff": 0
 };
@@ -33,7 +33,7 @@ function newCells() {
     for (let i = 0; i <= SWIDTH; i++) {
         for (let j = 0; j <= SHEIGHT; j++) {
             var images = [];
-            var cell = cells[position.mapx + i + Math.floor(SWIDTH/2)][position.mapy + j + Math.floor(SHEIGHT/2)];
+            var cell = cells[position.mapx + i][position.mapy + j];
             images[0] = document.createElement("img");
             images[0].src = cell.getGround().img;
 
@@ -51,7 +51,7 @@ function newCells() {
 var moving = false;
 function move() {
     var velocity = player.getSpeed();
-    console.log(getCell().x + "," + getCell().y);
+    // console.log(getCell().x + "," + getCell().y);
     velocity = velocity*cells[getCell().x][getCell().y].getGround().speed;
     velocity = Math.ceil(velocity);
     if (keys.w || keys.a || keys.s || keys.d) {

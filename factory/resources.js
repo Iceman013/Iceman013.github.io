@@ -1,9 +1,10 @@
 var resources = {
     "ground": [
+        new Ground(-1, "OutOfBounds", 0, 0, 8, "images/ground/OutOfBounds.png"),
         new Ground(0, "Ground", 0, 0, 1, "images/ground/DefaultGround.png"),
         new Ground(1, "Sand", 0.0001, 1.5, 0.5, "images/ground/Sand.png"),
         new Ground(2, "Gravel", 0.0001, 1.3, 0.5, "images/ground/Gravel.png"),
-        new Ground(3, "Foundation", 0.0001, 1.3, 2, "images/ground/Foundation.png")
+        new Ground(3, "Foundation", 0, 0, 2, "images/ground/Foundation.png")
     ],
     "ore": [
         new Ore(0, "None", 0, 0, "images/Blank.png"),
