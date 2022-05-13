@@ -113,12 +113,22 @@ function showSome(unleft, position, set) {
         base.appendChild(row);
     }
 }
-
 function start() {
     points[1]++;
     var set = gen(4);
-    var unleft = Math.floor(set.length*Math.random());
-    var position = getPost(set);
+    var mage = true;
+    var unleft;
+    var position;
+    while (mage) {
+        mage = false;
+        unleft = Math.floor(set.length*Math.random());
+        position = getPost(set);
+        for (let i = 0; i < set.length; i++) {
+            if (set[i].getData(position) == set[unleft].getData(position) && i != unleft) {
+                mage = true;
+            }
+        }
+    }
     showSome(unleft, position, set);
 }
 nextQuestion = function() {
