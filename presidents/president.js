@@ -18,4 +18,18 @@ function President(number, name, vice, years) {
                 return "BREAK";
         }
     }
+    this.getName = function(point) {
+        switch(point) {
+            case 0:
+                return "Number";
+            case 1:
+                return "Name";
+            case 2:
+                return "Vice President";
+            case 3:
+                return "Time";
+            case 4:
+                return "BREAK";
+        }
+    }
 }

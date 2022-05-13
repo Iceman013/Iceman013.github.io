@@ -24,6 +24,12 @@ td, th {
 tr:hover {
     filter: brightness(90%);
 }
-tr .quiz {
-    background-color: white;
+th {
+    background-color: #0088ee;
+}
+.wrong {
+    color: #ff0000;
+}
+.right {
+    color: #009900;
 }
