@@ -23,5 +23,5 @@ const siteList = [
     
     new Site("Syrup", ["Other","Approved"], "https://monkeytoes999.github.io/", "This is a startup page."),
 
-    new Site("President Game", ["Games","Unfinished"], "https://iceman013.github.io/presidents/", "This is a president game to make me not bullied for not knowing presidents."),
+    new Site("President Game", ["Games","Approved"], "https://iceman013.github.io/presidents/", "This is a president game to make me not bullied for not knowing presidents."),
 ];
