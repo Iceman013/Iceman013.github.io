@@ -6,14 +6,22 @@
     -ms-user-select: none;
     border-collapse: collapse;
 }
+:root {
+    --header: #0088ee;
+    --odd: #00ddff;
+    --even: #00eeff;
+    --right: #009900;
+    --wrong: #ff0000;
+    --border: #aaffff;
+}
 table {
-    border: 1px solid #aaffff;
+    border: 1px solid var(--border);
 }
 tr:nth-child(even){
-    background-color: #00eeff;
+    background-color: var(--even);
 }
 tr:nth-child(odd){
-    background-color: #00ddff;
+    background-color: var(--odd);
 }
 td, th {
     padding-left: 6px;
@@ -21,15 +29,15 @@ td, th {
     padding-top: 12px;
     padding-bottom: 12px;
 }
-tr:hover {
+tr:hover, button:hover {
     filter: brightness(90%);
 }
 th {
-    background-color: #0088ee;
+    background-color: var(--header);
 }
 .wrong {
-    color: #ff0000;
+    color: var(--wrong);
 }
 .right {
-    color: #009900;
+    color: var(--right);
 }

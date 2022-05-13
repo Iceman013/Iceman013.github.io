@@ -1,3 +1,5 @@
+var points = [0,0];
+function nextQuestion() {}
 function gen(size) {
     var diff = true;
     var set = [];
@@ -14,7 +16,12 @@ function gen(size) {
     }
     return set;
 }
+function showScore() {
+    document.getElementById("cor").innerHTML = points[0];
+    document.getElementById("tot").innerHTML = points[1];
+}
 function makeHead(unleft, position, set) {
+    showScore();
     var base = document.getElementById("set");
     while (base.firstChild) {
         base.removeChild(base.firstChild);
@@ -54,8 +61,14 @@ function getPost(set) {
 function showAll(unleft, position, set, chocho) {
     var base = document.getElementById("set");
     makeHead(unleft, position, set);
+    if (chocho == unleft) {
+        points[0]++;
+    }
     for (let i = 0; i < set.length; i++) {
         var row = document.createElement("tr");
+        row.onclick = function() {
+            nextQuestion();
+        }
         let j = 0;
         while (set[i].getData(j) != "BREAK") {
             var elem = document.createElement("td");
@@ -71,6 +84,7 @@ function showAll(unleft, position, set, chocho) {
         }
         base.appendChild(row);
     }
+    showScore();
 }
 function showSome(unleft, position, set) {
     var base = document.getElementById("set");
@@ -101,9 +115,17 @@ function showSome(unleft, position, set) {
 }
 
 function start() {
+    points[1]++;
     var set = gen(4);
     var unleft = Math.floor(set.length*Math.random());
     var position = getPost(set);
     showSome(unleft, position, set);
+}
+nextQuestion = function() {
+    start();
+}
+reset = function() {
+    points = [0,0];
+    start();
 }
 start();
