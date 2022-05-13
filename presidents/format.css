@@ -1,0 +1,29 @@
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    border-collapse: collapse;
+}
+table {
+    border: 1px solid #aaffff;
+}
+tr:nth-child(even){
+    background-color: #00eeff;
+}
+tr:nth-child(odd){
+    background-color: #00ddff;
+}
+td, th {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+tr:hover {
+    filter: brightness(90%);
+}
+tr .quiz {
+    background-color: white;
+}

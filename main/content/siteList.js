@@ -22,4 +22,6 @@ const siteList = [
     new Site("Monkeytoes999 Github", ["Links"], "https://github.com/Monkeytoes999/monkeytoes999.github.io", "This is a github page of a co-worker."),
     
     new Site("Syrup", ["Other","Approved"], "https://monkeytoes999.github.io/", "This is a startup page."),
+
+    new Site("President Game", ["Games","Unfinished"], "https://iceman013.github.io/presidents/", "This is a president game to make me not bullied for not knowing presidents."),
 ];
