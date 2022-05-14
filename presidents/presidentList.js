@@ -32,7 +32,7 @@ const PLIST = [
     new President(26, "Theodore Roosevelt", "None", "Sept. 14, 1901-Mar. 3, 1905"),
     new President(26, "Theodore Roosevelt", "Charles W. Fairbanks", "Mar. 4, 1905-Mar. 3, 1909"),
     new President(27, "William H. Taft", "James S. Sherman", "Mar. 4, 1909-Mar. 3, 1913"),
-    new President(28, "Woodreow Wilson", "Thomas R. Marshall", "Mar. 4, 1913-Mar. 3, 1921"),
+    new President(28, "Woodrow Wilson", "Thomas R. Marshall", "Mar. 4, 1913-Mar. 3, 1921"),
     new President(29, "Warren G. Harding", "Calvin Coolidge", "Mar. 4, 1921-Aug. 2, 1923"),
     new President(30, "Calvin Coolidge", "None", "Aug. 3, 1923-Mar. 3, 1925"),
     new President(30, "Calvin Coolidge", "Charles G. Dawes", "Mar. 4, 1925-Mar. 3, 1929"),
