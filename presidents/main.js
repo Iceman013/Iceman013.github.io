@@ -38,10 +38,10 @@ function makeHead(unleft, position, set) {
 
     var clue = document.createElement("tr");
     iter = 0;
-    while (set[unleft[0]].getData(iter) != "BREAK") {
+    while (set[unleft].getData(iter) != "BREAK") {
         var elem = document.createElement("th");
-        if (iter == position[0]) {
-            elem.innerHTML = set[unleft[0]].getData(iter);
+        if (position.includes(iter)) {
+            elem.innerHTML = set[unleft].getData(iter);
         } else {
             elem.innerHTML = "???";
         }
@@ -61,7 +61,7 @@ function getPost(set) {
 function showAll(unleft, position, set, chocho) {
     var base = document.getElementById("set");
     makeHead(unleft, position, set);
-    if (chocho == unleft[0]) {
+    if (chocho == unleft) {
         points[0]++;
     }
     for (let i = 0; i < set.length; i++) {
@@ -72,10 +72,10 @@ function showAll(unleft, position, set, chocho) {
         let j = 0;
         while (set[i].getData(j) != "BREAK") {
             var elem = document.createElement("td");
-            if (i == chocho && i != unleft[0]) {
+            if (i == chocho && i != unleft) {
                 elem.classList.add("wrong");
             }
-            if (i == unleft[0]) {
+            if (i == unleft) {
                 elem.classList.add("right");
             }
             elem.innerHTML = set[i].getData(j).toString();
@@ -102,7 +102,7 @@ function showSome(unleft, position, set) {
         let j = 0;
         while (set[i].getData(j) != "BREAK") {
             var elem = document.createElement("td");
-            if (j == position[0]) {
+            if (position.includes(j)) {
                 elem.innerHTML = "???";
             } else {
                 elem.innerHTML = set[i].getData(j).toString();
@@ -117,15 +117,17 @@ function start() {
     points[1]++;
     var set = gen(4);
     var mage = true;
-    var unleft = [];
+    var unleft;
     var position = [];
     while (mage) {
         mage = false;
-        unleft[0] = Math.floor(set.length*Math.random());
-        position[0] = getPost(set);
+        unleft = Math.floor(set.length*Math.random());
+        position = [getPost(set)];
         for (let i = 0; i < set.length; i++) {
-            if (set[i].getData(position) == set[unleft[0]].getData(position[0]) && i != unleft[0]) {
-                mage = true;
+            if (i != unleft) {
+                if (set[i].getData(position[0]) == set[unleft].getData(position[0])) {
+                    mage = true;
+                }
             }
         }
     }
