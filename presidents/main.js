@@ -1,3 +1,6 @@
+const CHOICE = 4;
+const CLUEZ = 2;
+
 var points = [0,0];
 function nextQuestion() {}
 function gen(size) {
@@ -115,18 +118,26 @@ function showSome(unleft, position, set) {
 }
 function start() {
     points[1]++;
-    var set = gen(4);
+    var set = gen(CHOICE);
     var mage = true;
     var unleft;
     var position = [];
     while (mage) {
         mage = false;
         unleft = Math.floor(set.length*Math.random());
-        position = [getPost(set)];
+        position = [];
+        while (position.length < CLUEZ) {
+            var temp = getPost(set);
+            if (!position.includes(temp)) {
+                position[position.length] = temp;
+            }
+        }
         for (let i = 0; i < set.length; i++) {
             if (i != unleft) {
-                if (set[i].getData(position[0]) == set[unleft].getData(position[0])) {
-                    mage = true;
+                for (let j = 0; j < position.length; j++) {
+                    if (set[i].getData(position[j]) == set[unleft].getData(position[j])) {
+                        mage = true;
+                    }
                 }
             }
         }
