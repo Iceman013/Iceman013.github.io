@@ -1,7 +1,7 @@
 function clickSite(base, address) {
     base.addEventListener("mouseup", function(e) {
         if (e.which == 1) {
-            window.open(address);
+            window.location.href = address;
         } else if (e.which == 2) {
             e.preventDefault();
             window.open(address, '_blank');
