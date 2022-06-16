@@ -1,6 +1,7 @@
 function makeWidget(website) {
-    var base = document.createElement("div");
+    var base = document.createElement("a");
     base.classList.add("widget");
+    base.href = website.getAddress();
 
     var name = document.createElement("div");
     name.classList.add("name");
@@ -27,8 +28,6 @@ function makeWidget(website) {
         ibase.appendChild(ico);
     }
     base.appendChild(ibase);
-
-    clickSite(base, website.getAddress());
     return base;
 }
 function tagSort(sites, tags) {
