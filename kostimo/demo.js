@@ -1,4 +1,4 @@
 function doThis() {
-    document.getElementById("myAudio").play();
+    document.getElementById("ad0").play();
     document.getElementById("yourAudio").play();
 }
