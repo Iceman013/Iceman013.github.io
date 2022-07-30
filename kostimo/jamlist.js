@@ -24,5 +24,6 @@ const jamList = [
     new Jam("Pfth", "pfth.mp3", 1, "audio/mpeg"),
     new Jam("Ptt", "ptt.mp3", 1, "audio/mpeg"),
     new Jam("Slurp", "slurp.mp3", 1, "audio/mpeg"),
-    new Jam("Thump", "thump.mp3", 1, "audio/mpeg")
+    new Jam("Thump", "thump.mp3", 1, "audio/mpeg"),
+    new Jam("Wet Stomp", "stompWet.wav", 1, "audio/wav")
 ];
