@@ -17,8 +17,9 @@ function makeButtons() {
         clack.onclick = function() {
             document.getElementById("ad" + i).play();
         };
-        clack.innerHTML = "This";
+        clack.innerHTML = jamList[i].name;
         document.getElementById("trys").appendChild(clack);
+        document.getElementById("trys").appendChild(document.createElement("br"));
     }
 }
 makeAudios();
