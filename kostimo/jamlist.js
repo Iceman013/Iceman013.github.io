@@ -13,5 +13,16 @@ const jamList = [
     new Jam("Aww Yeah", "yeah.mp3", 1, "audio/mpeg"),
     new Jam("Harry Potter", "harryPotter.mp3", 1, "audio/mpeg"),
     new Jam("Roblox Oof", "roblox.mp3", 1, "audio/mpeg"),
-    new Jam("Bomb Alert", "bombAlert.wav", 0.2, "audio/wav")
+    new Jam("Bomb Alert", "bombAlert.wav", 0.2, "audio/wav"),
+    new Jam("Breathing", "breathing.mp3", 1, "audio/mpeg"),
+    new Jam("Click", "click.mp3", 1, "audio/mpeg"),
+    new Jam("Clt", "clt.mp3", 1, "audio/mpeg"),
+    new Jam("Cough", "cough.mp3", 1, "audio/mpeg"),
+    new Jam("Dnk", "dnk.mp3", 1, "audio/mpeg"),
+    new Jam("Eh?", "eh.mp3", 1, "audio/mpeg"),
+    new Jam("Mmm", "mmm.mp3", 1, "audio/mpeg"),
+    new Jam("Pfth", "pfth.mp3", 1, "audio/mpeg"),
+    new Jam("Ptt", "ptt.mp3", 1, "audio/mpeg"),
+    new Jam("Slurp", "slurp.mp3", 1, "audio/mpeg"),
+    new Jam("Thump", "thump.mp3", 1, "audio/mpeg")
 ];
