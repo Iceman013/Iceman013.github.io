@@ -5,7 +5,9 @@ function makeAudios() {
         
         var jim = document.createElement("source");
         jim.src = "sounds/" + jamList[i].file;
-        jim.type = "audio/mpeg";
+        jim.type = jamList[i].type;
+        base.loop = true;
+        base.volume = jamList[i].volume;
 
         base.appendChild(jim);
         document.getElementById("musics").appendChild(base);
