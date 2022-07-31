@@ -55,7 +55,6 @@ function makeLine(tc) {
     document.getElementById("musics").appendChild(base);
 }
 
-var lines = 3;
-for (let i = 0; i < lines; i++) {
+for (let i = 0; i < tracks; i++) {
     makeLine(i);
 }
