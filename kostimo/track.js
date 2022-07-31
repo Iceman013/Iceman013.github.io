@@ -15,8 +15,9 @@ function makeLine() {
     }
     but.onchange = function() {
         var tb = document.createElement("audio");
-        tb.loop = true;
-        tb.playbackRate = 5;
+        tb.id = "ts1"
+        //tb.loop = true;
+        //tb.playbackRate = 5;
 
         var jim = document.createElement("source");
         if (but.value == -1) {
@@ -33,7 +34,7 @@ function makeLine() {
             aud.removeChild(aud.firstChild);
         }
         aud.appendChild(tb);
-        tb.play();
+        //tb.play();
     }
 
     base.appendChild(aud);
