@@ -12,10 +12,10 @@ function mainloop() {
     for (i=0; i<loopDur*4; i++){
         setTimeout(() => {
             eid = "ts" + (j+1);
-            j++;
             for (k=0; k<tracks; k++){
                 if (document.getElementById("che(" + k + "," +  j + ")").checked) document.getElementById("aud(" + k + "," +  j + ")").play();
             }
+            j++;
         }, i*250);
     }
     setTimeout(() => {
