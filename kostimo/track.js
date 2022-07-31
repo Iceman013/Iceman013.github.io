@@ -3,6 +3,10 @@ function makeLine() {
     var aud = document.createElement("div");
 
     var but = document.createElement("select");
+    var to = document.createElement("option");
+    to.value = -1;
+    to.innerHTML = "None";
+    but.appendChild(to);
     for (let i = 0; i < jamList.length; i++) {
         var opt = document.createElement("option");
         opt.value = i;
@@ -12,7 +16,7 @@ function makeLine() {
     but.onchange = function() {
         var tb = document.createElement("audio");
         tb.loop = true;
-        tb.playbackRate = 0.25;
+        tb.playbackRate = 5;
 
         var jim = document.createElement("source");
         jim.src = "sounds/" + jamList[but.value].file;
