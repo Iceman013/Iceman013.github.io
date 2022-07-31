@@ -31,6 +31,7 @@ function makeLine(tc) {
 
     var but = document.createElement("select");
     var to = document.createElement("option");
+    but.id = "but"+tc;
     to.value = -1;
     to.innerHTML = "None";
     but.appendChild(to);
@@ -47,6 +48,14 @@ function makeLine(tc) {
         }
         for (let i = 0; i < 4*loopDur; i++) {
             aud.appendChild(makeSlot(tc, i, e.target.value));
+        }
+    }
+    but.imp = function(tc, v){
+        while (aud.firstChild) {
+            aud.removeChild(aud.firstChild);
+        }
+        for (let i = 0; i < 4*loopDur; i++) {
+            aud.appendChild(makeSlot(tc, i, v));
         }
     }
     
