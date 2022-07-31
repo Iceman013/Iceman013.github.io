@@ -1,5 +1,4 @@
 var playing = false;
-var loopDur = 4;
 
 function stateChange(){
     playing = !playing;

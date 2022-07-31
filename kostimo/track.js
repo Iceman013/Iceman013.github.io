@@ -1,5 +1,28 @@
+function makeSlot(jammerid) {
+    var base = document.createElement("div");
+    var audio = document.createElement("audio");
+    var check = document.createElement("input");
+    check.type = "checkbox";
+    base.appendChild(audio);
+    base.appendChild(check);
+    base.classList.add("slot");
+
+    if (jammerid != -1) {
+        var jim = document.createElement("source")
+        jim.src = "sounds/" + jamList[jammerid].file;
+        jim.type = jamList[jammerid].type;
+        jim.volume = 0;
+        audio.appendChild(jim);
+
+        check.onchange = function() {
+            jim.volume = 1 - jim.volume;
+        };
+    }
+    return base;
+}
 function makeLine() {
     var base = document.createElement("div");
+    base.classList.add("line");
     var aud = document.createElement("div");
 
     var but = document.createElement("select");
@@ -14,27 +37,12 @@ function makeLine() {
         but.appendChild(opt);
     }
     but.onchange = function() {
-        var tb = document.createElement("audio");
-        tb.id = "ts1"
-        //tb.loop = true;
-        //tb.playbackRate = 5;
-
-        var jim = document.createElement("source");
-        if (but.value == -1) {
-            jim.src = "sounds/" + jamList[0].file;
-            jim.type = jamList[0].type;
-            tb.volume = 0;
-        } else {
-            jim.src = "sounds/" + jamList[but.value].file;
-            jim.type = jamList[but.value].type;
-            tb.volume = jamList[but.value].volume;
-        }
-        tb.appendChild(jim);
         while (aud.firstChild) {
             aud.removeChild(aud.firstChild);
         }
-        aud.appendChild(tb);
-        //tb.play();
+        for (let i = 0; i < 4*loopDur; i++) {
+            aud.appendChild(makeSlot(to.value));
+        }
     }
 
     base.appendChild(aud);
