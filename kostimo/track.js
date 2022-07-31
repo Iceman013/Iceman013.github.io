@@ -19,9 +19,15 @@ function makeLine() {
         tb.playbackRate = 5;
 
         var jim = document.createElement("source");
-        jim.src = "sounds/" + jamList[but.value].file;
-        jim.type = jamList[but.value].type;
-        tb.volume = jamList[but.value].volume;
+        if (but.value == -1) {
+            jim.src = "sounds/" + jamList[0].file;
+            jim.type = jamList[0].type;
+            tb.volume = 0;
+        } else {
+            jim.src = "sounds/" + jamList[but.value].file;
+            jim.type = jamList[but.value].type;
+            tb.volume = jamList[but.value].volume;
+        }
         tb.appendChild(jim);
         while (aud.firstChild) {
             aud.removeChild(aud.firstChild);
