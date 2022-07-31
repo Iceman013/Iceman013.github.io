@@ -12,6 +12,7 @@ function makeLine() {
     but.onchange = function() {
         var tb = document.createElement("audio");
         tb.loop = true;
+        tb.playbackRate = 0.25;
 
         var jim = document.createElement("source");
         jim.src = "sounds/" + jamList[but.value].file;
