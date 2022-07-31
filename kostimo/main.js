@@ -24,5 +24,3 @@ function makeButtons() {
         document.getElementById("trys").appendChild(document.createElement("br"));
     }
 }
-makeAudios();
-makeButtons();
