@@ -1,4 +1,5 @@
 var playing = false;
+var loopDur = 4;
 
 function stateChange(){
     playing = !playing;
@@ -7,10 +8,9 @@ function stateChange(){
     }
 }
 
-
 function mainloop() {
     j=0;
-    for (i=0; i<16; i++){
+    for (i=0; i<loopDur*4; i++){
         setTimeout(() => {
             eid = "ts" + (j+1);
             j++;
@@ -19,5 +19,5 @@ function mainloop() {
     }
     setTimeout(() => {
         if (playing) mainloop();
-    }, 4000);
+    }, loopDur*1000);
 }
