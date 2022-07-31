@@ -11,6 +11,7 @@ function makeLine() {
     }
     but.onchange = function() {
         var tb = document.createElement("audio");
+        tb.loop = true;
 
         var jim = document.createElement("source");
         jim.src = "sounds/" + jamList[but.value].file;
@@ -28,4 +29,8 @@ function makeLine() {
     base.appendChild(but);
     document.getElementById("musics").appendChild(base);
 }
-makeLine();
+
+var lis = 5;
+for (let i = 0; i < lis; i++) {
+    makeLine();
+}
