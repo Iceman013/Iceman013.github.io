@@ -9,7 +9,7 @@ function stateChange(){
 
 function mainloop() {
     j=-1;
-    for (i=0; i<loopDur*4; i++){
+    for (i=0; i<loopDur*frequency; i++){
         setTimeout(() => {
             eid = "ts" + (j+1);
             j++;

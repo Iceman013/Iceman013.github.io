@@ -46,7 +46,7 @@ function makeLine(tc) {
         while (aud.firstChild) {
             aud.removeChild(aud.firstChild);
         }
-        for (let i = 0; i < 4*loopDur; i++) {
+        for (let i = 0; i < frequency*loopDur; i++) {
             aud.appendChild(makeSlot(tc, i, e.target.value));
         }
     }
