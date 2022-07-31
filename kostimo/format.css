@@ -2,16 +2,47 @@
     box-sizing: border-box;
 }
 .slot {
-    background-color: black;
-    border: 1px solid rgb(128,128,128);
-    width: 50px;
-    height: 50px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     float: left;
+    border-radius: 0px;
+    margin: 0;
 }
 .slot input {
-    width: 40px;
-    height: 40px;
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    margin: 0;
 }
+.checkmark {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-right: 1px solid red;
+}
+.slot:hover input ~ .checkmark {
+    filter: brightness(85%);
+}
+  
+.slot input:checked ~ .checkmark {
+    background-color: red;
+}
+.frequent {
+    border-right: 1px solid orange;
+}  
+
+
 .line {
     height: 70px;
 }
@@ -19,4 +50,12 @@
     content: none;
     clear: both;
     display: table;
+}
+.line select {
+    float: left;
+    width: 200px;
+    height: 30px;
+}
+.line option {
+    height: 100px;
 }

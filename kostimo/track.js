@@ -1,15 +1,25 @@
 function makeSlot(tc, slotter, jammerid) {
     var base = document.createElement("div");
     var audio = document.createElement("audio");
+
+    var clifford = document.createElement("div");
     var check = document.createElement("input");
     check.type = "checkbox";
     check.id = "che(" + tc + "," + slotter + ")";
+    var casper = document.createElement("span");
+    casper.classList.add("checkmark");
+    if (slotter%frequency == frequency - 1) {
+        casper.classList.add("frequent");
+    }
+    clifford.appendChild(check);
+    clifford.appendChild(casper);
+    clifford.classList.add("slot");
 
     base.appendChild(audio);
     audio.id = "aud(" + tc + "," + slotter + ")";
 
-    base.appendChild(check);
-    base.classList.add("slot");
+    base.appendChild(clifford);
+    base.classList.add("container");
 
     if (jammerid != -1) {
         var jim = document.createElement("source")
