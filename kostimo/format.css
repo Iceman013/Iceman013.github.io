@@ -1,5 +1,5 @@
-.line {
-    width: 100%;
+* {
+    box-sizing: border-box;
 }
 .slot {
     background-color: black;
@@ -11,4 +11,12 @@
 .slot input {
     width: 40px;
     height: 40px;
+}
+.line {
+    height: 70px;
+}
+.line::after {
+    content: none;
+    clear: both;
+    display: table;
 }
