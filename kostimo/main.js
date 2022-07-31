@@ -13,7 +13,9 @@ function mainloop() {
         setTimeout(() => {
             eid = "ts" + (j+1);
             j++;
-            document.getElementById(eid).play();
+            for (k=0; k<tracks; k++){
+                if (document.getElementById("che(" + k + "," +  j + ")").checked) document.getElementById("aud(" + k + "," +  j + ")").play();
+            }
         }, i*250);
     }
     setTimeout(() => {

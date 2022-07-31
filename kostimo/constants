@@ -1,1 +1,2 @@
 const loopDur = 4;
+const tracks = 3;
