@@ -40,12 +40,13 @@ function makeLine(tc) {
         opt.innerHTML = jamList[i].name;
         but.appendChild(opt);
     }
-    but.onchange = function() {
+    but.onchange = function(e) {
+        console.log(e.target.value);
         while (aud.firstChild) {
             aud.removeChild(aud.firstChild);
         }
         for (let i = 0; i < 4*loopDur; i++) {
-            aud.appendChild(makeSlot(tc, i, to.value));
+            aud.appendChild(makeSlot(tc, i, e.target.value));
         }
     }
     
