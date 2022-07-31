@@ -44,7 +44,7 @@
 
 
 .line {
-    height: 70px;
+    height: 55px;
 }
 .line::after {
     content: none;
@@ -55,7 +55,4 @@
     float: left;
     width: 200px;
     height: 30px;
-}
-.line option {
-    height: 100px;
 }
