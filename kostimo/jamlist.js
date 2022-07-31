@@ -25,5 +25,13 @@ const jamList = [
     new Jam("Ptt", "ptt.mp3", 1, "audio/mpeg"),
     new Jam("Slurp", "slurp.mp3", 1, "audio/mpeg"),
     new Jam("Thump", "thump.mp3", 1, "audio/mpeg"),
-    new Jam("Wet Stomp", "stompWet.wav", 1, "audio/wav")
+    new Jam("Wet Stomp", "stompWet.wav", 1, "audio/wav"),
+    new Jam("Dododoo", "dododoo.mp3", 1, "audio/mpeg"),
+    new Jam("Duh", "duh.mp3", 1, "audio/mpeg"),
+    new Jam("Heehee", "heehee.mp3", 1, "audio/mpeg"),
+    new Jam("Sniff", "sniff.mp3", 1, "audio/mpeg"),
+    new Jam("Thart", "thart.mp3", 1, "audio/mpeg"),
+    new Jam("Uhoh", "uhoh.mp3", 1, "audio/mpeg"),
+    new Jam("Zzz", "zzz.mp3", 1, "audio/mpeg"),
+    new Jam("Laugh", "laugh.mp3", 1, "audio/mpeg")
 ];
