@@ -1,9 +1,13 @@
-function makeSlot(jammerid) {
+function makeSlot(tc, slotter, jammerid) {
     var base = document.createElement("div");
     var audio = document.createElement("audio");
     var check = document.createElement("input");
     check.type = "checkbox";
+    check.id = "che(" + tc + "," + slotter + ")";
+
     base.appendChild(audio);
+    audio.id = "aud(" + tc + "," + slotter + ")";
+
     base.appendChild(check);
     base.classList.add("slot");
 
@@ -20,7 +24,7 @@ function makeSlot(jammerid) {
     }
     return base;
 }
-function makeLine() {
+function makeLine(tc) {
     var base = document.createElement("div");
     base.classList.add("line");
     var aud = document.createElement("div");
@@ -41,16 +45,16 @@ function makeLine() {
             aud.removeChild(aud.firstChild);
         }
         for (let i = 0; i < 4*loopDur; i++) {
-            aud.appendChild(makeSlot(to.value));
+            aud.appendChild(makeSlot(tc, i, to.value));
         }
     }
-
-    base.appendChild(aud);
+    
     base.appendChild(but);
+    base.appendChild(aud);
     document.getElementById("musics").appendChild(base);
 }
 
-var lis = 5;
-for (let i = 0; i < lis; i++) {
-    makeLine();
+var lines = 3;
+for (let i = 0; i < lines; i++) {
+    makeLine(i);
 }
