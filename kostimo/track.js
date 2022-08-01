@@ -80,7 +80,28 @@ function makeLine(tc) {
             aud.appendChild(makeSlot(tc, i, v));
         }
     }
+    var tagger = document.createElement("select");
+    for (let i = 0; i < tags.length; i++) {
+        var opto = document.createElement("option");
+        opto.value = i;
+        opto.innerHTML = tags[i];
+        tagger.appendChild(opto);
+    }
+    tagger.onchange = function(e) {
+        while (but.firstChild) {
+            but.removeChild(but.firstChild);
+        }
+        for (let i = 0; i < jamList.length; i++) {
+            if (jamList[i].tag == tags[e.target.value]) {
+                var optii = document.createElement("option");
+                optii.value = i;
+                optii.innerHTML = jamList[i].name;
+                but.appendChild(optii);
+            }
+        }
+    }
     
+    base.appendChild(tagger);
     base.appendChild(but);
     base.appendChild(slidyTheSlidesturMagicalSliderManOfSlidopolis);
     base.appendChild(aud);
