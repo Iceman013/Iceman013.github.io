@@ -3,6 +3,7 @@ function makeSlot(tc, slotter, jammerid) {
     var audio = document.createElement("audio");
 
     var clifford = document.createElement("div");
+    clifford.id = "bli(" + tc + "," + slotter + ")";
     var check = document.createElement("input");
     check.type = "checkbox";
     check.id = "che(" + tc + "," + slotter + ")";
