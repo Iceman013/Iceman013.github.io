@@ -1,7 +1,8 @@
 const tags = [
     "Bodily Sounds",
     "Words",
-    "Other"
+    "Other",
+    "Wake up Babe"
 ];
 const jamList = [
     new Jam("Monsters Inc", "incDoot.mp3", 0.1, "audio/mpeg", "Other"),
@@ -42,8 +43,17 @@ const jamList = [
     new Jam("Crunch", "crunch.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Move", "move.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Ooo", "Ooo.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Pop", "pop.mp3", 1, "audio/mpeg", "Other"),
-    new Jam("Pop 2", "pop2.mp3", 1, "audio/mpeg", "Other"),
+    new Jam("Pop 1", "pop.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Pop 2", "pop2.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Shake", "shake.mp3", 1, "audio/mpeg", "Other"),
     new Jam("Tapping", "tapping.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Wake Up Babe 1", "wub1.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Wake Up Babe 2", "wub2.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Babe Get Up", "bgu.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Get out of bed", "outofbed.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Time to get up", "ttgu.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Wake Up Babe L", "wubl.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Wake Up Babe R", "wubr.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Get Up Babe", "gub.mp3", 1, "audio/mpeg", "Wake up Babe"),
+    new Jam("Sniff 2", "sniff2.mp3", 1, "audio/mpeg", "Bodily Sounds"),
 ];
