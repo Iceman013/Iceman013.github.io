@@ -43,8 +43,11 @@
 }
 .frequent {
     border-right: 1px solid orange;
-}  
+}
 
+.blinking {
+    filter: opacity(80%);
+}
 
 .line {
     height: 50px;
