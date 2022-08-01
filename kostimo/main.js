@@ -24,7 +24,6 @@ function mainloop() {
         setTimeout(() => {
             eid = "ts" + (j+1);
             j++;
-            console.log(pval, j)
             if (pval == j){
                 for (k=0; k<tracks; k++){
                     if (document.getElementById("but" + k).value != -1) {                    
