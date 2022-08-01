@@ -42,7 +42,7 @@ function makeLine(tc) {
 
     var but = document.createElement("select");
     var to = document.createElement("option");
-    but.id = "but"+tc;
+    but.id = "but" + tc;
     to.value = -1;
     to.innerHTML = "None";
     but.appendChild(to);
@@ -53,7 +53,6 @@ function makeLine(tc) {
         but.appendChild(opt);
     }
     but.onchange = function(e) {
-        console.log(e.target.value);
         while (aud.firstChild) {
             aud.removeChild(aud.firstChild);
         }
@@ -61,6 +60,18 @@ function makeLine(tc) {
             aud.appendChild(makeSlot(tc, i, e.target.value));
         }
     }
+
+    var slidyTheSlidesturMagicalSliderManOfSlidopolis = document.createElement("input");
+    slidyTheSlidesturMagicalSliderManOfSlidopolis.type = "range";
+    slidyTheSlidesturMagicalSliderManOfSlidopolis.min = 0;
+    slidyTheSlidesturMagicalSliderManOfSlidopolis.max = 10;
+    slidyTheSlidesturMagicalSliderManOfSlidopolis.onchange = function(e) {
+        for (let i = 0; i < frequency*loopDur; i++) {
+            document.getElementById("aud(" + tc + "," + i + ")").volume = 0.1*e.target.value;
+        }
+    }
+    base.appendChild(slidyTheSlidesturMagicalSliderManOfSlidopolis);
+
     but.imp = function(tc, v){
         while (aud.firstChild) {
             aud.removeChild(aud.firstChild);
