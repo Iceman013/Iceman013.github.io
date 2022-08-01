@@ -70,6 +70,7 @@ function makeLine(tc) {
             document.getElementById("aud(" + tc + "," + i + ")").volume = 0.1*e.target.value;
         }
     }
+    slidyTheSlidesturMagicalSliderManOfSlidopolis.classList.add("slidopolian");
     base.appendChild(slidyTheSlidesturMagicalSliderManOfSlidopolis);
 
     but.imp = function(tc, v){
