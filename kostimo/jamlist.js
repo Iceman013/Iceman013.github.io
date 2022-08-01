@@ -38,5 +38,12 @@ const jamList = [
     new Jam("Thart", "thart.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Uhoh", "uhoh.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Zzz", "zzz.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Laugh", "laugh.mp3", 1, "audio/mpeg", "Words")
+    new Jam("Laugh", "laugh.mp3", 1, "audio/mpeg", "Words"),
+    new Jam("Crunch", "crunch.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Move", "move.mp3", 1, "audio/mpeg", "Words"),
+    new Jam("Ooo", "Ooo.mp3", 1, "audio/mpeg", "Words"),
+    new Jam("Pop", "pop.mp3", 1, "audio/mpeg", "Other"),
+    new Jam("Pop 2", "pop2.mp3", 1, "audio/mpeg", "Other"),
+    new Jam("Shake", "shake.mp3", 1, "audio/mpeg", "Other"),
+    new Jam("Tapping", "tapping.mp3", 1, "audio/mpeg", "Bodily Sounds"),
 ];
