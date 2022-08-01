@@ -92,7 +92,7 @@ function makeLine(tc) {
             but.removeChild(but.firstChild);
         }
         for (let i = 0; i < jamList.length; i++) {
-            if (jamList[i].tag == tags[e.target.value]) {
+            if (jamList[i].tag == tags[e.target.value] || tags[e.target.value] == "All") {
                 var optii = document.createElement("option");
                 optii.value = i;
                 optii.innerHTML = jamList[i].name;

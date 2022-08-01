@@ -1,30 +1,33 @@
-const tags = [
+var tags = [
+    "All",
+    "Household Sounds",
     "Bodily Sounds",
     "Words",
-    "Other",
-    "Wake up Babe"
+    "Phrases",
+    "Wake up Babe",
+    "Other"
 ];
-const jamList = [
+var jamList = [
     new Jam("Monsters Inc", "incDoot.mp3", 0.1, "audio/mpeg", "Other"),
-    new Jam("Chemistry Webquest", "chem.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Rattlesnake", "snok.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("BIG", "big.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Fire", "fire.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Home", "home.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Jimmy", "jimmy.mp3", 1, "audio/mpeg", "Words"),
+    new Jam("Chemistry Webquest", "chem.mp3", 1, "audio/mpeg", "Phrases"),
+    new Jam("Rattlesnake", "snok.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("BIG", "big.mp3", 1, "audio/mpeg", "Phrases"),
+    new Jam("Fire", "fire.mp3", 1, "audio/mpeg", "Phrases"),
+    new Jam("Home", "home.mp3", 1, "audio/mpeg", "Phrases"),
+    new Jam("Jimmy", "jimmy.mp3", 1, "audio/mpeg", "Phrases"),
     new Jam("Ow", "ow.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("School", "school.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Stuck", "stuck.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Toenails", "toenails.mp3", 1, "audio/mpeg", "Words"),
+    new Jam("School", "school.mp3", 1, "audio/mpeg", "Phrases"),
+    new Jam("Stuck", "stuck.mp3", 1, "audio/mpeg", "Phrases"),
+    new Jam("Toenails", "toenails.mp3", 1, "audio/mpeg", "Phrases"),
     new Jam("Aww Yeah", "yeah.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Harry Potter", "harryPotter.mp3", 1, "audio/mpeg", "Other"),
     new Jam("Roblox Oof", "roblox.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Bomb Alert", "bombAlert.wav", 0.2, "audio/wav", "Beeps"),
     new Jam("Breathing", "breathing.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Click 1", "click.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Click 2", "clt.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Click 1", "click.mp3", 1, "audio/mpeg", "Household Sounds"),
+    new Jam("Click 2", "clt.mp3", 1, "audio/mpeg", "Household Sounds"),
     new Jam("Cough", "cough.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Dink", "dnk.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Dink", "dnk.mp3", 1, "audio/mpeg", "Household Sounds"),
     new Jam("Eh?", "eh.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Mmm", "mmm.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Pfth", "pfth.mp3", 1, "audio/mpeg", "Bodily Sounds"),
@@ -32,11 +35,11 @@ const jamList = [
     new Jam("Slurp", "slurp.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Thump", "thump.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Wet Stomp", "stompWet.wav", 1, "audio/wav", "Bodily Sounds"),
-    new Jam("Dododoo", "dododoo.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Dododoo", "dododoo.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Duh", "duh.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Heehee", "heehee.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Heehee", "heehee.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Sniff", "sniff.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Thart", "thart.mp3", 1, "audio/mpeg", "Words"),
+    new Jam("Thart", "thart.mp3", 1, "audio/mpeg", "Phrases"),
     new Jam("Uhoh", "uhoh.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Zzz", "zzz.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Laugh", "laugh.mp3", 1, "audio/mpeg", "Words"),
@@ -45,8 +48,8 @@ const jamList = [
     new Jam("Ooo", "Ooo.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Pop 1", "pop.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Pop 2", "pop2.mp3", 1, "audio/mpeg", "Bodily Sounds"),
-    new Jam("Shake", "shake.mp3", 1, "audio/mpeg", "Other"),
-    new Jam("Tapping", "tapping.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Shake", "shake.mp3", 1, "audio/mpeg", "Household Sounds"),
+    new Jam("Tapping", "tapping.mp3", 1, "audio/mpeg", "Household Sounds"),
     new Jam("Wake Up Babe 1", "wub1.mp3", 1, "audio/mpeg", "Wake up Babe"),
     new Jam("Wake Up Babe 2", "wub2.mp3", 1, "audio/mpeg", "Wake up Babe"),
     new Jam("Babe Get Up", "bgu.mp3", 1, "audio/mpeg", "Wake up Babe"),
@@ -57,3 +60,7 @@ const jamList = [
     new Jam("Get Up Babe", "gub.mp3", 1, "audio/mpeg", "Wake up Babe"),
     new Jam("Sniff 2", "sniff2.mp3", 1, "audio/mpeg", "Bodily Sounds"),
 ];
+
+for (let i = 0; i < jamList.length; i++) {
+    //sort alphabetically
+}
