@@ -45,6 +45,11 @@
     border-right: 1px solid orange;
 }
 
+.slidopolian {
+    height: 46px;
+    float: left;
+}
+
 .blinking {
     filter: opacity(80%);
 }

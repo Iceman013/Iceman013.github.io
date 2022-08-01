@@ -71,7 +71,6 @@ function makeLine(tc) {
         }
     }
     slidyTheSlidesturMagicalSliderManOfSlidopolis.classList.add("slidopolian");
-    base.appendChild(slidyTheSlidesturMagicalSliderManOfSlidopolis);
 
     but.imp = function(tc, v){
         while (aud.firstChild) {
@@ -83,6 +82,7 @@ function makeLine(tc) {
     }
     
     base.appendChild(but);
+    base.appendChild(slidyTheSlidesturMagicalSliderManOfSlidopolis);
     base.appendChild(aud);
     document.getElementById("musics").appendChild(base);
 }
