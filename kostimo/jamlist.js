@@ -60,7 +60,4 @@ var jamList = [
     new Jam("Get Up Babe", "gub.mp3", 1, "audio/mpeg", "Wake up Babe"),
     new Jam("Sniff 2", "sniff2.mp3", 1, "audio/mpeg", "Bodily Sounds"),
 ];
-
-for (let i = 0; i < jamList.length; i++) {
-    //sort alphabetically
-}
+jamList.sort((a,b) => a.name < b.name ? -1:1)
