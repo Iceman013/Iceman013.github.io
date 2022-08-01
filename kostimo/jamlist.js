@@ -1,3 +1,8 @@
+const tags = [
+    "Bodily Sounds",
+    "Words",
+    "Other"
+];
 const jamList = [
     new Jam("Monsters Inc", "incDoot.mp3", 0.1, "audio/mpeg", "Other"),
     new Jam("Chemistry Webquest", "chem.mp3", 1, "audio/mpeg", "Words"),
