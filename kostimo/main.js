@@ -54,9 +54,12 @@ function mainloop() {
 function lineImp() {
     lar = document.getElementById("tImp").value.split(";");
     for (j=0; j<lar.length; j++) {
-        ar = lar[j].split(",");
-        document.getElementById("but" + j).value = ar[0];
+        ar = lar[j].split(":");
+        document.getElementById("but" + j).value = jamList.findIndex(element => element.id == ar[0]);
         document.getElementById("but" + j).imp(j, ar[0]);
+        bin = parseInt(ar[1], 16).toString(2).padStart(loopDur*frequency+1, '0');
+        console.log(bin);
+        ar = bin.split("");
         for (i=1; i<ar.length; i++) {
             if (ar[i] == "1") {
                 document.getElementById("che(" + j + "," + (i-1) + ")").checked = true;
@@ -70,14 +73,17 @@ function lineExp() {
     for (j=0; j<tracks; j++) {
         if (document.getElementById("but" + j).value != -1){
             if (j>0) lar+= ";"
-            lar += document.getElementById("but" + j).value;
+            lar += jamList[document.getElementById("but" + j).value].id + ":";
+            bin = "";
             for (i=0; i<16; i++) {
                 if (document.getElementById("che(" + j + "," + i + ")").checked) {
-                    lar += ",1";
+                    bin += "1";
                 } else {
-                    lar += ",0";
+                    bin += "0";
                 }
             }
+            hex = parseInt(bin, 2).toString(16).toUpperCase();
+            lar += hex;
         }
     }
     navigator.clipboard.writeText(lar);

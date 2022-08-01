@@ -38,7 +38,7 @@ var jamList = [
     new Jam("Dododoo", "dododoo.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Duh", "duh.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Heehee", "heehee.mp3", 1, "audio/mpeg", "Words"),
-    new Jam("Sniff", "sniff.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Sniff 1", "sniff.mp3", 1, "audio/mpeg", "Bodily Sounds"),
     new Jam("Thart", "thart.mp3", 1, "audio/mpeg", "Phrases"),
     new Jam("Uhoh", "uhoh.mp3", 1, "audio/mpeg", "Words"),
     new Jam("Zzz", "zzz.mp3", 1, "audio/mpeg", "Bodily Sounds"),
@@ -59,5 +59,6 @@ var jamList = [
     new Jam("Wake Up Babe R", "wubr.mp3", 1, "audio/mpeg", "Wake up Babe"),
     new Jam("Get Up Babe", "gub.mp3", 1, "audio/mpeg", "Wake up Babe"),
     new Jam("Sniff 2", "sniff2.mp3", 1, "audio/mpeg", "Bodily Sounds"),
+    new Jam("Door Close", "doorclose.mp3", 1, "audio/mpeg", "Household Sounds")
 ];
 jamList.sort((a,b) => a.name < b.name ? -1:1)
