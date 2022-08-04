@@ -24,4 +24,6 @@ const siteList = [
     new Site("Syrup", ["Other","Approved"], "https://monkeytoes999.github.io/syrup/", "This is a startup page."),
 
     new Site("President Game", ["Games","Approved"], "https://iceman013.github.io/presidents/", "This is a president game to make me not bullied for not knowing presidents."),
+
+    new Site("Kostimo", ["Games"], "https://iceman013.github.io/kostimo/", 'This is a music mixer to make looping beats to custom sounds. All sounds are "unique".'),
 ];
