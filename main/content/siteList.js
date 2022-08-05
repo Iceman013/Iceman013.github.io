@@ -26,4 +26,6 @@ const siteList = [
     new Site("President Game", ["Games","Approved"], "https://iceman013.github.io/presidents/", "This is a president game to make me not bullied for not knowing presidents."),
 
     new Site("Kostimo", ["Games"], "https://iceman013.github.io/kostimo/", 'This is a music mixer to make looping beats to custom sounds. All sounds are "unique".'),
+
+    new Site('Ideas', ["Other"], "https://iceman013.github.io/ideas/", "All my coding ideas are here for the future."),
 ];
