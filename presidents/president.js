@@ -55,7 +55,7 @@ function President(number, name, vice, years, des, image) {
             case 4:
                 return "Description";
             case 5:
-                return "Image";
+                return "Face";
             case 6:
                 return "BREAK";
         }
