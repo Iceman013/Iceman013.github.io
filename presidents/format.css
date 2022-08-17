@@ -17,13 +17,23 @@
     --back: #ffffff;
     --back_dark: #eeeeee;
     --select: #cceeff;
-    --border_select: #88bbff;
+    --select_border: #88bbff;
+    --right: #aaffaa;
+    --right_border: #88dd88;
     --correct: #00dd00;
     --correct_border: #00aa00;
     --incorrect: #dd0000;
     --incorrect_border: #aa0000;
     --disabled: #cccccc;
     --disabled_text: #999999;
+}
+
+.feedback {
+    margin: 0px;
+    position: absolute;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 24px;
 }
 
 table {
@@ -43,6 +53,7 @@ td {
 }
 .question {
     text-align: center;
+    font-size: 24px;
 }
 .answers {
     text-align: center;
@@ -62,10 +73,10 @@ button.choice {
     border-radius: 10px;
     box-shadow: 0px 3px var(--border);
 }
-button.choice:hover {
+button.choice.able:hover {
     background-color: var(--back_dark);
 }
-button.choice:active {
+button.choice.able:active {
     background-color: var(--select);
     border-color: var(--border_select);
     transform: translateY(2px);
@@ -73,20 +84,25 @@ button.choice:active {
 }
 .choice.selected {
     background-color: var(--select);
-    border-color: var(--border_select);
-    box-shadow: 0px 3px var(--border_select);
+    border-color: var(--select_border);
+    box-shadow: 0px 3px var(--select_border);
 }
-.choice.selected:hover {
+.choice.selected.able:hover {
     background-color: var(--select);
+}
+.choice.right {
+    background-color: var(--right);
+    border-color: var(--right_border);
+    box-shadow: 0px 3px var(--right_border);
 }
 
 button.submit {
     color: var(--text_reverse);
     font-weight: bold;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 40px;
+    padding-right: 40px;
     background-color: var(--correct);
     border: 2px solid var(--correct_border);
     border-radius: 10px;

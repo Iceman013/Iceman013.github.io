@@ -96,6 +96,7 @@ function makeOption(president, detail, correct) {
     var base = document.createElement("button");
     base.value = correct;
     base.classList.add("choice");
+    base.classList.add("able");
     base.onclick = function() {
         var sub = document.getElementById("submit");
         sub.disabled = false;
@@ -130,11 +131,17 @@ function submitQA() {
     var correct = false;
     var buttonList = document.getElementsByClassName("choice");
     for (let i = 0; i < buttonList.length; i++) {
+        buttonList[i].classList.remove("able");
+        buttonList[i].disabled = true;
         if (buttonList[i].classList[1] == "selected") {
             if (buttonList[i].value == "true") {
                 correct = true;
             } else {
                 document.getElementById("submit").classList.add("incorrect");
+            }
+        } else {
+            if (buttonList[i].value == "true") {
+                buttonList[i].classList.add("right");
             }
         }
     }
