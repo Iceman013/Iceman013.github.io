@@ -44,7 +44,13 @@ function makeHead(unleft, position, set) {
     while (set[unleft].getData(iter) != "BREAK") {
         var elem = document.createElement("th");
         if (position.includes(iter)) {
-            elem.innerHTML = set[unleft].getData(iter);
+            if (set[unleft].getType(iter) == "Text") {
+                elem.innerHTML = set[unleft].getData(iter);
+            } else if (set[unleft].getType(iter) == "Image") {
+                var sub = document.createElement("img");
+                sub.src = set[unleft].getData(iter);
+                elem.appendChild(sub);
+            }
         } else {
             elem.innerHTML = "???";
         }
@@ -108,7 +114,13 @@ function showSome(unleft, position, set) {
             if (position.includes(j)) {
                 elem.innerHTML = "???";
             } else {
-                elem.innerHTML = set[i].getData(j).toString();
+                if (set[i].getType(j) == "Text") {
+                    elem.innerHTML = set[i].getData(j).toString();
+                } else if (set[i].getType(j) == "Image") {
+                    var sub = document.createElement("img");
+                    sub.src = set[i].getData(j);
+                    elem.appendChild(sub);
+                }
             }
             row.appendChild(elem);
             j++;

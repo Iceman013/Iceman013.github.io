@@ -41,3 +41,7 @@ th {
 .right {
     color: var(--right);
 }
+img {
+    width: 140px;
+    height: 106px;
+}
