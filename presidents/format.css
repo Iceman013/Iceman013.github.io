@@ -35,6 +35,9 @@ tr:hover, button:hover {
 th {
     background-color: var(--header);
 }
+.data {
+    height: 134px;
+}
 .wrong {
     color: var(--wrong);
 }

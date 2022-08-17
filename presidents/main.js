@@ -40,6 +40,7 @@ function makeHead(unleft, position, set) {
     base.appendChild(head);
 
     var clue = document.createElement("tr");
+    clue.classList.add("data");
     iter = 0;
     while (set[unleft].getData(iter) != "BREAK") {
         var elem = document.createElement("th");
@@ -75,6 +76,7 @@ function showAll(unleft, position, set, chocho) {
     }
     for (let i = 0; i < set.length; i++) {
         var row = document.createElement("tr");
+        row.classList.add("data");
         row.onclick = function() {
             nextQuestion();
         }
@@ -87,7 +89,13 @@ function showAll(unleft, position, set, chocho) {
             if (i == unleft) {
                 elem.classList.add("right");
             }
-            elem.innerHTML = set[i].getData(j).toString();
+            if (set[i].getType(j) == "Text") {
+                elem.innerHTML = set[i].getData(j).toString();
+            } else if (set[i].getType(j) == "Image") {
+                var sub = document.createElement("img");
+                sub.src = set[i].getData(j);
+                elem.appendChild(sub);
+            }
             row.appendChild(elem);
             j++;
         }
@@ -104,6 +112,7 @@ function showSome(unleft, position, set) {
     }
     for (let i = 0; i < set.length; i++) {
         var row = document.createElement("tr");
+        row.classList.add("data");
         const chocho = i;
         row.onclick = function() {
             showAll(unleft, position, set, chocho);
