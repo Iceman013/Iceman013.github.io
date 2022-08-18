@@ -136,6 +136,8 @@ function submitQA() {
         if (buttonList[i].classList[1] == "selected") {
             if (buttonList[i].value == "true") {
                 correct = true;
+                buttonList[i].classList.remove("selected");
+                buttonList[i].classList.add("right");
                 document.getElementById("feedback").classList.add("right");
             } else {
                 buttonList[i].classList.remove("selected");
