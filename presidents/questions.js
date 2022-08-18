@@ -136,12 +136,16 @@ function submitQA() {
         if (buttonList[i].classList[1] == "selected") {
             if (buttonList[i].value == "true") {
                 correct = true;
+                document.getElementById("feedback").classList.add("right");
             } else {
+                buttonList[i].classList.remove("selected");
+                buttonList[i].classList.add("wrong");
                 document.getElementById("submit").classList.add("incorrect");
             }
         } else {
             if (buttonList[i].value == "true") {
                 buttonList[i].classList.add("right");
+                document.getElementById("feedback").classList.add("wrong");
             }
         }
     }
@@ -158,6 +162,8 @@ function clear() {
     while (clearing.firstChild) {
         clearing.removeChild(clearing.firstChild);
     }
+    document.getElementById("feedback").classList.remove("right");
+    document.getElementById("feedback").classList.remove("wrong");
 }
 function submit() {
     var elem = document.getElementById("submit");

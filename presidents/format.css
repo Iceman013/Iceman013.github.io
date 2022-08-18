@@ -13,6 +13,7 @@
     --text_reverse: #ffffff;
     --clue_header: #0088ee;
     --clue_detail: #00eeff;
+
     --border: #bbbbbb;
     --back: #ffffff;
     --back_dark: #eeeeee;
@@ -20,6 +21,9 @@
     --select_border: #88bbff;
     --right: #aaffaa;
     --right_border: #88dd88;
+    --wrong: #ffaaaa;
+    --wrong_border: #dd8888;
+
     --correct: #00dd00;
     --correct_border: #00aa00;
     --incorrect: #dd0000;
@@ -30,13 +34,22 @@
 
 .feedback {
     position: absolute;
-    border-top: 1px solid var(--border);
+    border-top: 2px solid var(--border);
     text-align: center;
     font-size: 24px;
     left: 0px;
-    bottom: 20px;
-    padding-top: 10px;
+    bottom: 1px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 100%;
+}
+.feedback.right {
+    background-color: var(--right);
+    border-color: var(--right_border);
+}
+.feedback.wrong {
+    background-color: var(--wrong);
+    border-color: var(--wrong_border);
 }
 
 table {
@@ -99,6 +112,11 @@ button.choice.able:active {
     background-color: var(--right);
     border-color: var(--right_border);
     box-shadow: 0px 3px var(--right_border);
+}
+.choice.wrong {
+    background-color: var(--wrong);
+    border-color: var(--wrong_border);
+    box-shadow: 0px 3px var(--wrong_border);
 }
 
 button.submit {
