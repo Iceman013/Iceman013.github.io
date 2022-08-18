@@ -22,5 +22,7 @@ const ideaList = [
     
     new Idea("Tower Defense", ["HTML/JS"], ["Game", "New"], "A classic tower defense game.", false),
 
-    new Idea("Stats Game", ["HTML/JS"], ["Game", "New"], "A game with real stats. Intelligence stat limits options, arrogance stat impairs analysis.", false)
+    new Idea("Stats Game", ["HTML/JS"], ["Game", "New"], "A game with real stats. Intelligence stat limits options, arrogance stat impairs analysis.", false),
+
+    new Idea("Autocomplete", ["HTML/JS", "Java"], ["Utility", "New", "Makes suggestions as you type to complete the word.", false])
 ];
