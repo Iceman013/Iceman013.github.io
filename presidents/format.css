@@ -37,10 +37,10 @@ table {
     margin: auto;
 }
 td, th {
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border: 2px solid var(--border);
 }
 .question {
@@ -50,15 +50,16 @@ td, th {
 }
 .answers {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
 }
 .type {
+    margin: 12px;
     font-weight: bold;
 }
 
 button.choice {
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     padding-left: 16px;
     padding-right: 16px;
     margin: 4px;
