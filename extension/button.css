@@ -1,5 +1,18 @@
-button {
-  outline: none;
-  border: none;
-  border-radius: 2px;
+* {
+    font-family: 'Alata';
+    user-select: none;
+}
+:root {
+	--dark: #222233;
+	--light: #eeeeff;
+}
+.activate {
+	background-color: var(--light);
+	color: var(--dark);
+	cursor: pointer;
+	border: none;
+}
+.dark-theme {
+	background-color: var(--dark);
+	color: var(--light)
 }
