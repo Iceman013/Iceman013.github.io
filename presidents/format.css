@@ -29,11 +29,14 @@
 }
 
 .feedback {
-    margin: 0px;
     position: absolute;
     border-top: 1px solid var(--border);
     text-align: center;
     font-size: 24px;
+    left: 0px;
+    bottom: 20px;
+    padding-top: 10px;
+    width: 100%;
 }
 
 table {
@@ -57,6 +60,7 @@ td {
 }
 .answers {
     text-align: center;
+    font-size: 24px;
 }
 .type {
     font-weight: bold;
@@ -72,13 +76,14 @@ button.choice {
     border: 2px solid var(--border);
     border-radius: 10px;
     box-shadow: 0px 3px var(--border);
+    font-size: inherit;
 }
 button.choice.able:hover {
     background-color: var(--back_dark);
 }
 button.choice.able:active {
     background-color: var(--select);
-    border-color: var(--border_select);
+    border-color: var(--select_border);
     transform: translateY(2px);
     box-shadow: none;
 }
@@ -101,12 +106,12 @@ button.submit {
     font-weight: bold;
     padding-top: 16px;
     padding-bottom: 16px;
-    padding-left: 40px;
-    padding-right: 40px;
+    width: 60vw;
     background-color: var(--correct);
     border: 2px solid var(--correct_border);
     border-radius: 10px;
     box-shadow: 0px 3px var(--correct_border);
+    font-size: inherit;
 }
 button.submit:hover {
     filter: brightness(105%);
