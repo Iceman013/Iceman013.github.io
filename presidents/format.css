@@ -32,27 +32,8 @@
     --disabled_text: #999999;
 }
 
-.feedback {
-    position: absolute;
-    border-top: 2px solid var(--border);
-    text-align: center;
-    font-size: 24px;
-    left: 0px;
-    bottom: 1px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 100%;
-}
-.feedback.right {
-    background-color: var(--right);
-    border-color: var(--right_border);
-}
-.feedback.wrong {
-    background-color: var(--wrong);
-    border-color: var(--wrong_border);
-}
-
 table {
+    top: 0px;
     margin: auto;
 }
 td, th {
@@ -60,16 +41,12 @@ td, th {
     padding-right: 6px;
     padding-top: 12px;
     padding-bottom: 12px;
-}
-th {
-    background-color: var(--clue_header);
-}
-td {
-    background-color: var(--clue_detail);
+    border: 2px solid var(--border);
 }
 .question {
     text-align: center;
     font-size: 24px;
+    border-bottom: 2px solid var(--border);
 }
 .answers {
     text-align: center;
@@ -154,4 +131,24 @@ button.submit.disabled {
 img {
     width: 140px;
     height: 106px;
+}
+
+.feedback {
+    position: absolute;
+    border-top: 2px solid var(--border);
+    text-align: center;
+    font-size: 24px;
+    left: 0px;
+    bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100vw;
+}
+.feedback.right {
+    background-color: var(--right);
+    border-color: var(--right_border);
+}
+.feedback.wrong {
+    background-color: var(--wrong);
+    border-color: var(--wrong_border);
 }

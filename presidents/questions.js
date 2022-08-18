@@ -181,3 +181,8 @@ function submit() {
 }
 
 makeQA();
+window.addEventListener("keypress", function(event) {
+    if (event.code == "Space" && this.document.getElementById("submit").disabled == false) {
+        submit();
+    }
+});
