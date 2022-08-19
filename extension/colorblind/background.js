@@ -69,7 +69,7 @@ function blind(type) {
 function main() {
     console.log("Begin fixing");
 
-    blind(2);
+    blind(1);
 
     console.log("Done fixing");
 }
