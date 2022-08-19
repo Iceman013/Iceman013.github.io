@@ -16,7 +16,7 @@
     "content_scripts": [
         {
             "matches": ["https://*/*","http://*/*","file:///*/index.html"],
-            "js": ["blindness.js","background.js"]
+            "js": ["blind.js","blindness.js","background.js"]
         }
     ],
     
