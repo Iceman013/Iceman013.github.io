@@ -1,10 +1,27 @@
 {
-    "name": "My chrome extension",
-    "description": "Does nothing",
+    "name": "Colorblind",
+
+    "description": "Trying its best",
+    
     "version": "0.1",
+    
     "manifest_version": 3,
-    "permissions": ["storage", "activeTab", "scripting"],
+    
+    "author": "Bret",
+    
+    "permissions": ["storage", "activeTab", "scripting", "declativeContent"],
+    
+    "host_permissions": [""],
+
+    "content_scripts": [
+        {
+            "matches": ["https://*/*","http://*/*"],
+            "js": ["background.js"]
+        }
+    ],
+    
     "action": {
+        "default_title": "Colorblind",
         "default_popup": "popup.html",
         "default_icon": {
             "16": "/images/get_started16.png",
@@ -13,6 +30,7 @@
             "128": "/images/get_started128.png"
         }
     },
+    
     "icons": {
         "16": "/images/get_started16.png",
         "32": "/images/get_started32.png",

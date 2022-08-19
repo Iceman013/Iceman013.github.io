@@ -1,4 +1,4 @@
-function main() {
+function act() {
     var body = document.body;
     if (body.value == undefined) {
         body.value = 0;
