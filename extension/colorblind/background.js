@@ -32,7 +32,9 @@ function blind(type) {
     for (let i = 0; i < filters.length; i++) {
         base.classList.remove(filters[i]);
     }
-    base.classList.add(filters[type]);
+    if (type >= 0) {
+        base.classList.add(filters[type]);
+    }
 }
 
 function main() {
@@ -43,4 +45,3 @@ function main() {
     console.log("Done fixing");
 }
 main();
-blind(2);
