@@ -27,6 +27,9 @@ function prepareFilters() {
 }
 
 function blind(type) {
+    chrome.storage.sync.set({choice: type}, function() {
+        console.log("Value is set to " + type);
+    })
     var filters = ["red-green-blindness-filter","blue-yellow-blindness-filter","monochrome-blindness-filter"]
     var base = document.getElementsByTagName("html")[0];
     for (let i = 0; i < filters.length; i++) {
@@ -39,8 +42,12 @@ function blind(type) {
 
 function main() {
     console.log("Begin fixing");
-
+    
     prepareFilters();
+    chrome.storage.sync.get(['choice'], function(result) {
+        console.log('Value currently is ' + result.choice);
+        blind(result.choice);
+    });
 
     console.log("Done fixing");
 }
