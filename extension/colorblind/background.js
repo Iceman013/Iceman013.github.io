@@ -29,7 +29,13 @@ function rg(color) {
     var output = "rgba(" + avg.toString() + "," + avg.toString() + "," + list[2] + "," + list[3] + ")";
     return output;
 }
-var flist = [bw,rg];
+function bg(color) {
+    var list = rgba(color);
+    var avg = Math.floor((list[0] + list[1])/2);
+    var output = "rgba(" + list[0] + "," + avg.toString() + "," + avg.toString() + "," + list[3] + ")";
+    return output;
+}
+var flist = [bw,rg,bg];
 function blind(type) {
     var elements = document.getElementsByTagName("*");
     for (let i = 0; i < elements.length; i++) {
@@ -63,7 +69,7 @@ function blind(type) {
 function main() {
     console.log("Begin fixing");
 
-    blind(1);
+    blind(2);
 
     console.log("Done fixing");
 }
