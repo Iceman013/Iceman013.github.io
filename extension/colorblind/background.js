@@ -23,33 +23,39 @@ function bw(color) {
     var output = "rgba(" + avg.toString() + "," + avg.toString() + "," + avg.toString() + "," + list[3] + ")";
     return output;
 }
-
-function blackAndWhite() {
+function rg(color) {
+    var list = rgba(color);
+    var avg = Math.floor((list[0] + list[1])/2);
+    var output = "rgba(" + avg.toString() + "," + avg.toString() + "," + list[2] + "," + list[3] + ")";
+    return output;
+}
+var flist = [bw,rg];
+function blind(type) {
     var elements = document.getElementsByTagName("*");
     for (let i = 0; i < elements.length; i++) {
         var color;
         // Background Color
         color = window.getComputedStyle(elements[i]).backgroundColor;
         if (color != "") {
-            elements[i].style.backgroundColor = bw(color);
+            elements[i].style.backgroundColor = flist[type](color);
         }
 
         // Text Color
         color = window.getComputedStyle(elements[i]).color;
         if (color != "") {
-            elements[i].style.color = bw(color);
+            elements[i].style.color = flist[type](color);
         }
 
         // Border Color
         color = window.getComputedStyle(elements[i]).borderColor;
         if (color != "") {
-            elements[i].style.borderColor = bw(color);
+            elements[i].style.borderColor = flist[type](color);
         }
 
         // Outline Color
         color = window.getComputedStyle(elements[i]).outlineColor;
         if (color != "") {
-            elements[i].style.outlineColor = bw(color);
+            elements[i].style.outlineColor = flist[type](color);
         }
     }
 }
@@ -57,7 +63,7 @@ function blackAndWhite() {
 function main() {
     console.log("Begin fixing");
 
-    blackAndWhite();
+    blind(1);
 
     console.log("Done fixing");
 }

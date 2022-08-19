@@ -1,4 +1,35 @@
+function colors() {
+    for (let i = 0; i < 16; i++) {
+        var base = document.createElement("div");
+        for (let j = 0; j < 16; j++) {
+            var cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.style.backgroundColor = "rgb(" + 16*i + "," + 16*j + ",128)";
+            base.appendChild(cell);
+        }
+        document.getElementById("base").appendChild(base);
+
+        var base = document.createElement("div");
+        for (let j = 0; j < 16; j++) {
+            var cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.style.backgroundColor = "rgb(" + 16*i + ",128," + 16*j + ")";
+            base.appendChild(cell);
+        }
+        document.getElementById("base").appendChild(base);
+
+        var base = document.createElement("div");
+        for (let j = 0; j < 16; j++) {
+            var cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.style.backgroundColor = "rgb(128," + 16*i + "," + 16*j + ")";
+            base.appendChild(cell);
+        }
+        document.getElementById("base").appendChild(base);
+    }
+}
 function start() {
+    colors();
     console.clear();
     console.time();
     console.log("Begining logs");
