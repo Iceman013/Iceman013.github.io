@@ -31,7 +31,7 @@ function rg(color) {
 }
 function bg(color) {
     var list = rgba(color);
-    var avg = Math.floor((list[0] + list[1])/2);
+    var avg = Math.floor((list[1] + list[2])/2);
     var output = "rgba(" + list[0] + "," + avg.toString() + "," + avg.toString() + "," + list[3] + ")";
     return output;
 }
