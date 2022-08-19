@@ -1,11 +1,22 @@
+function read(blindness) {
+    var output = "";
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < blindness[i].length; j++) {
+            output += blindness[i][j].toString() + " ";
+        }
+        output += "0 0\n\t\t\t ";
+    }
+    output += '0 0 0 1 0';
+    return output;
+}
 function prepareFilters() {
     if (document.getElementsByTagName("svg").length == 0) {
         document.body.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'svg'));
     }
     var svg = document.getElementsByTagName("svg")[0];
-    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="red-green-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="0.5 0.5 0 0 0\n\t\t\t 0.5 0.5 0 0 0 \n\t\t\t 0 0 1 0 0 \n\t\t\t 0 0 0 1 0"></feColorMatrix>\n\t\t</filter>\n\t';
-    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="blue-yellow-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="1 0 0 0 0\n\t\t\t 0 0.5 0.5 0 0 \n\t\t\t 0 0.5 0.5 0 0 \n\t\t\t 0 0 0 1 0"></feColorMatrix>\n\t\t</filter>\n\t';
-    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="monochrome-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="0.333 0.333 0.333 0 0\n\t\t\t 0.333 0.333 0.333 0 0 \n\t\t\t 0.333 0.333 0.333 0 0 \n\t\t\t 0 0 0 1 0"></feColorMatrix>\n\t\t</filter>\n\t';
+    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="red-green-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="' + read(RED_GREEN) + '"></feColorMatrix>\n\t\t</filter>\n\t';
+    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="blue-yellow-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="' + read(BLUE_YELLOW) + '"></feColorMatrix>\n\t\t</filter>\n\t';
+    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="monochrome-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="' + read(MONOCHROME) + '"></feColorMatrix>\n\t\t</filter>\n\t';
 
     var style = document.createElement("style");
     style.textContent = "";
