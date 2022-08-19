@@ -51,5 +51,6 @@ function start() {
     console.warn("Warning message");
     console.trace();
     console.timeEnd();
+    thisboy();
 }
 start();

@@ -1,87 +1,35 @@
-function rgba(color) {
-    var nc = color.substring(color.indexOf("(") + 1);
-    var list = [0, 0, 0, 1];
-    if (color.substring(0, 4) == "rgb(") {
-        for (let i = 0; i < 2; i++) {
-            list[i] = parseFloat(nc.substring(0, nc.indexOf(",")));
-            nc = nc.substring(nc.indexOf(" ") + 1);
-        }
-        list[2] = parseFloat(nc.substring(0, nc.length - 1));
-    } else if (color.substring(0, 4) == "rgba") {
-        for (let i = 0; i < 3; i++) {
-            list[i] = parseFloat(nc.substring(0, nc.indexOf(",")));
-            nc = nc.substring(nc.indexOf(" ") + 1);
-        }
-        list[3] = parseFloat(nc.substring(0, nc.length - 1));
+function prepareFilters() {
+    if (document.getElementsByTagName("svg").length == 0) {
+        document.body.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'svg'));
     }
-    return list;
+    var svg = document.getElementsByTagName("svg")[0];
+    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="red-green-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="0.5 0.5 0 0 0\n\t\t\t 0.5 0.5 0 0 0 \n\t\t\t 0 0 1 0 0 \n\t\t\t 0 0 0 1 0"></feColorMatrix>\n\t\t</filter>\n\t';
+    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="blue-yellow-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="1 0 0 0 0\n\t\t\t 0 0.5 0.5 0 0 \n\t\t\t 0 0.5 0.5 0 0 \n\t\t\t 0 0 0 1 0"></feColorMatrix>\n\t\t</filter>\n\t';
+    svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="monochrome-blindness-filter">\n\t\t\t<feColorMatrix type="matrix" values="0.333 0.333 0.333 0 0\n\t\t\t 0.333 0.333 0.333 0 0 \n\t\t\t 0.333 0.333 0.333 0 0 \n\t\t\t 0 0 0 1 0"></feColorMatrix>\n\t\t</filter>\n\t';
+
+    var style = document.createElement("style");
+    style.textContent = "";
+    style.textContent += '\n\t\t.red-green-blindness-filter {\n\t\t\tfilter: url(#red-green-blindness-filter);\n\t\t}\n\t';
+    style.textContent += '\n\t\t.blue-yellow-blindness-filter {\n\t\t\tfilter: url(#blue-yellow-blindness-filter);\n\t\t}\n\t';
+    style.textContent += '\n\t\t.monochrome-blindness-filter {\n\t\t\tfilter: url(#monochrome-blindness-filter);\n\t\t}\n\t';
+    document.body.appendChild(style);
 }
 
-function bw(color) {
-    var list = rgba(color);
-    var avg = Math.floor((list[0] + list[1] + list[2])/3);
-    var output = "rgba(" + avg.toString() + "," + avg.toString() + "," + avg.toString() + "," + list[3] + ")";
-    return output;
-}
-function rg(color) {
-    var list = rgba(color);
-    var avg = Math.floor((list[0] + list[1])/2);
-    var output = "rgba(" + avg.toString() + "," + avg.toString() + "," + list[2] + "," + list[3] + ")";
-    return output;
-}
-function bg(color) {
-    var list = rgba(color);
-    var avg = Math.floor((list[1] + list[2])/2);
-    var output = "rgba(" + list[0] + "," + avg.toString() + "," + avg.toString() + "," + list[3] + ")";
-    return output;
-}
-var flist = [bw,rg,bg];
 function blind(type) {
-    var elements = document.getElementsByTagName("*");
-    for (let i = 0; i < elements.length; i++) {
-        var color;
-        // Background Color
-        color = window.getComputedStyle(elements[i]).backgroundColor;
-        if (color != "") {
-            elements[i].style.backgroundColor = flist[type](color);
-        }
-
-        // Text Color
-        color = window.getComputedStyle(elements[i]).color;
-        if (color != "") {
-            elements[i].style.color = flist[type](color);
-        }
-
-        // Border Color
-        color = window.getComputedStyle(elements[i]).borderColor;
-        if (color != "") {
-            elements[i].style.borderColor = flist[type](color);
-        }
-
-        // Outline Color
-        color = window.getComputedStyle(elements[i]).outlineColor;
-        if (color != "") {
-            elements[i].style.outlineColor = flist[type](color);
-        }
+    var filters = ["red-green-blindness-filter","blue-yellow-blindness-filter","monochrome-blindness-filter"]
+    var base = document.getElementsByTagName("html")[0];
+    for (let i = 0; i < filters.length; i++) {
+        base.classList.remove(filters[i]);
     }
+    base.classList.add(filters[type]);
 }
 
 function main() {
     console.log("Begin fixing");
 
-    blind(1);
+    prepareFilters();
 
     console.log("Done fixing");
 }
-document.addEventListener('readystatechange', event => { 
-
-    // When HTML/DOM elements are ready:
-    if (event.target.readyState === "interactive") {   //does same as:  ..addEventListener("DOMContentLoaded"..
-        main();
-    }
-
-    // When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
-    if (event.target.readyState === "complete") {
-        main();
-    }
-});
+main();
+blind(2);
