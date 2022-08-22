@@ -25,16 +25,24 @@ function prepareFilters() {
     }
     document.body.appendChild(style);
 }
-
+function changeFilter(type, element, mode) {
+    for (let i = 0; i < blinders.length; i++) {
+        element.classList.remove(blinders[i].name);
+    }
+    if (mode) {
+        element.classList.add(blinders[type].name);
+    }
+}
 function blind(type) {
     chrome.storage.sync.set({choice: type}, function() {
         console.log("Value is set to " + type);
     })
-    var base = document.getElementsByTagName("html")[0];
-    for (let i = 0; i < blinders.length; i++) {
-        base.classList.remove(blinders[i].name);
-    }
-    base.classList.add(blinders[type].name);
+    changeFilter(type, document.getElementsByTagName("html")[0], true);
+}
+function obscure(element, mode) {
+    chrome.storage.sync.get(['choice'], function(result) {
+        changeFilter(result.choice, element, mode);
+    });
 }
 
 function main() {
@@ -49,3 +57,17 @@ function main() {
     console.log("Done fixing");
 }
 main();
+var full;
+document.addEventListener("mousemove", function() {
+    if (document.fullscreen) {
+        if (full == null) {
+            full = document.fullscreenElement;
+            obscure(full, true);
+        }
+    } else {
+        if (full != null) {
+            obscure(full, false);
+            full = null;
+        }
+    }
+})
