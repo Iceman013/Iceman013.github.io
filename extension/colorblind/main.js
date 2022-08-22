@@ -16,6 +16,15 @@ function e() {
 function f() {
     blind(5);
 }
+function g() {
+    blind(6);
+}
+function h() {
+    blind(7);
+}
+function j() {
+    blind(8);
+}
 
 function clearButtons() {
     for (let i = 0; i < blinders.length; i++) {
@@ -45,7 +54,7 @@ function makeButtons() {
             this.classList.add("active");
         });
 
-        var buttfun = [a, b, c, d, e, f];
+        var buttfun = [a, b, c, d, e, f, g, h, j];
         button.addEventListener("click", async () => {
             let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
             chrome.scripting.executeScript({
