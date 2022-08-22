@@ -12,7 +12,19 @@
 	cursor: pointer;
 	border: none;
 }
+.light-theme {
+	background-color: var(--light);
+	color: var(--dark);
+}
 .dark-theme {
 	background-color: var(--dark);
-	color: var(--light)
+	color: var(--light);
+}
+.mode {
+	cursor: pointer;
+	width: 100px;
+	margin: 1px;
+}
+.active {
+	filter: invert(100%);
 }
