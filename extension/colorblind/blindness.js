@@ -6,6 +6,6 @@ var blinders = [
     new Blind("Tritanomaly", "tritanomaly-blindness-filter", [[1.255528, -0.076749, -0.178779],[-0.078411, 0.930809, 0.147602],[0.004733, 0.691367, 0.303900]]),
     new Blind("Achromatopsia", "achromatopsia-blindness-filter", [[0.33333, 0.33333, 0.33333],[0.33333, 0.33333, 0.33333],[0.33333, 0.33333, 0.33333]]),
 
-    new Blind("Red Green", "red-green-blindness-filter", [[0.5, 0.5, 0],[0.5, 0.5, 0],[0, 0, 1]]),
-    new Blind("Blue Yellow", "blue-yellow-blindness-filter", [[1, 0, 0],[0, 0.5, 0.5],[0, 0.5, 0.5]]),
+    //new Blind("Red Green", "red-green-blindness-filter", [[0.5, 0.5, 0],[0.5, 0.5, 0],[0, 0, 1]]),
+    //new Blind("Blue Yellow", "blue-yellow-blindness-filter", [[1, 0, 0],[0, 0.5, 0.5],[0, 0.5, 0.5]]),
 ];

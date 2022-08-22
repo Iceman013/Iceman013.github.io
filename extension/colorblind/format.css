@@ -6,6 +6,10 @@
 	--dark: #222233;
 	--light: #eeeeff;
 }
+h1 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 .activate {
 	background-color: var(--light);
 	color: var(--dark);
@@ -21,8 +25,10 @@
 	color: var(--light);
 }
 .mode {
+	padding-top: 2px;
+	padding-bottom: 2px;
 	cursor: pointer;
-	width: 120px;
+	width: 200px;
 	margin: 1px;
 }
 .active {
