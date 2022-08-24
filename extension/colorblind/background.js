@@ -45,10 +45,17 @@ function obscure(element, mode) {
     });
 }
 
+function allScreens() {
+    document.addEventListener("webkitfullscreenchange", function(event) {
+        obscure(event.target, document.fullscreen);
+    });
+}
+
 function main() {
     console.log("Begin fixing");
     
     prepareFilters();
+    allScreens();
     chrome.storage.sync.get(['choice'], function(result) {
         console.log('Value currently is ' + result.choice);
         blind(result.choice);
@@ -57,17 +64,3 @@ function main() {
     console.log("Done fixing");
 }
 main();
-var full;
-document.addEventListener("mousemove", function() {
-    if (document.fullscreen) {
-        if (full == null) {
-            full = document.fullscreenElement;
-            obscure(full, true);
-        }
-    } else {
-        if (full != null) {
-            obscure(full, false);
-            full = null;
-        }
-    }
-})
