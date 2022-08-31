@@ -27,5 +27,7 @@ const siteList = [
 
     new Site("Kostimo", ["Games"], "https://iceman013.github.io/kostimo/", 'This is a music mixer to make looping beats to custom sounds. All sounds are "unique".'),
 
-    new Site('Ideas', ["Other"], "https://iceman013.github.io/ideas/", "All my coding ideas are here for the future."),
+    new Site("Ideas", ["Other"], "https://iceman013.github.io/ideas/", "All my coding ideas are here for the future."),
+
+    new Site("Picture Editor", ["Other","Unfinished"], "https://iceman013.github.io/pictureEditor/", "A picture editor to apply custom filters."),
 ];

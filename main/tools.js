@@ -11,3 +11,13 @@ function boxChecking() {
         list[i].style.outline = "1px solid rgb(128,0,64)";
     }
 }
+var consoleCounter = [];
+function consoleSpam(message, type) {
+    if (consoleCounter[type] == null) {
+        consoleCounter[type] = 0;
+    }
+    if (consoleCounter[type] < 20) {
+        console.log(message);
+        consoleCounter[type]++;
+    }
+}
