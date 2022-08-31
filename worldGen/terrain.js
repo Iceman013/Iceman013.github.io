@@ -1,14 +1,14 @@
-function Rule(x, y, types) {
-    this.x = x;
-    this.y = y;
+function Rule(types, locations) {
     this.types = types;
+    this.locations = locations;
 }
-function Terrain(id, name, img) {
+function Terrain(type, id, name, img) {
+    this.type = type;
     this.id = id;
     this.name = name;
     this.img = img;
     this.rules = [];
-    this.addRules = function(multiRule) {
-        this.rules.push(multiRule);
+    this.addRule = function(newRule) {
+        this.rules.push(newRule);
     }
 }
