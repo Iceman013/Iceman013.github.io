@@ -1,2 +1,5 @@
-const WIDTH = 25;
-const HEIGHT = 50;
+const WIDTH = 64;
+const HEIGHT = 64;
+const RAIN = 5;
+const EQUALIZER = 1;
+const RAINRADIUS = 20;
