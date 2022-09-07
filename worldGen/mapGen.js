@@ -132,5 +132,23 @@ function segmentMap(map) {
             }
         }
     }
-    return map;
+    var out = true;
+    for (let i = 1; i < map.length; i++) {
+        for (let j = 1; j < map[i].length; j++) {
+            if (out) {
+                for (let a = -1; a <= 1; a++) {
+                    for (let b = -1; b <= 1; b++) {
+                        if (map[i + a] != null && map[i + a][j + b] != null) {
+                            var diff = map[i][j] - map[i + a][j + b];
+                            if (diff != -1 && diff != 0 && diff != 1) {
+                                out = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    console.log(out);
+    return out;
 }
