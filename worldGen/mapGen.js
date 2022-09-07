@@ -103,10 +103,7 @@ function makeMap(x, y) {
         }
     }
 
-    return rollmap;
-}
-
-function segmentMap(map) {
+    var map = rollmap;
     var allofem = [];
     for (let i = 0; i < map.length; i++) {
         for (let j = 0; j < map[i].length; j++) {
@@ -132,23 +129,24 @@ function segmentMap(map) {
             }
         }
     }
-    var out = true;
-    for (let i = 1; i < map.length; i++) {
-        for (let j = 1; j < map[i].length; j++) {
-            if (out) {
-                for (let a = -1; a <= 1; a++) {
-                    for (let b = -1; b <= 1; b++) {
-                        if (map[i + a] != null && map[i + a][j + b] != null) {
-                            var diff = map[i][j] - map[i + a][j + b];
-                            if (diff != -1 && diff != 0 && diff != 1) {
-                                out = false;
-                            }
-                        }
-                    }
+    return map;
+}
+
+function segment(map) {
+    var out = [];
+    for (let i = 0; i < map.length/SQUARE; i++) {
+        out[i] = [];
+        for (let j = 0; j < map[SQUARE*i].length/SQUARE; j++) {
+            var tcell = new Cell();
+            var avg = 0;
+            for (let a = 0; a < SQUARE; a++) {
+                for (let b = 0; b < SQUARE; b++) {
+                    avg += map[SQUARE*i + a][SQUARE*j + b];
                 }
             }
+            tcell.setGround(Math.round(avg/(SQUARE*SQUARE)));
+            out[i][j] = tcell;
         }
     }
-    console.log(out);
     return out;
 }

@@ -3,29 +3,32 @@ function makeGame() {
     console.time();
 
     var map = makeMap(WIDTH, HEIGHT);
-    var ready = false;
-    while (!ready) {
-        ready = segmentMap(map);
-        if (!ready) {
-            map = makeMap(WIDTH, HEIGHT);
-        }
-    }
+    var cellMap = segment(map);
     var imgList = getTerrainList();
-    for (let i = 0; i < map.length; i++) {
-        for (let j = 0; j < map[i].length; j++) {
-            var base = document.createElement("img");
-            base.style.position = "absolute";
-            base.style.left = 32*j + "px";
-            base.style.top = 32*i + "px";
-            base.style.height = "32px";
-            base.style.width = "32px";
-
-            base.src = imgList[map[i][j]][1];
-            //var color = 32*Math.floor(8*map[i][j]);
-            //base.style.backgroundColor = "rgb(" + color + "," + color + "," + color + ")";
-            
-            document.getElementById("box").appendChild(base);
+    for (let i = 0; i < map.length/SQUARE; i++) {
+        var row = document.createElement("div");
+        row.classList.add("row");
+        for (let j = 0; j < map[i].length/SQUARE; j++) {
+            var cell = document.createElement("div");
+            cell.classList.add("cell");
+            for (let a = 0; a < SQUARE; a++) {
+                var cellr = document.createElement("div");
+                cellr.classList.add("cell-row");
+                for (let b = 0; b < SQUARE; b++) {
+                    var base = document.createElement("img");
+                    base.src = imgList[map[SQUARE*i + a][SQUARE*j + b]][1];
+                    cellr.appendChild(base);
+                }
+                cell.appendChild(cellr);
+            }
+            cellMap[i][j].base = cell;
+            const tpoint = cellMap[i][j];
+            tpoint.base.onclick = function() {
+                tpoint.click();
+            };
+            row.appendChild(cell);
         }
+        document.getElementById("box").appendChild(row);
     }
 
     console.timeEnd();
@@ -35,6 +38,7 @@ function start() {
     console.group("Webpage Begin");
     disableDrag();
     makeGame();
+    disableDrag();
     console.groupEnd();
 }
 start();

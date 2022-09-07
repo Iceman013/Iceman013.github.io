@@ -1,3 +1,53 @@
 * {
     user-select: none;
 }
+:root {
+    --error: rgb(255,0,0);
+
+    --map-border: rgb(110,110,120);
+
+    --cell-shadow: rgb(120,120,120);
+}
+.map {
+    width: 660px;
+    height: 660px;
+    border-bottom: 1px solid var(--map-border);
+    border-right: 1px solid var(--map-border);
+    background-color: var(--error);
+}
+.row {
+    width: 660px;
+}
+.cell {
+    float: left;
+    height: 32px;
+    border-top: 1px solid var(--map-border);
+    border-left: 1px solid var(--map-border);
+}
+.cell:hover {
+    transition: 0.05s;
+    transform: scale(1.25,1.25);
+}
+.cell:active {
+    transition: 0.1s;
+    transform: scale(1.02,1.02);
+}
+.cell-row {
+    transform: inherit;
+}
+.cell-row img {
+    box-shadow: inherit;
+    transform: inherit;
+    float: left;
+    height: 8px;
+    width: 8px;
+}
+
+@keyframes blinking {
+    0% { filter: contrast(2); }
+    50% { filter: contrast(4); }
+    100% { filter: contrast(2); }
+}
+.cell-selected {
+    animation: blinking 1s infinite;
+}
