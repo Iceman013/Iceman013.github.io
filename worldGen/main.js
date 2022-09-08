@@ -2,6 +2,8 @@ function makeGame() {
     console.group("Start Game");
     console.time();
 
+    var world = new Map();
+
     var map = makeMap(WIDTH, HEIGHT);
     var cellMap = segment(map);
     var imgList = getTerrainList();
@@ -11,20 +13,31 @@ function makeGame() {
         for (let j = 0; j < map[i].length/SQUARE; j++) {
             var cell = document.createElement("div");
             cell.classList.add("cell");
+
+            if (Math.random() < 0.1) {
+                var img = document.createElement("img");
+                img.classList.add("resource");
+                img.src = "images/treea.png";
+                cell.appendChild(img);
+            }
+
             for (let a = 0; a < SQUARE; a++) {
                 var cellr = document.createElement("div");
                 cellr.classList.add("cell-row");
                 for (let b = 0; b < SQUARE; b++) {
                     var base = document.createElement("img");
-                    base.src = imgList[map[SQUARE*i + a][SQUARE*j + b]][1];
+                    var timg = imgList[map[SQUARE*i + a][SQUARE*j + b]][1]
+                    base.src = timg[Math.floor(timg.length*Math.random())];
                     cellr.appendChild(base);
                 }
                 cell.appendChild(cellr);
             }
             cellMap[i][j].base = cell;
-            const tpoint = cellMap[i][j];
-            tpoint.base.onclick = function() {
-                tpoint.click();
+            world.addCell(i, j, cellMap[i][j]);
+            const tx = i;
+            const ty = j;
+            world.grid[i][j].base.onclick = function() {
+                world.click(tx, ty);
             };
             row.appendChild(cell);
         }

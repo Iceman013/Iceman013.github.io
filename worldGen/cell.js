@@ -10,8 +10,4 @@ function Cell() {
         this.type = terList[this.imgType][2];
         this.typeName = terList[this.imgType][3];
     }
-    this.click = function() {
-        this.base.classList.toggle("cell-selected");
-        console.log("This is a " + this.typeName + " cell.");
-    }
 }
