@@ -19,7 +19,6 @@ function Map() {
         } else {
             this.chosen = [x, y];
             this.grid[this.chosen[0]][this.chosen[1]].base.classList.toggle("cell-selected");
-            console.log("This is a " + this.grid[this.chosen[0]][this.chosen[1]].typeName + " cell.");
         }
         
     }

@@ -21,13 +21,12 @@
     height: 32px;
 }
 .cell:hover {
-    transition: 0.05s;
-    transform: translate(1px, -1px);
+    transform: translate(0.5px, -0.5px);
 }
 .cell:active {
     transition: 0.1s;
-    transform: translate(0px, 0px);
-    filter: brightness(1);
+    transform: translate(-0.5px, 0.5px);
+    filter: brightness(0.9);
 }
 .cell-row {
     transform: inherit;
@@ -42,11 +41,11 @@
 }
 
 .cell-selected {
-    filter: brightness(2);
+    filter: brightness(2.5);
 }
 
 .resource {
     transform: inherit;
     z-index: 2;
-    position: fixed;
+    position: absolute;
 }

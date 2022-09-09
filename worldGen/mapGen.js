@@ -133,6 +133,7 @@ function makeMap(x, y) {
 }
 
 function segment(map) {
+    var terList = getTerrainList();
     var out = [];
     for (let i = 0; i < map.length/SQUARE; i++) {
         out[i] = [];
@@ -144,9 +145,47 @@ function segment(map) {
                     avg += map[SQUARE*i + a][SQUARE*j + b];
                 }
             }
-            tcell.setGround(Math.round(avg/(SQUARE*SQUARE)));
+            tcell.setGround(terList[Math.round(avg/(SQUARE*SQUARE))][2]);
             out[i][j] = tcell;
         }
     }
     return out;
+}
+
+function addResources(map) {
+    var resList = getResourceList();
+    for (let i = 0; i < map.grid.length; i++) {
+        for (let j = 0; j < map.grid[i].length; j++) {
+            for (let k = 0; k < resList.length; k++) {
+                if (map.grid[i][j].resource == null && resList[k].grounds.includes(map.grid[i][j].terrain)) {
+                    if (Math.random() < resList[k].frequency) {
+                        map.grid[i][j].setResource(resList[k].id);
+                    }
+                }
+            }
+        }
+    }
+    for (let c = 0; c < SCATTER; c++) {
+        for (let i = 0; i < map.grid.length; i++) {
+            for (let j = 0; j < map.grid[i].length; j++) {
+                for (let k = 0; k < resList.length; k++) {
+                    if (map.grid[i][j].resource == null && resList[k].grounds.includes(map.grid[i][j].terrain)) {
+                        var count = 0;
+                        for (let a = -1; a <= 1; a++) {
+                            for (let b = -1; b <= 1; b++) {
+                                if (map.grid[i + a] != null && map.grid[i + a][j + b] != null) {
+                                    if (map.grid[i + a][j + b].resource == resList[k].id) {
+                                        count++;
+                                    }
+                                }
+                            }
+                        }
+                        if (Math.random() < count*resList[k].cluster) {
+                            map.grid[i][j].setResource(resList[k].id);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

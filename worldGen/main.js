@@ -14,13 +14,6 @@ function makeGame() {
             var cell = document.createElement("div");
             cell.classList.add("cell");
 
-            if (Math.random() < 0.1) {
-                var img = document.createElement("img");
-                img.classList.add("resource");
-                img.src = "images/treea.png";
-                cell.appendChild(img);
-            }
-
             for (let a = 0; a < SQUARE; a++) {
                 var cellr = document.createElement("div");
                 cellr.classList.add("cell-row");
@@ -43,6 +36,8 @@ function makeGame() {
         }
         document.getElementById("box").appendChild(row);
     }
+
+    addResources(world);
 
     console.timeEnd();
     console.groupEnd();
