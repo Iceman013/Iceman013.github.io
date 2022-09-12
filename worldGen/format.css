@@ -8,6 +8,9 @@
 
     --cell-shadow: rgb(50,50,40);
 }
+body {
+    margin: 0px;
+}
 .map {
     width: 640px;
     height: 640px;
