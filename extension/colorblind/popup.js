@@ -1,9 +1,15 @@
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+function lightMode() {
+	const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-if (prefersDarkScheme.matches) {
-	document.body.classList.remove("light-theme");
-	document.body.classList.add("dark-theme");
-} else {
-	document.body.classList.add("light-theme");
-	document.body.classList.remove("dark-theme");
+	var mode;
+	if (prefersDarkScheme.matches) {
+		mode = "dark-theme";
+	} else {
+		mode = "light-theme";
+	}
+
+	var elements = document.getElementsByTagName("*");
+	for (let i = 0; i < elements.length; i++) {
+		elements[i].classList.add(mode);
+	}
 }
