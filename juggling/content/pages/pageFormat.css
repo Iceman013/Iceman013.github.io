@@ -1,0 +1,55 @@
+:root {
+    --head-font-family: Alata;
+
+    --menu: #000000;
+    --menu-text: #ffffff;
+    --content: #ffffff;
+    --content-text: #000000;
+}
+
+* {
+    font-family: var(--head-font-family);
+}
+body {
+    margin: 0px;
+}
+.menu {
+    position: fixed;
+    top: 0px;
+    height: 7vh;
+    width: 100vw;
+    background-color: var(--menu);
+    color: var(--menu-text);
+    overflow: hidden;
+}
+.content {
+    padding-top: 7vh;
+    width: 100vw;
+    background-color: var(--content);
+    color: var(--content-text);
+}
+
+.open {
+    font-size: 20px;
+    width: 100px;
+    height: 100%;
+    border: none;
+}
+.menuPages {
+    padding: 5px;
+    width: 400px;
+    display: none;
+    background-color: black;
+    position: fixed;
+    height: 93vh;
+}
+.menuPages a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.information {
+    background-color: red;
+    padding: 10px;
+}

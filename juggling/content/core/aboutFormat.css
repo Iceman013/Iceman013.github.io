@@ -1,0 +1,31 @@
+:root {
+    --head-font-family: Alata;
+}
+
+* {
+    font-family: var(--head-font-family);
+}
+
+.head {
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+.head img {
+    border-radius: 50%;
+
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 15px;
+}
+.body {
+    padding: 10px;
+    background-color: white;
+}
+.footer {
+    bottom: 10px;
+    text-align: center;
+    padding: 5px;
+    background-color: white;
+}

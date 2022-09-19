@@ -1,0 +1,7 @@
+:root {
+    --head-font-family: Alata;
+}
+
+* {
+    font-family: var(--head-font-family);
+}
