@@ -30,4 +30,8 @@ const siteList = [
     new Site("Ideas", ["Other"], "https://iceman013.github.io/ideas/", "All my coding ideas are here for the future."),
 
     new Site("Picture Editor", ["Other","Unfinished"], "https://iceman013.github.io/pictureEditor/", "A picture editor to apply custom filters."),
+
+    new Site("Colorblind Download", ["Other","Approved"], "https://iceman013.github.io/extension/colorblind.html", "A colorblindness chrome extension."),
+
+    new Site("World Map Generator", ["Games","Unfinished"], "https://iceman013.github.io/worldGen/", "A simple map generator."),
 ];
