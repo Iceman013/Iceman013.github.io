@@ -1,7 +1,22 @@
-const TRICKS = [
-    new Trick("Cascade", ["3-Ball"], "cascade.html", "This is the basic 3 ball juggling technique."),
+var TRICKS = [];
 
-    new Trick("Reverse Cascade", ["3-Ball"], "reverse.html", "This is the basic 3 ball juggling done in reverse."),
+var a = new Trick("Cascade");
+a.addAlt("Inside Throws");
+a.setLink("cascade.html");
+a.setDescription("This is the basic 3 ball juggling technique.");
+a.addTags("3-Ball", "Symmetrical");
+TRICKS.push(a);
 
-    new Trick("Shower", ["3-Ball","4-Ball","5-Ball"], "shower.html", "This trick involves passing from one side to the other in a circular pattern."),
-];
+var a = new Trick("Reverse Cascade");
+a.addAlt("Outside Throws");
+a.setLink("reverse.html");
+a.setDescription("This is the basic 3 ball juggling done in reverse.");
+a.addTags("3-Ball", "Symmetrical");
+a.addPrereqs("Cascade");
+TRICKS.push(a);
+
+var a = new Trick("3-Ball Shower");
+a.setLink("shower.html");
+a.setDescription("This trick involves passing from one side to the other in a circular pattern.");
+a.addTags("3-Ball", "Asymmetrical");
+TRICKS.push(a);
