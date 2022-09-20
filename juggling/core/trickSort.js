@@ -79,7 +79,6 @@ function sortBy() {
             if (!TRICKS[i].tags.includes(sorts[j])) {
                 document.getElementById("sort_" + i).style.display = "none";
                 j = sorts.length;
-                console.log(document.getElementById("sort_" + i));
             }
         }
     }
