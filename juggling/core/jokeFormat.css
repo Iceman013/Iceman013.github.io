@@ -2,11 +2,13 @@
     padding: 10px;
 }
 .jokes img {
+    margin: 3px;
     float: left;
 }
 .jokes p {
-    margin: 0px;
+    margin: 3px;
     float: left;
     width: fit-content;
+    padding: 2px;
     border: 1px solid black;
 }
