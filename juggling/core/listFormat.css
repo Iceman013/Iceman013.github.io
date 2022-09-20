@@ -1,44 +1,51 @@
 .content {
+    position: absolute;
     padding: 0px;
 }
 .filters {
-    padding-left: 5px;
-    padding-right: 5px;
+    position: fixed;
+    z-index: 2;
+    top: 7vh;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #88ccff;
+    background-color: #000000;
     user-select: none;
-    float: left;
-    width: calc(100vw - 10px);
+    width: 100vw;
 }
 .label {
     border-radius: 10px;
-    background-color: #4488bb;
+    background-color: #dd2222;
     padding: 5px;
     margin: 4px;
     float: left;
 }
 
 .list {
-    float: none;
+    float: left;
 }
 .trick {
-    border: 1px solid black;
-    border-radius: 5px;
     color: black;
     height: fit-content;
-    width: fit-content;
-    float: left;
     margin: 5px;
+    margin-bottom: 20px;
     padding-top: 0px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 10px;
 }
+.name {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+.colon {
+    float: left;
+}
 .tag {
     font-size: 12px;
-    background-color: #ffaa88;
-    border-radius: 5px;
     padding: 2px;
     margin: 4px;
+}
+.description {
+    margin-top: 2px;
 }

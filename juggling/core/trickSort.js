@@ -14,16 +14,25 @@ startSort();
 function addTricks() {
     var base = document.getElementById("list");
     for (let i = 0; i < TRICKS.length; i++) {
-        var elem = document.createElement("a");
+        var elem = document.createElement("div");
         elem.id = "sort_" + i;
         elem.href = "https://iceman013.github.io/juggling/pages/" + TRICKS[i].link;
         var body = document.createElement("div");
         body.classList.add("trick");
         elem.appendChild(body);
 
-        var head = document.createElement("h3");
+        var head = document.createElement("a");
+        head.classList.add("name");
+        head.href = "https://iceman013.github.io/juggling/pages/" + TRICKS[i].link;
         head.innerHTML = TRICKS[i].name;
         body.appendChild(head);
+
+        var sec = document.createElement("div");
+
+        var tag = document.createElement("b");
+        tag.classList.add("colon");
+        tag.innerHTML = "Tags:";
+        sec.appendChild(tag);
 
         var types = document.createElement("div");
         for (let j = 0; j < TRICKS[i].tags.length; j++) {
@@ -32,15 +41,15 @@ function addTricks() {
             ty.innerHTML = TRICKS[i].tags[j];
             types.appendChild(ty);
         }
-        body.appendChild(types);
+        sec.appendChild(types);
+        body.appendChild(sec);
 
-        var des = document.createElement("p");
-        des.innerHTML = TRICKS[i].description;
-        body.appendChild(des);
+        var sec = document.createElement("div");
 
-        var pre = document.createElement("p");
-        pre.innerHTML = "Prerequisite Tricks";
-        body.appendChild(pre);
+        var tag = document.createElement("b");
+        tag.classList.add("colon");
+        tag.innerHTML = "Prerequisites:";
+        sec.appendChild(tag);
 
         var prt = document.createElement("div");
         for (let j = 0; j < TRICKS[i].prereqs.length; j++) {
@@ -49,7 +58,14 @@ function addTricks() {
             ty.innerHTML = TRICKS[i].prereqs[j];
             prt.appendChild(ty);
         }
-        body.appendChild(prt);
+        sec.appendChild(prt);
+        
+        body.appendChild(sec);
+
+        var des = document.createElement("p");
+        des.classList.add("description");
+        des.innerHTML = TRICKS[i].description;
+        body.appendChild(des);
 
         base.appendChild(elem);
     }
@@ -92,5 +108,15 @@ function addFilters() {
         base.appendChild(elem);
     }
 }
+function fixify() {
+    var h = document.getElementById("filters").clientHeight;
+    var con = document.getElementsByClassName("content")[0];
+    con.style.height = "calc(93vh - " + h + "px)";
+    con.style.top = "calc(7vh + " + h + "px)";
+}
 addTricks();
 addFilters();
+fixify();
+window.onresize = function() {
+    fixify();
+}

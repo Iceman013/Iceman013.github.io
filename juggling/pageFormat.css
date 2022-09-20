@@ -12,6 +12,7 @@
 }
 body {
     margin: 0px;
+    overflow: hidden;
 }
 .menu {
     z-index: 2;
@@ -28,9 +29,11 @@ body {
     padding-right: 10px;
     position: absolute;
     top: 7vh;
-    min-height: 93vh;
+    height: 93vh;
+    width: 100vw;
     background-color: var(--content);
     color: var(--content-text);
+    overflow-y: scroll;
 }
 
 .open {
@@ -38,6 +41,8 @@ body {
     width: 100px;
     height: 100%;
     border: none;
+    background-color: #ff0000;
+    color: #ffffff;
 }
 .menuPages {
     padding: 5px;
