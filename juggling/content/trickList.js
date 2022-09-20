@@ -17,7 +17,7 @@ a.addPrereqs("Cascade");
 TRICKS.push(a);
 
 var a = new Trick("3-Ball Shower");
-a.setLink("shower.html");
+a.setLink("showerThree.html");
 a.setDescription("This trick involves passing from one side to the other in a circular pattern.");
 a.addTags("3-Ball", "Asymmetrical");
 TRICKS.push(a);
