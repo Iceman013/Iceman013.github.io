@@ -1,3 +1,16 @@
+function startSort() {
+    for (let i = 0; i < TRICKS.length; i++) {
+        for (let j = 1; j < TRICKS.length - i; j++) {
+            if (TRICKS[j].difficulty < TRICKS[j - 1].difficulty) {
+                var temp = TRICKS[j];
+                TRICKS[j] = TRICKS[j - 1];
+                TRICKS[j - 1] = temp;
+            }
+        }
+    }
+}
+startSort();
+
 function addTricks() {
     var base = document.getElementById("list");
     for (let i = 0; i < TRICKS.length; i++) {
