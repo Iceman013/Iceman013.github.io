@@ -7,6 +7,14 @@ function makeMenu() {
     open.id = "menu";
     base.appendChild(open);
 
+    var tricks = document.createElement("button");
+    tricks.innerHTML = "Tricks";
+    tricks.classList.add("open");
+    tricks.onclick = function() {
+        window.open("https://iceman013.github.io/juggling/core/fullList.html","_self");
+    }
+    base.appendChild(tricks);
+
     var div = document.createElement("div");
     div.classList.add("menuPages");
     div.id = "pages";
