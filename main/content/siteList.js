@@ -34,4 +34,6 @@ const siteList = [
     new Site("Colorblind Download", ["Other","Approved"], "https://iceman013.github.io/extension/colorblind.html", "A colorblindness chrome extension."),
 
     new Site("World Map Generator", ["Games","Unfinished"], "https://iceman013.github.io/worldGen/", "A simple map generator."),
+
+    new Site("Juggling Club Tricks", ["Other","Unfinished"], "https://iceman013.github.io/juggling/index.html", "This is the UGA Juggling Club website."),
 ];
