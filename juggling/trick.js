@@ -4,7 +4,7 @@ function Trick(name) {
     this.link = "";
     this.description = "No description available.";
     this.tags = [];
-    this.prereqs = [];
+    this.prereqs = ["None"];
 
     this.addAlt = function(... input) {
         for (let i = 0; i < input.length; i++) {
@@ -23,6 +23,9 @@ function Trick(name) {
         }
     }
     this.addPrereqs = function(... input) {
+        if (this.prereqs = ["None"]) {
+            this.prereqs = [];
+        }
         for (let i = 0; i < input.length; i++) {
             this.prereqs.push(input[i]);
         }

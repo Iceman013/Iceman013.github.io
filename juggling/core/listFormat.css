@@ -1,0 +1,41 @@
+.filters {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #88ccff;
+    user-select: none;
+    float: left;
+    width: 100%;
+}
+.label {
+    border-radius: 10px;
+    background-color: #4488bb;
+    padding: 5px;
+    margin: 4px;
+    float: left;
+}
+
+.list {
+    float: none;
+}
+.trick {
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    height: fit-content;
+    width: fit-content;
+    float: left;
+    margin: 5px;
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+.tag {
+    font-size: 12px;
+    background-color: #ffaa88;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 4px;
+}

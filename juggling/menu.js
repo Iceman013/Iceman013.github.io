@@ -11,10 +11,6 @@ function makeMenu() {
     div.classList.add("menuPages");
     div.id = "pages";
     base.appendChild(div);
-
-    var search = document.createElement("p");
-    search.innerHTML = "Search";
-    base.appendChild(search);
 }
 makeMenu();
 
