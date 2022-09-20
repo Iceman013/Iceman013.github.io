@@ -1,5 +1,6 @@
-function Trick(name) {
+function Trick(name, difficulty) {
     this.name = name;
+    this.difficulty = difficulty;
     this.alts = [];
     this.link = "";
     this.description = "No description available.";
