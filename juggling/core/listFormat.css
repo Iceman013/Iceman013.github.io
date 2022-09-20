@@ -6,7 +6,7 @@
     background-color: #88ccff;
     user-select: none;
     float: left;
-    width: 100%;
+    width: calc(100vw - 10px);
 }
 .label {
     border-radius: 10px;
