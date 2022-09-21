@@ -60,6 +60,15 @@ body {
     text-decoration: none;
 }
 
+.imgCont {
+    width: calc(100vw - 40px);
+    text-align: center;
+}
+img {
+    width: 200px;
+    height: 200px;
+}
+
 .information {
     background-color: white;
     padding: 10px;
