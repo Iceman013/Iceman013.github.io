@@ -16,7 +16,6 @@
 select {
     padding-left: 10px;
     padding-right: 10px;
-    min-width: 100px;
     height: 40px;
     background-color: red;
     color: #ffffff;
@@ -45,6 +44,10 @@ select {
 }
 .colon {
     float: left;
+}
+.taglist {
+    width: calc(100vw - 40px);
+    word-wrap: break-word;
 }
 .tag {
     font-size: 12px;

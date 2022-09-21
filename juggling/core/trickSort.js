@@ -35,6 +35,7 @@ function addTricks() {
         sec.appendChild(tag);
 
         var types = document.createElement("div");
+        types.classList.add("taglist");
         for (let j = 0; j < TRICKS[i].tags.length; j++) {
             var ty = document.createElement("text");
             ty.classList.add("tag");
@@ -52,6 +53,7 @@ function addTricks() {
         sec.appendChild(tag);
 
         var prt = document.createElement("div");
+        prt.classList.add("taglist");
         for (let j = 0; j < TRICKS[i].prereqs.length; j++) {
             var ty = document.createElement("text");
             ty.classList.add("tag");
@@ -69,9 +71,16 @@ function addTricks() {
 
         base.appendChild(elem);
     }
+    var nope = document.createElement("p");
+    nope.id = "emptyCase";
+    nope.innerHTML = "Sorry. Couldn't find anything matching your filters.";
+    nope.style.display = "none";
+    base.appendChild(nope);
 }
 var sorts = [];
 function sortBy() {
+    var empty = true;
+    document.getElementById("emptyCase").style.display = "none";
     for (let i = 0; i < TRICKS.length; i++) {
         document.getElementById("sort_" + i).style.display = "block";
         for (let j = 0; j < sorts.length; j++) {
@@ -82,6 +91,12 @@ function sortBy() {
                 }
             }
         }
+        if (document.getElementById("sort_" + i).style.display == "block") {
+            empty = false;
+        }
+    }
+    if (empty) {
+        document.getElementById("emptyCase").style.display = "block";
     }
 }
 function addSubFilters() {
