@@ -5,4 +5,5 @@ const PAGES = [
     new Page("Buying Stuff", "https://iceman013.github.io/juggling/core/recommend.html"),
     new Page("Jokes", "https://iceman013.github.io/juggling/core/jokes.html"),
     new Page("Help", "https://iceman013.github.io/juggling/core/help.html"),
+    new Page("Credits", "https://iceman013.github.io/juggling/core/credits.html"),
 ];
