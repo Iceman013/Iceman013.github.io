@@ -72,6 +72,7 @@ function addTricks() {
         base.appendChild(elem);
     }
     var nope = document.createElement("p");
+    nope.classList.add("empty");
     nope.id = "emptyCase";
     nope.innerHTML = "Sorry. Couldn't find anything matching your filters.";
     nope.style.display = "none";

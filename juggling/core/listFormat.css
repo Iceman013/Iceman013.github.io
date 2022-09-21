@@ -26,6 +26,7 @@ select {
 
 .list {
     float: left;
+    width: calc(100vw - 37px);
 }
 .trick {
     color: black;
@@ -56,4 +57,7 @@ select {
 }
 .description {
     margin-top: 2px;
+}
+.empty {
+    width: calc(100vw - 37px);
 }
