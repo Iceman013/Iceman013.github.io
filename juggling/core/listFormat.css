@@ -1,7 +1,7 @@
 .content {
     position: absolute;
-    height: calc(93vh - 60px);
-    top: calc(7vh + 60px);
+    height: calc(93vh - 110px);
+    top: calc(7vh + 110px);
 }
 .filters {
     position: fixed;
