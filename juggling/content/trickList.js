@@ -4,8 +4,46 @@ var b = new Filter("Juggling");
 b.addSubs(["2","3","4","5","6"],["Symmetrical","Asymmetrical","One Step"],["Balls","Rings","Clubs","Mixed"]);
 FILTERS.push(b);
 
+var b = new Filter("Yo-Yo");
+b.addSubs(["Responsive","Unresponsive"]);
+FILTERS.push(b);
+
+var b = new Filter("Poi");
+FILTERS.push(b);
+
+var b = new Filter("Unicycle");
+b.addSubs(["Regular","Giraffe","Ultimate"],["Riding","Stationary","Mount"]);
+FILTERS.push(b);
+
+var b = new Filter("Lasso");
+b.addSubs(["Horizontal","Vertical"]);
+FILTERS.push(b);
+
 var b = new Filter("Diabolo");
 b.addSubs(["1-Diabolo","2-Diabolo"],["Vertical","Horizontal"]);
+FILTERS.push(b);
+
+var b = new Filter("Cigar Boxes");
+b.addSubs(["3","4"]);
+FILTERS.push(b);
+
+var b = new Filter("Devil Sticks");
+FILTERS.push(b);
+
+var b = new Filter("Spinny Plates");
+FILTERS.push(b);
+
+var b = new Filter("Contact Ball");
+b.addSubs(["1","2","3"]);
+FILTERS.push(b);
+
+var b = new Filter("Rola Bola");
+FILTERS.push(b);
+
+var b = new Filter("Stilts");
+FILTERS.push(b);
+
+var b = new Filter("Slack Line");
 FILTERS.push(b);
 
 var TRICKS = [];
