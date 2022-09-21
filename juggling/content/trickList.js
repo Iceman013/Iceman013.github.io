@@ -14,7 +14,7 @@ var a = new Trick("Cascade", 1);
 a.addAlt("Inside Throws");
 a.setLink("cascade.html");
 a.setDescription("The cascade, also known as inside throws, is the basic 3 ball juggling technique. It is typically the first form of juggling one learns. This is a simple trick that serves as an introduction to more juggling.");
-a.addTags("Juggling","3","Symmetrical","Balls","Rings","Clubs","Mixed");
+a.addTags("Juggling","3","Symmetrical","Balls");
 TRICKS.push(a);
 
 var a = new Trick("Reverse Cascade", 1);
@@ -98,7 +98,7 @@ var a = new Trick("Four", 5);
 a.addAlt("Fountain");
 a.setLink("four.html");
 a.setDescription("This is the basic four ball pattern. It is the first four ball trick and sometimes called a fountain.");
-a.addTags("Juggling","4","Symmetrical","Balls","Rings","Clubs","Mixed");
+a.addTags("Juggling","4","Symmetrical","Balls");
 a.addPrereqs("Two in One Hand");
 TRICKS.push(a);
 
