@@ -14,8 +14,8 @@
     width: 100vw;
 }
 select {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
     height: 40px;
     background-color: red;
     color: #ffffff;
