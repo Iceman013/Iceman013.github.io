@@ -5,7 +5,7 @@ b.addSubs(["2","3","4","5","6"],["Symmetrical","Asymmetrical","One Step"],["Ball
 FILTERS.push(b);
 
 var b = new Filter("Yo-Yo");
-b.addSubs(["Responsive","Unresponsive"]);
+b.addSubs(["Responsive","Unresponsive"],["Vertical","Horizontal"]);
 FILTERS.push(b);
 
 var b = new Filter("Poi");
