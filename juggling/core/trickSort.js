@@ -72,50 +72,79 @@ function addTricks() {
 }
 var sorts = [];
 function sortBy() {
-    console.log(sorts);
     for (let i = 0; i < TRICKS.length; i++) {
         document.getElementById("sort_" + i).style.display = "block";
         for (let j = 0; j < sorts.length; j++) {
-            if (!TRICKS[i].tags.includes(sorts[j])) {
-                document.getElementById("sort_" + i).style.display = "none";
-                j = sorts.length;
+            if (sorts[j] != "All") {
+                if (!TRICKS[i].tags.includes(sorts[j])) {
+                    document.getElementById("sort_" + i).style.display = "none";
+                    j = sorts.length;
+                }
             }
+        }
+    }
+}
+function addSubFilters() {
+    var base = document.getElementById("filters");
+    while (base.childNodes.length > 1) {
+        base.removeChild(base.childNodes[1]);
+    }
+    if (document.getElementById("selector").value != "All") {
+        var target = 0;
+        for (let i = 0; i < FILTERS.length; i++) {
+            if (FILTERS[i].name == document.getElementById("selector").value) {
+                target = i;
+            }
+        }
+
+        for (let i = 0; i < FILTERS[target].subfilters.length; i++) {
+            var elem = document.createElement("select");
+            var opt = document.createElement("option");
+            opt.value = "All";
+            opt.innerHTML = "All";
+            elem.appendChild(opt);
+            for (let j = 0; j < FILTERS[target].subfilters[i].length; j++) {
+                var opt = document.createElement("option");
+                opt.value = FILTERS[target].subfilters[i][j];
+                opt.innerHTML = FILTERS[target].subfilters[i][j];
+                elem.appendChild(opt);
+            }
+            const imp = FILTERS[target].subfilters[i];
+            elem.onchange = function(event) {
+                for (let k = 0; k < imp.length; k++) {
+                    if (sorts.includes(imp[k])) {
+                        sorts.splice(sorts.indexOf(imp[k]),1);
+                    }
+                }
+                sorts.push(event.srcElement.value);
+                sortBy();
+            }
+            base.appendChild(elem);
         }
     }
 }
 function addFilters() {
     var base = document.getElementById("filters");
+    var elem = document.createElement("select");
+    elem.id = "selector";
+    var opt = document.createElement("option");
+    opt.value = "All";
+    opt.innerHTML = "All";
+    elem.appendChild(opt);
     for (let i = 0; i < FILTERS.length; i++) {
-        var elem = document.createElement("label");
-        elem.classList.add("label");
-        elem.innerHTML = FILTERS[i];
-
-        var che = document.createElement("input");
-        che.type = "checkbox";
-        che.value = FILTERS[i];
-        elem.appendChild(che);
-        che.onchange = function(event) {
-            var q = sorts.indexOf(event.srcElement.value);
-            if (q == -1) {
-                sorts.push(event.srcElement.value);
-            } else {
-                sorts.splice(q, 1);
-            }
-            sortBy();
-        }
-
-        base.appendChild(elem);
+        var opt = document.createElement("option");
+        opt.value = FILTERS[i].name;
+        opt.innerHTML = FILTERS[i].name;
+        
+        elem.appendChild(opt);
     }
-}
-function fixify() {
-    var h = document.getElementById("filters").clientHeight;
-    var con = document.getElementsByClassName("content")[0];
-    con.style.height = "calc(93vh - " + h + "px)";
-    con.style.top = "calc(7vh + " + h + "px)";
+    elem.onchange = function(event) {
+        addSubFilters();
+        sorts.splice(0,sorts.length);
+        sorts.push(event.srcElement.value);
+        sortBy();
+    }
+    base.appendChild(elem);
 }
 addTricks();
 addFilters();
-fixify();
-window.onresize = function() {
-    fixify();
-}

@@ -1,5 +1,7 @@
 .content {
     position: absolute;
+    height: calc(93vh - 60px);
+    top: calc(7vh + 60px);
 }
 .filters {
     position: fixed;
@@ -11,12 +13,16 @@
     user-select: none;
     width: 100vw;
 }
-.label {
-    border-radius: 10px;
-    background-color: #dd2222;
-    padding: 5px;
-    margin: 4px;
-    float: left;
+select {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 100px;
+    height: 40px;
+    background-color: red;
+    color: #ffffff;
+    border: 0px;
+    border-right: 1px solid #000000;
+    outline: none;
 }
 
 .list {
