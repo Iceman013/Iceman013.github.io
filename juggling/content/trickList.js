@@ -74,9 +74,37 @@ a.addTags("Juggling","3-Object","Asymmetrical");
 a.addPrereqs("Under the Arm");
 TRICKS.push(a);
 
+var a = new Trick("Box", 4);
+a.setLink("box.html");
+a.setDescription("This trick is a classic three ball pattern that resembles the sides and bottom of a box.");
+a.addTags("Juggling","3-Object","Symmetrical");
+a.addPrereqs("3-Ball Shower");
+TRICKS.push(a);
+
 var a = new Trick("3-Ball Mill's Mess", 4);
 a.setLink("millsThree.html");
 a.setDescription("This is a classic trick that will mess with your head. It is often the first complex trick jugglers learn.");
 a.addTags("Juggling","3-Object","Symmetrical");
 a.addPrereqs("Windmills","Arms Crossed");
+TRICKS.push(a);
+
+var a = new Trick("Two in One Hand", 1);
+a.setLink("twoInOne.html");
+a.setDescription("Juggling 2 balls in one hand is the smallest about of balls a trick can have. It is one of the simplest tricks.");
+a.addTags("Juggling","2-Object","Asymmetrical");
+TRICKS.push(a);
+
+var a = new Trick("Four", 5);
+a.addAlt("Fountain");
+a.setLink("four.html");
+a.setDescription("This is the basic four ball pattern. It is the first four ball trick and sometimes called a fountain.");
+a.addTags("Juggling","4-Object","Symmetrical");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("4-Ball Shower", 8);
+a.setLink("showerFour.html");
+a.setDescription("This is a challenging four ball pattern that uses the classic shower.");
+a.addTags("Juggling","4-Object","Asymmetrical");
+a.addPrereqs("3-Ball Shower");
 TRICKS.push(a);
