@@ -146,3 +146,118 @@ a.setDescription("This is a challenging four ball pattern that uses the classic 
 a.addTags("Juggling","4","Asymmetrical","Balls");
 a.addPrereqs("3-Ball Shower");
 TRICKS.push(a);
+
+var a = new Trick("Columns", 2);
+a.setLink("columns.html");
+a.setDescription("This is a basic trick that offers a different throw pattern from traditional three. It looks like 3 seperate columns.");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Crossovers", 3);
+a.addAlt("Rainbow Cross");
+a.setLink("crossover.html");
+a.setDescription("This is a variation of the columns trick that involves crossing balls.");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Columns");
+TRICKS.push(a);
+
+var a = new Trick("Boston Mess", 4);
+a.setLink("bostonMess.html");
+a.setDescription("This trick has all 3 balls just go up and down while the hands go back and forth to support them.");
+a.addTags("Juggling","3","Symmetrical","Balls");
+a.addPrereqs("Mill's Mess","Columns");
+TRICKS.push(a);
+
+var a = new Trick("Five", 8);
+a.setLink("five.html");
+a.setDescription("This is another classic trick for those going up in number. It has 5 balls and takes a lot of practice.");
+a.addTags("Juggling","5","Symmetrical","Balls");
+a.addPrereqs("Four");
+TRICKS.push(a);
+
+var a = new Trick("Three in One Hand", 6);
+a.setLink("threeInOne.html");
+a.setDescription("This is one of the harder 3-ball tricks because it only uses one hand. It becomes part of other high ball tricks.");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Factory", 3);
+a.setLink("unfinished.html");
+a.setDescription("This trick is a smooth motion mimicing a factory's robotic motions. It has a different type of throw, making it different from most 3-ball patterns.");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand","Columns");
+TRICKS.push(a);
+
+/*
+var a = new Trick("Shuffle", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Inverted Box", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Six", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("4-Ball Mill's Mess", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("4-Ball Columns", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Rings", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Back Crosses", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Behind the Back", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Takeouts", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+
+var a = new Trick("Bear Claws", 6);
+a.setLink("unfinished.html");
+a.setDescription("");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("Two in One Hand");
+TRICKS.push(a);
+*/
