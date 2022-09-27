@@ -46,6 +46,11 @@ body {
     background-color: #ff0000;
     color: #ffffff;
 }
+.toRight {
+    float: right;
+    border-right: 0px;
+    border-left: 1px solid var(--menu);
+}
 .menuPages {
     z-index: 2;
     padding: 5px;

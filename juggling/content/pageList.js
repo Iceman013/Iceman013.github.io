@@ -6,4 +6,5 @@ const PAGES = [
     new Page("Jokes", "https://iceman013.github.io/juggling/core/jokes.html"),
     new Page("Help", "https://iceman013.github.io/juggling/core/help.html"),
     new Page("Credits", "https://iceman013.github.io/juggling/core/credits.html"),
+    new Page("Feedback", "https://iceman013.github.io/juggling/core/message.html"),
 ];

@@ -15,6 +15,15 @@ function makeMenu() {
     }
     base.appendChild(tricks);
 
+    var feed = document.createElement("button");
+    feed.innerHTML = "Feedback";
+    feed.classList.add("open");
+    feed.classList.add("toRight");
+    feed.onclick = function() {
+        window.open("https://iceman013.github.io/juggling/core/message.html","_self");
+    }
+    base.appendChild(feed);
+
     var div = document.createElement("div");
     div.classList.add("menuPages");
     div.id = "pages";

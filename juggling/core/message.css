@@ -1,0 +1,12 @@
+:root {
+    --input-border: 1px solid black;
+}
+input {
+    border: var(--input-border);
+}
+select {
+    border: var(--input-border);
+}
+textarea {
+    border: var(--input-border);
+}
