@@ -1,11 +1,11 @@
 const major = 1;
 const mediu = 4;
-const minor = 1;
+const minor = 2;
 
 /* Totals (Since 1.0.0)
  * major: 1
  * mediu: 4
- * minor: 5
+ * minor: 6
  */
 
 function update() {
