@@ -67,7 +67,7 @@ var a = new Trick("Tennis", 2);
 a.setLink("tennis.html");
 a.setDescription("This is a small variation of the basic 3 ball juggling pattern. It resembles a game of tennis, hence the name.");
 a.addTags("Juggling","3","Symmetrical","Balls");
-a.addPrereqs("Cascade","Reverse Cascade");
+a.addPrereqs("Reverse Cascade");
 TRICKS.push(a);
 
 var a = new Trick("Reverse Tennis", 2);
@@ -81,7 +81,7 @@ var a = new Trick("Half Shower", 2);
 a.setLink("halfShower.html");
 a.setDescription("This is a small variation of the basic 3 ball juggling pattern. It is similar to shower in appearance which is why it has this name. This is often seen as the preparation step for learning shower.");
 a.addTags("Juggling","3","Asymmetrical","Balls");
-a.addPrereqs("Cascade","Reverse Cascade");
+a.addPrereqs("Reverse Cascade");
 TRICKS.push(a);
 
 var a = new Trick("3-Ball Shower", 4);
@@ -187,7 +187,7 @@ var a = new Trick("Factory", 3);
 a.setLink("unfinished.html");
 a.setDescription("This trick is a smooth motion mimicing a factory's robotic motions. It has a different type of throw, making it different from most 3-ball patterns.");
 a.addTags("Juggling","3","Asymmetrical","Balls");
-a.addPrereqs("Two in One Hand","Columns");
+a.addPrereqs("Columns");
 TRICKS.push(a);
 
 /*
