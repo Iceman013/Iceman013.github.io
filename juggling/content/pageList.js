@@ -1,10 +1,10 @@
 const PAGES = [
-    new Page("About", "https://iceman013.github.io/juggling/core/about.html"),
-    new Page("Tricks", "https://iceman013.github.io/juggling/core/fullList.html"),
-    new Page("Tips", "https://iceman013.github.io/juggling/core/tips.html"),
-    new Page("Buying Stuff", "https://iceman013.github.io/juggling/core/recommend.html"),
-    new Page("Jokes", "https://iceman013.github.io/juggling/core/jokes.html"),
-    new Page("Help", "https://iceman013.github.io/juggling/core/help.html"),
-    new Page("Credits", "https://iceman013.github.io/juggling/core/credits.html"),
-    new Page("Feedback", "https://iceman013.github.io/juggling/core/message.html"),
+    new Page("About", "index.html", "home"),
+    new Page("Tricks", "core/fullList.html", "skateboarding"),
+    new Page("Tips", "core/tips.html", "tips_and_updates"),
+    new Page("Recommendations", "core/recommend.html", "recommend"),
+    new Page("Jokes", "core/jokes.html", "sentiment_very_satisfied"),
+    new Page("Help", "core/help.html", "help"),
+    new Page("Credits", "core/credits.html", "engineering"),
+    new Page("Feedback", "core/message.html", "warning"),
 ];

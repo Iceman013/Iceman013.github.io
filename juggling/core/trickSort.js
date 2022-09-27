@@ -1,3 +1,9 @@
+function getDomainBase() {
+    return window.location.href.substring(0, window.location.href.indexOf("juggling")) + "juggling/";
+}
+function getInnerDomain() {
+    return window.location.href.substring(getDomainBase().length);
+}
 function startSort() {
     for (let i = 0; i < TRICKS.length; i++) {
         for (let j = 1; j < TRICKS.length - i; j++) {
@@ -16,14 +22,14 @@ function addTricks() {
     for (let i = 0; i < TRICKS.length; i++) {
         var elem = document.createElement("div");
         elem.id = "sort_" + i;
-        elem.href = "https://iceman013.github.io/juggling/pages/" + TRICKS[i].link;
+        elem.href = getDomainBase() + "pages/" + TRICKS[i].link;
         var body = document.createElement("div");
         body.classList.add("trick");
         elem.appendChild(body);
 
         var head = document.createElement("a");
         head.classList.add("name");
-        head.href = "https://iceman013.github.io/juggling/pages/" + TRICKS[i].link;
+        head.href = getDomainBase() + "pages/" + TRICKS[i].link;
         head.innerHTML = TRICKS[i].name;
         body.appendChild(head);
 

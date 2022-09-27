@@ -1,3 +1,9 @@
+function getDomainBase() {
+    return window.location.href.substring(0, window.location.href.indexOf("juggling")) + "juggling/";
+}
+function getInnerDomain() {
+    return window.location.href.substring(getDomainBase().length);
+}
 function makeMenu() {
     var base = document.getElementsByClassName("menu")[0];
 
@@ -11,7 +17,7 @@ function makeMenu() {
     tricks.innerHTML = "Tricks";
     tricks.classList.add("open");
     tricks.onclick = function() {
-        window.open("https://iceman013.github.io/juggling/core/fullList.html","_self");
+        window.open(getDomainBase() + "core/fullList.html","_self");
     }
     base.appendChild(tricks);
 
@@ -20,7 +26,7 @@ function makeMenu() {
     feed.classList.add("open");
     feed.classList.add("toRight");
     feed.onclick = function() {
-        window.open("https://iceman013.github.io/juggling/core/message.html","_self");
+        window.open(getDomainBase() + "core/message.html","_self");
     }
     base.appendChild(feed);
 
@@ -29,6 +35,7 @@ function makeMenu() {
     div.id = "pages";
     if (window.innerWidth <= 500) {
         div.style.width = window.innerWidth + "px";
+        console.log(window.innerWidth);
     }
     base.appendChild(div);
 }
@@ -40,10 +47,10 @@ menu.onclick = function() {
     var content = document.getElementById("pages");
     if (menu.innerHTML == "Menu") {
         menu.innerHTML = "Close";
-        pages.style.display = "block";
+        content.style.display = "block";
     } else {
         menu.innerHTML = "Menu";
-        pages.style.display = "none";
+        content.style.display = "none";
     }
 }
 
@@ -51,9 +58,18 @@ function makePages() {
     var base = document.getElementById("pages");
     for (let i = 0; i < PAGES.length; i++) {
         var elem = document.createElement("a");
-        elem.href = PAGES[i].link;
+        elem.href = getDomainBase() + PAGES[i].link;
         
-        var name = document.createElement("p");
+        if (getInnerDomain() == PAGES[i].link) {
+            elem.classList.add("current");
+        }
+        var icon = document.createElement("i");
+        icon.classList.add("material-symbols-outlined");
+        icon.classList.add("icon");
+        icon.innerHTML = PAGES[i].icon;
+        elem.appendChild(icon);
+
+        var name = document.createElement("text");
         name.innerHTML = PAGES[i].name;
         elem.appendChild(name);
 
