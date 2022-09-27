@@ -8,7 +8,13 @@ function makeMenu() {
     var base = document.getElementsByClassName("menu")[0];
 
     var open = document.createElement("button");
-    open.innerHTML = "Menu";
+    var menico = document.createElement("i");
+    menico.id = "menuicon";
+    menico.innerHTML = "menu";
+    menico.classList.add("topIcon");
+    menico.classList.add("material-symbols-outlined");
+    open.appendChild(menico);
+
     open.classList.add("open");
     open.id = "menu";
     base.appendChild(open);
@@ -22,7 +28,12 @@ function makeMenu() {
     base.appendChild(tricks);
 
     var feed = document.createElement("button");
-    feed.innerHTML = "Feedback";
+    var menico = document.createElement("i");
+    menico.id = "menuicon";
+    menico.innerHTML = "flag";
+    menico.classList.add("topIcon");
+    menico.classList.add("material-symbols-outlined");
+    feed.appendChild(menico);
     feed.classList.add("open");
     feed.classList.add("toRight");
     feed.onclick = function() {
@@ -45,11 +56,12 @@ var menu = document.getElementById("menu");
 
 menu.onclick = function() {
     var content = document.getElementById("pages");
-    if (menu.innerHTML == "Menu") {
-        menu.innerHTML = "Close";
+    var icon = document.getElementById("menuicon");
+    if (icon.innerHTML == "menu") {
+        icon.innerHTML = "close";
         content.style.display = "block";
     } else {
-        menu.innerHTML = "Menu";
+        icon.innerHTML = "menu";
         content.style.display = "none";
     }
 }
@@ -65,7 +77,7 @@ function makePages() {
         }
         var icon = document.createElement("i");
         icon.classList.add("material-symbols-outlined");
-        icon.classList.add("icon");
+        icon.classList.add("sideIcon");
         icon.innerHTML = PAGES[i].icon;
         elem.appendChild(icon);
 

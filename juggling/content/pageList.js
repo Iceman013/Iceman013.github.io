@@ -6,5 +6,5 @@ const PAGES = [
     new Page("Jokes", "core/jokes.html", "sentiment_very_satisfied"),
     new Page("Help", "core/help.html", "help"),
     new Page("Credits", "core/credits.html", "engineering"),
-    new Page("Feedback", "core/message.html", "warning"),
+    new Page("Feedback", "core/message.html", "flag"),
 ];

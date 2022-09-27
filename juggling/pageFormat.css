@@ -38,10 +38,14 @@ body {
 }
 
 .open {
+    float: left;
     border: none;
     border-right: 1px solid var(--menu);
     font-size: 24px;
-    min-width: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     height: 100%;
     background-color: #ff0000;
     color: #ffffff;
@@ -53,6 +57,7 @@ body {
     border-left: 1px solid var(--menu);
 }
 .menuPages {
+    top: 7vh;
     z-index: 2;
     padding: 5px;
     width: 400px;
@@ -94,8 +99,11 @@ img {
     padding: 10px;
 }
 
-.icon {
+.sideIcon {
     margin-right: 15px;
     vertical-align: middle;
     margin-bottom: 5px;
+}
+.topIcon {
+    font-size: 40px;
 }

@@ -10,3 +10,6 @@ select {
 textarea {
     border: var(--input-border);
 }
+.bigText {
+    max-width: 90vw;
+}
