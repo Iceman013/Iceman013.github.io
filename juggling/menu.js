@@ -46,7 +46,6 @@ function makeMenu() {
     div.id = "pages";
     if (window.innerWidth <= 500) {
         div.style.width = window.innerWidth + "px";
-        console.log(window.innerWidth);
     }
     base.appendChild(div);
 }

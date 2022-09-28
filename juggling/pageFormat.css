@@ -5,21 +5,28 @@
     --menu-text: #ffffff;
     --content: #ffffff;
     --content-text: #000000;
+
+    --menu-height: 7vh;
 }
 
 * {
     font-family: var(--head-font-family);
+    box-sizing: border-box;
 }
 body {
+    height: 100vh;
+    width: 100vw;
     margin: 0px;
     overflow: hidden;
 }
+
 .menu {
     z-index: 2;
     position: fixed;
     top: 0px;
-    height: 7vh;
+    height: var(--menu-height);
     width: 100vw;
+
     background-color: var(--menu);
     color: var(--menu-text);
     overflow: hidden;
@@ -27,17 +34,21 @@ body {
 .content {
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 50px;
+    height: calc(100vh - var(--menu-height));
+    width: 100vw;
+
     position: absolute;
-    top: 7vh;
-    height: calc(93vh - 50px);
-    width: calc(100vw - 20px);
+    top: var(--menu-height);
+    overflow-y: scroll;
+
     background-color: var(--content);
     color: var(--content-text);
-    overflow-y: scroll;
-    padding-bottom: 50px;
 }
 
 .open {
+    display: flex;
+    align-items: center;
     float: left;
     border: none;
     border-right: 1px solid var(--menu);
@@ -57,20 +68,22 @@ body {
     border-left: 1px solid var(--menu);
 }
 .menuPages {
-    top: 7vh;
+    top: var(--menu-height);
     z-index: 2;
-    padding: 5px;
+
+    padding: 10px;
     width: 400px;
+
     display: none;
     background-color: black;
     position: fixed;
-    height: 93vh;
+    height: calc(100vh - var(--menu-height));
 }
 .menuPages a {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    
+    padding: 10px;
     margin-top: 5px;
     margin-bottom: 10px;
 
@@ -78,7 +91,7 @@ body {
     color: white;
     text-decoration: none;
     display: block;
-    width: 300px;
+    width: 100%;
 }
 .current {
     border-radius: 10px;
@@ -101,8 +114,6 @@ img {
 
 .sideIcon {
     margin-right: 15px;
-    vertical-align: middle;
-    margin-bottom: 5px;
 }
 .topIcon {
     font-size: 40px;

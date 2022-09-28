@@ -1,22 +1,28 @@
+:root {
+    --filter-height: 60px;
+}
 .content {
-    position: absolute;
-    height: calc(93vh - 110px);
-    top: calc(7vh + 60px);
+    top: calc(var(--menu-height) + var(--filter-height));
+    height: calc(100vh - var(--menu-height) - var(--filter-height));
 }
 .filters {
-    position: fixed;
+    display: flex;
     z-index: 2;
-    top: 7vh;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    position: fixed;
+    top: var(--menu-height);
+    height: var(--filter-height);
+    align-items: center;
+    width: 100vw;
+
     background-color: #000000;
     user-select: none;
-    width: 100vw;
 }
 select {
     padding-left: 6px;
     padding-right: 6px;
-    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: calc(var(--filter-height) - 20px);
     background-color: red;
     color: #ffffff;
     border: 0px;
