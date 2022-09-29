@@ -1,7 +1,6 @@
 function getDomainBase() {
     var output = "";
     var address = window.location.href;
-    address = 'https://juggling.uga.edu/';
     if (address.includes("Iceman013")) {
         var search = "juggling";
         output = address.substring(0, address.indexOf(search)) + search + "/";
