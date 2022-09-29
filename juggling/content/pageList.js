@@ -1,5 +1,5 @@
 const PAGES = [
-    new Page("About", "index.html", "home"),
+    new Page("About", "", "home"),
     new Page("Tricks", "core/fullList.html", "skateboarding"),
     new Page("Tips", "core/tips.html", "tips_and_updates"),
     new Page("Recommendations", "core/recommend.html", "recommend"),

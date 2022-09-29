@@ -1,7 +1,7 @@
 function getDomainBase() {
     var output = "";
     var address = window.location.href;
-    if (address.includes("iceman013")) {
+    if (address.includes("iceman013") || address.includes("Iceman013")) {
         var search = "juggling";
         output = address.substring(0, address.indexOf(search)) + search + "/";
     } else if (address.includes(".uga.edu")) {
@@ -81,8 +81,11 @@ function makePages() {
     for (let i = 0; i < PAGES.length; i++) {
         var elem = document.createElement("a");
         elem.href = getDomainBase() + PAGES[i].link;
+        if (window.location.href.includes("Iceman013") && PAGES[i].link == "") {
+            elem.href = getDomainBase() + "index.html";
+        }
         
-        if (getInnerDomain() == PAGES[i].link) {
+        if (getInnerDomain() == PAGES[i].link || (getInnerDomain() == "index.html" && PAGES[i].link == "")) {
             elem.classList.add("current");
         }
         var icon = document.createElement("i");
