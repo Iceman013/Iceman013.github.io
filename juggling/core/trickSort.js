@@ -1,5 +1,16 @@
 function getDomainBase() {
-    return window.location.href.substring(0, window.location.href.indexOf("juggling")) + "juggling/";
+    var output = "";
+    var address = window.location.href;
+    if (address.includes("iceman013")) {
+        var search = "juggling";
+        output = address.substring(0, address.indexOf(search)) + search + "/";
+    } else if (address.includes(".uga.edu")) {
+        var search = ".uga.edu"
+        output = address.substring(0, address.indexOf(search)) + search + "/";
+    } else {
+        output = address;
+    }
+    return output;
 }
 function getInnerDomain() {
     return window.location.href.substring(getDomainBase().length);
