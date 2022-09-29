@@ -1,20 +1,3 @@
-function getDomainBase() {
-    var output = "";
-    var address = window.location.href;
-    if (address.includes("iceman013")) {
-        var search = "juggling";
-        output = address.substring(0, address.indexOf(search)) + search + "/";
-    } else if (address.includes(".uga.edu")) {
-        var search = ".uga.edu"
-        output = address.substring(0, address.indexOf(search)) + search + "/";
-    } else {
-        output = address;
-    }
-    return output;
-}
-function getInnerDomain() {
-    return window.location.href.substring(getDomainBase().length);
-}
 function startSort() {
     for (let i = 0; i < TRICKS.length; i++) {
         for (let j = 1; j < TRICKS.length - i; j++) {

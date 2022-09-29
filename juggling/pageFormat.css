@@ -99,10 +99,20 @@ body {
 }
 
 .imgCont {
+    display: flex;
+    flex-wrap: wrap;
     width: calc(100vw - 40px);
-    text-align: center;
+    justify-content: center;
 }
-img {
+.videoCredit {
+    width: 200px;
+}
+p.credit {
+    margin-top: 0px;
+    border: 1px solid black;
+    padding: 3px;
+}
+img.animated, img.people {
     width: 200px;
     height: 200px;
 }
