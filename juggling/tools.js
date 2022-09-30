@@ -15,3 +15,10 @@ function getDomainBase() {
 function getInnerDomain() {
     return window.location.href.substring(getDomainBase().length);
 }
+function getLastDomain() {
+    var out = window.location.href;
+    while (out.includes("/")) {
+        out = out.substring(out.indexOf("/") + 1);
+    }
+    return out;
+}

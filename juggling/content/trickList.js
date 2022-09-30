@@ -166,7 +166,7 @@ var a = new Trick("Boston Mess", 4);
 a.setLink("bostonMess.html");
 a.setDescription("This trick has all 3 balls just go up and down while the hands go back and forth to support them.");
 a.addTags("Juggling","3","Symmetrical","Balls");
-a.addPrereqs("Mill's Mess","Columns");
+a.addPrereqs("3-Ball Mill's Mess","Columns");
 TRICKS.push(a);
 
 var a = new Trick("Five", 8);
