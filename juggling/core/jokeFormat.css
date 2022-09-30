@@ -2,8 +2,7 @@
     padding: 10px;
 }
 .jokes img {
-    width: fit-content;
-    height: fit-content;
+    width: 300px;
     margin: 3px;
     float: left;
 }
