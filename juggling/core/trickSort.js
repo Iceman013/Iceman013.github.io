@@ -156,6 +156,12 @@ function addSubFilters() {
     while (other.childNodes.length > 0) {
         other.removeChild(other.childNodes[0]);
     }
+    var defa = document.createElement("option");
+    defa.value = "";
+    defa.disabled = true;
+    defa.selected = true;
+    defa.innerHTML = "Add filters";
+    base.appendChild(defa);
     if (document.getElementById("selector").value != "All") {
         var target = 0;
         for (let i = 0; i < FILTERS.length; i++) {
@@ -163,12 +169,6 @@ function addSubFilters() {
                 target = i;
             }
         }
-        var defa = document.createElement("option");
-        defa.value = "";
-        defa.disabled = true;
-        defa.selected = true;
-        defa.innerHTML = "Add filters";
-        base.appendChild(defa);
         for (let i = 0; i < FILTERS[target].subNames.length; i++) {
             var elem = document.createElement("optgroup");
             elem.label = FILTERS[target].subNames[i];

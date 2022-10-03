@@ -28,7 +28,7 @@
 .chosen {
     color: inherit;
     height: 39px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .clicker {
