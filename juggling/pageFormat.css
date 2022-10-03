@@ -107,11 +107,6 @@ body {
 .videoCredit {
     width: 200px;
 }
-p.credit {
-    margin-top: 0px;
-    border: 1px solid black;
-    padding: 3px;
-}
 img.animated, img.people {
     width: 200px;
     height: 200px;
