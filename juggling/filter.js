@@ -1,9 +1,13 @@
 function Filter(name) {
     this.name = name;
 
-    this.subfilters = [];
+    this.subNames = [];
+    this.subFilters = [];
+    this.repeats = [];
 
-    this.addSubs = function(... filts) {
-        this.subfilters = filts;
+    this.addSub = function(filname, filter, repeat) {
+        this.subNames.push(filname);
+        this.subFilters.push(filter);
+        this.repeats.push(repeat);
     }
 }

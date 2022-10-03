@@ -1,30 +1,35 @@
 var FILTERS = [];
 
 var b = new Filter("Juggling");
-b.addSubs(["2","3","4","5","6"],["Symmetrical","Asymmetrical","One Step"],["Balls","Rings","Clubs","Mixed"]);
+b.addSub("Quantity",["2","3","4","5","6"],false);
+b.addSub("Symmetry",["Symmetrical","Asymmetrical","One Step"],false);
+b.addSub("Prop",["Balls","Rings","Clubs","Mixed"],true);
 FILTERS.push(b);
 
 var b = new Filter("Yo-Yo");
-b.addSubs(["Responsive","Unresponsive"],["Vertical","Horizontal"]);
+b.addSub("Bearing",["Responsive","Unresponsive"],false);
+b.addSub("Axis",["Vertical","Horizontal"],false);
 FILTERS.push(b);
 
 var b = new Filter("Poi");
 FILTERS.push(b);
 
 var b = new Filter("Unicycle");
-b.addSubs(["Regular","Giraffe","Ultimate"],["Riding","Stationary","Mount"]);
+b.addSub("Type",["Regular","Giraffe","Ultimate"],false);
+b.addSub("Type",["Riding","Stationary","Mount"],true);
 FILTERS.push(b);
 
 var b = new Filter("Lasso");
-b.addSubs(["Horizontal","Vertical"]);
+b.addSub("Axis",["Horizontal","Vertical"],false);
 FILTERS.push(b);
 
 var b = new Filter("Diabolo");
-b.addSubs(["1-Diabolo","2-Diabolo"],["Vertical","Horizontal"]);
+b.addSub("Quantity",["1-Diabolo","2-Diabolo"],false);
+b.addSub("Axis",["Vertical","Horizontal"],false);
 FILTERS.push(b);
 
 var b = new Filter("Cigar Boxes");
-b.addSubs(["3","4"]);
+b.addSub("Quantity",["3","4"],false);
 FILTERS.push(b);
 
 var b = new Filter("Devil Sticks");
@@ -34,7 +39,7 @@ var b = new Filter("Spinny Plates");
 FILTERS.push(b);
 
 var b = new Filter("Contact Ball");
-b.addSubs(["1","2","3"]);
+b.addSub("Quantity",["1","2","3"],false);
 FILTERS.push(b);
 
 var b = new Filter("Rola Bola");

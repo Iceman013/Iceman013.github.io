@@ -7,4 +7,5 @@ const PAGES = [
     new Page("Help", "core/help.html", "help"),
     new Page("Credits", "core/credits.html", "engineering"),
     new Page("Feedback", "core/message.html", "flag"),
+    new Page("Plans", "core/plans.html", "change_history")
 ];
