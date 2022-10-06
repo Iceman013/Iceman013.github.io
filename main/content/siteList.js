@@ -17,7 +17,7 @@ const siteList = [
     
     new Site("Factory Game", ["Games","Unfinished"], "https://iceman013.github.io/factory/", "This is a factory game on a large map."),
     
-    new Site("My Github", ["Links"], "https://github.com/Iceman013/Iceman013.github.io", "This is my github page."),
+    new Site("My Github", ["Links"], "https://github.com/Iceman013", "This is my github page."),
     
     new Site("Monkeytoes999 Github", ["Links"], "https://github.com/Monkeytoes999/monkeytoes999.github.io", "This is a github page of a co-worker."),
     
