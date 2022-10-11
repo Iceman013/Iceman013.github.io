@@ -96,6 +96,13 @@ a.addTags("Juggling","3","Asymmetrical","Balls");
 a.addPrereqs("Half Shower");
 TRICKS.push(a);
 
+var a = new Trick("Shuffle", 5);
+a.setLink("shuffle.html");
+a.setDescription("This is a stylistic trick that uses the same pattern as a shower with a unique throw.");
+a.addTags("Juggling","3","Asymmetrical","Balls");
+a.addPrereqs("3-Ball Shower");
+TRICKS.push(a);
+
 var a = new Trick("Under the Arm", 2);
 a.setLink("underArm.html");
 a.setDescription("This simple trick is just throwing the ball under your arm. This is a one motion trick that can be thrown in to a three ball pattern to spice it up.");
