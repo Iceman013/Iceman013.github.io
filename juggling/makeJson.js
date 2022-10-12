@@ -17,7 +17,7 @@ function getData(type) {
                 }
                 return "rgb(" + out[0] + "," + out[1] + "," + out[2] + ")";
             }
-            node.color = getColor(TRICKS[i].difficulty/8);
+            node.color = getColor((TRICKS[i].difficulty - 1)/9);
             nodes.push(node);
             for (let j = 0; j < TRICKS[i].prereqs.length; j++) {
                 if (TRICKS[i].prereqs[j] != "None") {

@@ -3,21 +3,20 @@
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Trick List</title>
+        <title>Trick Tree</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ff1122">
         <meta property="og:site_name" content="UGA Juggling Club">
-        <meta name="description" content="A list of a bunch of juggling tricks.">
+        <meta name="description" content="This is a trick tree of what order to learn tricks in.">
 
         <link rel="icon" type="image/x-icon" href="../icon.jpg">
 
-		<link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined">
         <link rel="stylesheet" href="../pageFormat.css">
-        <link rel="stylesheet" href="listFormat.css">
   	</head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6KMJWD8GJ"></script>
@@ -28,21 +27,23 @@
 
     gtag('config', 'G-J6KMJWD8GJ');
     </script>
-  	<body>
-        <div class = "sorter">
-            <div class = "filters">
-                <select class = "drop" id = "selector"></select>
-                <select class = "drop" id = "addFilter"></select>
-            </div>
-            <div class = "chosen" id = "chosen"></div>
-        </div>
+    <body>
         <div class = "menu"></div>
-        
         <div class = "content">
-            <div class = "list" id = "list"></div>
+            <h1>Tree</h1>
+            <text>
+                This is a version that is still in beta. I would love your feedback and comments on it.
+                Just use the feedback page to tell me all about it.
+            </text>
+            <br>
+            <svg width="500" height="500" style="border: 1px solid black"></svg>
         </div>
-	</body>
-  	<footer>
+    </body>
+    <footer>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://unpkg.com/d3-force-boundary@0.0.1/dist/d3-force-boundary.min.js"></script>
+
+        
         <script src = "../tools.js"></script>
         <script src = "../page.js"></script>
         <script src = "../content/pageList.js"></script>
@@ -50,8 +51,10 @@
         <script src = "../trick.js"></script>
         <script src = "../filter.js"></script>
         <script src = "../content/trickList.js"></script>
-        <script src = "trickSort.js"></script>
+        <script src = "../makeJson.js"></script>
 
-		<script src = "../menu.js"></script>
-  	</footer>
+        <script src="../tree.js"></script>
+
+        <script src = "../menu.js"></script>
+    </footer>
 </html>

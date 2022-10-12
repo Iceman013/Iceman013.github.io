@@ -15,7 +15,7 @@ var simulation = d3.forceSimulation()
 	.force("boundary", forceBoundary(width*RADIUS, height*RADIUS, width*(1 - RADIUS - 0.13), height*(1 - RADIUS)));
 
 
-d3.json("data.json", function(error, graph) {
+d3.json("../data.json", function(error, graph) {
 	if (error) throw error;
 
 	graph.links.forEach(function(d) {
