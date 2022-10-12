@@ -273,3 +273,9 @@ a.addTags("Juggling","3","Asymmetrical","Balls");
 a.addPrereqs("Two in One Hand");
 TRICKS.push(a);
 */
+
+var a = new Trick("Riding", 5);
+a.setLink("unicycle.html");
+a.setDescription("This is how to ride a unicycle. If you can't ride, start with this.");
+a.addTags("Unicycle","Regular","Riding");
+TRICKS.push(a);
