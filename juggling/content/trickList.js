@@ -185,7 +185,7 @@ var a = new Trick("Five", 8);
 a.setLink("five.html");
 a.setDescription("This is another classic trick for those going up in number. It has 5 balls and takes a lot of practice.");
 a.addTags("Juggling","5","Symmetrical","Balls");
-a.addPrereqs("Four");
+a.addPrereqs("Cascade","Four");
 TRICKS.push(a);
 
 var a = new Trick("Three in One Hand", 6);

@@ -2,87 +2,108 @@
     "nodes": [
         {
             "id": 0,
-            "name": "Cascade"
+            "name": "Cascade",
+            "color": "rgb(63.75,255,0)"
         },
         {
             "id": 1,
-            "name": "Reverse Cascade"
+            "name": "Reverse Cascade",
+            "color": "rgb(63.75,255,0)"
         },
         {
             "id": 2,
-            "name": "Two in One Hand"
+            "name": "Two in One Hand",
+            "color": "rgb(63.75,255,0)"
         },
         {
             "id": 3,
-            "name": "Tennis"
+            "name": "Tennis",
+            "color": "rgb(127.5,255,0)"
         },
         {
             "id": 4,
-            "name": "Reverse Tennis"
+            "name": "Reverse Tennis",
+            "color": "rgb(127.5,255,0)"
         },
         {
             "id": 5,
-            "name": "Half Shower"
+            "name": "Half Shower",
+            "color": "rgb(127.5,255,0)"
         },
         {
             "id": 6,
-            "name": "Under the Arm"
+            "name": "Under the Arm",
+            "color": "rgb(127.5,255,0)"
         },
         {
             "id": 7,
-            "name": "Windmills"
+            "name": "Windmills",
+            "color": "rgb(127.5,255,0)"
         },
         {
             "id": 8,
-            "name": "Columns"
+            "name": "Columns",
+            "color": "rgb(127.5,255,0)"
         },
         {
             "id": 9,
-            "name": "Arms Crossed"
+            "name": "Arms Crossed",
+            "color": "rgb(191.25,255,0)"
         },
         {
             "id": 10,
-            "name": "Crossovers"
+            "name": "Crossovers",
+            "color": "rgb(191.25,255,0)"
         },
         {
             "id": 11,
-            "name": "Factory"
+            "name": "Factory",
+            "color": "rgb(191.25,255,0)"
         },
         {
             "id": 12,
-            "name": "3-Ball Shower"
+            "name": "3-Ball Shower",
+            "color": "rgb(255,255,0)"
         },
         {
             "id": 13,
-            "name": "Box"
+            "name": "Box",
+            "color": "rgb(255,255,0)"
         },
         {
             "id": 14,
-            "name": "3-Ball Mill's Mess"
+            "name": "3-Ball Mill's Mess",
+            "color": "rgb(255,255,0)"
         },
         {
             "id": 15,
-            "name": "Boston Mess"
+            "name": "Boston Mess",
+            "color": "rgb(255,255,0)"
         },
         {
             "id": 16,
-            "name": "Shuffle"
+            "name": "Shuffle",
+            "color": "rgb(255,191.25,0)"
         },
         {
             "id": 17,
-            "name": "Four"
-        },
-        {
-            "id": 18,
-            "name": "Three in One Hand"
+            "name": "Four",
+            "color": "rgb(255,191.25,0)"
         },
         {
             "id": 19,
-            "name": "4-Ball Shower"
+            "name": "Three in One Hand",
+            "color": "rgb(255,127.5,0)"
         },
         {
             "id": 20,
-            "name": "Five"
+            "name": "4-Ball Shower",
+            "color": "rgb(255,0,0)"
+        },
+        {
+            "id": 21,
+            "name": "Five",
+            "color": "rgb(255,0,0)"
         }
     ],
     "links": [
@@ -139,7 +160,15 @@
             "target_id": 14
         },
         {
+            "source_id": 9,
+            "target_id": 14
+        },
+        {
             "source_id": 14,
+            "target_id": 15
+        },
+        {
+            "source_id": 8,
             "target_id": 15
         },
         {
@@ -152,15 +181,19 @@
         },
         {
             "source_id": 2,
-            "target_id": 18
-        },
-        {
-            "source_id": 12,
             "target_id": 19
         },
         {
-            "source_id": 17,
+            "source_id": 12,
             "target_id": 20
+        },
+        {
+            "source_id": 0,
+            "target_id": 21
+        },
+        {
+            "source_id": 17,
+            "target_id": 21
         }
     ]
 }
