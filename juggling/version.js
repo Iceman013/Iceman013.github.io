@@ -1,10 +1,10 @@
 const major = 2;
-const mediu = 3;
-const minor = 1;
+const mediu = 4;
+const minor = 0;
 
 /* Totals (Since 1.0.0)
  * major: 2
- * mediu: 8
+ * mediu: 9
  * minor: 22
  */
 

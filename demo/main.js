@@ -36,13 +36,21 @@ d3.json("data.json", function(error, graph) {
 		.attr('d', d3.line()([[0, 0], [0, LOW*ARROWSIZE], [LOW*ARROWSIZE, 0.5*LOW*ARROWSIZE]]))
 	
 	function draw(context, item) {
-		var simph = 0.04*height;
+		var simph = 0.02*height;
 		var offset = 0.04*width;
+		var flat = 0.4;
 		if (item != null) {
-			context.moveTo(item.source.x + offset, item.source.y);
-			context.lineTo(item.source.x + offset, item.source.y + simph);
-			context.lineTo(item.target.x + offset, item.target.y - simph - (ARROWSIZE + 0.005)*height);
-			context.lineTo(item.target.x + offset, item.target.y - (ARROWSIZE + 0.005)*height);
+			var sy = ((item.source.pre - 0.6)/5)*height;
+			var ey = ((item.target.pre - 0.6)/5)*height;
+			context.moveTo(item.source.x + offset, sy);
+			context.lineTo(item.source.x + offset, sy + simph);
+			var qax = item.source.x + offset;
+			var qay = sy + simph;
+			var qbx = item.target.x + offset;
+			var qby = ey - simph - (ARROWSIZE + 0.005)*height;
+			context.bezierCurveTo(qax, flat*qay + (1 - flat)*qby, qbx, (1 - flat)*qay + flat*qby,
+				qbx, qby);
+			context.lineTo(item.target.x + offset, ey - (ARROWSIZE + 0.005)*height);
 		} else {
 			context.moveTo(0, 0);
 		}
