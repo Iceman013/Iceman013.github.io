@@ -1,8 +1,12 @@
 function getData(type) {
     var nodes = [];
+    var semi = [];
+    var poses = [];
     var links = [];
     for (let i = 0; i < TRICKS.length; i++) {
         if (TRICKS[i].tags.includes(type)) {
+            semi.push(TRICKS[i]);
+            poses.push(semi.length - 1);
             var node = {};
             node.id = i;
             node.name = TRICKS[i].name;
@@ -32,6 +36,45 @@ function getData(type) {
                 }
             }
         }
+    }
+    while (semi.length > 0) {
+        var index = 0;
+        for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i].name == semi[0].name) {
+                index = i;
+                i = nodes.length;
+            }
+        }
+        var pres = 0;
+        var win = true;
+        var handy = [];
+        if (semi[0].prereqs[0] != "None") {
+            for (let i = 0; i < semi[0].prereqs.length; i++) {
+                var tempi = 0;
+                for (let j = 0; j < nodes.length; j++) {
+                    if (nodes[j].name == semi[0].prereqs[i]) {
+                        tempi = j;
+                        j = nodes.length;
+                    }
+                }
+                handy.push(nodes[tempi].pre);
+            }
+        }
+        for (let i = 0; i < handy.length; i++) {
+            if (handy[i] != null) {
+                if (handy[i] > pres) {
+                    pres = handy[i];
+                }
+            } else {
+                win = false;
+            }
+        }
+        if (win) {
+            nodes[index].pre = pres + 1;
+        } else {
+            semi.push(semi[0]);
+        }
+        semi.shift();
     }
     var out = {};
     out.nodes = nodes;

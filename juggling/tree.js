@@ -36,36 +36,13 @@ d3.json("../data.json", function(error, graph) {
 		.attr('d', d3.line()([[0, 0], [0, LOW*ARROWSIZE], [LOW*ARROWSIZE, 0.5*LOW*ARROWSIZE]]))
 	
 	function draw(context, item) {
-		var rad = 0.05*height;
+		var simph = 0.04*height;
+		var offset = 0.04*width;
 		if (item != null) {
-			context.moveTo(item.source.x + 0.04*width, item.source.y);
-			function above() {
-				context.bezierCurveTo(item.source.x + 0.04*width, item.target.y - 0.026*height, item.target.x + 0.02*width, item.source.y,
-					item.target.x + 0.02*width, item.target.y - 0.026*height);
-			}
-			function below() {
-				context.bezierCurveTo(item.source.x + 0.04*width, item.target.y + 0.017*height, item.target.x + 0.02*width, item.source.y,
-					item.target.x + 0.02*width, item.target.y + 0.017*height);
-			}
-			function sabove() {
-				context.bezierCurveTo(item.source.x + 0.04*width, item.target.y - 0.026*height, item.target.x + 0.02*width, item.source.y - 0.1*height,
-					item.target.x + 0.02*width, item.target.y - 0.026*height);
-			}
-			function sbelow() {
-				context.bezierCurveTo(item.source.x + 0.04*width, item.target.y + 0.117*height, item.target.x + 0.02*width, item.source.y + 0.1*height,
-					item.target.x + 0.02*width, item.target.y + 0.017*height);
-			}
-			if (item.source.y < item.target.y - rad) {
-				above();
-			} else if (item.source.y > item.target.y + rad) {
-				below();
-			} else {
-				if (item.source.y < height/2) {
-					sbelow();
-				} else {
-					sabove();
-				}
-			}
+			context.moveTo(item.source.x + offset, item.source.y);
+			context.lineTo(item.source.x + offset, item.source.y + simph);
+			context.lineTo(item.target.x + offset, item.target.y - simph - (ARROWSIZE + 0.005)*height);
+			context.lineTo(item.target.x + offset, item.target.y - (ARROWSIZE + 0.005)*height);
 		} else {
 			context.moveTo(0, 0);
 		}
@@ -122,12 +99,12 @@ d3.json("../data.json", function(error, graph) {
 			.style("stroke", "#969696")
 			.style("stroke-width", "1px")
 			.style("rx", 0.005*LOW)
-			.attr("x", function (d) { return d.x; })
-			.attr("y", function(d) { return d.y - 0.016*height; });
+			.attr("x", function(d) { return d.x; })
+			.attr("y", function(d) { d.y = ((d.pre - 0.6)/5)*height; return d.y - 0.016*height; });
 
 		label
 			.attr("x", function(d) { return d.x + 0.005*height; })
-			.attr("y", function (d) { return d.y; })
+			.attr("y", function(d) { return d.y; })
 			.style("font-size", 0.014*height + "px").style("fill", "#000000");
 	}
 });
