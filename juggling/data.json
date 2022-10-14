@@ -125,6 +125,24 @@
             "name": "Factory",
             "color": "rgb(113.33333333333333,255,0)",
             "pre": 3
+        },
+        {
+            "id": 21,
+            "name": "Six",
+            "color": "rgb(255,113.33333333333333,0)",
+            "pre": 3
+        },
+        {
+            "id": 22,
+            "name": "4-Ball Mill's Mess",
+            "color": "rgb(255,113.33333333333333,0)",
+            "pre": 5
+        },
+        {
+            "id": 23,
+            "name": "Rings",
+            "color": "rgb(56.666666666666664,255,0)",
+            "pre": 2
         }
     ],
     "links": [
@@ -215,6 +233,30 @@
         {
             "source_id": 15,
             "target_id": 20
+        },
+        {
+            "source_id": 19,
+            "target_id": 21
+        },
+        {
+            "source_id": 13,
+            "target_id": 21
+        },
+        {
+            "source_id": 12,
+            "target_id": 22
+        },
+        {
+            "source_id": 13,
+            "target_id": 22
+        },
+        {
+            "source_id": 11,
+            "target_id": 22
+        },
+        {
+            "source_id": 0,
+            "target_id": 23
         }
     ]
 }

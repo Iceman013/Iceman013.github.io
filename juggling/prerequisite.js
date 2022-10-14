@@ -12,7 +12,6 @@ function addPre() {
             pres.push(TRICKS[i]);
         }
     }
-    console.log(pres);
     var base = document.getElementById("prereqs");
     for (let i = 0; i < pres.length; i++) {
         var dot = document.createElement("li");
@@ -23,4 +22,17 @@ function addPre() {
         base.appendChild(dot);
     }
 }
+function addDes() {
+    var base = document.getElementById("description");
+    var here = getLastDomain();
+    var index = 0;
+    for (let i = 0; i < TRICKS.length; i++) {
+        if (TRICKS[i].link == here) {
+            index = i;
+        }
+    }
+    base.innerHTML = TRICKS[index].description;
+}
+
 addPre();
+addDes();

@@ -202,14 +202,27 @@ a.addTags("Juggling","3","Asymmetrical","Balls");
 a.addPrereqs("Columns");
 TRICKS.push(a);
 
-/*
-var a = new Trick("Shuffle", 6);
-a.setLink("unfinished.html");
-a.setDescription("");
-a.addTags("Juggling","3","Asymmetrical","Balls");
-a.addPrereqs("Two in One Hand");
+var a = new Trick("Six", 8);
+a.setLink("six.html");
+a.setDescription("This is the classic six ball pattern.");
+a.addTags("Juggling","6","Symmetrical","Balls");
+a.addPrereqs("Three in One Hand","Four");
 TRICKS.push(a);
 
+var a = new Trick("4-Ball Mill's Mess", 8);
+a.setLink("millsFour.html");
+a.setDescription("");
+a.addTags("Juggling","4","Symmetrical","Balls");
+a.addPrereqs("Two in One Hand","Four","3-Ball Mill's Mess");
+TRICKS.push(a);
+
+var a = new Trick("Rings", 2);
+a.setLink("rings.html");
+a.setDescription("This is a new prop that must be spun.");
+a.addTags("Juggling","3","Symmetrical","Rings");
+a.addPrereqs("Cascade");
+TRICKS.push(a);
+/*
 var a = new Trick("Inverted Box", 6);
 a.setLink("unfinished.html");
 a.setDescription("");
@@ -217,28 +230,7 @@ a.addTags("Juggling","3","Asymmetrical","Balls");
 a.addPrereqs("Two in One Hand");
 TRICKS.push(a);
 
-var a = new Trick("Six", 6);
-a.setLink("unfinished.html");
-a.setDescription("");
-a.addTags("Juggling","3","Asymmetrical","Balls");
-a.addPrereqs("Two in One Hand");
-TRICKS.push(a);
-
-var a = new Trick("4-Ball Mill's Mess", 6);
-a.setLink("unfinished.html");
-a.setDescription("");
-a.addTags("Juggling","3","Asymmetrical","Balls");
-a.addPrereqs("Two in One Hand");
-TRICKS.push(a);
-
 var a = new Trick("4-Ball Columns", 6);
-a.setLink("unfinished.html");
-a.setDescription("");
-a.addTags("Juggling","3","Asymmetrical","Balls");
-a.addPrereqs("Two in One Hand");
-TRICKS.push(a);
-
-var a = new Trick("Rings", 6);
 a.setLink("unfinished.html");
 a.setDescription("");
 a.addTags("Juggling","3","Asymmetrical","Balls");
