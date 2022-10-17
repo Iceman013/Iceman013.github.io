@@ -202,7 +202,7 @@ a.addTags("Juggling","3","Asymmetrical","Balls");
 a.addPrereqs("Columns");
 TRICKS.push(a);
 
-var a = new Trick("Six", 8);
+var a = new Trick("Six", 9);
 a.setLink("six.html");
 a.setDescription("This is the classic six ball pattern.");
 a.addTags("Juggling","6","Symmetrical","Balls");
