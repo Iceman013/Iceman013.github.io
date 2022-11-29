@@ -25,3 +25,28 @@ function Card(number) {
         return fills[this.fill];
     }
 }
+
+function isSet(carda, cardb, cardc) {
+    function checkTrio(a, b, c) {
+        if (a == b && b == c && c == a) {
+            return true;
+        }
+        if (a != b && b != c && c != a) {
+            return true;
+        }
+        return false;
+    }
+    if (!checkTrio(carda.color, cardb.color, cardc.color)) {
+        return false;
+    }
+    if (!checkTrio(carda.shape, cardb.shape, cardc.shape)) {
+        return false;
+    }
+    if (!checkTrio(carda.count, cardb.count, cardc.count)) {
+        return false;
+    }
+    if (!checkTrio(carda.fill, cardb.fill, cardc.fill)) {
+        return false;
+    }
+    return true;
+}
