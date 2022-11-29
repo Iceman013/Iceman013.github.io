@@ -1,14 +1,24 @@
 * {
-    box-sizing: border-box;
     position: relative;
 }
 body {
     margin: 10px;
+    overflow: hidden;
+}
+.header {
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+}
+.board {
+    height: 80vh;
 }
 .row {
-    clear: both;
+    clear: left;
 }
 .card {
+    height: min(calc(80vh/3 - 24px), calc((2/3)*((100vw - 20px)/4 - 24px)));
+    width: min(calc((100vw - 20px)/4 - 24px), calc(1.5*(80vh/3 - 24px)));
     float: left;
     border: 2px solid black;
     border-radius: 5px;

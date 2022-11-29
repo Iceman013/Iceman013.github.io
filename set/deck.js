@@ -2,13 +2,37 @@ var deck = [];
 var displayed = [];
 const pick = new Event("pick");
 
+document.body.onresize = function() {
+    drawThem();
+}
+
+function clear() {
+    var base = document.getElementById("board");
+    while (base.firstChild) {
+        base.removeChild(base.firstChild);
+    }
+    
+    var message = document.createElement("div");
+
+    var p = document.createElement("p");
+    p.innerHTML = "Puzzle completed. Congratulations!";
+    message.appendChild(p);
+
+    var but = document.createElement("button");
+    but.onclick = function() { start() };
+    but.innerHTML = "Play Again";
+    message.appendChild(but);
+
+    base.appendChild(message);
+}
 function checkDisplay(list) {
     var found = false;
     for (let i = 0; i < list.length - 2; i++) {
-        for (let j = i; j < list.length - 1; j++) {
-            for (let k = j; k < list.length; k++) {
+        for (let j = i + 1; j < list.length - 1; j++) {
+            for (let k = j + 1; k < list.length; k++) {
                 if (isSet(list[i].card, list[j].card, list[k].card)) {
                     found = true;
+                    //console.log((i+1) + " " + (j+1) + " " + (k+1));
                     i = list.length;
                     j = list.length;
                     k = list.length;
@@ -29,8 +53,9 @@ function replace(trio) {
         cdis[i] = displayed[i];
     }
     
-    if (!checkDisplay(cdis) && cdek.length == 0) {
-        console.log("DONE");
+    if (!checkDisplay(cdis) && deck.length == 0) {
+        clear();
+        return;
     }
 
     var met = false;
@@ -58,7 +83,7 @@ function replace(trio) {
     for (let i = 0; i < added.length; i++) {
         makeCard(added[i].base, added[i].card);
     }
-    console.log(deck.length);
+    document.getElementById("remain").innerHTML = deck.length;
 }
 function chose(base) {
     for (let i = 0; i < displayed.length; i++) {
@@ -75,8 +100,6 @@ function chose(base) {
     if (selected.length == 3) {
         if (isSet(selected[0].card, selected[1].card, selected[2].card)) {
             replace(selected);
-        } else {
-            console.log("Nope");
         }
     }
 }
@@ -98,8 +121,19 @@ function Slot(card, base) {
     }
     this.setBase();
 }
+function drawThem() {
+    for (let i = 0; i < displayed.length; i++) {
+        makeCard(displayed[i].base, displayed[i].card);
+    }
+}
 function start() {
     var board = document.getElementById("board");
+    while (board.firstChild) {
+        board.removeChild(board.firstChild);
+    }
+    deck = [];
+    displayed = [];
+
     for (let i = 0; i < 81; i++) {
         deck[i] = new Card(i);
     }
@@ -114,13 +148,13 @@ function start() {
                 card.id = "a" + i + "b" + j;
                 row.appendChild(card);
                 var cardpos = Math.floor(deck.length*Math.random());
-                makeCard(card, deck[cardpos]);
                 displayed.push(new Slot(deck[cardpos], card));
                 deck.splice(cardpos, 1);
             }
         }
-        console.log("Made");
         built = checkDisplay(displayed);
     }
+    drawThem();
+    document.getElementById("remain").innerHTML = deck.length;
 }
 start();

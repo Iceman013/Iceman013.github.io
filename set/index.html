@@ -8,8 +8,15 @@
         <link rel = "stylesheet" type = "text/css" href = "shapeFormat.css"/>
     </head>
     <body>
-        <h1>Set</h1>
-        <div id = "board"></div>
+        <div class = "header">
+            <h1>Set Card Game</h1>
+            <b>Cards Remaining: </b><text id = "remain"></text>
+            <br>
+            <b>Time:</b><text id = "time"></text>
+            <br>
+            <button onclick="start()">New Game</button>
+        </div>
+        <div id = "board" class = "board"></div>
     </body>
     <footer>
         <script src="https://d3js.org/d3.v4.min.js"></script>

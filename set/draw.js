@@ -1,6 +1,6 @@
-const CWIDTH = 240;
-const CHEIGHT = 160;
-function makeShape(id, card, offset) {
+function makeShape(base, id, card, offset) {
+    var CWIDTH = base.clientWidth;
+    var CHEIGHT = base.clientHeight;
     const spill = 0.24;
     const width = (CWIDTH/3)*(1 - spill);
     const height = CHEIGHT*(1 - spill);
@@ -62,8 +62,8 @@ function makeCard(base, card) {
     }
 
     var svgbase = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgbase.style.width = CWIDTH;
-    svgbase.style.height = CHEIGHT;
+    svgbase.style.width = base.clientWidth;
+    svgbase.style.height = base.clientHeight;
     base.appendChild(svgbase);
     if (card == null) {
         return;
@@ -73,7 +73,7 @@ function makeCard(base, card) {
         var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
         g.id = base.id + "c" + i;
         svgbase.appendChild(g);
-        var offset = (2 - card.count)*(CWIDTH/6) + i*(CWIDTH/3);
-        makeShape(g.id, card, offset);
+        var offset = (2 - card.count)*(base.clientWidth/6) + i*(base.clientWidth/3);
+        makeShape(base, g.id, card, offset);
     }
 }
