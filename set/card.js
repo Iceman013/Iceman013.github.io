@@ -27,6 +27,9 @@ function Card(number) {
 }
 
 function isSet(carda, cardb, cardc) {
+    if (carda == null || cardb == null || cardc == null) {
+        return false;
+    }
     function checkTrio(a, b, c) {
         if (a == b && b == c && c == a) {
             return true;

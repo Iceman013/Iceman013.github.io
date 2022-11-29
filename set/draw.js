@@ -65,6 +65,9 @@ function makeCard(base, card) {
     svgbase.style.width = CWIDTH;
     svgbase.style.height = CHEIGHT;
     base.appendChild(svgbase);
+    if (card == null) {
+        return;
+    }
     
     for (let i = 0; i < card.count + 1; i++) {
         var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
