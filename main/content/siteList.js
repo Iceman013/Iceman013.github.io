@@ -36,4 +36,6 @@ const siteList = [
     new Site("World Map Generator", ["Games","Unfinished"], "https://iceman013.github.io/worldGen/", "A simple map generator."),
 
     new Site("Juggling Club Tricks", ["Other","Unfinished"], "https://iceman013.github.io/juggling/index.html", "This is the UGA Juggling Club website."),
+
+    new Site("Set Card Game", ["Games","Unfinished"], "https://iceman013.github.io/set/index.html", "This is the classic card game Set."),
 ];
