@@ -15,7 +15,6 @@ var data = d3.map();
 
 function makeMap(state) {
     var scale = state.scale;
-    var home = { "x": state.x, "y": state.y };
     var projections = [d3.geoMercator, d3.geoEquirectangular];
     var projection = projections[0]()
         .scale(scale*100)
