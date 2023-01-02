@@ -123,3 +123,7 @@ img.animated, img.people {
 .topIcon {
     font-size: 40px;
 }
+
+rect:hover {
+    cursor: pointer;
+}
