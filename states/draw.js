@@ -18,7 +18,7 @@ function makeMap(state) {
     var projections = [d3.geoMercator, d3.geoEquirectangular];
     var projection = projections[0]()
         .scale(scale*100)
-        .center([state.x, state.y])
+        .center([-1*state.y, state.x])
         .translate([width/2, height/2]);
 
     var promises = [d3.json(state.src)];
