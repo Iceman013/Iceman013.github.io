@@ -18,6 +18,7 @@ function getData(type) {
             var node = {};
             node.id = i;
             node.name = TRICKS[i].name;
+            node.url = TRICKS[i].link;
             function doPower(input, power) {
                 if (input >= 0) {
                     return Math.pow(input, power);

@@ -3,144 +3,168 @@
         {
             "id": 0,
             "name": "Cascade",
+            "url": "cascade.html",
             "color": "rgb(0,255,0)",
             "pre": 1
         },
         {
             "id": 1,
             "name": "Reverse Cascade",
+            "url": "reverse.html",
             "color": "rgb(0,255,0)",
             "pre": 2
         },
         {
             "id": 2,
             "name": "Tennis",
+            "url": "tennis.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 3
         },
         {
             "id": 3,
             "name": "Reverse Tennis",
+            "url": "reverseTennis.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 4
         },
         {
             "id": 4,
             "name": "Half Shower",
+            "url": "halfShower.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 3
         },
         {
             "id": 5,
             "name": "3-Ball Shower",
+            "url": "showerThree.html",
             "color": "rgb(229.70079573425681,255,0)",
             "pre": 4
         },
         {
             "id": 6,
             "name": "Shuffle",
+            "url": "shuffle.html",
             "color": "rgb(255,255,0)",
             "pre": 5
         },
         {
             "id": 7,
             "name": "Under the Arm",
+            "url": "underArm.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 2
         },
         {
             "id": 8,
             "name": "Arms Crossed",
+            "url": "armCross.html",
             "color": "rgb(174.6800330692018,255,0)",
             "pre": 3
         },
         {
             "id": 9,
             "name": "Windmills",
+            "url": "windmill.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 3
         },
         {
             "id": 10,
             "name": "Box",
+            "url": "box.html",
             "color": "rgb(229.70079573425681,255,0)",
             "pre": 5
         },
         {
             "id": 11,
             "name": "3-Ball Mill's Mess",
+            "url": "millsThree.html",
             "color": "rgb(229.70079573425681,255,0)",
             "pre": 4
         },
         {
             "id": 12,
             "name": "Two in One Hand",
+            "url": "twoInOne.html",
             "color": "rgb(0,255,0)",
             "pre": 1
         },
         {
             "id": 13,
             "name": "Four",
+            "url": "four.html",
             "color": "rgb(255,255,0)",
             "pre": 2
         },
         {
             "id": 14,
             "name": "4-Ball Shower",
+            "url": "showerFour.html",
             "color": "rgb(255,97.12660341222569,0)",
             "pre": 5
         },
         {
             "id": 15,
             "name": "Columns",
+            "url": "columns.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 2
         },
         {
             "id": 16,
             "name": "Crossovers",
+            "url": "crossover.html",
             "color": "rgb(174.6800330692018,255,0)",
             "pre": 3
         },
         {
             "id": 17,
             "name": "Boston Mess",
+            "url": "bostonMess.html",
             "color": "rgb(229.70079573425681,255,0)",
             "pre": 5
         },
         {
             "id": 18,
             "name": "Five",
+            "url": "five.html",
             "color": "rgb(255,97.12660341222569,0)",
             "pre": 3
         },
         {
             "id": 19,
             "name": "Three in One Hand",
+            "url": "threeInOne.html",
             "color": "rgb(255,229.70079573425681,0)",
             "pre": 2
         },
         {
             "id": 20,
             "name": "Factory",
+            "url": "unfinished.html",
             "color": "rgb(174.6800330692018,255,0)",
             "pre": 3
         },
         {
             "id": 21,
             "name": "Six",
+            "url": "six.html",
             "color": "rgb(255,0,0)",
             "pre": 3
         },
         {
             "id": 22,
             "name": "4-Ball Mill's Mess",
+            "url": "millsFour.html",
             "color": "rgb(255,97.12660341222569,0)",
             "pre": 5
         },
         {
             "id": 23,
             "name": "Rings",
+            "url": "rings.html",
             "color": "rgb(97.12660341222566,255,0)",
             "pre": 2
         }

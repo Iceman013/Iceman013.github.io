@@ -108,7 +108,7 @@ body {
     width: 200px;
 }
 img.animated, img.people {
-    width: 200px;
+    max-width: 200px;
     height: 200px;
 }
 

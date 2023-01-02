@@ -117,7 +117,8 @@ d3.json("../data.json", function(error, graph) {
 			.style("stroke-width", "1px")
 			.style("rx", 0.005*LOW)
 			.attr("x", function(d) { return d.x; })
-			.attr("y", function(d) { d.y = ((d.pre - 0.6)/5)*height; return d.y - 0.016*height; });
+			.attr("y", function(d) { d.y = ((d.pre - 0.6)/5)*height; return d.y - 0.016*height; })
+			.on("click", function(d) { open("../pages/" + d.url) });
 
 		label
 			.attr("x", function(d) { return d.x + 0.005*height; })
