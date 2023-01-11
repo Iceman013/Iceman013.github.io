@@ -65,14 +65,14 @@ function makeWidgets() {
 
     var tags = [];
     for (let i = 0; i < tagList.length; i++) {
-        if (document.getElementById("tag_" + i.toString()).checked) {
-            tags[tags.length] = tagList[i].getName();
+        if (document.getElementById("tag_" + i.toString()).classList.contains("selected")) {
+            tags.push(tagList[i].getName());
         }
     }
     var acceptSites = tagSort(siteList, tags);
     var sort = sortList[0];
     for (let i = 0; i < sortList.length; i++) {
-        if (document.getElementById("sort_" + i.toString()).checked) {
+        if (sortList[i].getName() == document.getElementById("sorts").value) {
             sort = sortList[i];
         }
     }
@@ -87,51 +87,30 @@ function makeWidgets() {
     }
 }
 function makeSidebar() {
-    var base = document.getElementById("sorts");
-    while (base.firstChild) {
-        base.removeChild(base.firstChild);
-    }
-
+    var sortBase = document.getElementById("sorts");
     for (let i = 0; i < sortList.length; i++) {
-        var elem = document.createElement("input");
-        elem.type = "radio";
+        var elem = document.createElement("option");
         elem.value = sortList[i].getName();
-        elem.name = "Sort";
-        elem.id = "sort_" + i.toString();
-
-        var lab = document.createElement("label");
-        lab.appendChild(elem);
-        lab.for = sortList[i].getName();
-        lab.innerHTML += sortList[i].getName();
-        lab.onchange = function() {
-            makeWidgets();
-        };
-        base.appendChild(lab);
-
-        base.appendChild(document.createElement("br"));
+        elem.innerHTML = sortList[i].getName();
+        sortBase.appendChild(elem);
     }
-    document.getElementById("sort_0").checked = true;
-
-    base = document.getElementById("tags");
-    while (base.firstChild) {
-        base.removeChild(base.firstChild);
+    sortBase.onchange = function() {
+        makeWidgets();
     }
+
+    var tagBase = document.getElementById("tags");
     for (let i = 0; i < tagList.length; i++) {
-        var elem = document.createElement("input");
-        elem.type = "checkbox";
-        elem.value = tagList[i].getName();
-        elem.id = "tag_" + i.toString();
+        var elem = document.createElement("button");
+        elem.value = false;
+        elem.id = "tag_" + i;
+        elem.innerHTML = tagList[i].getName();
 
-        var lab = document.createElement("label");
-        lab.appendChild(elem);
-        lab.for = tagList[i].getName();
-        lab.innerHTML += tagList[i].getName();
-        lab.onchange = function() {
+        elem.onclick = function() {
+            this.value = !this.value;
+            this.classList.toggle("selected")
             makeWidgets();
-        };
-        base.appendChild(lab);
-
-        base.appendChild(document.createElement("br"));
+        }
+        tagBase.appendChild(elem);
     }
 }
 function start() {

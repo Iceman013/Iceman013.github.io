@@ -1,8 +1,9 @@
 .head {
-    height: 20vh;
-    width: 100vw;
+    height: 100vh;
+    width: var(--sidebar_width);
     overflow: hidden;
     background-color: var(--head);
+    position: fixed;
 }
 .top {
     top: 0px;

@@ -3,15 +3,18 @@
     --white: rgb(255,255,255);
     --back: #d9fbff;
     --head: #72d0db;
+
+    --sidebar_width: 12vw;
 }
 * {
     font-family: 'Alata';
     user-select: none;
     padding: 0px;
+    box-sizing: border-box;
 }
 body {
     background-color: var(--back);
     color: var(--black);
     margin: 0px;
-    overflow: hidden;
+    overflow-x: hidden;
 }

@@ -1,0 +1,6 @@
+.content {
+    margin-left: var(--sidebar_width);
+    padding: 0px;
+    width: calc(100vw - var(--sidebar_width));
+    overflow-y: auto;
+}

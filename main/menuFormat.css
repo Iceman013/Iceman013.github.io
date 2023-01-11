@@ -1,6 +1,5 @@
 .menu {
     float: left;
-    overflow-y: auto;
-    height: 80vh;
-    width: 78vw;
+    width: 100%;
+    height: fit-content;
 }
