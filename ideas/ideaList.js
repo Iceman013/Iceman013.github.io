@@ -24,5 +24,7 @@ const ideaList = [
 
     new Idea("Stats Game", ["HTML/JS"], ["Game", "New"], "A game with real stats. Intelligence stat limits options, arrogance stat impairs analysis.", false),
 
-    new Idea("Autocomplete", ["HTML/JS", "Java"], ["Utility", "New", "Makes suggestions as you type to complete the word.", false])
+    new Idea("Autocomplete", ["HTML/JS", "Java"], ["Utility", "New"], "Makes suggestions as you type to complete the word.", false),
+
+    new Idea("Weird Bricks", ["HTML/JS"], ["Utility", "New"], "Places oddly shaped tiles in a logical way.", false)
 ];

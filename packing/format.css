@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+div {
+    display: table;
+}
+.hboxc {
+    float: left;
+    height: 100%;
+}
+.vboxc {
+    float: none;
+}
+div::after {
+    content: "";
+    clear: both;
+}
