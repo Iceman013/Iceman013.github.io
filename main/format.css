@@ -1,8 +1,8 @@
 :root {
-    --black: rgb(0,0,0);
-    --white: rgb(255,255,255);
-    --back: #d9fbff;
-    --head: #72d0db;
+    --black: #002244;
+    --light: #B8F3FF;
+    --buttons: #8AC6D0;
+    --white: #FCFAF9;
 
     --sidebar_width: 12vw;
 }
@@ -13,8 +13,8 @@
     box-sizing: border-box;
 }
 body {
-    background-color: var(--back);
     color: var(--black);
+    background-color: red;
     margin: 0px;
     overflow-x: hidden;
 }

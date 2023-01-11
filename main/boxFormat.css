@@ -1,40 +1,35 @@
-:root {
-    --box: #baf8ff;
-    --shadow: #dbdbdb;
-}
 .widget {
     margin: 10px;
     float: left;
     width: 200px;
     height: 250px;
-    background-color: var(--box);
+    background-color: var(--buttons);
     filter: brightness(99%);
     border-radius: 10px;
-    box-shadow: 0px 0px 2px var(--shadow);
     transition: 0.02s;
     padding: 12px;
-    overflow: hidden;
     text-decoration: none;
-    color: black;
+    color: var(--black);
 }
 .widget:hover {
     filter: brightness(95%);
 }
 .widget .name {
-    height: 25%;
+    float: none;
     font-size: 25px;
 }
 .widget .description {
-    height: 62.5%;
+    float: none;
     overflow: hidden;
 }
 .widget .icons {
-    height: 12.5%;
+    position: absolute;
+    bottom: 8px;
 }
 .widget .icons img {
     margin-right: 3px;
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     background-color: gray;
     padding: 6px;
     border-radius: 100px;

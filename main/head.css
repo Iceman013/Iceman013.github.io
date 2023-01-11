@@ -2,7 +2,7 @@
     height: 100vh;
     width: var(--sidebar_width);
     overflow: hidden;
-    background-color: var(--head);
+    background-color: var(--light);
     position: fixed;
 }
 .top {
