@@ -1,0 +1,20 @@
+.hboxc {
+    align-items: center;
+    height: 100%;
+    float: left;
+}
+.vboxc {
+    align-items: center;
+    height: 100%;
+    float: none;
+}
+.hboxc::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+.vboxc::after {
+    display: table;
+    content: "";
+    clear: both;
+}

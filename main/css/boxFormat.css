@@ -1,13 +1,12 @@
 .widget {
     margin: 10px;
     float: left;
-    width: 200px;
-    height: 250px;
     background-color: var(--buttons);
     filter: brightness(99%);
     border-radius: 10px;
     transition: 0.02s;
     padding: 12px;
+    padding-bottom: 3px;
     text-decoration: none;
     color: var(--black);
 }
@@ -15,16 +14,16 @@
     filter: brightness(95%);
 }
 .widget .name {
+    width: fit-content;
+    height: fit-content;
+    margin-right: 50px;
     float: none;
     font-size: 25px;
 }
 .widget .description {
+    height: fit-content;
+    margin-bottom: 20px;
     float: none;
-    overflow: hidden;
-}
-.widget .icons {
-    position: absolute;
-    bottom: 8px;
 }
 .widget .icons img {
     margin-right: 3px;

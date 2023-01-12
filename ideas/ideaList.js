@@ -26,5 +26,5 @@ const ideaList = [
 
     new Idea("Autocomplete", ["HTML/JS", "Java"], ["Utility", "New"], "Makes suggestions as you type to complete the word.", false),
 
-    new Idea("Weird Bricks", ["HTML/JS"], ["Utility", "New"], "Places oddly shaped tiles in a logical way.", false)
+    new Idea("Weird Bricks", ["HTML/JS"], ["Utility", "New"], "Places oddly shaped tiles in a logical way.", true)
 ];

@@ -1,11 +1,15 @@
 const siteList = [
-    new Site("Retaildle", ["Games","Approved"], "https://iceman013.github.io/retaildle/", "This is a wordle style game with a twist."),
+    new Site("Retaildle", ["Games","Approved"], "https://iceman013.github.io/retaildle/",
+    "This is a wordle style game. There are daily words of varying lengths to try to guess. There is also a section for guessing the product price which can be used as a clue."),
 
-    new Site("Retail Mini", ["Games","Approved"], "https://iceman013.github.io/retailMini/", "This is a small timed daily crossword puzzle game."),
+    new Site("Retail Mini", ["Games","Approved"], "https://iceman013.github.io/retailMini/",
+    "This is a small timed daily crossword puzzle game. It is a four by four puzzle with clues. There is a different puzzle every day."),
 
-    new Site("Paint Bot", ["Games"], "https://iceman013.github.io/paintBot/", "This is a simple idle game."),
+    new Site("Paint Bot", ["Games","Unfinished"], "https://iceman013.github.io/paintBot/",
+    "This is a simple idle game. Paint can be made and sold. Eventually more paint supplies can be bought. This allows higher rewards. Different paints can also be mixed for an even greater reward."),
     
-    new Site("Map Game", ["Games","Approved"], "https://iceman013.github.io/mapGame/", "This is a turn based building game."),
+    new Site("Map Game", ["Games","Approved"], "https://iceman013.github.io/mapGame/",
+    "This is a turn based building game."),
     
     new Site("5 Letter", ["Other"], "https://iceman013.github.io/fiveLetter/", "This is a program to solve wordle in minimal guesses."),
     

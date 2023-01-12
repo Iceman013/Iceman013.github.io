@@ -82,9 +82,7 @@ function makeWidgets() {
     for (let i = 0; i < acceptSites.length; i++) {
         children[i] = makeWidget(acceptSites[i]);
     }
-    for (let i = 0; i < children.length; i++) {
-        base.appendChild(children[i]);
-    }
+    pack(base, children);
 }
 function makeSidebar() {
     var sortBase = document.getElementById("sorts");
