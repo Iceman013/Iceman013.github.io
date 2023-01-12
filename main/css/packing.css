@@ -1,15 +1,13 @@
 .hboxc {
-    align-items: center;
     height: 100%;
     float: left;
 }
 .vboxc {
-    align-items: center;
     height: 100%;
     float: none;
 }
 .hboxc::after {
-    display: table;
+    display: block;
     content: "";
     clear: both;
 }

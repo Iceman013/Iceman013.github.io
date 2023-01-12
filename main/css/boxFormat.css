@@ -1,6 +1,7 @@
 .widget {
-    margin: 10px;
+    display: table-cell;
     float: left;
+    margin: 10px;
     background-color: var(--buttons);
     filter: brightness(99%);
     border-radius: 10px;
@@ -21,8 +22,7 @@
     font-size: 25px;
 }
 .widget .description {
-    height: fit-content;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     float: none;
 }
 .widget .icons img {

@@ -1,34 +1,32 @@
-function Box(children, orientation) {
+function Box(children, orientation, max) {
     this.children = children;
     this.orientation = orientation;
+    this.max = max;
 
+    this.isContainer = function() {
+        return true;
+    }
     this.getWidth = function() {
-        if (this.children.length == 0) {
-            console.log(this);
-            return 0;
+        var width = 0;
+        for (let i = 0; i < this.children.length; i++) {
+            if (this.orientation) {
+                width += this.children[i].getWidth();
+            } else {
+                width = Math.max(width, this.children[i].getWidth());
+            }
         }
-        if (this.children.length == 1) {
-            return this.children[0].getWidth();
-        }
-        if (this.orientation) {
-            return this.children[0].getWidth() + this.children[1].getWidth();
-        } else {
-            return Math.max(this.children[0].getWidth(), this.children[1].getWidth());
-        }
+        return width;
     }
     this.getHeight = function() {
-        if (this.children.length == 0) {
-            console.log(this);
-            return 0;
+        var height = 0;
+        for (let i = 0; i < this.children.length; i++) {
+            if (this.orientation) {
+                height = Math.max(height, this.children[i].getHeight());
+            } else {
+                height += this.children[i].getHeight();
+            }
         }
-        if (this.children.length == 1) {
-            return this.children[0].getHeight();
-        }
-        if (this.orientation) {
-            return Math.max(this.children[0].getHeight(), this.children[1].getHeight());
-        } else {
-            return this.children[0].getHeight() + this.children[1].getHeight();
-        }
+        return height;
     }
     this.getSize = function() {
         return this.getWidth()*this.getHeight();
@@ -37,8 +35,10 @@ function Box(children, orientation) {
     this.create = function(type) {
         var base = document.createElement("div");
         if (type) {
+            base.style.maxWidth = this.max + "px";
             base.classList.add("hboxc");
         } else {
+            base.style.maxHeight = this.max + "px";
             base.classList.add("vboxc");
         }
         for (let i = 0; i < this.children.length; i ++) {
