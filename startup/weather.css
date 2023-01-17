@@ -1,0 +1,6 @@
+.currentWeather, .forecast {
+    float: left;
+    height: fit-content;
+    background-color: red;
+    border-radius: 10px;
+}
