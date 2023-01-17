@@ -1,6 +1,16 @@
 .currentWeather, .forecast {
     float: left;
     height: fit-content;
-    background-color: red;
     border-radius: 10px;
+}
+.miniForecast {
+    float: left;
+    margin-right: 30px;
+    border: 1px solid black;
+}
+.bigForecast {
+    float: left;
+    margin-right: 30px;
+    border: 1px solid red;
+    background-color: green;
 }
