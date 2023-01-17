@@ -1,0 +1,19 @@
+:root {
+    --warning: red;
+
+    --font: "Alata";
+
+    --margin-left: 10vw;
+    --margin-top: 5vh;
+}
+* {
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+.content {
+    position: absolute;
+    left: var(--margin-left);
+    top: var(--margin-top);
+
+    width: calc(100vw - 2*var(--margin-left));
+}

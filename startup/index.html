@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+    <head>
+        <title>Startup</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#11B5E4">
+        <meta property="og:site_name" content="Startup">
+        <meta name="description" content="Welcome page">
+        <meta property="og:image" content="../main/images/lobster.png">
+
+        <link rel="icon" type="image/x-icon" href="../main/images/lobster.png">
+
+        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <link rel = "stylesheet" type = "text/css" href = "format.css"/>
+
+        <link rel = "stylesheet" type = "text/css" href = "message.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "search.css"/>
+    </head>
+    <body>
+        <div class="content">
+            <div class="message">
+                <h1>Welcome</h1>
+                <h6>Glad to have you with us</h6>
+            </div>
+            <div class="search">
+                <form action="javascript:google()" id="searchForm" class="searchForm" autocomplete="off">
+                    <input type="submit" class="material-symbols-outlined searchButton" id="searchButton" value="search">
+                    <input type="text" class="searchText" id="search">
+                </form>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <script src = "search.js" type = "text/javascript"></script>
+    </footer>
+</html>

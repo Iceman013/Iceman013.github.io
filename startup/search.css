@@ -1,0 +1,44 @@
+:root {
+    --search-height: 10vh;
+    --search-ratio: 0.8;
+}
+.search {
+    height: var(--search-height);
+
+    border-radius: calc(0.5*var(--search-height));
+
+    background-color: white;
+    border: 1px solid #dcdcdc;
+}
+.search:hover {
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+.search:focus-within {
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+
+.search input {
+    outline: none;
+    border: none;
+
+    height: calc(var(--search-ratio)*var(--search-height));
+    margin-top: calc(0.5*(1 - var(--search-ratio))*var(--search-height));
+
+    font-size: calc(0.5*var(--search-height));
+}
+.search .searchButton {
+    float: left;
+    margin-left: calc(0.5*0.5*var(--search-height));
+    margin-right: calc(0.5*0.5*var(--search-height));
+
+    color: #4285F4;
+    background-color: inherit;
+}
+.searchButton:hover {
+    cursor: pointer;
+}
+.search .searchText {
+    float: left;
+    width: calc(100% - 0.5*var(--search-height) - 100px);
+    background-color: inherit;
+}
