@@ -1,5 +1,5 @@
 :root {
-    --search-height: 10vh;
+    --search-height: 70px;
     --search-ratio: 0.8;
 }
 .search {
@@ -39,6 +39,6 @@
 }
 .search .searchText {
     float: left;
-    width: calc(100% - 0.5*var(--search-height) - 100px);
+    width: calc(100% - 1.5*var(--search-height));
     background-color: inherit;
 }
