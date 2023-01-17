@@ -17,3 +17,6 @@
 
     width: calc(100vw - 2*var(--margin-left));
 }
+body {
+    background-color: #aaccff;
+}
