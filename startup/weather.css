@@ -1,16 +1,44 @@
-.currentWeather, .forecast {
+.weather {
+    width: 50%;
+    float: left;
+}
+.forecast {
     float: left;
     height: fit-content;
     border-radius: 10px;
 }
-.miniForecast {
-    float: left;
-    margin-right: 30px;
-    border: 1px solid black;
-}
 .bigForecast {
-    float: left;
-    margin-right: 30px;
+    width: 100%;
     border: 1px solid red;
-    background-color: green;
+}
+.miniForecast {
+    cursor: pointer;
+    display: block;
+    float: left;
+
+    width: calc(0.5*((100vw - 2*var(--margin-left))/8) - 5px);
+    margin-right: 5px;
+
+    padding-left: 4px;
+    padding-right: 4px;
+
+    border-radius: 5px;
+
+    text-align: center;
+}
+.miniForecast img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.miniForecast .temperature {
+    font-size: 0.75em;
+    display: inline-flex;
+    width: 50%;
+}
+.miniForecast .temperature:nth-child(odd) {
+    color: #3333cc;
+}
+.miniForecast .temperature:nth-child(even) {
+    color: #cc3333;
 }

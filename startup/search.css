@@ -9,6 +9,7 @@
 
     background-color: white;
     border: 1px solid #dcdcdc;
+    margin-bottom: calc(0.25*var(--search-height));
 }
 .search:hover {
     box-shadow: 1px 1px 8px 1px #cdcdcd;

@@ -1,5 +1,5 @@
 //https://api.ipify.org/
-const DAYS = 7;
+const DAYS = 8;
 var weather;
 function getCall() {
     var cityTEMP = "198.137.18.35";
@@ -12,45 +12,9 @@ function getCall() {
 }
 function showWeather(data) {
     console.log(data);
+    var current = document.getElementById("current");
     var forecast = document.getElementById("forecast");
     for (let i = 0; i < DAYS; i++) {
-        // Mini Forecast
-        function genMini() {
-            var base = document.createElement("div");
-            base.classList.add("miniForecast");
-            base.value = i;
-
-            var date = new Date(data.forecast.forecastday[i].date);
-            var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            var day = document.createElement("p");
-            day.innerHTML = days[date.getUTCDay()];
-            base.appendChild(day);
-
-            var img = document.createElement("img");
-            img.src = data.forecast.forecastday[i].day.condition.icon;
-            base.appendChild(img);
-
-            // Click toggle for big display
-            base.onclick = function() {
-                for (let i = 0; i < forecast.childNodes.length; i++) {
-                    var temp = forecast.childNodes[i];
-                    if (temp.classList.contains("bigForecast")) {
-                        if (this.value == temp.value) {
-                            temp.style.display = "block";
-                        } else {
-                            temp.style.display = "none";
-                        }
-                    } else {
-                        if (this.value == temp.value) {
-                            temp.style.display = "none";
-                        } else {
-                            temp.style.display = "block";
-                        }
-                    }
-                }
-            }
-            return base;
-        }
         // Big Forecast
         function genBig() {
             var base = document.createElement("div");
@@ -69,8 +33,46 @@ function showWeather(data) {
 
             return base;
         }
+        // Mini Forecast
+        function genMini() {
+            var base = document.createElement("div");
+            base.classList.add("miniForecast");
+            base.value = i;
+
+            var date = new Date(data.forecast.forecastday[i].date);
+            var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            var day = document.createElement("p");
+            day.innerHTML = days[date.getUTCDay()].substring(0,3);
+            base.appendChild(day);
+
+            var img = document.createElement("img");
+            img.src = data.forecast.forecastday[i].day.condition.icon;
+            base.appendChild(img);
+
+            var mintemp = document.createElement("p");
+            mintemp.classList.add("temperature");
+            mintemp.innerHTML = Math.round(data.forecast.forecastday[i].day.mintemp_f) + "°F";
+            base.appendChild(mintemp);
+            var maxtemp = document.createElement("p");
+            maxtemp.classList.add("temperature");
+            maxtemp.innerHTML = Math.round(data.forecast.forecastday[i].day.maxtemp_f) + "°F";
+            base.appendChild(maxtemp);
+
+            // Click toggle for big display
+            base.onclick = function() {
+                for (let i = 0; i < current.childNodes.length; i++) {
+                    var temp = current.childNodes[i];
+                    if (this.value == temp.value) {
+                        temp.style.display = "block";
+                    } else {
+                        temp.style.display = "none";
+                    }
+                }
+            }
+            return base;
+        }
+        current.appendChild(genBig());
         forecast.appendChild(genMini());
-        forecast.appendChild(genBig());
     }
     forecast.childNodes[0].click();
 }

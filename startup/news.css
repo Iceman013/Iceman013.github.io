@@ -1,0 +1,7 @@
+.news {
+    width: 50%;
+    float: left;
+    background-color: purple;
+    height: 300px;
+    outline: 1px solid black;
+}
