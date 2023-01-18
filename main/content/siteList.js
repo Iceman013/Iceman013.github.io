@@ -60,5 +60,8 @@ const siteList = [
     "This is the classic card game Set. This game can be played easily here as much as you want with the random deck shuffling and checking program. There will always be a solution even if you don't see it at first."),
 
     new Site("Packing", ["Other"], "https://iceman013.github.io/packing",
-    "This is a packing program that packs rectangular pieces. It was used as the demo and prototype for the packing used on this page.")
+    "This is a packing program that packs rectangular pieces. It was used as the demo and prototype for the packing used on this page."),
+
+    new Site("Startup", ["Other","Approved"], "https://iceman013.github.io/startup",
+    "This is a startup page with useful information when you open the browser.")
 ];
