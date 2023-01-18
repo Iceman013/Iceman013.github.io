@@ -48,8 +48,24 @@ function showWeather(data) {
             base.appendChild(day);
 
             var img = document.createElement("img");
-            var code = data.hourly.weathercode[24*i];
-            img.src = "weatherImages/" + getWeather(code).image;
+            var codes = [];
+            var counts = [];
+            for (let j = 0; j < 24; j++) {
+                var wcode = data.hourly.weathercode[24*i + j];
+                if (codes.includes(wcode)) {
+                    counts[codes.indexOf(wcode)]++;
+                } else {
+                    codes.push(wcode);
+                    counts.push(0);
+                }
+            }
+            var code = 0;
+            for (let j = 0; j < 24; j++) {
+                if (counts[j] > counts[code]) {
+                    code = j;
+                }
+            }
+            img.src = "weatherImages/" + getWeather(codes[code]).image;
             base.appendChild(img);
 
             var mintemp = document.createElement("p");

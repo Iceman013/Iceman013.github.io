@@ -1,9 +1,14 @@
 :root {
     --search-height: 50px;
+    --search-width: 80vw;
     --search-ratio: 0.8;
 }
 .search {
     height: var(--search-height);
+    width: var(--search-width);
+
+    margin-left: auto;
+    margin-right: auto;
 
     border-radius: calc(0.5*var(--search-height));
 
@@ -12,10 +17,10 @@
     margin-bottom: calc(0.25*var(--search-height));
 }
 .search:hover {
-    box-shadow: 1px 1px 8px 1px #cdcdcd;
+    box-shadow: 1px 1px 8px 1px #bcbcbc;
 }
 .search:focus-within {
-    box-shadow: 1px 1px 8px 1px #cdcdcd;
+    box-shadow: 1px 1px 8px 1px #bcbcbc;
 }
 
 .search input {
