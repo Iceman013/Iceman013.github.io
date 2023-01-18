@@ -9,8 +9,11 @@
 }
 .bigForecast {
     width: 100%;
-    border: 1px solid red;
 }
+.bigForecast .graph {
+    width: 100%;
+}
+
 .miniForecast {
     cursor: pointer;
     display: block;

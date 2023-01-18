@@ -7,7 +7,7 @@ function getCall() {
     var base = "https://api.open-meteo.com/v1/forecast?";
     var lattitude = "latitude=" + LAT;
     var longitude = "&longitude=" + LON;
-    var end = "&hourly=temperature_2m,weathercode";
+    var end = "&hourly=temperature_2m,precipitation,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch";
     return base + lattitude + longitude + end;
 }
 function showWeather(data) {
@@ -24,7 +24,7 @@ function showWeather(data) {
             var date = new Date(data.hourly.time[24*i]);
             var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
             var day = document.createElement("p");
-            day.innerHTML = days[date.getUTCDay()];
+            day.innerHTML = days[date.getUTCDay()] + " " + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
             base.appendChild(day);
 
             /*
@@ -32,8 +32,39 @@ function showWeather(data) {
             img.src = data.forecast.forecastday[i].day.condition.icon;
             base.appendChild(img);
             */
+            
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
 
-            return base;
+            var graph = document.createElement("div");
+            graph.classList.add("graph");
+            base.appendChild(graph);
+            current.appendChild(base);
+            var chart = [["Time", "Temperature"]];
+            for (let j = 0; j < 24; j++) {
+                var times = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"];
+                var row = [
+                    times[j],
+                    data.hourly.temperature_2m[24*i + j]
+                ];
+                chart.push(row);
+            }
+            function drawChart() {
+                var datam = google.visualization.arrayToDataTable(chart);
+
+                var options = {
+                    title: "Temperature",
+                    legend: { position: "none" },
+                    backgroundColor: { fill: document.body.style.backgroundColor },
+                    chartArea: {
+                        width: "90%"
+                    },
+                    hAxis: { showTextEvery: 3 }
+                };
+
+                var chartf = new google.visualization.AreaChart(graph);
+                chartf.draw(datam, options);
+            }
         }
         // Mini Forecast
         function genMini() {
@@ -83,8 +114,8 @@ function showWeather(data) {
                     max = temp;
                 }
             }
-            mintemp.innerHTML = Math.round(1.8*min + 32) + "°F";
-            maxtemp.innerHTML = Math.round(1.8*max + 32) + "°F";
+            mintemp.innerHTML = Math.round(min) + "°F";
+            maxtemp.innerHTML = Math.round(max) + "°F";
             base.appendChild(mintemp);
             base.appendChild(maxtemp);
 
@@ -101,10 +132,10 @@ function showWeather(data) {
             }
             return base;
         }
-        current.appendChild(genBig());
+        genBig();
         forecast.appendChild(genMini());
     }
-    forecast.childNodes[0].click();
+    google.charts.setOnLoadCallback(function() {forecast.childNodes[0].click()});
 }
 function startWeather() {
     fetch(getCall()).then(data => data.json().then(d => showWeather(d)));
