@@ -1,4 +1,6 @@
-//https://api.ipify.org/
+// https://api.ipify.org/
+// https://open-meteo.com/
+// https://developers.google.com/chart/interactive/docs/gallery/areachart
 const DAYS = 7;
 var weather;
 function getCall() {

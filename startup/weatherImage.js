@@ -1,3 +1,4 @@
+// https://www.iconfinder.com/search/icons?price=free&q=weather&category=weather&style=flat
 function Weather(number, image, description) {
     this.number = number;
     this.image = image;
