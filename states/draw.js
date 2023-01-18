@@ -7,17 +7,15 @@ var margin = {top: 0, right: 0, bottom: 0, left: 0},
 var svg = d3.select("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .append("g");
 
 // Data and color scale
 var data = d3.map();
 
 function makeMap(state) {
-    var scale = state.scale;
     var projections = [d3.geoMercator, d3.geoEquirectangular];
     var projection = projections[0]()
-        .scale(scale*100)
+        .scale(100*state.scale)
         .center([-1*state.y, state.x])
         .translate([width/2, height/2]);
 
@@ -37,5 +35,7 @@ function makeMap(state) {
             .attr("d", d3.geoPath()
                 .projection(projection)
             )
+            //.attr("transform", "scale(2)")
+        
     });
 }

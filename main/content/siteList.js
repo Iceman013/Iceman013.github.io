@@ -63,5 +63,8 @@ const siteList = [
     "This is a packing program that packs rectangular pieces. It was used as the demo and prototype for the packing used on this page."),
 
     new Site("Startup", ["Other","Approved"], "https://iceman013.github.io/startup",
-    "This is a startup page with useful information when you open the browser.")
+    "This is a startup page with useful information when you open the browser."),
+
+    new Site("States", ["Games"], "https://iceman013.github.io/states",
+    "This draws a state and you have to guess it. How well do you actually know the states?")
 ];
