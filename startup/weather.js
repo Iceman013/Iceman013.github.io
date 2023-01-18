@@ -1,14 +1,14 @@
 //https://api.ipify.org/
-const DAYS = 8;
+const DAYS = 7;
 var weather;
 function getCall() {
-    var cityTEMP = "198.137.18.35";
-    var base = "https://api.weatherapi.com/v1/" + "forecast.json";
-    var key = "?key=" + WEATHERKEY;
-    var city = "&q=" + cityTEMP;
-    var time = "&days=" + DAYS;
-    var end = "&aqi=no";
-    return base + key + city + time + end;
+    var LAT = 33.95;
+    var LON = -83.35;
+    var base = "https://api.open-meteo.com/v1/forecast?";
+    var lattitude = "latitude=" + LAT;
+    var longitude = "&longitude=" + LON;
+    var end = "&hourly=temperature_2m,weathercode";
+    return base + lattitude + longitude + end;
 }
 function showWeather(data) {
     console.log(data);
@@ -21,15 +21,17 @@ function showWeather(data) {
             base.classList.add("bigForecast");
             base.value = i;
 
-            var date = new Date(data.forecast.forecastday[i].date);
+            var date = new Date(data.hourly.time[24*i]);
             var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
             var day = document.createElement("p");
             day.innerHTML = days[date.getUTCDay()];
             base.appendChild(day);
 
+            /*
             var img = document.createElement("img");
             img.src = data.forecast.forecastday[i].day.condition.icon;
             base.appendChild(img);
+            */
 
             return base;
         }
@@ -39,23 +41,35 @@ function showWeather(data) {
             base.classList.add("miniForecast");
             base.value = i;
 
-            var date = new Date(data.forecast.forecastday[i].date);
+            var date = new Date(data.hourly.time[24*i]);
             var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
             var day = document.createElement("p");
             day.innerHTML = days[date.getUTCDay()].substring(0,3);
             base.appendChild(day);
 
             var img = document.createElement("img");
-            img.src = data.forecast.forecastday[i].day.condition.icon;
+            var code = data.hourly.weathercode[24*i];
+            img.src = "weatherImages/" + getWeather(code).image;
             base.appendChild(img);
 
             var mintemp = document.createElement("p");
             mintemp.classList.add("temperature");
-            mintemp.innerHTML = Math.round(data.forecast.forecastday[i].day.mintemp_f) + "°F";
-            base.appendChild(mintemp);
             var maxtemp = document.createElement("p");
             maxtemp.classList.add("temperature");
-            maxtemp.innerHTML = Math.round(data.forecast.forecastday[i].day.maxtemp_f) + "°F";
+            var min;
+            var max;
+            for (let j = 0; j < 24; j++) {
+                var temp = data.hourly.temperature_2m[24*i + j];
+                if (min == undefined || min > temp) {
+                    min = temp;
+                }
+                if (max == undefined || max < temp) {
+                    max = temp;
+                }
+            }
+            mintemp.innerHTML = Math.round(1.8*min + 32) + "°F";
+            maxtemp.innerHTML = Math.round(1.8*max + 32) + "°F";
+            base.appendChild(mintemp);
             base.appendChild(maxtemp);
 
             // Click toggle for big display

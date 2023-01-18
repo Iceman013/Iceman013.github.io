@@ -16,7 +16,7 @@
     display: block;
     float: left;
 
-    width: calc(0.5*((100vw - 2*var(--margin-left))/8) - 5px);
+    width: calc(0.5*((100vw - 2*var(--margin-left))/7) - 5px);
     margin-right: 5px;
 
     padding-left: 4px;
@@ -36,9 +36,9 @@
     display: inline-flex;
     width: 50%;
 }
-.miniForecast .temperature:nth-child(odd) {
+.miniForecast .temperature:nth-child(even) {
     color: #3333cc;
 }
-.miniForecast .temperature:nth-child(even) {
+.miniForecast .temperature:nth-child(odd) {
     color: #cc3333;
 }
