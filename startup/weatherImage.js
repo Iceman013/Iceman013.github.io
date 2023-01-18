@@ -6,7 +6,7 @@ function Weather(number, image, description) {
 }
 const WEATHERLIST = [
     new Weather(-1, "error.png", "ERROR"),
-    new Weather(0, "clearsky.png", "Clear sky"),
+    new Weather(0, "clearSky.png", "Clear sky"),
     new Weather(1, "mainlyClear.png", "Mainly clear"),
     new Weather(2, "partlyCloudy.png", "Partly cloudy"),
     new Weather(3, "overcast.png", "Overcast"),
