@@ -1,0 +1,32 @@
+.shows {
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: auto auto;
+}
+.show {
+    border-radius: 10px 10px 0px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+}
+.show::-webkit-scrollbar {
+    width: 0px;
+}
+.showTitle {
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,1));
+    color: white;
+    padding-top: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 2px;
+}
+.showTitle .title {
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+.showDetails {
+    color: white;
+    background-color: rgb(0,0,0);
+    padding: 10px;
+}

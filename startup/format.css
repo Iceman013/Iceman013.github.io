@@ -10,6 +10,9 @@
     box-sizing: border-box;
     font-family: var(--font);
 }
+body {
+    background-color: #aaccff;
+}
 .content {
     position: absolute;
     left: var(--margin-left);
@@ -17,6 +20,9 @@
 
     width: calc(100vw - 2*var(--margin-left));
 }
-body {
-    background-color: #aaccff;
+.contentGrid {
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 452px;
 }

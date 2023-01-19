@@ -13,7 +13,7 @@ function getCall() {
     return base + lattitude + longitude + end;
 }
 function showWeather(data) {
-    console.log(data);
+    //console.log(data);
     var current = document.getElementById("current");
     var forecast = document.getElementById("forecast");
     for (let i = 0; i < DAYS; i++) {
