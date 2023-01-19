@@ -10,7 +10,24 @@
 .bigForecast {
     width: 100%;
 }
+.bigForecast .details {
+    display: block;
+    float: none;
+}
+.bigForecast img {
+    float: left;
+}
+.bigForecast .weatherNow {
+    margin-left: 10px;
+    float: left;
+}
+.bigForecast .timedata {
+    margin-right: 3vw;
+    float: right;
+    text-align: right;
+}
 .bigForecast .graph {
+    float: left;
     width: 100%;
 }
 

@@ -9,7 +9,7 @@ function getCall() {
     var base = "https://api.open-meteo.com/v1/forecast?";
     var lattitude = "latitude=" + LAT;
     var longitude = "&longitude=" + LON;
-    var end = "&hourly=temperature_2m,precipitation,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch";
+    var end = "&current_weather=true&hourly=temperature_2m,precipitation,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch";
     return base + lattitude + longitude + end;
 }
 function showWeather(data) {
@@ -23,18 +23,63 @@ function showWeather(data) {
             base.classList.add("bigForecast");
             base.value = i;
 
-            var date = new Date(data.hourly.time[24*i]);
-            var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            var day = document.createElement("p");
-            day.innerHTML = days[date.getUTCDay()] + " " + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
-            base.appendChild(day);
+            var details = document.createElement("div");
+            details.classList.add("details");
+            function addDetails(deBase) {
+                // Weather Image
+                var img = document.createElement("img");
+                img.src = "weatherImages/" + getWeather(data.current_weather.weathercode).image;
+                deBase.appendChild(img);
 
-            /*
-            var img = document.createElement("img");
-            img.src = data.forecast.forecastday[i].day.condition.icon;
-            base.appendChild(img);
-            */
+                // Weather Now
+                var currentData = document.createElement("div");
+                currentData.classList.add("weatherNow");
+                function addCurrentData(element) {
+                    // Weather
+                    var weatherDes = document.createElement("p");
+                    weatherDes.innerHTML = getWeather(data.current_weather.weathercode).description;
+                    element.appendChild(weatherDes);
+
+                    // Temperature
+                    var weatherDesTemp = document.createElement("p");
+                    weatherDesTemp.innerHTML = data.current_weather.temperature + "°F";
+                    element.appendChild(weatherDesTemp);
+
+                    // Wind speed
+                }
+                addCurrentData(currentData);
+                deBase.appendChild(currentData);
+
+                // Time
+                var timedata = document.createElement("div");
+                timedata.classList.add("timedata");
+                function addTimeData(element) {
+                    var date = new Date(data.hourly.time[24*i]);
+                    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                    var dayOfWeek = document.createElement("p");
+                    var today = new Date();
+                    var hours = [12,1,2,3,4,5,6,7,8,9,10,11];
+                    var nowTime = hours[today.getHours()%12];
+                    nowTime += ":" + today.getMinutes();
+                    if (today.getHours() < 12) {
+                        nowTime += "AM";
+                    } else {
+                        nowTime += "PM";
+                    }
+                    dayOfWeek.innerHTML = days[date.getUTCDay()] + " " + nowTime;
+                    element.appendChild(dayOfWeek);
+
+                    var day = document.createElement("p");
+                    day.innerHTML = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+                    element.appendChild(day);
+                }
+                addTimeData(timedata);
+                deBase.appendChild(timedata);
+            }
+            addDetails(details);
+            base.appendChild(details);
             
+            // Weather Graph
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
 
@@ -42,7 +87,7 @@ function showWeather(data) {
             graph.classList.add("graph");
             base.appendChild(graph);
             current.appendChild(base);
-            var chart = [["Time", "Temperature"]];
+            var chart = [["Time", "Predicted Temperature"]];
             for (let j = 0; j < 24; j++) {
                 var times = ["12AM","1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM"];
                 var row = [
