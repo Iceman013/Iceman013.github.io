@@ -1,4 +1,4 @@
-var showList = ["the owl house","the ghost and molly mcgee"];
+var showList = ["the owl house","the ghost and molly mcgee","miraculous ladybug"];
 function getShowCall(name) {
     var url = "https://api.tvmaze.com/singlesearch/shows?q=";
     var realName = "";
@@ -44,6 +44,10 @@ function makeShow(data) {
     title.classList.add("title");
     title.innerHTML = data.name;
     tBase.appendChild(title);
+
+    setTimeout(function() {
+        dBase.style.minHeight = "calc(100% - " + tBase.clientHeight + "px)";
+    }, 100);
     
     // Detail Section
     var dBase = document.createElement("div");
@@ -51,21 +55,37 @@ function makeShow(data) {
     base.appendChild(dBase);
     
     // Details
-    var description = document.createElement("text");
-    description.innerHTML = removeTags(data.summary);
-    dBase.appendChild(description);
-    
+    function makeDropDown(element, name, content) {
+        var category = document.createElement("p");
+        category.classList.add("showCat");
+        category.innerHTML = name;
+        element.appendChild(category);
+
+        var popdown = document.createElement("div");
+        popdown.classList.add("showCatDetail");
+        for (let i = 0; i < content.length; i++) {
+            var des = document.createElement("p");
+            des.innerHTML = content[i];
+            popdown.appendChild(des);
+        }
+        element.appendChild(popdown);
+        category.onclick = function() {
+            popdown.classList.toggle("detailShowing");
+        }
+    }
+    // Summary
+    makeDropDown(dBase, "Summary", [removeTags(data.summary)]);
+
     // Next Episode stuff
     function addNextDate(nData) {
         var date = document.createElement("p");
+        date.style.marginBottom = "0px";
         var airtime = new Date(nData.airstamp);
         date.innerHTML = getFull(airtime);
         tBase.appendChild(date);
 
         // Next Episode Summary
-        var ne = document.createElement("p");
-        ne.innerHTML = removeTags(nData.summary);
-        dBase.appendChild(ne);
+        makeDropDown(dBase, "Next Episode", [nData.name,removeTags(nData.summary)]);
     }
     if (data._links.nextepisode != null) {
         fetch(data._links.nextepisode.href).then(da => da.json().then(d => addNextDate(d)));
