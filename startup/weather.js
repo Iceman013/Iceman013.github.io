@@ -4,13 +4,21 @@
 const DAYS = 7;
 var weather;
 function getCall() {
-    var LAT = 33.95;
-    var LON = -83.35;
+    var latitude = 33.95;
+    var longitude = -83.35;
+    function setPosition(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+    }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(setPosition);
+    } else {
+        console.error("User has disabled location");
+    }
     var base = "https://api.open-meteo.com/v1/forecast?";
-    var lattitude = "latitude=" + LAT;
-    var longitude = "&longitude=" + LON;
+    var coords = "latitude=" + latitude + "&longitude=" + longitude;
     var end = "&current_weather=true&hourly=temperature_2m,precipitation,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch";
-    return base + lattitude + longitude + end;
+    return base + coords + end;
 }
 function showWeather(data) {
     //console.log(data);
