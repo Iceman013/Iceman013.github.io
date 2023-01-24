@@ -7,7 +7,10 @@ function getDomainBase() {
     } else if (address.includes(".uga.edu")) {
         var search = ".uga.edu"
         output = address.substring(0, address.indexOf(search)) + search + "/";
-    } else {
+    } else if (address.includes("http://127.0.0.1:5500/")) {
+        var search = "127.0.0.1:5500/juggling";
+        output = address.substring(0, address.indexOf(search)) + search + "/";
+    }else {
         output = address;
     }
     return output;
