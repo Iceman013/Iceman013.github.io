@@ -3,28 +3,32 @@
 }
 body {
     margin: 10px;
-    overflow: hidden;
 }
 .header {
-    width: 100%;
-    height: 20vh;
-    overflow: hidden;
+    height: fit-content;
+    padding: 5px;
+    line-height: 2;
+    float: left;
 }
 .board {
-    height: 80vh;
-}
-.row {
-    clear: left;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 1vw; 
+    row-gap: 1vh;
 }
 .card {
     height: min(calc(80vh/3 - 24px), calc((2/3)*((100vw - 20px)/4 - 24px)));
     width: min(calc((100vw - 20px)/4 - 24px), calc(1.5*(80vh/3 - 24px)));
-    float: left;
     border: 2px solid black;
     border-radius: 5px;
-    margin: 10px;
+}
+.clue {
+    border-color: #ff8888;
+    outline: 4px solid #ff8888;
 }
 .active {
-    margin: 8px;
-    border: 4px solid #8888ff;
+    border-color: #8888ff;
+    outline: 4px solid #8888ff;
 }
