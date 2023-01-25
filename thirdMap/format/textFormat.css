@@ -1,5 +1,9 @@
 :root {
-    --monitor-text: #11ff33;
+    --monitor: #11ff33;
+
+    --typingA: #11ff33;
+    --typingB: #11ccff;
+    --typingC: #ff55ff;
 }
 .textMonitor {
     width: 100%;
@@ -10,7 +14,8 @@
     overflow-y: scroll;
 
     background-color: black;
-    color: var(--monitor-text);
+    font-family: "Advent Pro";
+    font-size: 20px;
 }
 .textMonitor::-webkit-scrollbar {
     width: 6px;
@@ -20,10 +25,18 @@
 }
 .textMonitor::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: var(--monitor-text);
+    background: var(--monitor);
 }
 
-
-.textMonitor h3, p {
+.textMonitor p {
     margin-top: 0px;
+}
+.personA {
+    color: var(--typingA);
+}
+.personB {
+    color: var(--typingB);
+}
+.personC {
+    color: var(--typingC)
 }
