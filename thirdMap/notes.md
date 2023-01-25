@@ -11,6 +11,8 @@
 - Collect resources from air (Carbon dioxide, nitrogen, sulfur dioxide)
 - Clouds of ferric chloride
 - Heat used for energy (many volcanic sources)
+- Earth had lichens at this time
+- Venus had (modern) Earthlike oceans
 ### Plot
 - In the past
 - All the factories produce high carbon dioxide and this results in planetary failure

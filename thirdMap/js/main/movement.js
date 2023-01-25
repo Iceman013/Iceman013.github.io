@@ -1,9 +1,5 @@
-const TICKSPEED = 10;
 var keysPressed = [];
 var cellStyleLocation;
-var PlayerXPosition = 0;
-var PlayerYPosition = 0;
-var PlayerDirection = 0;
 
 function turnOnKeyCheck() {
     window.addEventListener("keydown", function(event) {
@@ -35,29 +31,33 @@ function findCellStyle() {
         }
     }
 }
-function move() {
+function move(player) {
+    if (keysPressed.length == 0) {
+        return;
+    }
     var upkeys = ["w","ArrowUp"];
     var downkeys = ["s","ArrowDown"];
     var leftkeys = ["a","ArrowLeft"];
     var rightkeys = ["d","ArrowRight"];
     var rotLkeys = ["q"];
     var rotRkeys = ["e"];
-    var moveSpeed = 4;
-    var rotSpeed = 0.0025;
+
+    var xChange = 0;
+    var yChange = 0;
     
     // Vertical Movement
     for (let i = 0; i < upkeys.length; i++) {
         if (keysPressed.includes(upkeys[i])) {
             i = upkeys.length;
-            PlayerXPosition += moveSpeed*Math.cos((PlayerDirection + 0.25)*2*Math.PI);
-            PlayerYPosition += moveSpeed*Math.sin((PlayerDirection + 0.25)*2*Math.PI);
+            xChange += player.moveSpeed*Math.cos((player.direction + 0.25)*2*Math.PI);
+            yChange += player.moveSpeed*Math.sin((player.direction + 0.25)*2*Math.PI);
         }
     }
     for (let i = 0; i < downkeys.length; i++) {
         if (keysPressed.includes(downkeys[i])) {
             i = downkeys.length;
-            PlayerXPosition -= moveSpeed*Math.cos((PlayerDirection + 0.25)*2*Math.PI);
-            PlayerYPosition -= moveSpeed*Math.sin((PlayerDirection + 0.25)*2*Math.PI);
+            xChange -= player.moveSpeed*Math.cos((player.direction + 0.25)*2*Math.PI);
+            yChange -= player.moveSpeed*Math.sin((player.direction + 0.25)*2*Math.PI);
         }
     }
 
@@ -65,37 +65,47 @@ function move() {
     for (let i = 0; i < leftkeys.length; i++) {
         if (keysPressed.includes(leftkeys[i])) {
             i = leftkeys.length;
-            PlayerXPosition += moveSpeed*Math.cos((PlayerDirection)*2*Math.PI);
-            PlayerYPosition += moveSpeed*Math.sin((PlayerDirection)*2*Math.PI);
+            xChange += player.moveSpeed*Math.cos((player.direction)*2*Math.PI);
+            yChange += player.moveSpeed*Math.sin((player.direction)*2*Math.PI);
         }
     }
     for (let i = 0; i < rightkeys.length; i++) {
         if (keysPressed.includes(rightkeys[i])) {
             i = rightkeys.length;
-            PlayerXPosition -= moveSpeed*Math.cos((PlayerDirection)*2*Math.PI);
-            PlayerYPosition -= moveSpeed*Math.sin((PlayerDirection)*2*Math.PI);
+            xChange -= player.moveSpeed*Math.cos((player.direction)*2*Math.PI);
+            yChange -= player.moveSpeed*Math.sin((player.direction)*2*Math.PI);
         }
+    }
+
+    if (xChange != 0 || yChange != 0) {
+        if (xChange != 0 && yChange != 0) {
+            xChange *= Math.SQRT1_2;
+            yChange *= Math.SQRT1_2;
+        }
+        player.xPosition += xChange;
+        player.yPosition += yChange;
+        cellStyleLocation.style.transform = "translate(" + player.xPosition + "px, " + player.yPosition + "px)";
     }
 
     // Rotational Movement
     for (let i = 0; i < rotLkeys.length; i++) {
         if (keysPressed.includes(rotLkeys[i])) {
             i = rotLkeys.length;
-            PlayerDirection -= rotSpeed;
+            player.direction -= player.rotationSpeed;
         }
     }
     for (let i = 0; i < rotRkeys.length; i++) {
         if (keysPressed.includes(rotRkeys[i])) {
             i = rotRkeys.length;
-            PlayerDirection += rotSpeed;
+            player.direction += player.rotationSpeed;
         }
     }
 
-    cellStyleLocation.style.transform = "translate(" + PlayerXPosition + "px, " + PlayerYPosition + "px)";
-    document.getElementById("mapContainer").style.transform =  "rotate(" + -1*PlayerDirection + "turn)";
+    
+    document.getElementById("mapContainer").style.transform =  "rotate(" + -1*player.direction + "turn)";
 }
-function turnOnMovement() {
+function turnOnMovement(player) {
     turnOnKeyCheck();
     findCellStyle();
-    setInterval(move, TICKSPEED);
+    setInterval(function() { move(player) }, TICKSPEED);
 }

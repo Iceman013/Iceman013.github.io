@@ -16,11 +16,28 @@
 
         <!-- My format -->
         <link rel = "stylesheet" type = "text/css" href = "format/format.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "format/hudFormat.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "format/textFormat.css"/>
         <link rel = "stylesheet" type = "text/css" href = "format/mapFormat.css"/>
     </head>
     <body>
-        <div class="mapHUD">
-            <div class="mapContainer" id="mapContainer"></div>
+        <div class="HUD">
+            <div class="textHUD">
+                <div class="textMonitor">
+                    <h3>Howdy</h3>
+                    <p>What is up with you? I need filler text so I'll just keep typing and typing. I hope this is long enough. Who knows? That wasnt a question. Well it was in the sense that it was a rhetorical question. Does anyone count that? That was a question. And a real one. I'm saying I don't think rhetorical questions are questions. And to add to that, the remark I next made about who considers it a question is a question according to my definition.</p>
+                    <p>What is up with you? I need filler text so I'll just keep typing and typing. I hope this is long enough. Who knows? That wasnt a question. Well it was in the sense that it was a rhetorical question. Does anyone count that? That was a question. And a real one. I'm saying I don't think rhetorical questions are questions. And to add to that, the remark I next made about who considers it a question is a question according to my definition.</p>
+                    <p>What is up with you? I need filler text so I'll just keep typing and typing. I hope this is long enough. Who knows? That wasnt a question. Well it was in the sense that it was a rhetorical question. Does anyone count that? That was a question. And a real one. I'm saying I don't think rhetorical questions are questions. And to add to that, the remark I next made about who considers it a question is a question according to my definition.</p>
+                    <p>What is up with you? I need filler text so I'll just keep typing and typing. I hope this is long enough. Who knows? That wasnt a question. Well it was in the sense that it was a rhetorical question. Does anyone count that? That was a question. And a real one. I'm saying I don't think rhetorical questions are questions. And to add to that, the remark I next made about who considers it a question is a question according to my definition.</p>
+                </div>
+            </div>
+            <div class="mapHUD">
+                <div class="mapWindow">
+                    <div class="mapContainer" id="mapContainer"></div>
+                </div>
+            </div>
+            <div class="inventoryHUD"><p>Inventory HUD</p></div>
+            <div class="buildHUD">Build HUD</div>
         </div>
     </body>
     <footer>
@@ -29,8 +46,10 @@
 
         <!-- Classes -->
         <script src = "js/classes/tileImage.js" type = "text/javascript"></script>
+        <script src = "js/classes/player.js" type = "text/javascript"></script>
 
         <!-- Lists of content -->
+        <script src = "js/content/constants.js" type = "text/javascript"></script>
         <script src = "js/content/imageList.js" type = "text/javascript"></script>
 
         <!-- Run code -->

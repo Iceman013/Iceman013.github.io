@@ -1,0 +1,1 @@
+const TICKSPEED = 10;

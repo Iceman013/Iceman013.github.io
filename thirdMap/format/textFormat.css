@@ -1,0 +1,29 @@
+:root {
+    --monitor-text: #11ff33;
+}
+.textMonitor {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    overflow-y: scroll;
+
+    background-color: black;
+    color: var(--monitor-text);
+}
+.textMonitor::-webkit-scrollbar {
+    width: 6px;
+}
+.textMonitor::-webkit-scrollbar-track {
+    background: none;
+}
+.textMonitor::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--monitor-text);
+}
+
+
+.textMonitor h3, p {
+    margin-top: 0px;
+}
