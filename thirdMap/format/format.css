@@ -5,3 +5,9 @@ body {
     margin: 0px;
     font-family: "Akshar";
 }
+.screw {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
+}
