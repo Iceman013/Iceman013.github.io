@@ -6,7 +6,7 @@
     --content: #ffffff;
     --content-text: #000000;
 
-    --menu-height: 7vh;
+    --menu-height: 50px;
 }
 
 * {
@@ -14,59 +14,52 @@
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
-    width: 100vw;
     margin: 0px;
-    overflow: hidden;
 }
 
-.menu {
-    z-index: 2;
-    position: fixed;
-    top: 0px;
-    height: var(--menu-height);
-    width: 100vw;
-
-    background-color: var(--menu);
-    color: var(--menu-text);
-    overflow: hidden;
-}
 .content {
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 50px;
-    height: calc(100vh - var(--menu-height));
-    width: 100vw;
+    width: 100%;
 
-    position: absolute;
     top: var(--menu-height);
-    overflow-y: scroll;
+    position: absolute;
 
     background-color: var(--content);
     color: var(--content-text);
 }
+.menu {
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+    background-color: var(--menu);
+    color: var(--menu-text);
+
+    display: flex;
+}
 
 .open {
-    display: flex;
     align-items: center;
-    float: left;
-    border: none;
-    border-right: 1px solid var(--menu);
-    font-size: 24px;
+    
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 0px;
     padding-bottom: 0px;
-    height: 100%;
+    height: var(--menu-height);
+    
+    border: none;
+    border-right: 1px solid var(--menu);
+    font-size: 24px;
     background-color: #ff0000;
     color: #ffffff;
     cursor: pointer;
 }
-.toRight {
-    float: right;
-    border-right: 0px;
-    border-left: 1px solid var(--menu);
+.open:nth-child(3) {
+    margin-left: auto;
 }
+
 .menuPages {
     top: var(--menu-height);
     z-index: 2;
@@ -75,7 +68,7 @@ body {
     width: 400px;
 
     display: none;
-    background-color: black;
+    background-color: var(--menu);
     position: fixed;
     height: calc(100vh - var(--menu-height));
 }

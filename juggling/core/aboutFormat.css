@@ -7,8 +7,6 @@
 }
 
 .head {
-    background-color: white;
-    vertical-align: middle;
     font-size: 18px;
 }
 .head img {
@@ -21,11 +19,8 @@
 }
 .body {
     padding: 10px;
-    background-color: white;
 }
 .footer {
-    width: calc(100% - 30px);
     text-align: center;
     padding: 5px;
-    background-color: white;
 }

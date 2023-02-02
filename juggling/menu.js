@@ -29,7 +29,6 @@ function makeMenu() {
     menico.classList.add("material-symbols-outlined");
     feed.appendChild(menico);
     feed.classList.add("open");
-    feed.classList.add("toRight");
     feed.onclick = function() {
         window.open(getDomainBase() + "core/message.html","_self");
     }
