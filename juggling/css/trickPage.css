@@ -1,0 +1,18 @@
+.information {
+    background-color: white;
+    padding: 10px;
+}
+
+.imgCont {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100vw - 40px);
+    justify-content: center;
+}
+.videoCredit {
+    width: 200px;
+}
+img.animated, img.people {
+    max-width: 200px;
+    height: 200px;
+}

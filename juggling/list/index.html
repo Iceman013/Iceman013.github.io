@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Trick List</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ff1122">
+        <meta property="og:site_name" content="UGA Juggling Club">
+        <meta name="description" content="A list of a bunch of juggling tricks.">
+
+        <link rel="icon" type="image/x-icon" href="../images/icon.jpg">
+
+		<link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined">
+
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="list.css">
+  	</head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6KMJWD8GJ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J6KMJWD8GJ');
+    </script>
+  	<body>
+        <div class = "sorter">
+            <div class = "filters">
+                <select class = "drop" id = "selector"></select>
+                <select class = "drop" id = "addFilter"></select>
+            </div>
+            <div class = "chosen" id = "chosen"></div>
+        </div>
+        <div class = "menu"></div>
+        
+        <div class = "content">
+            <div class = "list" id = "list"></div>
+        </div>
+	</body>
+  	<footer>
+        <script src = "../javascript/basics/tools.js"></script>
+        <script src = "../javascript/basics/page.js"></script>
+        <script src = "../javascript/content/pageList.js"></script>
+
+        <script src = "../javascript/trick.js"></script>
+        <script src = "../javascript/filter.js"></script>
+        <script src = "../javascript/content/trickList.js"></script>
+        <script src = "../javascript/trickSort.js"></script>
+
+		<script src = "../javascript/basics/menu.js"></script>
+  	</footer>
+</html>

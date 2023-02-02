@@ -1,0 +1,99 @@
+:root {
+    --head-font-family: Alata;
+
+    --menu: #000000;
+    --menu-text: #ffffff;
+    --content: #ffffff;
+    --content-text: #000000;
+
+    --menu-height: 50px;
+}
+
+* {
+    font-family: var(--head-font-family);
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+}
+
+.content {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+
+    top: var(--menu-height);
+    position: absolute;
+
+    background-color: var(--content);
+    color: var(--content-text);
+}
+.menu {
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+    background-color: var(--menu);
+    color: var(--menu-text);
+
+    display: flex;
+}
+
+.open {
+    align-items: center;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: var(--menu-height);
+    
+    border: none;
+    border-right: 1px solid var(--menu);
+    font-size: 24px;
+    background-color: #ff0000;
+    color: #ffffff;
+    cursor: pointer;
+}
+.open:nth-child(3) {
+    margin-left: auto;
+}
+
+.menuPages {
+    top: var(--menu-height);
+    z-index: 2;
+
+    padding: 10px;
+    width: 400px;
+
+    display: none;
+    background-color: var(--menu);
+    position: fixed;
+    height: calc(100vh - var(--menu-height));
+}
+.menuPages a {
+    display: flex;
+    align-items: center;
+    
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+.current {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sideIcon {
+    margin-right: 15px;
+}
+.topIcon {
+    font-size: 40px;
+}
