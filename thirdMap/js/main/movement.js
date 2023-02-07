@@ -1,5 +1,4 @@
 var keysPressed = [];
-var cellStyleLocation;
 
 function turnOnKeyCheck() {
     window.addEventListener("keydown", function(event) {
@@ -12,24 +11,6 @@ function turnOnKeyCheck() {
             keysPressed.splice(keysPressed.indexOf(event.key), 1);
         }
     });
-}
-function findCellStyle() {
-    var cssSheetName = "mapFormat";
-    var tagGoal = ".mapContainer img";
-    var sheetList = document.styleSheets;
-    var rightSheet;
-    for (let i = 0; i < sheetList.length; i++) {
-        if (sheetList[i].href.includes(cssSheetName)) {
-            rightSheet = sheetList[i];
-            i = sheetList.length;
-        }
-    }
-    for (let i = 0; i < rightSheet.cssRules.length; i++) {
-        if (rightSheet.cssRules[i].selectorText == tagGoal) {
-            cellStyleLocation = rightSheet.cssRules[i];
-            i = rightSheet.cssRules.length;
-        }
-    }
 }
 function move(player) {
     if (keysPressed.length == 0) {
@@ -84,7 +65,7 @@ function move(player) {
         }
         player.xPosition += xChange;
         player.yPosition += yChange;
-        cellStyleLocation.style.transform = "translate(" + player.xPosition + "px, " + player.yPosition + "px)";
+        document.getElementById("mapContainer").style.transform = "translate(" + player.xPosition + "px, " + player.yPosition + "px)";
     }
 
     // Rotational Movement
@@ -100,12 +81,10 @@ function move(player) {
             player.direction += player.rotationSpeed;
         }
     }
-
     
-    document.getElementById("mapContainer").style.transform =  "rotate(" + -1*player.direction + "turn)";
+    document.getElementById("mapRotate").style.transform = "rotate(" + -1*player.direction + "turn)";
 }
 function turnOnMovement(player) {
     turnOnKeyCheck();
-    findCellStyle();
     setInterval(function() { move(player) }, TICKSPEED);
 }
