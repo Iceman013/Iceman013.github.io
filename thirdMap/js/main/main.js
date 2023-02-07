@@ -11,6 +11,10 @@ function startGame() {
     // Movement
     turnOnMovement(player);
 
+    document.body.addEventListener("tileSelect", function(e) {
+        console.log(e.detail);
+    });
+
     sendMessage("personA", "Welcome to the game. Good luck doing anything cause I haven't made it really do anything yet.");
     sendMessage("personB", "This is a pretty text display though.");
     sendMessage("personC", "That is your opinion.");

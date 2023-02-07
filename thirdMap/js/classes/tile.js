@@ -6,8 +6,22 @@ function Tile(x, y, terrain) {
     this.resourceImage;
     this.terrainImage = this.terrain.getImage();
     this.element = document.createElement("div");
-    this.element.classList.add("tile");
-    
+
+    this.makeElement = function() {
+        const X = this.x;
+        const Y = this.y;
+        this.element.classList.add("tile");
+        this.element.addEventListener("click", function() {
+            const event = new CustomEvent("tileSelect", {
+                detail: {
+                    x: X,
+                    y: Y
+            }});
+            document.body.dispatchEvent(event);
+        })
+    }
+    this.makeElement();
+
     this.setResource = function(resource) {
         this.resource = resource;
         this.resourceImage = this.resource.getImage();
