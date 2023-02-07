@@ -1,8 +1,10 @@
-function Terrain(id, name, images) {
+function Terrain(id, name, images, height) {
     this.id = id;
     this.name = name;
     this.tImages = images;
     this.images = [];
+    this.height = height;
+
     this.handleImages = function() {
         var sum = 0;
         for (let i = 0; i < this.tImages.length; i++) {

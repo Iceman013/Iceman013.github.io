@@ -8,4 +8,12 @@ const imageList = [
     new TileImage(7, "images/water/ocean1.svg"),
     new TileImage(8, "images/water/ocean2.svg"),
     new TileImage(9, "images/water/ocean3.svg"),
+    new TileImage(10, "images/water/shallow1.svg"),
+    new TileImage(11, "images/water/shallow2.svg"),
+    new TileImage(12, "images/water/shallow3.svg"),
+    new TileImage(13, "images/grass/grass1.svg"),
+    new TileImage(14, "images/grass/grass2.svg"),
+    new TileImage(15, "images/grass/grass3.svg"),
+    new TileImage(16, "images/sand/sand1.svg"),
+    new TileImage(17, "images/sand/sand2.svg"),
 ];
