@@ -29,13 +29,6 @@
 
     background-color: inherit;
 }
-.inventoryHUD {
-    float: left;
-    width: calc((100% - (100vh - var(--console-height)))/2);
-    height: calc(100vh - var(--console-height));
-
-    background-color: inherit;
-}
 .buildHUD {
     float: left;
     width: 100%;

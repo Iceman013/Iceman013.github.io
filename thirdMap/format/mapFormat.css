@@ -18,6 +18,9 @@
     grid-template-rows: repeat(100, 10%);
 }
 
+#mapContainer .tile {
+    cursor: cell;
+}
 #mapContainer .tile:hover {
     filter: brightness(85%);
 }

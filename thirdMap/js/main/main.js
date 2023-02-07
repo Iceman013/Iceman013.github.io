@@ -11,6 +11,10 @@ function startGame() {
     // Movement
     turnOnMovement(player);
 
+    player.addToInventory(itemList[0], 10);
+    player.addToInventory(itemList[1], 10);
+    player.addToInventory(itemList[0], 11);
+
     document.body.addEventListener("tileSelect", function(e) {
         console.log(e.detail);
     });
