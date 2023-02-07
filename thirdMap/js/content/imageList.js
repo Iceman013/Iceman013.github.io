@@ -16,4 +16,7 @@ const imageList = [
     new TileImage(15, "images/grass/grass3.svg"),
     new TileImage(16, "images/sand/sand1.svg"),
     new TileImage(17, "images/sand/sand2.svg"),
+    new TileImage(18, "images/resources/lava/lavaCrack1.svg"),
+    new TileImage(19, "images/resources/lava/lavaCrack2.svg"),
+    new TileImage(20, "images/resources/lava/lavaCrack3.svg"),
 ];

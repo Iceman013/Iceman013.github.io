@@ -3,12 +3,15 @@
     --default-text: #000000;
     --console-height: 30vh;
 }
-.HUD {
+#HUD {
+    display: none;
+
     width: 100%;
 
     color: var(--default-text);
     background-color: var(--console-color);
 }
+
 .textHUD {
     float: left;
     width: calc((100% - (100vh - var(--console-height)))/2);

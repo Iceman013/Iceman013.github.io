@@ -1,4 +1,7 @@
-function start() {
+function startGame() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("HUD").style.display = "block";
+
     var player = new Player();
     var map = makeMap();
     for (let i = 0; i < map.length; i++) {
@@ -13,5 +16,9 @@ function start() {
     sendMessage("personC", "That is your opinion.");
     sendMessage("personB", "And it is the right one.");
     sendMessage("personA", "Until we change it eventually . . .");
+    var data = {
+        player: player,
+        map: map
+    };
+    console.log(data);
 }
-start();

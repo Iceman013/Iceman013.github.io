@@ -14,6 +14,17 @@ function makeMap() {
             }
         }
         var tile = new Tile(Math.floor(i/SIZE), i % SIZE, terrainList[bestFit]);
+        for (let j = 0; j < resourceList.length; j++) {
+            for (let k = 0; k < resourceList[j].terrain.length; k++) {
+                if (resourceList[j].terrain[k][0] == tile.terrain.id) {
+                    if (Math.random() <= resourceList[j].terrain[k][1]) {
+                        tile.setResource(resourceList[j]);
+                    }
+                    k = resourceList[j].terrain.length;
+                }
+            }
+        }
+        tile.updateElement();
         map.push(tile);
     }
     // Add water
