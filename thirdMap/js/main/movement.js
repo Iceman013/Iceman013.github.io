@@ -12,7 +12,12 @@ function turnOnKeyCheck() {
         }
     });
 }
-function move(player) {
+function move(player, refresh) {
+    if (refresh) {
+        console.log("owo");
+        document.getElementById("mapContainer").style.transform = "translate(" + player.xPosition + "%, " + player.yPosition + "%)";
+        document.getElementById("mapRotate").style.transform = "rotate(" + -1*player.direction + "turn)";
+    }
     if (keysPressed.length == 0) {
         return;
     }
@@ -65,26 +70,30 @@ function move(player) {
         }
         player.xPosition += xChange;
         player.yPosition += yChange;
-        document.getElementById("mapContainer").style.transform = "translate(" + player.xPosition + "px, " + player.yPosition + "px)";
+        document.getElementById("mapContainer").style.transform = "translate(" + player.xPosition + "%, " + player.yPosition + "%)";
     }
 
     // Rotational Movement
+    var rotChange = 0;
     for (let i = 0; i < rotLkeys.length; i++) {
         if (keysPressed.includes(rotLkeys[i])) {
             i = rotLkeys.length;
-            player.direction -= player.rotationSpeed;
+            rotChange -= player.rotationSpeed;
         }
     }
     for (let i = 0; i < rotRkeys.length; i++) {
         if (keysPressed.includes(rotRkeys[i])) {
             i = rotRkeys.length;
-            player.direction += player.rotationSpeed;
+            rotChange += player.rotationSpeed;
         }
     }
-    
-    document.getElementById("mapRotate").style.transform = "rotate(" + -1*player.direction + "turn)";
+    if (rotChange != 0) {
+        player.direction += rotChange;
+        document.getElementById("mapRotate").style.transform = "rotate(" + -1*player.direction + "turn)";
+    }
 }
 function turnOnMovement(player) {
     turnOnKeyCheck();
-    setInterval(function() { move(player) }, TICKSPEED);
+    move(player, true);
+    setInterval(function() { move(player, false) }, TICKSPEED);
 }

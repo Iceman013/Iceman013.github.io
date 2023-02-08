@@ -30,24 +30,25 @@
             <button onclick="startGame()">New Game</button>
         </div>
         <div id="HUD">
-            <div class="textHUD">
-                <div class="textMonitor">
-                    <div id="pastMessages"></div>
-                    <div id="typingMessages"></div>
-                </div>
-            </div>
-            <div class="mapHUD">
-                <div class="mapWindow">
-                    <div id="mapRotate">
-                        <div id="mapContainer"></div>
+            <div class="upperHUD">
+                <div class="textHUD">
+                    <div class="textMonitor monitor">
+                        <div id="pastMessages"></div>
+                        <div id="typingMessages"></div>
                     </div>
                 </div>
+                <div class="mapHUD">
+                    <div class="mapWindow">
+                        <div id="mapRotate">
+                            <div id="mapContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buildHUD">Build HUD</div>
             </div>
             <div class="inventoryHUD">
-                <h1>Inventory</h1>
-                <div id="inventory"></div>
+                <div id="inventory" class="monitor"></div>
             </div>
-            <div class="buildHUD">Build HUD</div>
         </div>
     </body>
     <footer>
