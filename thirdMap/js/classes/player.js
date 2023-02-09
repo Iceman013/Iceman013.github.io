@@ -36,10 +36,13 @@ function Player() {
     }
     this.addToInventory = function(item, quantity) {
         var found = false;
-        for (let i = 0; i < this.inventory.length; i++) {
+        for (let i = 0; i < this.inventory.length && !found; i++) {
             if (this.inventory[i].item == item) {
                 found = true;
                 this.inventory[i].quantity += quantity;
+                if (this.inventory[i].quantity == 0) {
+                    this.inventory.splice(i, 1);
+                }
             }
         }
         if (!found) {

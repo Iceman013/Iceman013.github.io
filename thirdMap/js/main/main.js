@@ -14,7 +14,8 @@ function startGame() {
     player.addToInventory(itemList[0], 10);
     player.addToInventory(itemList[1], 10);
     player.addToInventory(itemList[0], 11);
-    player.addToInventory(itemList[0], -2);
+    player.addToInventory(itemList[0], -21);
+    player.addToInventory(itemList[0], 1);
 
     document.body.addEventListener("tileSelect", function(e) {
         console.log(e.detail);
