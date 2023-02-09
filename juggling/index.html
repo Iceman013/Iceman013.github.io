@@ -12,10 +12,15 @@
         <meta property="og:site_name" content="UGA Juggling Club">
         <meta name="description" content="The official page for the UGA Juggling Club. There are tricks and tips for every juggler.">
 
-        <link rel="icon" type="image/x-icon" href="icon.jpg">
+        <link rel="icon" type="image/x-icon" href="images/icon.jpg">
 
 		<link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+
         <link rel="stylesheet" href="style.css">
     	<link rel="stylesheet" href="css/about.css">
   	</head>
@@ -41,17 +46,22 @@
                     Welcome to the Juggling Club at University of Georgia!
                     Founded in the fall of 2019, we love to promote the art and sport of juggling by meeting weekly to share tricks, socialize, teach newcomers, and most importantly- juggle!
                 </p>
-                <p>
-                    Meetings are held every Monday at 4:30pm on North Campus behind UGA's Old College.
-                    Feel free to come and go as you please, and we'll nearly always be done by 6:00pm.
-                    Don't have juggling props? No problem! We've got dozens of extra props on hand that members can juggle with.
-                </p>
-                <p>
-                    We're as social as we are talented, and welcome all skill levels.
-                    Our membership ranges from individuals with no juggling experience to routine performers, and more skilled members love giving free juggling lessons to beginners.
-                    All juggling disciplines are welcome here, from toss juggling, diablo, poi, devil sticks, fire staff, contact juggling, yo-yo, and any other circus genre that calls us home.
-                    We're excited to meet you, and juggle away!
-                </p>
+                <div class="locationRow">
+                    <div>
+                        <p>
+                            We're as social as we are talented, and welcome all skill levels.
+                            Don't have juggling props? No problem! We've got dozens of extra props on hand that members can juggle with.
+                            Our membership ranges from individuals with no juggling experience to routine performers, and more skilled members love giving free juggling lessons to beginners.
+                            All juggling disciplines are welcome here, from toss juggling, diablo, poi, devil sticks, fire staff, contact juggling, yo-yo, and any other circus genre that calls us home.
+                            We're excited to meet you, and juggle away!
+                        </p>
+                        <p>
+                            Meetings are held every Monday at 4:30pm on North Campus behind UGA's Old College.
+                            Feel free to come and go as you please, and we'll nearly always be done by 6:00pm.
+                        </p>
+                    </div>
+                    <div id="map"></div>
+                </div>
             </div>
             <hr>
             <div class = "footer">
@@ -66,10 +76,13 @@
         </div>
 	</body>
   	<footer>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    
         <script src = "javascript/basics/tools.js"></script>
         <script src = "javascript/basics/page.js"></script>
         <script src = "javascript/content/pageList.js"></script>
 
 		<script src = "javascript/basics/menu.js"></script>
+        <script src = "javascript/map.js"></script>
   	</footer>
 </html>

@@ -24,3 +24,17 @@
     text-align: center;
     padding: 5px;
 }
+#map {
+    width: 100%;
+    aspect-ratio: 1/1;
+    z-index: 1;
+}
+.locationRow {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+@media all and (max-width: 600px) {
+    .locationRow {
+        grid-template-columns: 1fr;
+    }
+}

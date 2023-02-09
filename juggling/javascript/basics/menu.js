@@ -37,7 +37,7 @@ function makeMenu() {
     var div = document.createElement("div");
     div.classList.add("menuPages");
     div.id = "pages";
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 600) {
         div.style.width = window.innerWidth + "px";
     }
     base.appendChild(div);
