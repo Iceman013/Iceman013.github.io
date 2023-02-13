@@ -5,7 +5,11 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
+    row-gap: 20px;
     text-align: center;
+}
+.date {
+    font-size: 0.8em;
 }
 @media all and (max-width: 600px) {
     #insta {

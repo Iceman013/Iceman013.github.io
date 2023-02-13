@@ -10,6 +10,7 @@ function makeItem(item) {
     }
 
     var base = document.createElement("div");
+    base.classList.add("post");
     document.getElementById("insta").appendChild(base);
 
     // Title
@@ -25,7 +26,9 @@ function makeItem(item) {
 
     // Date
     var date = document.createElement("p");
-    date.innerHTML = item.querySelectorAll("pubDate")[0].innerHTML;
+    date.classList.add("date");
+    var time = new Date(item.querySelectorAll("pubDate")[0].innerHTML);
+    date.innerHTML = getTime(time);
     base.appendChild(date);
     //var finalUrl = "https://cors-anywhere.azm.workers.dev/" + imgUrl;
 }

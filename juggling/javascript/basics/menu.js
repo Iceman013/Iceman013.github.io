@@ -51,7 +51,7 @@ menu.onclick = function() {
     var icon = document.getElementById("menuicon");
     if (icon.innerHTML == "menu") {
         icon.innerHTML = "close";
-        content.style.display = "block";
+        content.style.display = "grid";
     } else {
         icon.innerHTML = "menu";
         content.style.display = "none";
@@ -65,20 +65,24 @@ function makePages() {
         elem.href = getDomainBase() + PAGES[i].link;
         if (window.location.href.includes("Iceman013") && PAGES[i].link == "") {
             elem.href = getDomainBase() + "index.html";
-        }
-        
+        }        
         if (getInnerDomain() == PAGES[i].link + "/" || (getInnerDomain() == "" && PAGES[i].link == "")) {
             elem.classList.add("current");
         }
+
+        var insi = document.createElement("div");
+        insi.classList.add("pageOpt");
+        elem.appendChild(insi);
+
         var icon = document.createElement("i");
         icon.classList.add("material-symbols-outlined");
         icon.classList.add("sideIcon");
         icon.innerHTML = PAGES[i].icon;
-        elem.appendChild(icon);
+        insi.appendChild(icon);
 
         var name = document.createElement("text");
         name.innerHTML = PAGES[i].name;
-        elem.appendChild(name);
+        insi.appendChild(name);
 
         base.appendChild(elem);
     }

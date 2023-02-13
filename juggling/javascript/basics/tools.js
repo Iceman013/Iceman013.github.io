@@ -25,3 +25,27 @@ function getLastDomain() {
     }
     return out;
 }
+
+function getTime(time) {
+    var out = "";
+    out += (time.getMonth() + 1);
+    out += "/";
+    out += time.getDate();
+    out += "/";
+    out += time.getFullYear();
+
+    out += " ";
+    
+    out += ((time.getHours() - 1)%12 + 1);
+    out += ":";
+    if (time.getMinutes() < 10) {
+        out += "0";
+    }
+    out += time.getMinutes();
+    if (time.getHours() < 12) {
+        out += "am";
+    } else {
+        out += "pm";
+    }
+    return out;
+}

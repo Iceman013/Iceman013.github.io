@@ -68,6 +68,8 @@ body {
     width: 400px;
 
     display: none;
+    grid-template-rows: repeat(11, calc(100%/11));
+
     background-color: var(--menu);
     position: fixed;
     height: calc(100vh - var(--menu-height));
@@ -76,15 +78,15 @@ body {
     display: flex;
     align-items: center;
     
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-
-    font-size: 24px;
+    font-size: 1.5em;
     color: white;
     text-decoration: none;
-    display: block;
     width: 100%;
+}
+.pageOpt {
+    margin-left: 2%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .current {
     border-radius: 10px;
@@ -92,6 +94,8 @@ body {
 }
 
 .sideIcon {
+    margin-top: auto;
+    margin-bottom: auto;
     margin-right: 15px;
 }
 .topIcon {
