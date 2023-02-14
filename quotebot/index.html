@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+    <head>
+        <title>Demo</title>
+
+        <!-- Meta content -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#11B5E4">
+        <meta property="og:image" content="../main/images/lobster.png">
+        <link rel="icon" type="image/x-icon" href="../main/images/lobster.png">
+
+        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+        <!-- My format -->
+        <link rel = "stylesheet" type = "text/css" href = "format.css"/>
+    </head>
+    <body>
+        <h1>Quote Bot</h1>
+        <textarea id="names" rows="6" cols="40" placeholder="Put names here"></textarea>
+        <div>
+            <button onclick="makeQuote(false)">New Quote</button>
+            <button onclick="makeQuote(true)">Shuffle</button>
+        </div>
+        <div id="output"></div>
+    </body>
+    <footer>
+        <script src = "quote.js" type = "text/javascript"></script>
+
+        <script src = "quoteLista.js" type = "text/javascript"></script>
+        <script src = "quoteListb.js" type = "text/javascript"></script>
+
+        <script src = "main.js" type = "text/javascript"></script>
+    </footer>
+</html>
