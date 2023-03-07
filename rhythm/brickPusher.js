@@ -27,12 +27,13 @@ function prepAll(song) {
 }
 function addBlock(letter) {
     var base = document.getElementById("popup");
-    while (base.firstChild) {
-        base.removeChild(base.firstChild);
-    }
 
     var cha = document.createElement("h1");
     cha.classList.add("note");
     cha.innerHTML = letter;
     base.appendChild(cha);
+
+    setTimeout(function() {
+        cha.classList.add("lesser");
+    }, 200);
 }

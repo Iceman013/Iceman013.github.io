@@ -15,5 +15,7 @@
 .note {
     width: fit-content;
     margin: auto;
-    margin-top: 30%;
+}
+.lesser {
+    font-size: 10px;
 }
