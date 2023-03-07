@@ -34,6 +34,6 @@ function addBlock(letter) {
     base.appendChild(cha);
 
     setTimeout(function() {
-        cha.classList.add("lesser");
-    }, 200);
+        base.removeChild(cha);
+    }, 250);
 }
