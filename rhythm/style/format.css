@@ -13,4 +13,8 @@ body {
 }
 #head {
     width: 100%;
+    background-color: #ffffff;
+}
+button {
+    cursor: pointer;
 }

@@ -2,3 +2,17 @@
     padding: 5px;
     background-color: #ff0000;
 }
+.list-item {
+    display: grid;
+    grid-template-columns: 8% 92%;
+    margin-bottom: 10px;
+
+    background-color: #0000ff;
+}
+.list-item:nth-child(even) {
+    background-color: #00ff00;
+}
+.chooser {
+    font-size: 50px;
+    margin-right: 8%;
+}

@@ -1,3 +1,14 @@
 #popup {
     position: absolute;
+
+    top: 10%;
+    left: 10%;
+    width: 80vw;
+    height: 80vh;
+    z-index: 2;
+
+    background-color: #00ff00;
+}
+.blurred {
+    filter: blur(2px) brightness(60%);
 }
