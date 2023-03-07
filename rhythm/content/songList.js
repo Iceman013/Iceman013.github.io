@@ -1,3 +1,4 @@
 const SONGLIST = [
-    "older.json"
+    "older.json",
+    "meetTheElements.json",
 ];

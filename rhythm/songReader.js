@@ -1,6 +1,6 @@
 var SONGS = [];
 function addSong(json) {
-    console.log(json);
+    SONGS.push(json);
 }
 function loadSonglist() {
     for (let i = 0; i < SONGLIST.length; i++) {
