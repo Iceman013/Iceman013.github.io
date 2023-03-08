@@ -24,6 +24,9 @@ function prepAll(song) {
     for (let i = 0; i < song.beat.length; i++) {
         for (let j = 0; j < song.beat[i][1].length; j++) {
             noteList.push(new Note(song.beat[i][0], song.beat[i][1].substring(j, j + 1)));
+            if (song.beat[i][2]) {
+                noteList[noteList.length - 1].duration = song.beat[i][2] - song.beat[i][0];
+            }
         }
     }
     
@@ -39,7 +42,7 @@ function prepAll(song) {
     setInterval(cow, 10);
     audio.play();
 }
-function addBlock(letter) {
+function addBlock(letter, timeout) {
     var base = document.getElementById("popup");
 
     var cha = document.createElement("h1");
@@ -49,5 +52,5 @@ function addBlock(letter) {
 
     setTimeout(function() {
         base.removeChild(cha);
-    }, 100);
+    }, timeout);
 }
