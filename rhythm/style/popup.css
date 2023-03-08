@@ -5,9 +5,12 @@
     left: 10%;
     width: 80vw;
     height: 80vh;
+    padding-left: 20%;
     z-index: 2;
 
     background-color: #00aaee;
+
+    display: none;
 }
 .blurred {
     filter: blur(2px) brightness(60%);
@@ -15,4 +18,30 @@
 .note {
     width: fit-content;
     margin: auto;
+}
+
+.key {
+    color: #ffffff;
+    background-color: #ffffff55;
+    width: 7vw;
+    height: 10vh;
+    margin: 1vw;
+}
+#left-row {
+    left: 15%;
+    transform: rotate(30deg);
+}
+#right-row {
+    right: 15%;
+    transform: rotate(-30deg);
+}
+#left-row, #right-row {
+    position: absolute;
+    top: 40%;
+}
+#left-row button {
+    transform: rotate(-30deg);
+}
+#right-row button {
+    transform: rotate(30deg);
 }

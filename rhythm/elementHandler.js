@@ -72,9 +72,6 @@ function makeAudioPlayer(item) {
 }
 function showSongs() {
     var base = document.getElementById("songList");
-    while (base.firstChild) {
-        base.removeChild(base.firstChild);
-    }
     for (let i = 0; i < SONGS.length; i++) {
         base.appendChild(makeAudioPlayer(SONGS[i]));
     }

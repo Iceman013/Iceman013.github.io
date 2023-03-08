@@ -6,14 +6,13 @@ function prepAll(song) {
     
     document.getElementById("content").classList.add("blurred");
     
-    var bList = document.getElementsByTagName("button");
+    var bList = document.getElementById("content").getElementsByTagName("button");
     for (let i = 0; i < bList.length; i++) {
         bList[i].disabled = true;
     }
 
-    var base = document.createElement("div");
-    base.id = "popup";
-    document.body.appendChild(base);
+    var base = document.getElementById("popup");
+    base.style.display = "block";
 
     var audio = document.createElement("audio");
     audio.id = "mainAudio";
@@ -43,14 +42,10 @@ function prepAll(song) {
     audio.play();
 }
 function addBlock(letter, timeout) {
-    var base = document.getElementById("popup");
-
-    var cha = document.createElement("h1");
-    cha.classList.add("note");
-    cha.innerHTML = letter;
-    base.appendChild(cha);
+    document.getElementById(letter).classList.add("active");
+    console.log(document.getElementById(letter));
 
     setTimeout(function() {
-        base.removeChild(cha);
+        document.getElementById(letter).classList.remove("active");
     }, timeout);
 }
