@@ -1,4 +1,9 @@
 function prepAll(song) {
+    var playing = document.getElementsByTagName("audio");
+    for (let i = 0; i < playing.length; i++) {
+        playing[i].pause();
+    }
+    
     document.getElementById("content").classList.add("blurred");
     
     var bList = document.getElementsByTagName("button");
@@ -44,5 +49,5 @@ function addBlock(letter) {
 
     setTimeout(function() {
         base.removeChild(cha);
-    }, 250);
+    }, 100);
 }
