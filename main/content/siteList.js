@@ -66,5 +66,8 @@ const siteList = [
     "This is a startup page with useful information when you open the browser."),
 
     new Site("States", ["Games"], "https://iceman013.github.io/states",
-    "This draws a state and you have to guess it. How well do you actually know the states?")
+    "This draws a state and you have to guess it. How well do you actually know the states?"),
+
+    new Site("Rhythm Game", ["Games"], "https://iceman013.github.io/rhythm",
+    "I heard this game is even better than OSU. They'd call it OSU 2 if it weren't so revolutionary that it makes OSU look archaic."),
 ];
