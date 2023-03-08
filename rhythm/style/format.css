@@ -1,3 +1,6 @@
+:root {
+    
+}
 * {
     box-sizing: border-box;
     font-family: "Alata";
@@ -13,7 +16,7 @@ body {
 }
 #head {
     width: 100%;
-    background-color: #ffffff;
+    background-color: #001414;
 }
 button {
     cursor: pointer;

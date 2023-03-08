@@ -1,16 +1,16 @@
 #menu {
     padding: 5px;
-    background-color: #ff0000;
+    background-color: #001411;
 }
 .list-item {
     display: grid;
     grid-template-columns: 8% 92%;
     margin-bottom: 10px;
 
-    background-color: #0000ff;
+    background-color: #34ebcc;
 }
 .list-item:nth-child(even) {
-    background-color: #00ff00;
+    background-color: #34eb9e;
 }
 .chooser {
     font-size: 50px;
