@@ -29,21 +29,28 @@ function prepAll(song) {
         }
     }
     
+    var cTime = 0;
+    var interval = 10;
     function cow() {
+        var time = audio.currentTime;
+        if (time == 0) {
+            cTime += interval;
+            if (cTime >= 1000) {
+                audio.play();
+            }
+        }
         for (let i = 0; i < noteList.length; i++) {
             if (!noteList[i].played) {
-                if (audio.currentTime*1000 >= noteList[i].time) {
+                if (time*1000 >= noteList[i].time) {
                     noteList[i].play();
                 }
             }
         }
     }
-    setInterval(cow, 10);
-    audio.play();
+    setInterval(cow, interval);
 }
 function addBlock(letter, timeout) {
     document.getElementById(letter).classList.add("active");
-    console.log(document.getElementById(letter));
 
     setTimeout(function() {
         document.getElementById(letter).classList.remove("active");

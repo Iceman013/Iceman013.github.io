@@ -27,21 +27,33 @@
     height: 10vh;
     margin: 1vw;
 }
-#left-row {
-    left: 15%;
-    transform: rotate(30deg);
-}
-#right-row {
-    right: 15%;
-    transform: rotate(-30deg);
-}
-#left-row, #right-row {
+#s {
     position: absolute;
     top: 40%;
+    left: 10%;
 }
-#left-row button {
-    transform: rotate(-30deg);
+#d {
+    position: absolute;
+    top: 50%;
+    left: 20%;
 }
-#right-row button {
-    transform: rotate(30deg);
+#f {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+}
+#l {
+    position: absolute;
+    top: 40%;
+    right: 10%;
+}
+#k {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+}
+#j {
+    position: absolute;
+    top: 60%;
+    right: 30%;
 }
