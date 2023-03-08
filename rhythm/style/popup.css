@@ -7,7 +7,7 @@
     height: 80vh;
     z-index: 2;
 
-    background-color: #00ff00;
+    background-color: #00aaee;
 }
 .blurred {
     filter: blur(2px) brightness(60%);
