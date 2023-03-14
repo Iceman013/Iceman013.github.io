@@ -2,10 +2,11 @@ function Note(time, key) {
     this.time = time;
     this.key = key;
     this.duration = 150;
-    this.played = false;
+    this.prepTime = 1000;
+    this.prepped = false;
 
-    this.play = function() {
-        this.played = true;
-        addBlock(this.key, this.duration);
+    this.prep = function() {
+        this.prepped = true;
+        addPrep(this.key, this.prepTime, this.duration);
     }
 }

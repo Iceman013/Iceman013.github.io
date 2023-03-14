@@ -40,19 +40,29 @@ function prepAll(song) {
             }
         }
         for (let i = 0; i < noteList.length; i++) {
-            if (!noteList[i].played) {
-                if (time*1000 >= noteList[i].time) {
-                    noteList[i].play();
+            var note = noteList[i];
+            if (!note.prepped) {
+                if (time*1000 + note.prepTime >= note.time) {
+                    note.prep();
                 }
             }
         }
     }
     setInterval(cow, interval);
 }
-function addBlock(letter, timeout) {
-    document.getElementById(letter).classList.add("active");
+function addPrep(letter, prep, duration) {
+    var base = document.getElementById(letter);
+    var item = document.createElement("div");
+    item.classList.add("notice");
+    base.insertBefore(item, base.firstChild);
 
+    item.classList.add("prep");
     setTimeout(function() {
-        document.getElementById(letter).classList.remove("active");
-    }, timeout);
+        item.classList.remove("prep");
+        item.classList.add("active");
+        setTimeout(function() {
+            item.classList.remove("active");
+            base.removeChild(item);
+        }, duration);
+    }, prep);
 }
