@@ -1,0 +1,1 @@
+const INTROTIME = 1000;

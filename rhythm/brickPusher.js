@@ -29,20 +29,23 @@ function prepAll(song) {
         }
     }
     
-    var cTime = 0;
+    var cTime = (-1)*INTROTIME;
+    var playing = false;
     var interval = 10;
     function cow() {
-        var time = audio.currentTime;
-        if (time == 0) {
+        var time = 1000*audio.currentTime + cTime;
+        if (!playing) {
             cTime += interval;
-            if (cTime >= 1000) {
+            if (cTime >= 0) {
+                cTime = 0;
                 audio.play();
+                playing = true;
             }
         }
         for (let i = 0; i < noteList.length; i++) {
             var note = noteList[i];
             if (!note.prepped) {
-                if (time*1000 + note.prepTime >= note.time) {
+                if (time + INTROTIME >= note.time) {
                     note.prep();
                 }
             }

@@ -1,12 +1,13 @@
 .active {
+    border-radius: 50%;
     background-color: red;
 }
 @keyframes prepping {
-    0% {box-shadow: 0px 0px 200px 0px #ffffff;}
-    50% {box-shadow: 0px 0px 100px 0px #ffffff;}
-    100% {box-shadow: 0px 0px 10px 10px #ffffff;}
+    0% {box-shadow: 0px 0px 0px 80px var(--popup-background), 0px 0px 0px 80px #ffffff}
+    100% {box-shadow: 0px 0px 0px -20px var(--popup-background), 0px 0px 0px 0px #ffffff}
 }
 .prep {
+    border-radius: 50%;
     animation: prepping 1000ms;
 }
 .notice {
