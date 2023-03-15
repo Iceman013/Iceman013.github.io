@@ -1,3 +1,7 @@
+:root {
+    --key-width: 7vw;
+    --key-height: 10vh;
+}
 #popup {
     position: absolute;
 
@@ -23,37 +27,47 @@
 .key {
     color: #ffffff;
     background-color: #ffffff55;
-    width: 7vw;
-    height: 10vh;
+    width: var(--key-width);
+    height: var(--key-height);
     margin: 1vw;
 }
 #s {
     position: absolute;
     top: 40%;
-    left: 10%;
+    left: 15%;
 }
 #d {
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 25%;
 }
 #f {
     position: absolute;
     top: 60%;
-    left: 30%;
+    left: 35%;
 }
 #l {
     position: absolute;
     top: 40%;
-    right: 10%;
+    right: 15%;
 }
 #k {
     position: absolute;
     top: 50%;
-    right: 20%;
+    right: 25%;
 }
 #j {
     position: absolute;
     top: 60%;
-    right: 30%;
+    right: 35%;
+}
+.key b {
+    position: absolute;
+    transform: translate(calc((var(--key-width) - 0.5em)/2), calc((var(--key-height) - 1.5em)/2));
+}
+
+#closePopup {
+    color: #ffffff;
+    background-color: #ffffff55;
+    float: right;
 }

@@ -11,8 +11,8 @@ function prepAll(song) {
         bList[i].disabled = true;
     }
 
-    var base = document.getElementById("popup");
-    base.style.display = "block";
+    document.getElementById("popup").style.display = "block";
+    var base = document.getElementById("addons");
 
     var audio = document.createElement("audio");
     audio.id = "mainAudio";
@@ -65,4 +65,18 @@ function addPrep(letter, prep, duration) {
             base.removeChild(item);
         }, duration);
     }, prep);
+}
+function removePrep() {
+    var dad = document.getElementById("addons");
+    while (dad.firstChild) {
+        dad.removeChild(dad.firstChild);
+    }
+    document.getElementById("popup").style.display = "none";
+
+    var content = document.getElementById("content");
+    var bList = content.getElementsByTagName("button");
+    for (let i = 0; i < bList.length; i++) {
+        bList[i].disabled = false;
+    }
+    content.classList.remove("blurred");
 }
