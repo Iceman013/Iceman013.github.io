@@ -1,47 +1,37 @@
-const RADIUS = 0.05;
-const ARROWSIZE = 0.02;
-var LOW = 0;
+function drawTree() {
+	const RADIUS = 0.05;
+	const ARROWSIZE = 0.02;
+	var LOW = 0;
 
-var W = 800;
-var H = 500;
-function resize() {
 	var base = document.getElementById("tree");
-	base.style.width = W + "px";
-	base.style.height = H + "px";
-}
-resize();
+	var svg = d3.select("svg");
+	var width = base.clientWidth;
+	var height = base.clientHeight;
+	var LOW = Math.min(width, height);
 
-var svg = d3.select("svg"),
-	width = W,
-	height = H;
-	LOW = Math.min(width, height);
+	var simulation = d3.forceSimulation()
+		.force("link", d3.forceLink().id(function(d) { return d.id; }))
+		.force("charge", d3.forceManyBody().strength(-0.5*LOW))
+		.force("collide", d3.forceCollide().radius(0.12*LOW))
+		.force("center", d3.forceCenter(0.5*width, 0.5*height))
+		.force("boundary", forceBoundary(width*RADIUS, height*RADIUS, width*(1 - RADIUS - 0.13), height*(1 - RADIUS)));
 
-var simulation = d3.forceSimulation()
-	.force("link", d3.forceLink().id(function(d) { return d.id; }))
-	.force("charge", d3.forceManyBody().strength(-0.5*LOW))
-	.force("collide", d3.forceCollide().radius(0.12*LOW))
-	.force("center", d3.forceCenter(0.5*width, 0.5*height))
-	.force("boundary", forceBoundary(width*RADIUS, height*RADIUS, width*(1 - RADIUS - 0.13), height*(1 - RADIUS)));
-
-
-d3.json("../javascript/tree/data.json", function(error, graph) {
-	if (error) throw error;
-
+	var graph = getData("Juggling");
 	graph.links.forEach(function(d) {
 		d.source = d.source_id;
 		d.target = d.target_id;
 	});
 
 	var arrow = svg.append('defs')
-    	.append('marker')
-    	.attr('id', 'arrow')
-    	.attr('viewBox', [0, 0, LOW*ARROWSIZE, LOW*ARROWSIZE])
-    	.attr('refX', 0.5*LOW*ARROWSIZE)
-    	.attr('refY', 0.5*LOW*ARROWSIZE)
-    	.attr('markerWidth', LOW*ARROWSIZE)
-    	.attr('markerHeight', LOW*ARROWSIZE)
-    	.attr('orient', 'auto-start-reverse')
-    	.append('path')
+		.append('marker')
+		.attr('id', 'arrow')
+		.attr('viewBox', [0, 0, LOW*ARROWSIZE, LOW*ARROWSIZE])
+		.attr('refX', 0.5*LOW*ARROWSIZE)
+		.attr('refY', 0.5*LOW*ARROWSIZE)
+		.attr('markerWidth', LOW*ARROWSIZE)
+		.attr('markerHeight', LOW*ARROWSIZE)
+		.attr('orient', 'auto-start-reverse')
+		.append('path')
 		.attr('d', d3.line()([[0, 0], [0, LOW*ARROWSIZE], [LOW*ARROWSIZE, 0.5*LOW*ARROWSIZE]]))
 	
 	function draw(context, item) {
@@ -82,7 +72,7 @@ d3.json("../javascript/tree/data.json", function(error, graph) {
 		.attr("width", 0.13*height)
 		.attr("height", 0.022*height)
 		.attr("fill", function(d) { return d.color; });
-  
+
 	var label = svg.append("g")
 		.attr("class", "labels")
 		.selectAll("text")
@@ -125,4 +115,5 @@ d3.json("../javascript/tree/data.json", function(error, graph) {
 			.attr("y", function(d) { return d.y; })
 			.style("font-size", 0.014*height + "px").style("fill", "#000000");
 	}
-});
+}
+drawTree();
