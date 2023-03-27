@@ -4,28 +4,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Set</title>
 
-        <link rel = "stylesheet" type = "text/css" href = "format.css"/>
-        <link rel = "stylesheet" type = "text/css" href = "shapeFormat.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+
+        <link rel="stylesheet" type="text/css" href="format.css"/>
+        <link rel="stylesheet" type="text/css" href="shapeFormat.css"/>
+        <link rel="stylesheet" type="text/css" href="sidebar.css"/>
     </head>
     <body>
-        <div class = "header">
-            <h1>Set Card Game</h1>
-            <b>Cards Remaining: </b><text id = "remain"></text>
-            <br>
-            <b>Time:</b><text id = "time"></text>
-            <br>
-            <button onclick="showAnswer()">Show Answer</button>
-            <button onclick="start()">New Game</button>
+        <div class="container">
+            <div class="header">
+                <h1>Set Card Game</h1>
+                <hr>
+                <div id="table">
+                    <div class="column">
+                        <p>Cards Left</p>
+                        <p>Time</p>
+                    </div>
+                    <div class="column">
+                        <p id="remain"></p>
+                        <p id="time"></p>
+                    </div>
+                </div>
+                <hr>
+                <button onclick="showAnswer()">Show Answer</button>
+                <button onclick="start()">New Game</button>
+                <hr>
+                <h3>Instructions</h3>
+                <a href="https://en.wikipedia.org/wiki/Set_(card_game)">Wikipedia link</a>
+            </div>
+            <div id="board" class="board"></div>
         </div>
-        <div id = "board" class = "board"></div>
     </body>
     <footer>
         <script src="https://d3js.org/d3.v4.min.js"></script>
 
-        <script src = "card.js" type = "text/javascript"></script>
+        <script src="card.js" type="text/javascript"></script>
 
-        <script src = "draw.js" type = "text/javascript"></script>
+        <script src="draw.js" type="text/javascript"></script>
 
-        <script src = "deck.js" type = "text/javascript"></script>
+        <script src="deck.js" type="text/javascript"></script>
     </footer>
 </html>

@@ -1,0 +1,23 @@
+.header {
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    line-height: 2;
+    float: left;
+}
+.header p, h1, h3 {
+    margin: 0px;
+}
+#table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+}
+.column:first-child {
+    font-weight: 900;
+    text-align: right;
+}
+.header button {
+    width: 100%;
+    margin: 2px;
+}

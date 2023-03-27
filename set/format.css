@@ -1,34 +1,56 @@
 * {
+    font-family: "Alata";
+    box-sizing: border-box;
     position: relative;
 }
 body {
-    margin: 10px;
+    padding: 0px;
+    margin: 0px;
 }
-.header {
-    height: fit-content;
-    padding: 5px;
-    line-height: 2;
-    float: left;
+button {
+    cursor: pointer;
 }
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
 .board {
-    width: fit-content;
+    width: 100%;
+    padding: 10px;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     column-gap: 1vw; 
     row-gap: 1vh;
 }
+
 .card {
-    height: min(calc(80vh/3 - 24px), calc((2/3)*((100vw - 20px)/4 - 24px)));
-    width: min(calc((100vw - 20px)/4 - 24px), calc(1.5*(80vh/3 - 24px)));
+    aspect-ratio: 1.5;
+    width: 100%;
     border: 2px solid black;
     border-radius: 5px;
+    cursor: pointer;
+}
+.card:hover {
+    backdrop-filter: brightness(95%);
 }
 .clue {
-    border-color: #ff8888;
-    outline: 4px solid #ff8888;
+    background-color: #ffd70040;
 }
 .active {
-    border-color: #8888ff;
-    outline: 4px solid #8888ff;
+    border-color: blue;
+    outline: 2px solid blue;
+}
+
+@media all and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+    .card {
+        width: 90%;
+    }
 }
