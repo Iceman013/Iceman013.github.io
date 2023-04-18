@@ -1,25 +1,31 @@
 .widget {
-    display: table-cell;
-    float: left;
+    background-size: cover;
+    background-position: center;
+
     margin: 10px;
-    background-color: var(--buttons);
-    filter: brightness(99%);
     border-radius: 10px;
     transition: 0.02s;
-    padding: 12px;
     padding-bottom: 3px;
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap-reverse;
 }
 .widget:hover {
     filter: brightness(95%);
 }
 .widget .name {
-    width: fit-content;
-    height: fit-content;
-    margin-right: 50px;
-    float: none;
+    width: 100%;
     font-size: 25px;
+
+    padding: 12px;
+    padding-top: 50%;
+    background-image: linear-gradient(#00000000, #000000ff);
+}
+.widget .widgetContent {
+    padding: 12px;
+    width: 100%;
+    background-color: #000000ff;
 }
 .widget .description {
     margin-bottom: 10px;

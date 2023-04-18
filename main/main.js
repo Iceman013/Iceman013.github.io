@@ -2,16 +2,16 @@ function makeWidget(website) {
     var base = document.createElement("a");
     base.classList.add("widget");
     base.href = website.getAddress();
+    base.style.backgroundImage = "url('" + website.getImage() + "')";
 
-    var name = document.createElement("div");
-    name.classList.add("name");
-    name.innerHTML = website.getName();
-    base.appendChild(name);
+    var content = document.createElement("div");
+    content.classList.add("widgetContent");
+    base.appendChild(content);
 
     var des = document.createElement("div");
     des.classList.add("description");
     des.innerHTML = website.getDescription();
-    base.appendChild(des);
+    content.appendChild(des);
 
     var ibase = document.createElement("div");
     ibase.classList.add("icons");
@@ -27,7 +27,13 @@ function makeWidget(website) {
 
         ibase.appendChild(ico);
     }
-    base.appendChild(ibase);
+    content.appendChild(ibase);
+
+    var name = document.createElement("div");
+    name.classList.add("name");
+    name.innerHTML = website.getName();
+    base.appendChild(name);
+
     return base;
 }
 function tagSort(sites, tags) {
@@ -81,8 +87,8 @@ function makeWidgets() {
     var children = [];
     for (let i = 0; i < acceptSites.length; i++) {
         children[i] = makeWidget(acceptSites[i]);
+        base.appendChild(children[i]);
     }
-    pack(base, children);
 }
 function makeSidebar() {
     var sortBase = document.getElementById("sorts");
