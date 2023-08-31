@@ -1,0 +1,12 @@
+* {
+    font-family: "Alata";
+}
+
+.cell {
+    float: left;
+    width: 10px;
+    height: 10px;
+}
+.cell:last-child {
+    float: none;
+}

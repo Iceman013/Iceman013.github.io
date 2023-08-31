@@ -1,0 +1,1 @@
+const RAIN_SPREAD = 3;
