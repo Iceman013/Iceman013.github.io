@@ -70,4 +70,7 @@ const siteList = [
 
     new Site("Rhythm Game", ["Games"], "https://iceman013.github.io/rhythm", "main/content/images/rhythm.jpg",
     "I heard this game is even better than OSU. They'd call it OSU 2 if it weren't so revolutionary that it makes OSU look archaic."),
+
+    new Site("Resume", ["Approved","Other"], "https://iceman013.github.io/resume/", "main/content/images/lobster.jpg",
+    "This is my resume. Please hire me."),
 ];

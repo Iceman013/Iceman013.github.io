@@ -1,6 +1,6 @@
 .head {
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 10%;
+    margin-right: 10%;
     text-align: center;
 }
 hr.breaker {
@@ -23,8 +23,9 @@ hr.breaker::after {
 }
 
 .linkContainer {
-    margin-left: 20vw;
-    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
     border: 1px solid wheat;
 }
 
@@ -32,4 +33,12 @@ p.link {
     margin: 5px;
     font-size: 24px;
     cursor: pointer;
+    text-align: center;
+}
+
+iframe {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 80vh;
 }
