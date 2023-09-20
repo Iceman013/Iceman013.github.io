@@ -5,3 +5,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
+
+@media only screen and (max-device-width: 480px) {
+    .menu {
+        grid-template-columns: 1fr;
+    }
+}
