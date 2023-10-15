@@ -1,8 +1,8 @@
-fetch('../recipes.json')
+fetch('./recipes.json')
     .then((response) => response.json())
     .then((json) => recipes = json);
 
-fetch('../nutrition.json')
+fetch('./nutrition.json')
     .then((response) => response.json())
     .then((json) => NutritionFacts = json);
 
