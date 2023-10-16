@@ -73,4 +73,7 @@ const siteList = [
 
     new Site("Resume", ["Approved","Other"], "https://iceman013.github.io/resume/", "main/content/images/lobster.jpg",
     "This is my resume. Please hire me."),
+
+    new Site("Cooking", ["Approved","Other"], "https://iceman013.github.io/cooking/", "main/content/images/happy_lil_family.png",
+    "This is a hackathon project for HackGT 2023. It provides healthy food and recipe recommendations based on past meals."),
 ];
