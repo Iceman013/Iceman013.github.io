@@ -1,7 +1,6 @@
 .content {
-    margin-left: var(--sidebar_width);
+    position: relative;
     padding: 0px;
-    width: calc(100% - var(--sidebar_width));
     background-color: var(--white);
     overflow-y: auto;
     min-height: 100vh;

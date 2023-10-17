@@ -1,48 +1,11 @@
-function makeWidget(website) {
-    let base = document.createElement("a");
-    base.classList.add("widget");
-    base.href = website.getAddress();
-    base.style.backgroundImage = "url('" + website.getImage() + "')";
-
-    let content = document.createElement("div");
-    content.classList.add("widgetContent");
-    base.appendChild(content);
-
-    let des = document.createElement("div");
-    des.classList.add("description");
-    des.innerHTML = website.getDescription();
-    content.appendChild(des);
-
-    let ibase = document.createElement("div");
-    ibase.classList.add("icons");
-    for (let i = 0; i < website.getTags().length; i++) {
-        let ico = document.createElement("img");
-        let image = website.getTags()[i];
-        for (let j = 0; j < tagList.length; j++) {
-            if (tagList[j].getName() == image) {
-                ico.src = tagList[j].getImage();
-                ico.style.backgroundColor = tagList[j].getColor();
-            }
-        }
-
-        ibase.appendChild(ico);
-    }
-    content.appendChild(ibase);
-
-    let name = document.createElement("div");
-    name.classList.add("name");
-    name.innerHTML = website.getName();
-    base.appendChild(name);
-
-    website.element = base;
-}
+var wid = widgetList[0];
 
 function tagSort(sites, tags) {
     let output = [];
     for (let i = 0; i < sites.length; i++) {
         let pass = true;
         for (let j = 0; j < tags.length; j++) {
-            if (!sites[i].getTags().includes(tags[j])) {
+            if (!sites[i].tags.includes(tags[j])) {
                 pass = false;
             }
         }
@@ -69,7 +32,7 @@ function sortWidgets() {
     let tags = [];
     for (let i = 0; i < tagList.length; i++) {
         if (document.getElementById("tag_" + i.toString()).classList.contains("selected")) {
-            tags.push(tagList[i].getName());
+            tags.push(tagList[i].name);
         }
     }
     for (let i = 0; i < siteList.length; i++) {
@@ -106,7 +69,7 @@ function makeWidgets() {
     siteList = sortSites(siteList, sort);
 
     for (let i = 0; i < siteList.length; i++) {
-        makeWidget(siteList[i]);
+        wid.makeWidget(siteList[i]);
         base.appendChild(siteList[i].element);
     }
 
@@ -117,8 +80,8 @@ function makeSidebar() {
     let sortBase = document.getElementById("sorts");
     for (let i = 0; i < sortList.length; i++) {
         let elem = document.createElement("option");
-        elem.value = sortList[i].getName();
-        elem.innerHTML = sortList[i].getName();
+        elem.value = sortList[i].name;
+        elem.innerHTML = sortList[i].name;
         sortBase.appendChild(elem);
     }
     sortBase.onchange = function() {
@@ -130,7 +93,7 @@ function makeSidebar() {
         let elem = document.createElement("button");
         elem.value = false;
         elem.id = "tag_" + i;
-        elem.innerHTML = tagList[i].getName();
+        elem.innerHTML = tagList[i].name;
 
         elem.onclick = function() {
             this.value = !this.value;

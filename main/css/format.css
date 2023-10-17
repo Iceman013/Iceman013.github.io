@@ -4,17 +4,20 @@
     --buttons: #8AC6D0;
     --white: #FCFAF9;
 
-    --sidebar_width: 12vw;
+    --sidebar-width: 12vw;
 }
 * {
     font-family: 'Alata';
     user-select: none;
-    padding: 0px;
     box-sizing: border-box;
 }
 body {
     color: var(--black);
     background-color: red;
     margin: 0px;
-    overflow-x: hidden;
+}
+.main {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
 }

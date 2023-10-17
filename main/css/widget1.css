@@ -1,0 +1,39 @@
+.widget1 {
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 10px;
+    transition: 0.02s;
+    text-decoration: none;
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+.widget1:hover {
+    filter: brightness(95%);
+}
+.widget1 .name {
+    width: 100%;
+    font-size: 25px;
+
+    padding: 12px;
+    padding-top: 50%;
+    background-image: linear-gradient(#00000000, #000000ff);
+}
+.widget1 .widgetContent {
+    padding: 12px;
+    width: 100%;
+    background-color: #000000ff;
+}
+.widget1 .description {
+    margin-bottom: 10px;
+    float: none;
+}
+.widget1 .icons img {
+    margin-right: 3px;
+    width: 32px;
+    height: 32px;
+    background-color: gray;
+    padding: 6px;
+    border-radius: 100px;
+}

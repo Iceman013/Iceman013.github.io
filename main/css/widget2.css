@@ -1,0 +1,11 @@
+.widget2 {
+    color: black;
+    outline: 1px solid black;
+    word-wrap: break-word;
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+}
+.widget2 code {
+    font-family: monospace;
+}
