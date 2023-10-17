@@ -1,4 +1,4 @@
-const siteList = [
+var siteList = [
     new Site("Retaildle", ["Games","Approved"], "https://iceman013.github.io/retaildle/", "main/content/images/retaildle.jpg",
     "This is a wordle style game. There are daily words of varying lengths to try to guess. There is also a section for guessing the product price which can be used as a clue."),
 
@@ -76,4 +76,7 @@ const siteList = [
 
     new Site("Cooking", ["Approved","Other"], "https://iceman013.github.io/cooking/", "main/content/images/happy_lil_family.png",
     "This is a hackathon project for HackGT 2023. It provides healthy food and recipe recommendations based on past meals."),
+
+    new Site("CarpPool", ["Approved","Other"], "https://carppool.vercel.app/", "main/content/images/carppool.png",
+    "This is a hackathon project for UGA Hackathon 2023. It is a car pool planner tool."),
 ];

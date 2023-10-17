@@ -4,6 +4,7 @@ function Site(name, tags, address, image, description) {
     this.address = address;
     this.image = image;
     this.description = description;
+    this.element = null;
 
     this.getName = function() {
         return this.name;
