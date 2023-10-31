@@ -2,3 +2,17 @@
     box-sizing: border-box;
     font-family: "Alata";
 }
+html {
+    height: 100%;
+}
+body {
+    margin: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    background-color: rebeccapurple;
+}
