@@ -1,3 +1,5 @@
-import {draw} from "./draw.js";
-console.log("owo");
+import { draw } from "./draw.js";
+import { addMovement } from "./move.js";
+
 draw();
+addMovement();
