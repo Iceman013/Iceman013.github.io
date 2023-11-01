@@ -33,6 +33,18 @@ export function addMovement() {
     });
     svg.addEventListener("focusout", function() {
         keys = [];
+    });
+    svg.addEventListener("wheel", function(e) {
+        console.log(e);
+        let width = document.getElementById("canvas").clientWidth;
+        let height = document.getElementById("canvas").clientHeight;
+        xpos -= (e.x - width/2);
+        ypos += (e.y - height/2);
+        convert();
+        update();
+        zoom = zoom*Math.pow(zoomIn, e.deltaY/40);
+        convert();
+        update();
     })
     function update() {
         let map = svg.childNodes[0].childNodes[0].childNodes[0];
