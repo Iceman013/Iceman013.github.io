@@ -15,7 +15,6 @@ const G = 0.1;
 let xpos = 0;
 let ypos = 0;
 window.addEventListener("mousemove", function(event) {
-    // console.log(canMan.childNodes[0].childNodes[0].childNodes[0].style.transform)
     xpos = event.x;
     ypos = event.y;
 });
@@ -47,9 +46,14 @@ function Node(x, y, r) {
         })
     }
 
+    this.butcher = function() {
+        let str = String(canMan.childNodes[0].childNodes[0].childNodes[0].getAttribute("transform"));
+        let sca = Number(str.substring(str.indexOf("(") + 1, str.indexOf(")")));
+        return sca;
+    }
     this.drag = function() {
-        this.offsetx = this.x - xpos;
-        this.offsety = this.y - ypos;
+        this.offsetx = this.x - xpos/this.butcher();
+        this.offsety = this.y - ypos/this.butcher();
         this.dragging = true;
     }
     this.dontDrag = function() {
@@ -61,8 +65,8 @@ function Node(x, y, r) {
             this.x += this.vx;
             this.y += this.vy;
         } else {
-            this.x = this.offsetx + xpos;
-            this.y = this.offsety + ypos;
+            this.x = this.offsetx + xpos/this.butcher();
+            this.y = this.offsety + ypos/this.butcher();
         }
         this.vx = 0;
         this.vy = 0;
