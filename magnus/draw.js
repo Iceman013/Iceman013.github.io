@@ -11,10 +11,9 @@ canMan.childNodes[0].childNodes[0].setAttribute("transform", "translate(" + canM
 let NODES;
 let EDGES;
 
-const G = 0.2;
+const G = 0.1;
 let xpos = 0;
 let ypos = 0;
-let down = false;
 window.addEventListener("mousemove", function(event) {
     xpos = event.x;
     ypos = event.y;
@@ -44,7 +43,6 @@ function Node(x, y, r) {
         const base = this;
         this.node.addEventListener("mousedown", function(event) {
             base.drag();
-            down = true;
         })
     }
 
@@ -59,8 +57,8 @@ function Node(x, y, r) {
 
     this.update = function(show) {
         if (!this.dragging) {
-            this.x += G*this.vx;
-            this.y += G*this.vy;
+            this.x += this.vx;
+            this.y += this.vy;
         } else {
             this.x = this.offsetx + xpos;
             this.y = this.offsety + ypos;
@@ -105,12 +103,12 @@ export function draw() {
     let nodes = [];
     let edges = [];
     for (let i = 0; i < 1000; i++) {
-        let q = new Node(800 + 2*20*(Math.random() - 0.5), 400 + 2*20*(Math.random() - 0.5), 20);
+        let q = new Node(2*20*(Math.random() - 0.5), 2*20*(Math.random() - 0.5), 20);
         q.drawNode();
         nodes.push(q);
     }
 
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 200; i++) {
         let a = Math.floor(Math.random()*nodes.length);
         let b = a;
         while (b == a) {
@@ -134,8 +132,8 @@ export function draw() {
                 if (distance <= 1) {
                     distance = 1;
                 }
-                let vx = (nodea.x - nodeb.x)/(distance*distance);
-                let vy = (nodea.y - nodeb.y)/(distance*distance);
+                let vx = G*(nodea.x - nodeb.x)/(distance*Math.sqrt(distance));
+                let vy = G*(nodea.y - nodeb.y)/(distance*Math.sqrt(distance));
 
                 nodea.vx += vx;
                 nodea.vy += vy;
@@ -150,17 +148,16 @@ export function draw() {
             let nodea = eggs[i].start;
             let nodeb = eggs[i].end;
             let distance = getDistance(nodea.x, nodea.y, nodeb.x, nodeb.y) - nodea.r - nodeb.r;
-            if (distance <= 1) {
-                distance = 1;
+            if (distance >= 1) {
+                let vx = 0.00003*(nodea.x - nodeb.x)*distance;
+                let vy = 0.00003*(nodea.y - nodeb.y)*distance;
+
+                nodea.vx -= vx;
+                nodea.vy -= vy;
+
+                nodeb.vx += vx;
+                nodeb.vy += vy;
             }
-            let vx = 0.00000001*(nodea.x - nodeb.x)*(distance*distance);
-            let vy = 0.00000001*(nodea.y - nodeb.y)*(distance*distance);
-
-            nodea.vx -= vx;
-            nodea.vy -= vy;
-
-            nodeb.vx += vx;
-            nodeb.vy += vy;
         }
 
         // Move
