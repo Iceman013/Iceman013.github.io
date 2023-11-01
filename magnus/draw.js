@@ -68,19 +68,54 @@ function Node(x, y, r) {
     }
 }
 
+function Edge(start, end) {
+    this.start = start;
+    this.end = end;
+
+    this.drawEdge = function() {
+        let line = svg.append("line")
+        .attr("stroke", "black")
+        .attr("x1", this.start.x)
+        .attr("y1", this.start.y)
+        .attr("x2", this.end.x)
+        .attr("y2", this.end.y);
+
+        this.edge = line._groups[0][0];
+    }
+
+    this.update = function(input) {
+        this.edge.setAttribute("x1", this.start.x);
+        this.edge.setAttribute("y1", this.start.y);
+        this.edge.setAttribute("x2", this.end.x);
+        this.edge.setAttribute("y2", this.end.y);
+    }
+}
+
 // Draw the node map and animate it
 export function draw() {
     let nodes = [];
+    let edges = [];
     for (let i = 0; i < 100; i++) {
         let q = new Node(800 + 2*20*(Math.random() - 0.5), 400 + 2*20*(Math.random() - 0.5), 20);
         q.drawNode();
         nodes.push(q);
     }
 
+    for (let i = 0; i < 100; i++) {
+        let a = Math.floor(Math.random()*nodes.length);
+        let b = a;
+        while (b == a) {
+            b = Math.floor(Math.random()*nodes.length);
+        }
+        let q = new Edge(nodes[a], nodes[b]);
+        q.drawEdge();
+        edges.push(q);
+    }
+
     function getDistance(xa, ya, xb, yb) {
         return Math.sqrt((xa - xb)*(xa - xb) + (ya - yb)*(ya - yb));
     }
-    function customForce(set) {
+    function customForce(set, eggs) {
         // Physics
         for (let i = 0; i < set.length - 1; i++) {
             let nodea = set[i];
@@ -101,9 +136,30 @@ export function draw() {
             }
         }
 
+        // Links
+        for (let i = 0; i < eggs.length; i++) {
+            let nodea = eggs[i].start;
+            let nodeb = eggs[i].end;
+            let distance = getDistance(nodea.x, nodea.y, nodeb.x, nodeb.y) - nodea.r - nodeb.r;
+            if (distance <= 1) {
+                distance = 1;
+            }
+            let vx = 0.00000001*(nodea.x - nodeb.x)*(distance*distance);
+            let vy = 0.00000001*(nodea.y - nodeb.y)*(distance*distance);
+
+            nodea.vx -= vx;
+            nodea.vy -= vy;
+
+            nodeb.vx += vx;
+            nodeb.vy += vy;
+        }
+
         // Move
         for (let i = 0; i < set.length; i++) {
             set[i].update(true); // Show move
+        }
+        for (let i = 0; i < eggs.length; i++) {
+            eggs[i].update(true);
         }
     }
 
@@ -114,6 +170,6 @@ export function draw() {
     })
 
     setInterval(function() {
-        customForce(nodes);
+        customForce(nodes, edges);
     }, 10);
 }
