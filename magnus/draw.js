@@ -15,6 +15,7 @@ const G = 0.1;
 let xpos = 0;
 let ypos = 0;
 window.addEventListener("mousemove", function(event) {
+    // console.log(canMan.childNodes[0].childNodes[0].childNodes[0].style.transform)
     xpos = event.x;
     ypos = event.y;
 });
@@ -108,7 +109,7 @@ export function draw() {
         nodes.push(q);
     }
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 500; i++) {
         let a = Math.floor(Math.random()*nodes.length);
         let b = a;
         while (b == a) {
@@ -122,6 +123,7 @@ export function draw() {
     function getDistance(xa, ya, xb, yb) {
         return Math.sqrt((xa - xb)*(xa - xb) + (ya - yb)*(ya - yb));
     }
+
     function customForce(set, eggs) {
         // Physics
         for (let i = 0; i < set.length - 1; i++) {
@@ -148,15 +150,24 @@ export function draw() {
             let nodea = eggs[i].start;
             let nodeb = eggs[i].end;
             let distance = getDistance(nodea.x, nodea.y, nodeb.x, nodeb.y) - nodea.r - nodeb.r;
-            if (distance >= 1) {
-                let vx = 0.00003*(nodea.x - nodeb.x)*distance;
-                let vy = 0.00003*(nodea.y - nodeb.y)*distance;
+            let sk = 0.0001;
+            let vx = sk*(Math.pow(nodea.x - nodeb.x, 2));
+            let vy = sk*(Math.pow(nodea.y - nodeb.y, 2));
 
+            if (nodea.x > nodeb.x){
                 nodea.vx -= vx;
-                nodea.vy -= vy;
-
                 nodeb.vx += vx;
+            } else {
+                nodea.vx += vx;
+                nodeb.vx -= vx;
+            }
+
+            if (nodea.y > nodeb.y){
+                nodea.vy -= vy;
                 nodeb.vy += vy;
+            } else {
+                nodea.vy += vy;
+                nodeb.vy -= vy;
             }
         }
 
