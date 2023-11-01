@@ -9,18 +9,20 @@ export function addMovement() {
     function update() {};
     function convert() {};
 
+    const interval = 10;
+    const speed = 1;
     function makeUpdater() {
         return setInterval(function() {
-            console.log("owo")
             convert();
             update();
-        }, 10);
+        }, interval);
     }
 
     let keys = [];
     svg.addEventListener("keydown", function(e) {
-        keys.push(e.key);
-        console.log(keys);
+        if (!keys.includes(e.key)) {
+            keys.push(e.key);
+        }
         if (updater == null) {
             updater = makeUpdater();
         }
@@ -28,15 +30,27 @@ export function addMovement() {
     svg.addEventListener("keyup", function(e) {
         keys.splice(keys.indexOf(e.key), 1);
     });
+    svg.addEventListener("focusout", function() {
+        keys = [];
+    })
     function update() {
         let map = svg.childNodes[0].childNodes[0];
         map.setAttribute("transform", "scale(" + zoom + ") translate(" + xpos + ", " + -ypos + ")");
     }
 
     function convert() {
-        let keyKey = ["w","a","s","d"];
-        if (keys.includes("w")) {
-            ypos += 10;
+        let keyKey = ["w","a","s","d","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"];
+        if (keys.includes("w") || keys.includes("ArrowUp")) {
+            ypos -= interval*speed;
+        }
+        if (keys.includes("a") || keys.includes("ArrowLeft")) {
+            xpos += interval*speed;
+        }
+        if (keys.includes("s") || keys.includes("ArrowDown")) {
+            ypos += interval*speed;
+        }
+        if (keys.includes("d") || keys.includes("ArrowRight")) {
+            xpos -= interval*speed;
         }
 
         let any = false;

@@ -4,40 +4,77 @@ const svg = d3.select("#canvas")
 .attr("height", "100%")
 .append("g");
 
+const G = 0.2;
+let xpos = 0;
+let ypos = 0;
+window.addEventListener("mousemove", function(event) {
+    xpos = event.x;
+    ypos = event.y;
+});
+function Node(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.node;
+    this.vx = 0;
+    this.vy = 0;
+
+    this.dragging = false;
+    this.offsetx = 0;
+    this.offsety = 0;
+
+    this.drawNode = function() {
+        let circle = svg.append("circle")
+        .attr("r", this.r)
+        .style("fill", "#69b3a2")
+        .attr("cx", this.x)
+        .attr("cy", this.y);
+
+        this.node = circle._groups[0][0];
+    }
+
+    this.drag = function() {
+        console.log("drag")
+        this.offsetx = this.x - xpos;
+        this.offsety = this.y - ypos;
+        this.dragging = true;
+    }
+    this.dontDrag = function() {
+        this.dragging = false;
+    }
+
+    this.update = function(show) {
+        if (!this.dragging) {
+            this.x += G*this.vx;
+            this.y += G*this.vy;
+        } else {
+            console.log(xpos)
+            this.x = this.offsetx + xpos;
+            this.y = this.offsety + ypos;
+        }
+        this.vx = 0;
+        this.vy = 0;
+
+        if (show) {
+            this.node.setAttribute("cx", this.x);
+            this.node.setAttribute("cy", this.y);
+        }
+    }
+}
+
 // Draw the node map and animate it
 export function draw() {
-    function drawNode(x, y) {
-        let circle = svg.append("circle")
-        .attr("r", 20)
-        .style("fill", "#69b3a2")
-        .attr("cx", x)
-        .attr("cy", y);
-        return circle;
-    }
     let nodes = [];
-    nodes.push(drawNode(100, 100));
-    nodes.push(drawNode(110, 100));
     for (let i = 0; i < 100; i++) {
-        nodes.push(drawNode(100 + 2*20*(Math.random() - 0.5), 100 + 2*20*(Math.random() - 0.5)));
+        let q = new Node(800 + 2*20*(Math.random() - 0.5), 400 + 2*20*(Math.random() - 0.5), 20);
+        q.drawNode();
+        nodes.push(q);
     }
 
     function getDistance(xa, ya, xb, yb) {
         return Math.sqrt((xa - xb)*(xa - xb) + (ya - yb)*(ya - yb));
     }
-    const G = 1;
-    function customForce(list) {
-        // Nice set
-        let set = [];
-        for (let i = 0; i < list.length; i++) {
-            set[i] = {};
-            set[i].node = list[i]._groups[0][0];
-            set[i].x = set[i].node.getAttribute("cx");
-            set[i].y = set[i].node.getAttribute("cy");
-            set[i].r = set[i].node.getAttribute("r");
-            set[i].vx = 0;
-            set[i].vy = 0;
-        }
-
+    function customForce(set) {
         // Physics
         for (let i = 0; i < set.length - 1; i++) {
             let nodea = set[i];
@@ -60,17 +97,34 @@ export function draw() {
 
         // Move
         for (let i = 0; i < set.length; i++) {
-            set[i].x = Number(set[i].x) + G*set[i].vx;
-            set[i].y = Number(set[i].y) + G*set[i].vy;
-        }
-
-        // Show move
-        for (let i = 0; i < set.length; i++) {
-            set[i].node.setAttribute("cx", set[i].x);
-            set[i].node.setAttribute("cy", set[i].y);
+            set[i].update(true); // Show move
         }
     }
+
+    function getSelect(input) {
+        let node;
+        for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i].node == input) {
+                node = nodes[i];
+            }
+        }
+        return node;
+    }
+
+    function updateDad() {
+        let node = getSelect(this);
+        node.drag();
+    }
+    function updateMom() {
+        console.log("owo")
+        let node = getSelect(this);
+        node.dontDrag();
+    }
+    d3.selectAll("circle").call(d3.drag()
+    .on("start", updateDad)
+    .on("end", updateMom));
+
     setInterval(function() {
         customForce(nodes)
-    }, 100);
+    }, 10);
 }
