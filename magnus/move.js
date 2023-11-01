@@ -1,6 +1,7 @@
 const svg = document.getElementById("canvas");
 
 export function addMovement() {
+    const zoomIn = 0.97;
     let xpos = 0;
     let ypos = 0;
     let zoom = 1;
@@ -34,23 +35,29 @@ export function addMovement() {
         keys = [];
     })
     function update() {
-        let map = svg.childNodes[0].childNodes[0];
+        let map = svg.childNodes[0].childNodes[0].childNodes[0];
         map.setAttribute("transform", "scale(" + zoom + ") translate(" + xpos + ", " + -ypos + ")");
     }
 
     function convert() {
-        let keyKey = ["w","a","s","d","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"];
+        let keyKey = ["w","a","s","d","ArrowUp","ArrowDown","ArrowLeft","ArrowRight","-","="];
         if (keys.includes("w") || keys.includes("ArrowUp")) {
-            ypos -= interval*speed;
+            ypos -= interval*speed/zoom;
         }
         if (keys.includes("a") || keys.includes("ArrowLeft")) {
-            xpos += interval*speed;
+            xpos += interval*speed/zoom;
         }
         if (keys.includes("s") || keys.includes("ArrowDown")) {
-            ypos += interval*speed;
+            ypos += interval*speed/zoom;
         }
         if (keys.includes("d") || keys.includes("ArrowRight")) {
-            xpos -= interval*speed;
+            xpos -= interval*speed/zoom;
+        }
+        if (keys.includes("-")) {
+            zoom = zoom*zoomIn;
+        }
+        if (keys.includes("=")) {
+            zoom = zoom/zoomIn;
         }
 
         let any = false;

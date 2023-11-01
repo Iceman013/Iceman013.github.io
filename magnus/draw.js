@@ -2,7 +2,14 @@ const svg = d3.select("#canvas")
 .append("svg")
 .attr("width", "100%")
 .attr("height", "100%")
+.append("g")
 .append("g");
+
+let canMan = document.getElementById("canvas");
+canMan.childNodes[0].childNodes[0].setAttribute("transform", "translate(" + canMan.clientWidth/2 + ", " + canMan.clientHeight/2 + ")");
+
+let NODES;
+let EDGES;
 
 const G = 0.2;
 let xpos = 0;
@@ -26,7 +33,7 @@ function Node(x, y, r) {
     this.offsety = 0;
 
     this.drawNode = function() {
-        let circle = svg.append("circle")
+        let circle = NODES.append("circle")
         .attr("r", this.r)
         .style("fill", "#69b3a2")
         .attr("cx", this.x)
@@ -73,7 +80,7 @@ function Edge(start, end) {
     this.end = end;
 
     this.drawEdge = function() {
-        let line = svg.append("line")
+        let line = EDGES.append("line")
         .attr("stroke", "black")
         .attr("x1", this.start.x)
         .attr("y1", this.start.y)
@@ -93,15 +100,17 @@ function Edge(start, end) {
 
 // Draw the node map and animate it
 export function draw() {
+    EDGES = svg.append("g");
+    NODES = svg.append("g");
     let nodes = [];
     let edges = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 1000; i++) {
         let q = new Node(800 + 2*20*(Math.random() - 0.5), 400 + 2*20*(Math.random() - 0.5), 20);
         q.drawNode();
         nodes.push(q);
     }
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 1000; i++) {
         let a = Math.floor(Math.random()*nodes.length);
         let b = a;
         while (b == a) {
