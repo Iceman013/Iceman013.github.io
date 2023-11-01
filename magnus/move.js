@@ -35,14 +35,18 @@ export function addMovement() {
         keys = [];
     });
     svg.addEventListener("wheel", function(e) {
-        console.log(e);
         let width = document.getElementById("canvas").clientWidth;
         let height = document.getElementById("canvas").clientHeight;
-        xpos -= (e.x - width/2);
-        ypos += (e.y - height/2);
+        zoom = zoom*Math.pow(zoomIn, e.deltaY/40);
         convert();
         update();
-        zoom = zoom*Math.pow(zoomIn, e.deltaY/40);
+        if (e.deltaY > 0) {
+            xpos += 0.1*(e.x - width/2)/zoom;
+            ypos -= 0.1*(e.y - height/2)/zoom;
+        } else {
+            xpos -= 0.1*(e.x - width/2)/zoom;
+            ypos += 0.1*(e.y - height/2)/zoom; 
+        }
         convert();
         update();
     })
