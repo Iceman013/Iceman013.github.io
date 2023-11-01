@@ -48,6 +48,9 @@ function Node(x, y, r) {
 
     this.butcher = function() {
         let str = String(canMan.childNodes[0].childNodes[0].childNodes[0].getAttribute("transform"));
+        if (str == "null") {
+            return 1;
+        }
         let sca = Number(str.substring(str.indexOf("(") + 1, str.indexOf(")")));
         return sca;
     }
