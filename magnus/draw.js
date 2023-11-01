@@ -7,10 +7,12 @@ const svg = d3.select("#canvas")
 const G = 0.2;
 let xpos = 0;
 let ypos = 0;
+let down = false;
 window.addEventListener("mousemove", function(event) {
     xpos = event.x;
     ypos = event.y;
 });
+
 function Node(x, y, r) {
     this.x = x;
     this.y = y;
@@ -31,10 +33,15 @@ function Node(x, y, r) {
         .attr("cy", this.y);
 
         this.node = circle._groups[0][0];
+
+        const base = this;
+        this.node.addEventListener("mousedown", function(event) {
+            base.drag();
+            down = true;
+        })
     }
 
     this.drag = function() {
-        console.log("drag")
         this.offsetx = this.x - xpos;
         this.offsety = this.y - ypos;
         this.dragging = true;
@@ -48,7 +55,6 @@ function Node(x, y, r) {
             this.x += G*this.vx;
             this.y += G*this.vy;
         } else {
-            console.log(xpos)
             this.x = this.offsetx + xpos;
             this.y = this.offsety + ypos;
         }
@@ -101,30 +107,13 @@ export function draw() {
         }
     }
 
-    function getSelect(input) {
-        let node;
+    window.addEventListener("mouseup", function() {
         for (let i = 0; i < nodes.length; i++) {
-            if (nodes[i].node == input) {
-                node = nodes[i];
-            }
+            nodes[i].dontDrag();
         }
-        return node;
-    }
-
-    function updateDad() {
-        let node = getSelect(this);
-        node.drag();
-    }
-    function updateMom() {
-        console.log("owo")
-        let node = getSelect(this);
-        node.dontDrag();
-    }
-    d3.selectAll("circle").call(d3.drag()
-    .on("start", updateDad)
-    .on("end", updateMom));
+    })
 
     setInterval(function() {
-        customForce(nodes)
+        customForce(nodes);
     }, 10);
 }
