@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang = "en-US">
-    <head>
-        <title>Demo</title>
+<html>
 
-        <!-- Meta content -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#11B5E4">
-        <meta property="og:image" content="../main/images/lobster.png">
-        <link rel="icon" type="image/x-icon" href="../main/images/lobster.png">
+<head>
+	<title>leaflet-kmz</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
-        <!-- My format -->
-        <link rel = "stylesheet" type = "text/css" href = "format.css"/>
-    </head>
-    <body>
-        <h1>Howdy</h1>
-    </body>
-    <footer>
-        <script src = "main.js" type = "module"></script>
-    </footer>
+	<!-- Leaflet (JS/CSS) -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-kmz@1.0.9/dist/leaflet-kmz-src.js"></script>
+
+	<style>
+		html,
+		body,
+		.map {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="map" class="map"></div>
+
+	<script>
+	  var map = L.map('map');
+	  map.setView(new L.LatLng(43.5978, 12.7059), 5);
+
+	  var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	    attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+	  });
+	  OpenTopoMap.addTo(map);
+
+		var kmz = L.kmzLayer().addTo(map);
+
+
+		kmz.load('regions.kmz');
+
+	</script>
+
+
+</body>
+
 </html>
