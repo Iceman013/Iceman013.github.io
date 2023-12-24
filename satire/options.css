@@ -1,0 +1,26 @@
+#options {
+    background-color: greenyellow;
+    text-align: center;
+    align-content: center;
+}
+
+button.options {
+    font-size: 2em;
+    font-weight: 900;
+    outline: none;
+    border: none;
+
+    background-color: cadetblue;
+    color: maroon;
+    padding: 1.6%;
+    box-shadow: 5px 10px #333;
+    transition: 0.05s;
+}
+button.options:hover {
+    box-shadow: 7px 14px #333;
+    transform: translate(-2px, -4px);
+}
+button.options:active {
+    box-shadow: 3px 6px #333;
+    transform: translate(2px, 4px);
+}

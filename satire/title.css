@@ -1,0 +1,26 @@
+#title-screen {
+    background-color: rebeccapurple;
+    text-align: center;
+    align-content: center;
+}
+
+button.title {
+    font-size: 2em;
+    font-weight: 900;
+    outline: none;
+    border: none;
+
+    background-color: cadetblue;
+    color: maroon;
+    padding: 1.6%;
+    box-shadow: 5px 10px #333;
+    transition: 0.05s;
+}
+button.title:hover {
+    box-shadow: 7px 14px #333;
+    transform: translate(-2px, -4px);
+}
+button.title:active {
+    box-shadow: 3px 6px #333;
+    transform: translate(2px, 4px);
+}
