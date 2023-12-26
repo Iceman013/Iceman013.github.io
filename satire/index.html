@@ -14,22 +14,30 @@
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
 
         <!-- My format -->
-        <link rel="stylesheet" type="text/css" href="format.css"/>
-        <link rel="stylesheet" type="text/css" href="title.css"/>
-        <link rel="stylesheet" type="text/css" href="options.css"/>
+        <link rel="stylesheet" type="text/css" href="style/format.css"/>
+        <link rel="stylesheet" type="text/css" href="style/title.css"/>
+        <link rel="stylesheet" type="text/css" href="style/options.css"/>
     </head>
     <body>
+        <!-- Title -->
         <div id="title-screen" class="screen">
-            <h1 class="title">Satire</h1>
+            <h1 class="title">Crawling in My Skin</h1>
             <p class="title">Yeah, I'll pick a new name maybe later. Right now this is just to be better than gram.</p>
             <button class="title" id="enterTitle">Enter the FUNgeon</button>
         </div>
+
+        <!-- Options and select -->
         <div id="options" class="screen">
             <h1 class="options">Options</h1>
             <p class="options">I dunno. Evnetually characters or options or skins. Who knows.</p>
             <button class="options" id="enterOptions">Start Game</button>
         </div>
-        <div id="game" class="screen"></div>
+
+        <!-- Actual game -->
+        <div id="game" class="screen">
+            <div id="visible"></div>
+            <div id="hitboxes"></div>
+        </div>
     </body>
     <footer>
         <script src="main.js" type="module"></script>
