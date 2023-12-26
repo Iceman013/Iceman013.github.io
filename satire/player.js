@@ -14,6 +14,7 @@ export class Player {
         this.base.style.width = "50px";
         this.base.style.height = "50px";
         this.base.classList.add("entity");
+        this.base.style.backgroundImage = "url('main.svg')";
         document.getElementById("visible").appendChild(this.base);
     }
     move(xpos, ypos) {
@@ -44,5 +45,10 @@ export class Player {
 
         this.base.style.left = this.x + "px";
         this.base.style.bottom = this.y + "px";
+        let angle = Math.atan(this.vx/this.vy);
+        if (this.vy < 0) {
+            angle = Math.PI + angle;
+        }
+        this.base.style.transform = "rotate(" + angle + "rad)";
     }
 }
