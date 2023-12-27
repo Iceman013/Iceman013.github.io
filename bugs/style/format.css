@@ -21,5 +21,15 @@
 }
 
 #hitboxes {
-    display: none;
+    display: block;
+}
+.hitbox {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    background-color: none;
+    outline: 4px solid #a0a0ff;
 }

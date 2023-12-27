@@ -1,4 +1,5 @@
 import { Player } from "./player.js";
+import { entityList } from "./entityList.js";
 
 let TICK = 20;
 
@@ -9,6 +10,11 @@ let controls = {
     "s": false,
     "d": false,
 };
+let mouse = {
+    "pressed": false,
+    "x": 0,
+    "y": 0,
+}
 function addControls() {
     window.addEventListener("keydown", function(e) {
         if (controls[e.key] == null || controls[e.key] == false) {
@@ -21,26 +27,42 @@ function addControls() {
             controls[e.key] = false;
         }
     });
+    window.addEventListener("mousedown", function(e) {
+        mouse.pressed = true;
+        mouse.x = e.screenX;
+        mouse.y = window.screen.availHeight - e.screenY;
+    });
+    window.addEventListener("mousemove", function(e) {
+        mouse.x = e.screenX;
+        mouse.y = window.screen.availHeight - e.screenY;
+    });
+    window.addEventListener("mouseup", function(e) {
+        mouse.pressed = false;
+    });
 }
 
 function handleInput() {
     let xt = 0;
     let yt = 0;
-    if (controls["w"]) {
+    if (controls["w"] || controls["ArrowUp"]) {
         yt++;
     }
-    if (controls["a"]) {
+    if (controls["a"] || controls["ArrowLeft"]) {
         xt--;
     }
-    if (controls["s"]) {
+    if (controls["s"] || controls["ArrowDown"]) {
         yt--;
     }
-    if (controls["d"]) {
+    if (controls["d"] || controls["ArrowRight"]) {
         xt++;
     }
     if (xt*xt + yt*yt == 2) {
         xt = xt*Math.SQRT1_2;
         yt = yt*Math.SQRT1_2;
+    }
+
+    if (mouse.pressed) {
+        player.shoot(mouse.x, mouse.y);
     }
     player.move(xt, yt);
 }
@@ -50,6 +72,9 @@ function tick() {
 
     // Tick elements
     handleInput();
+    for (let i = 0; i < entityList.length; i++) {
+        entityList[i].tick();
+    }
 
     if (!done) {
         setTimeout(tick, TICK);
