@@ -5,6 +5,7 @@
 }
 
 button.options {
+    margin-top: 2%;
     font-size: 2em;
     font-weight: 900;
     outline: none;
@@ -23,4 +24,20 @@ button.options:hover {
 button.options:active {
     box-shadow: 3px 6px #333;
     transform: translate(2px, 4px);
+}
+
+#charSelect {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1%;
+}
+.characterOption {
+    padding: 2%;
+    background-color: white;
+}
+.characterOption img {
+    width: 80%;
+
 }
