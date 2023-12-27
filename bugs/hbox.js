@@ -20,7 +20,6 @@ export class Hitbox {
         let base = document.getElementById("hitboxes");
         for (let i = 0; i < base.childNodes.length; i++) {
             if (base.childNodes[i].id == this.base.id) {
-                console.log(base.childNodes[i])
                 base.removeChild(base.childNodes[i]);
                 i = base.childNodes.length;
             }

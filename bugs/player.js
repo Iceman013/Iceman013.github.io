@@ -77,9 +77,28 @@ export class Player {
         // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
 
         // Fire
-        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 50, 0.1, 0.3, 40));
+        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 50, 0.1, 0.3, 40));
 
         // Web
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 0, 0, 0, 200));
+        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 0, 0, 0, 200));
+
+        // Strider Sniper
+        // HITSCAN
+
+        // Shotgun
+        // for (let i = 0; i < 10; i++) {
+        //     entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
+        // }
+
+        // Ladybug lifesteal
+        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
+
+        // Machine gun
+        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
+
+        // Stinkbug spray
+        // for (let i = 0; i < 10; i++) {
+        //     entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 50, 0.1, 1, 40));
+        // }
     }
 }

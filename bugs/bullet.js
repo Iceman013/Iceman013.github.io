@@ -13,11 +13,11 @@ export class Bullet {
         this.vy = ytarget*speed/currentSpeed;
 
         let rd = Math.random()*2*Math.PI
-        let randomX = Math.random()*speed*Math.cos(rd);
-        let randomY = Math.random()*speed*Math.sin(rd);
+        this.randomX = Math.random()*speed*Math.cos(rd);
+        this.randomY = Math.random()*speed*Math.sin(rd);
 
-        this.vx = spread*randomX + (1 - spread)*this.vx;
-        this.vy = spread*randomY + (1 - spread)*this.vy;
+        this.vx = spread*this.randomX + (1 - spread)*this.vx;
+        this.vy = spread*this.randomY + (1 - spread)*this.vy;
 
         this.friction = friction;
         this.spread = spread;
@@ -38,6 +38,8 @@ export class Bullet {
             }
         }
 
+        // this.vx = this.spread*this.randomX + (1 - this.spread)*this.vx;
+        // this.vy = this.spread*this.randomY + (1 - this.spread)*this.vy;
         this.vx *= 1 - this.friction;
         this.vy *= 1 - this.friction;
 

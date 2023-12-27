@@ -2,6 +2,7 @@
     background-color: greenyellow;
     text-align: center;
     align-content: center;
+    overflow-y: scroll;
 }
 
 button.options {
@@ -16,6 +17,8 @@ button.options {
     padding: 1.6%;
     box-shadow: 5px 10px #333;
     transition: 0.05s;
+    
+    margin-bottom: 30px;
 }
 button.options:hover {
     box-shadow: 7px 14px #333;
@@ -30,8 +33,9 @@ button.options:active {
     padding-left: 15%;
     padding-right: 15%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    column-gap: 1%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
 }
 .characterOption {
     padding: 2%;
