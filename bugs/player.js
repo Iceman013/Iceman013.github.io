@@ -73,13 +73,13 @@ export class Player {
 
     // Shoot at (xt, yt)
     shoot(xt, yt) {
-        // Web
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 5, 0.033, 0));
-
         // Default
-        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 33, 0.033, 0));
+        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0, 70));
 
         // Fire
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 15, 0, 0));
+        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 50, 0.1, 0.3, 40));
+
+        // Web
+        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 0, 0, 0, 200));
     }
 }

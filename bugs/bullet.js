@@ -1,10 +1,8 @@
 import { Hitbox } from "./hbox.js";
 import { entityList } from "./entityList.js";
 
-const LIFESPAN = 100;
-
 export class Bullet {
-    constructor(x, y, xtarget, ytarget, speed, friction, spread) {
+    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan) {
         this.x = x;
         this.y = y;
 
@@ -14,8 +12,16 @@ export class Bullet {
         this.vx = xtarget*speed/currentSpeed;
         this.vy = ytarget*speed/currentSpeed;
 
+        let rd = Math.random()*2*Math.PI
+        let randomX = Math.random()*speed*Math.cos(rd);
+        let randomY = Math.random()*speed*Math.sin(rd);
+
+        this.vx = spread*randomX + (1 - spread)*this.vx;
+        this.vy = spread*randomY + (1 - spread)*this.vy;
+
         this.friction = friction;
         this.spread = spread;
+        this.lifespan = lifespan;
 
         this.hitbox = new Hitbox(10);
     }
@@ -23,7 +29,7 @@ export class Bullet {
     tick() {
         this.life++;
 
-        if (this.life >= LIFESPAN) {
+        if (this.life >= this.lifespan) {
             for (let i = 0; i < entityList.length; i++) {
                 if (entityList[i] == this) {
                     entityList.splice(i, 1);
