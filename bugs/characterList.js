@@ -82,7 +82,7 @@ export const CHARACTERLIST = [
         "img": "player/wide.svg",
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 10; i++) {
-                entityList.push(new Bullet(item.x + size*fraction/2, this.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40));
+                entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40));
             }
         }
     },

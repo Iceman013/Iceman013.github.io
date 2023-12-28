@@ -11,19 +11,20 @@ const FRACTION = 0.7;
 
 export class Player {
     constructor() {
-        this.character = CHARACTERLIST[0];
+        this.character = CHARACTERLIST[1];
         this.x = 0;
         this.y = 0;
         this.vx = 0;
         this.vy = 0;
         this.moving = false;
+        this.shooting = false;
 
         // Visible
         this.base = document.createElement("div");
         this.base.style.width = SIZE + "px";
         this.base.style.height = SIZE + "px";
         this.base.classList.add("entity");
-        this.base.style.backgroundImage = "url('imgs/hex.svg')";
+        this.base.style.backgroundImage = "url('imgs/" + this.character.img + "')";
         document.getElementById("visible").appendChild(this.base);
 
         this.hitbox = new Hitbox(FRACTION*SIZE);
@@ -61,18 +62,31 @@ export class Player {
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;
 
+        if (this.shooting) {
+            this.vx *= 0.6;
+            this.vy *= 0.6;
+            this.shooting = false;
+        } else {
+            let angle = Math.atan(this.vx/this.vy);
+            if (this.vy < 0) {
+                angle = Math.PI + angle;
+            }
+            this.base.style.transform = "rotate(" + angle + "rad)";
+        }
+
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
-        let angle = Math.atan(this.vx/this.vy);
-        if (this.vy < 0) {
-            angle = Math.PI + angle;
-        }
-        this.base.style.transform = "rotate(" + angle + "rad)";
     }
 
     // Shoot at (xt, yt)
     shoot(xt, yt) {
+        this.shooting = true;
+        let angle = Math.atan((xt - this.x)/(yt - this.y));
+        if (yt - this.y < 0) {
+            angle = Math.PI + angle;
+        }
+        this.base.style.transform = "rotate(" + angle + "rad)";
         this.character.shoot(this, xt, yt, SIZE, FRACTION);
     }
 }
