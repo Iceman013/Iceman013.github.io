@@ -11,7 +11,7 @@ const FRACTION = 0.7;
 
 export class Player {
     constructor() {
-        this.character = CHARACTERLIST.getId(0);
+        this.character = CHARACTERLIST[0];
         this.x = 0;
         this.y = 0;
         this.vx = 0;
@@ -23,7 +23,7 @@ export class Player {
         this.base.style.width = SIZE + "px";
         this.base.style.height = SIZE + "px";
         this.base.classList.add("entity");
-        this.base.style.backgroundImage = "url('img/main.svg')";
+        this.base.style.backgroundImage = "url('imgs/hex.svg')";
         document.getElementById("visible").appendChild(this.base);
 
         this.hitbox = new Hitbox(FRACTION*SIZE);
@@ -73,32 +73,6 @@ export class Player {
 
     // Shoot at (xt, yt)
     shoot(xt, yt) {
-        // Default
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
-
-        // Fire
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 50, 0.1, 0.3, 40));
-
-        // Web
-        entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 0, 0, 0, 200));
-
-        // Strider Sniper
-        // HITSCAN
-
-        // Shotgun
-        // for (let i = 0; i < 10; i++) {
-        //     entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
-        // }
-
-        // Ladybug lifesteal
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
-
-        // Machine gun
-        // entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 40, 0.03, 0.1, 70));
-
-        // Stinkbug spray
-        // for (let i = 0; i < 10; i++) {
-        //     entityList.push(new Bullet(this.x + SIZE*FRACTION/2, this.y + SIZE*FRACTION/2, xt - this.x, yt - this.y, 50, 0.1, 1, 40));
-        // }
+        this.character.shoot(this, xt, yt, SIZE, FRACTION);
     }
 }
