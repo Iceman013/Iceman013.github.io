@@ -10,7 +10,10 @@ export const CHARACTERLIST = [
         "img": "player/hex.svg",
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70));
-        }
+        },
+        "feral": false,
+        "cooldown": 10,
+        "point": true,
     },
     {
         "id": 1,
@@ -20,7 +23,10 @@ export const CHARACTERLIST = [
         "img": "player/firefly.svg",
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 0.3, 40));
-        }
+        },
+        "feral": true,
+        "cooldown": 4,
+        "point": true,
     },
     {
         "id": 2,
@@ -30,7 +36,10 @@ export const CHARACTERLIST = [
         "img": "player/spider.svg",
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 0, 0, 0, 200));
-        }
+        },
+        "feral": true,
+        "cooldown": 2,
+        "point": false,
     },
     {
         "id": 3,
@@ -40,7 +49,10 @@ export const CHARACTERLIST = [
         "img": "player/strider.svg",
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70));
-        }
+        },
+        "feral": false,
+        "cooldown": 40,
+        "point": true,
     },
     {
         "id": 4,
@@ -52,7 +64,10 @@ export const CHARACTERLIST = [
             for (let i = 0; i < 10; i++) {
                 entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70));
             }
-        }
+        },
+        "feral": false,
+        "cooldown": 20,
+        "point": true,
     },
     {
         "id": 5,
@@ -62,7 +77,10 @@ export const CHARACTERLIST = [
         "img": "player/ladybug.svg",
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70));
-        }
+        },
+        "feral": false,
+        "cooldown": 10,
+        "point": true,
     },
     {
         "id": 6,
@@ -72,7 +90,10 @@ export const CHARACTERLIST = [
         "img": "player/shell.svg",
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70));
-        }
+        },
+        "feral": true,
+        "cooldown": 4,
+        "point": true,
     },
     {
         "id": 7,
@@ -84,6 +105,9 @@ export const CHARACTERLIST = [
             for (let i = 0; i < 10; i++) {
                 entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40));
             }
-        }
+        },
+        "feral": true,
+        "cooldown": 2,
+        "point": false,
     },
 ];

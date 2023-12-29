@@ -18,6 +18,7 @@ export class Player {
         this.vy = 0;
         this.moving = false;
         this.shooting = false;
+        this.lastShot = 0;
 
         // Visible
         this.base = document.createElement("div");
@@ -41,12 +42,12 @@ export class Player {
         if (ypos == 0) {
             this.vy *= FRICTION;
         }
-        this.moveTick();
+        this.tick();
     }
 
     // Tick for move
     // Called by move()
-    moveTick() {
+    tick() {
         if (this.vx >= MAXSPEED) {
             this.vx = MAXSPEED;
         }
@@ -66,7 +67,8 @@ export class Player {
             this.vx *= 0.6;
             this.vy *= 0.6;
             this.shooting = false;
-        } else {
+        }
+        if (!this.shooting || !this.character.point) {
             let angle = Math.atan(this.vx/this.vy);
             if (this.vy < 0) {
                 angle = Math.PI + angle;
@@ -77,16 +79,24 @@ export class Player {
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
+
+        this.lastShot++;
     }
 
     // Shoot at (xt, yt)
     shoot(xt, yt) {
         this.shooting = true;
-        let angle = Math.atan((xt - this.x)/(yt - this.y));
-        if (yt - this.y < 0) {
-            angle = Math.PI + angle;
+        if (this.character.point) {
+            let angle = Math.atan((xt - this.x)/(yt - this.y));
+            if (yt - this.y < 0) {
+                angle = Math.PI + angle;
+            }
+            this.base.style.transform = "rotate(" + angle + "rad)";
         }
-        this.base.style.transform = "rotate(" + angle + "rad)";
-        this.character.shoot(this, xt, yt, SIZE, FRACTION);
+
+        if (this.lastShot >= this.character.cooldown) {
+            this.character.shoot(this, xt, yt, SIZE, FRACTION);
+            this.lastShot = 0;
+        }
     }
 }

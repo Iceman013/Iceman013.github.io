@@ -64,6 +64,9 @@ function handleInput() {
 
     if (mouse.pressed) {
         player.shoot(mouse.x, mouse.y);
+        if (!player.character.feral) {
+            mouse.pressed = false;
+        }
     }
     player.move(xt, yt);
 }
