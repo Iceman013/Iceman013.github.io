@@ -1,6 +1,8 @@
 import { startGame } from "./game.js";
 import { CHARACTERLIST } from "./characterList.js";
 
+export let characterChoice = 0;
+
 let screenList = ["title-screen","options","game"];
 function turnScreen(name, state) {
     if (state) {
@@ -50,7 +52,22 @@ function options() {
         des.innerText = c.description;
         base.appendChild(des);
 
+        base.id = "character" + c.id;
         document.getElementById("charSelect").appendChild(base);
+
+        const a = c.id;
+        function hangle() {
+            let ob = document.getElementById("character" + characterChoice);
+            ob.classList.remove("characterChosen");
+
+            let nb = document.getElementById("character" + a);
+            nb.classList.add("characterChosen");
+            characterChoice = a;
+        }
+        if (i == 0) {
+            hangle();
+        }
+        base.addEventListener("click", hangle);
     }
 }
 

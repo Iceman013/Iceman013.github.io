@@ -10,8 +10,8 @@ const SIZE = 100;
 const FRACTION = 0.7;
 
 export class Player {
-    constructor() {
-        this.character = CHARACTERLIST[1];
+    constructor(character) {
+        this.character = CHARACTERLIST[character];
         this.x = 0;
         this.y = 0;
         this.vx = 0;

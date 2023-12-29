@@ -1,5 +1,6 @@
 import { Player } from "./player.js";
 import { entityList } from "./entityList.js";
+import { characterChoice } from "./main.js";
 
 let TICK = 20;
 
@@ -83,6 +84,6 @@ function tick() {
 export function startGame() {
     console.log("Start game");
     addControls();
-    player = new Player();
+    player = new Player(characterChoice);
     tick();
 }

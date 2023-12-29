@@ -40,8 +40,22 @@ button.options:active {
 .characterOption {
     padding: 2%;
     background-color: white;
+
+    box-shadow: 5px 10px #333;
+    transition: 0.05s; 
+}
+.characterOption:hover {
+    box-shadow: 7px 14px #333;
+    transform: translate(-2px, -4px);
+}
+.characterOption:active {
+    box-shadow: 3px 6px #333;
+    transform: translate(2px, 4px);
 }
 .characterOption img {
     width: 80%;
+}
 
+.characterChosen {
+    background-color: #a0b0ff;
 }
