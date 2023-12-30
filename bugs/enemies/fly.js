@@ -20,6 +20,21 @@ export class Fly extends Enemy {
         this.base.style.backgroundImage = "url('imgs/" + "enemies/fly.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
 
+        // Health
+        this.health = 50;
+        this.maxhealth = 100;
+        this.healthbar = document.createElement("div");
+        this.healthbar.style.width = SIZE + "px";
+        this.healthbar.classList.add("healthbar");
+
+        this.hp = document.createElement("div");
+        this.hp.style.width = 100*this.health/this.maxhealth + "%";
+        this.hp.classList.add("health");
+        this.healthbar.appendChild(this.hp);
+        this.base.appendChild(this.healthbar);
+
+        this.hitbox = new Hitbox(SIZE*FRACTION, "enemy");
+
         this.hitbox = new Hitbox(SIZE*FRACTION, "enemy");
     }
 
@@ -29,6 +44,7 @@ export class Fly extends Enemy {
             angle = Math.PI + angle;
         }
         this.base.style.transform = "rotate(" + angle + "rad)";
+        this.healthbar.style.transform = "rotate(" + -1*angle + "rad)";
     }
 
     tick() {
@@ -74,6 +90,8 @@ export class Fly extends Enemy {
 
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;
+
+        this.hp.style.width = 100*this.health/this.maxhealth + "%";
 
         this.show();
     }

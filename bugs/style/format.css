@@ -44,3 +44,12 @@
 .hitbox.enemyBulltet {
     outline: 4px solid #ff2080;
 }
+
+.healthbar {
+    background-color: #ff3030;
+    height: 6px;
+}
+.health {
+    background-color: #60ff60;
+    height: 100%;
+}

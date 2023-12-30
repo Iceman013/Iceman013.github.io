@@ -20,6 +20,19 @@ export class Roach extends Enemy {
         this.base.style.backgroundImage = "url('imgs/" + "enemies/roach.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
 
+        // Health
+        this.health = 50;
+        this.maxhealth = 100;
+        this.healthbar = document.createElement("div");
+        this.healthbar.style.width = SIZE + "px";
+        this.healthbar.classList.add("healthbar");
+
+        this.hp = document.createElement("div");
+        this.hp.style.width = 100*this.health/this.maxhealth + "%";
+        this.hp.classList.add("health");
+        this.healthbar.appendChild(this.hp);
+        this.base.appendChild(this.healthbar);
+
         this.hitbox = new Hitbox(SIZE*FRACTION, "enemy");
     }
 
@@ -29,6 +42,7 @@ export class Roach extends Enemy {
             angle = Math.PI + angle;
         }
         this.base.style.transform = "rotate(" + angle + "rad)";
+        this.healthbar.style.transform = "rotate(" + -1*angle + "rad)";
     }
 
     tick() {
@@ -46,20 +60,6 @@ export class Roach extends Enemy {
             this.vx += -1*Math.cos(this.targetDirection);
             this.vy += -1*Math.sin(this.targetDirection);
         }
-        /*
-        if (this.player.x > this.x) {
-            this.vx += 1;
-        }
-        if (this.player.x < this.x) {
-            this.vx -= 1;
-        }
-        if (this.player.y > this.y) {
-            this.vy += 1;
-        }
-        if (this.player.y < this.y) {
-            this.vy -= 1;
-        }
-        */
         if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
             let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
             this.vx *= dirp;
@@ -70,6 +70,8 @@ export class Roach extends Enemy {
 
         this.vx *= 0.8;
         this.vy *= 0.8;
+
+        this.hp.style.width = 100*this.health/this.maxhealth + "%";
 
         this.show();
     }

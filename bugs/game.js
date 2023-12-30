@@ -88,15 +88,19 @@ function tick() {
         setTimeout(tick, TICK);
     }
 }
+function waves() {
+    for (let i = 0; i < 2; i++) {
+        new Fly(player);
+        new Roach(player);
+    }
+}
 export function startGame() {
     console.log("Start game");
     addControls();
     player = new Player(characterChoice);
     player.x = WIDTH/2 - player.size/2;
     player.y = HEIGHT/2 - player.size/2;
+
     tick();
-    // new Fly(player);
-    for (let i = 0; i < 2; i++) {
-        new Fly(player);
-    }
+    waves();
 }

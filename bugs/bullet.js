@@ -65,8 +65,8 @@ export class Bullet {
 
         this.x += this.vx;
         this.y += this.vy;
-        this.base.style.left = this.x + "px";
-        this.base.style.bottom = this.y + "px";
+        this.base.style.left = this.x - this.size + "px";
+        this.base.style.bottom = this.y - this.size + "px";
 
         this.turn();
         this.hitbox.updatePosition(this.x, this.y);
