@@ -21,7 +21,7 @@ export class Fly extends Enemy {
         document.getElementById("visible").appendChild(this.base);
 
         // Health
-        this.health = 50;
+        this.health = 100;
         this.maxhealth = 100;
         this.healthbar = document.createElement("div");
         this.healthbar.style.width = SIZE + "px";
@@ -101,5 +101,12 @@ export class Fly extends Enemy {
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
+    }
+
+    delete() {
+        if (this.health <= 0) {
+            document.getElementById("visible").removeChild(this.base);
+            this.hitbox.delete();
+        }
     }
 }

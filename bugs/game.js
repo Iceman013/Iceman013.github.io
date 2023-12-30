@@ -80,18 +80,68 @@ function tick() {
 
     // Tick elements
     handleInput();
+
+    function deleteEntity(item) {
+        let ta = 0;
+        for (let i = 0; i < entityList.length; i++) {
+            if (entityList[i] == item) {
+                ta = i;
+                i = entityList.length;
+            }
+        }
+        entityList[ta].delete();
+        entityList.splice(ta, 1);
+    }
+    let enemies = [];
+    let bullets = [];
+    let ebullets = [];
+    for (let i = 0; i < entityList.length; i++) {
+        if (entityList[i].hitbox.type == "bullet") {
+            bullets.push(entityList[i]);
+        }
+        if (entityList[i].hitbox.type == "enemy") {
+            enemies.push(entityList[i]);
+        }
+        if (entityList[i].hitbox.type == "enemyBullet") {
+            ebullets.push(entityList[i]);
+        }
+    }
+    function hitting(a, b) {
+        return Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2) <= Math.pow(a.hitbox.diameter/2 + b.hitbox.diameter/2, 2);
+    }
+    // Enemy dealing withing
+    for (let i = 0; i < enemies.length; i++) {
+        let deled = [];
+        for (let j = 0; j < bullets.length; j++) {
+            if (hitting(enemies[i], bullets[j])) {
+                // On hit enemy
+                enemies[i].health -= bullets[j].damage;
+                deleteEntity(bullets[j]);
+                deled.push(j);
+            }
+        }
+        for (let k = 0; k < deled.length; k++) {
+            bullets.splice(k, 1);
+        }
+    }
+    for (let i = 0; i < enemies.length; i++) {
+        // Death
+        if (enemies[i].health <= 0) {
+            deleteEntity(enemies[i]);
+        }
+    }
+
+    // Tick
     for (let i = 0; i < entityList.length; i++) {
         entityList[i].tick();
     }
 
+    if (Math.random() < 0.05) {
+        new Roach(player);
+    }
+
     if (!done) {
         setTimeout(tick, TICK);
-    }
-}
-function waves() {
-    for (let i = 0; i < 2; i++) {
-        new Fly(player);
-        new Roach(player);
     }
 }
 export function startGame() {
@@ -102,5 +152,4 @@ export function startGame() {
     player.y = HEIGHT/2 - player.size/2;
 
     tick();
-    waves();
 }

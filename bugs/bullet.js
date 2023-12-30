@@ -3,7 +3,7 @@ import { entityList } from "./entityList.js";
 import { randomDigits } from "./helper.js";
 
 export class Bullet {
-    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, img) {
+    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, damage, img) {
         this.x = x;
         this.y = y;
 
@@ -24,6 +24,7 @@ export class Bullet {
         this.spread = spread;
         this.lifespan = lifespan;
         this.size = size;
+        this.damage = damage;
 
         // Visible
         this.base = document.createElement("div");
@@ -45,6 +46,11 @@ export class Bullet {
         this.base.style.transform = "rotate(" + angle + "rad)";
     }
 
+    delete() {
+        document.getElementById("visible").removeChild(this.base);
+        this.hitbox.delete();
+    }
+
     tick() {
         this.life++;
 
@@ -52,10 +58,9 @@ export class Bullet {
             for (let i = 0; i < entityList.length; i++) {
                 if (entityList[i] == this) {
                     entityList.splice(i, 1);
-                    this.hitbox.delete();
                 }
             }
-            document.getElementById("visible").removeChild(document.getElementById(this.base.id));
+            this.delete();
         }
 
         // this.vx = this.spread*this.randomX + (1 - this.spread)*this.vx;
@@ -65,8 +70,8 @@ export class Bullet {
 
         this.x += this.vx;
         this.y += this.vy;
-        this.base.style.left = this.x - this.size + "px";
-        this.base.style.bottom = this.y - this.size + "px";
+        this.base.style.left = this.x - this.size/2 + "px";
+        this.base.style.bottom = this.y - this.size/2 + "px";
 
         this.turn();
         this.hitbox.updatePosition(this.x, this.y);

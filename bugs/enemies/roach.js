@@ -21,11 +21,12 @@ export class Roach extends Enemy {
         document.getElementById("visible").appendChild(this.base);
 
         // Health
-        this.health = 50;
+        this.health = 100;
         this.maxhealth = 100;
         this.healthbar = document.createElement("div");
         this.healthbar.style.width = SIZE + "px";
         this.healthbar.classList.add("healthbar");
+        this.healthbar.style.display = "none";
 
         this.hp = document.createElement("div");
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
@@ -81,6 +82,15 @@ export class Roach extends Enemy {
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
 
+        if (this.health < this.maxhealth) {
+            this.healthbar.style.display = "block";
+        }
+
         this.turn();
+    }
+
+    delete() {
+        document.getElementById("visible").removeChild(this.base);
+        this.hitbox.delete();
     }
 }

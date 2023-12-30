@@ -1,13 +1,13 @@
 import { randomDigits } from "./helper.js";
 
 export class Hitbox {
-    constructor(radius, type) {
-        this.radius = radius;
+    constructor(diameter, type) {
+        this.diameter = diameter;
         this.type = type;
 
         this.base = document.createElement("div");
-        this.base.style.width = this.radius + "px";
-        this.base.style.height = this.radius + "px";
+        this.base.style.width = this.diameter + "px";
+        this.base.style.height = this.diameter + "px";
         this.base.classList.add("hitbox");
         this.base.classList.add(this.type);
         this.base.id = randomDigits();
@@ -19,12 +19,6 @@ export class Hitbox {
         this.base.style.bottom = y + "px";
     }
     delete() {
-        let base = document.getElementById("hitboxes");
-        for (let i = 0; i < base.childNodes.length; i++) {
-            if (base.childNodes[i].id == this.base.id) {
-                base.removeChild(base.childNodes[i]);
-                i = base.childNodes.length;
-            }
-        }
+        document.getElementById("hitboxes").removeChild(this.base);
     }
 }
