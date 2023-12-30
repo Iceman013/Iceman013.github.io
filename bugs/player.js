@@ -16,6 +16,7 @@ export class Player {
         this.y = 0;
         this.vx = 0;
         this.vy = 0;
+        this.size = SIZE;
         this.moving = false;
         this.shooting = false;
         this.lastShot = 0;

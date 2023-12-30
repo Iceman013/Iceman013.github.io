@@ -3,6 +3,8 @@ import { entityList } from "./entityList.js";
 import { characterChoice } from "./main.js";
 
 let TICK = 20;
+const WIDTH = window.screen.width;
+const HEIGHT = window.screen.height;
 
 let player;
 let controls = {
@@ -88,5 +90,7 @@ export function startGame() {
     console.log("Start game");
     addControls();
     player = new Player(characterChoice);
+    player.x = WIDTH/2 - player.size/2;
+    player.y = HEIGHT/2 - player.size/2;
     tick();
 }
