@@ -31,5 +31,16 @@
     background-size: cover;
     border-radius: 50%;
     background-color: none;
+}
+.hitbox.player {
+    outline: 4px solid #a0ffa0;
+}
+.hitbox.bullet {
     outline: 4px solid #a0a0ff;
+}
+.hitbox.enemy {
+    outline: 4px solid #ffa0ff;
+}
+.hitbox.enemyBulltet {
+    outline: 4px solid #ff2080;
 }

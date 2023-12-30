@@ -28,7 +28,7 @@ export class Player {
         this.base.style.backgroundImage = "url('imgs/" + this.character.img + "')";
         document.getElementById("visible").appendChild(this.base);
 
-        this.hitbox = new Hitbox(FRACTION*SIZE);
+        this.hitbox = new Hitbox(FRACTION*SIZE, "player");
     }
 
     // Move
@@ -43,6 +43,14 @@ export class Player {
             this.vy *= FRICTION;
         }
         this.tick();
+    }
+
+    turn() {
+        let angle = Math.atan(this.vx/this.vy);
+        if (this.vy < 0) {
+            angle = Math.PI + angle;
+        }
+        this.base.style.transform = "rotate(" + angle + "rad)";
     }
 
     // Tick for move
@@ -67,13 +75,11 @@ export class Player {
             this.vx *= 0.6;
             this.vy *= 0.6;
             this.shooting = false;
+        } else if (this.character.point) {
+            this.turn();
         }
-        if (!this.shooting || !this.character.point) {
-            let angle = Math.atan(this.vx/this.vy);
-            if (this.vy < 0) {
-                angle = Math.PI + angle;
-            }
-            this.base.style.transform = "rotate(" + angle + "rad)";
+        if (!this.character.point) {
+            this.turn();
         }
 
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";

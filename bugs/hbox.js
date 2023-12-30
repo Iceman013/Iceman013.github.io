@@ -1,13 +1,15 @@
 import { randomDigits } from "./helper.js";
 
 export class Hitbox {
-    constructor(radius) {
+    constructor(radius, type) {
         this.radius = radius;
+        this.type = type;
 
         this.base = document.createElement("div");
         this.base.style.width = this.radius + "px";
         this.base.style.height = this.radius + "px";
         this.base.classList.add("hitbox");
+        this.base.classList.add(this.type);
         this.base.id = randomDigits();
         document.getElementById("hitboxes").appendChild(this.base);
     }

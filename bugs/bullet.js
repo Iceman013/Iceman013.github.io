@@ -2,7 +2,7 @@ import { Hitbox } from "./hbox.js";
 import { entityList } from "./entityList.js";
 
 export class Bullet {
-    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan) {
+    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan, size) {
         this.x = x;
         this.y = y;
 
@@ -22,8 +22,9 @@ export class Bullet {
         this.friction = friction;
         this.spread = spread;
         this.lifespan = lifespan;
+        this.size = size;
 
-        this.hitbox = new Hitbox(10);
+        this.hitbox = new Hitbox(this.size, "bullet");
     }
 
     tick() {
