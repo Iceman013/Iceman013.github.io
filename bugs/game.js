@@ -2,6 +2,9 @@ import { Player } from "./player.js";
 import { entityList } from "./entityList.js";
 import { characterChoice } from "./main.js";
 
+import { Roach } from "./enemies/roach.js";
+import { Fly } from "./enemies/fly.js";
+
 let TICK = 20;
 const WIDTH = window.screen.width;
 const HEIGHT = window.screen.height;
@@ -23,7 +26,6 @@ function addControls() {
         if (controls[e.key] == null || controls[e.key] == false) {
             controls[e.key] = true;
         }
-        console.log(controls)
     });
     window.addEventListener("keyup", function(e) {
         if (controls[e.key] == null || controls[e.key] == true) {
@@ -93,4 +95,6 @@ export function startGame() {
     player.x = WIDTH/2 - player.size/2;
     player.y = HEIGHT/2 - player.size/2;
     tick();
+    new Fly(player);
+    new Roach(player);
 }
