@@ -1,8 +1,9 @@
 import { Hitbox } from "./hbox.js";
 import { entityList } from "./entityList.js";
+import { randomDigits } from "./helper.js";
 
 export class Bullet {
-    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan, size) {
+    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, img) {
         this.x = x;
         this.y = y;
 
@@ -24,7 +25,24 @@ export class Bullet {
         this.lifespan = lifespan;
         this.size = size;
 
+        // Visible
+        this.base = document.createElement("div");
+        this.base.style.width = 2*this.size + "px";
+        this.base.style.height = 2*this.size + "px";
+        this.base.style.backgroundImage = "url('imgs/" + img + "')";
+        this.base.classList.add("entity");
+        this.base.id = randomDigits();
+        document.getElementById("visible").appendChild(this.base);
+
         this.hitbox = new Hitbox(this.size, "bullet");
+    }
+
+    turn() {
+        let angle = Math.atan(this.vx/this.vy);
+        if (this.vy < 0) {
+            angle = Math.PI + angle;
+        }
+        this.base.style.transform = "rotate(" + angle + "rad)";
     }
 
     tick() {
@@ -37,6 +55,7 @@ export class Bullet {
                     this.hitbox.delete();
                 }
             }
+            document.getElementById("visible").removeChild(document.getElementById(this.base.id));
         }
 
         // this.vx = this.spread*this.randomX + (1 - this.spread)*this.vx;
@@ -46,6 +65,10 @@ export class Bullet {
 
         this.x += this.vx;
         this.y += this.vy;
+        this.base.style.left = this.x + "px";
+        this.base.style.bottom = this.y + "px";
+
+        this.turn();
         this.hitbox.updatePosition(this.x, this.y);
     }
 }
