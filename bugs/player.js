@@ -4,7 +4,7 @@ import { Bullet } from "./bullet.js";
 import { entityList } from "./entityList.js";
 
 const SPEED = 2;
-const MAXSPEED = 5;
+const MAXSPEED = 7;
 const FRICTION = 0.87;
 const SIZE = 100;
 const FRACTION = 0.7;
@@ -57,17 +57,10 @@ export class Player {
     // Tick for move
     // Called by move()
     tick() {
-        if (this.vx >= MAXSPEED) {
-            this.vx = MAXSPEED;
-        }
-        if (this.vx <= -1*MAXSPEED) {
-            this.vx = -1*MAXSPEED;
-        }
-        if (this.vy >= MAXSPEED) {
-            this.vy = MAXSPEED;
-        }
-        if (this.vy <= -1*MAXSPEED) {
-            this.vy = -1*MAXSPEED;
+        if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
+            let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
+            this.vx *= dirp;
+            this.vy *= dirp;
         }
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;

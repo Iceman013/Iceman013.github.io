@@ -95,6 +95,8 @@ export function startGame() {
     player.x = WIDTH/2 - player.size/2;
     player.y = HEIGHT/2 - player.size/2;
     tick();
-    new Fly(player);
-    new Roach(player);
+    // new Fly(player);
+    for (let i = 0; i < 3; i++) {
+        new Fly(player);
+    }
 }

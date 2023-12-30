@@ -21,7 +21,7 @@
 }
 
 #hitboxes {
-    display: block;
+    display: none;
 }
 .hitbox {
     position: absolute;
