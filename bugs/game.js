@@ -137,7 +137,7 @@ function tick() {
     }
 
     if (Math.random() < 0.05) {
-        new Roach(player);
+        new Fly(player);
     }
 
     if (!done) {
