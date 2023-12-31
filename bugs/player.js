@@ -69,6 +69,19 @@ export class Player {
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;
 
+        if (this.x < 0) {
+            this.x = 0;
+        }
+        if (this.x > window.screen.availWidth - SIZE*FRACTION) {
+            this.x = window.screen.availWidth - SIZE*FRACTION;
+        }
+        if (this.y < 0) {
+            this.y = 0;
+        }
+        if (this.y > document.getElementById("game").clientHeight - SIZE*FRACTION) {
+            this.y = document.getElementById("game").clientHeight - SIZE*FRACTION;
+        }
+
         if (this.shooting) {
             this.vx *= 0.6;
             this.vy *= 0.6;
