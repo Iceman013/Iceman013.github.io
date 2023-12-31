@@ -8,6 +8,7 @@ import { Roach } from "./enemies/roach.js";
 import { Fly } from "./enemies/fly.js";
 import { Tank } from "./enemies/tank.js";
 import { Beetle } from "./enemies/beetle.js";
+import { Gnat } from "./enemies/gnat.js";
 
 let TICK = 20;
 const WIDTH = window.screen.width;
@@ -122,7 +123,7 @@ function tick() {
                 // On hit enemy
                 enemies[i].health -= bullets[j].damage;
                 if (player.character.id == 5) {
-                    player.health += 10;
+                    player.health += 5;
                 }
                 deleteEntity(bullets[j]);
                 deled.push(j);
@@ -153,16 +154,19 @@ function tick() {
         entityList[i].tick();
     }
 
-    if (Math.random() < 0.015) {
+    if (Math.random() < 0.01) {
         new Roach(player);
     }
     if (Math.random() < 0.01) {
+        new Gnat(player);
+    }
+    if (Math.random() < 0.005) {
         new Beetle(player);
     }
-    if (Math.random() < 0.005) {
+    if (Math.random() < 0.002) {
         new Fly(player);
     }
-    if (Math.random() < 0.005) {
+    if (Math.random() < 0.002) {
         new Tank(player);
     }
     if (player.health <= 0) {
