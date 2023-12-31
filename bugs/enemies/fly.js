@@ -9,7 +9,7 @@ const MAXSPEED = 10;
 export class Fly extends Enemy {
     constructor(player) {
         super(player);
-        this.damage = 4;
+        this.damage = 2;
 
         this.shook = 0;
         this.targetDirection = 0;

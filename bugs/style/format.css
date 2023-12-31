@@ -1,5 +1,6 @@
 * {
     font-family: "Alata";
+    user-select: none;
 }
 .screen {
     display: none;
