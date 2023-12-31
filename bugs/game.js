@@ -10,6 +10,8 @@ import { Tank } from "./enemies/tank.js";
 import { Beetle } from "./enemies/beetle.js";
 import { Gnat } from "./enemies/gnat.js";
 import { Pinsir } from "./enemies/pinsir.js";
+import { Charger } from "./enemies/charger.js";
+import { Rhino } from "./enemies/rhino.js";
 
 let TICK = 20;
 const WIDTH = window.screen.width;
@@ -126,8 +128,10 @@ function tick() {
                 if (player.character.id == 5) {
                     player.health += 5;
                 }
-                deleteEntity(bullets[j]);
-                deled.push(j);
+                if (player.character.id != 3) {
+                    deleteEntity(bullets[j]);
+                    deled.push(j);
+                }
             }
         }
         for (let k = 0; k < deled.length; k++) {
@@ -156,21 +160,27 @@ function tick() {
     }
 
     if (Math.random() < 0.01) {
-        new Roach(player);
+        new Gnat(player);
     }
     if (Math.random() < 0.01) {
-        new Gnat(player);
+        new Roach(player);
+    }
+    if (Math.random() < 0.003) {
+        new Fly(player);
     }
     if (Math.random() < 0.002) {
         new Pinsir(player);
     }
+    if (Math.random() < 0.01) {
+        new Charger(player);
+    }
+    if (Math.random() < 0.002) {
+        new Rhino(player);
+    }
     if (Math.random() < 0.002) {
         new Beetle(player);
     }
-    if (Math.random() < 0.002) {
-        new Fly(player);
-    }
-    if (Math.random() < 0.002) {
+    if (Math.random() < 0.0005) {
         new Tank(player);
     }
     if (player.health <= 0) {

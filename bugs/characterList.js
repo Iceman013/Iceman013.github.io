@@ -9,10 +9,10 @@ export const CHARACTERLIST = [
         "description": "Certainly a generic bug, it should not be underestimated for its versatility and long range shots.",
         "img": "player/hex.svg",
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 50, "goop.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 80, "goop.svg"));
         },
         "feral": false,
-        "cooldown": 10,
+        "cooldown": 5,
         "point": true,
     },
     {
@@ -22,7 +22,7 @@ export const CHARACTERLIST = [
         "description": "Known for its unique fire shooting ability, this bug excels at short range spewing.",
         "img": "player/firefly.svg",
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 0.3, 40, 10, 20, "fire.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 0.3, 40, 10, 40, "fire.svg"));
         },
         "feral": true,
         "cooldown": 4,
@@ -48,7 +48,7 @@ export const CHARACTERLIST = [
         "description": "Do not think this quick bug is afraid of combat. It is known for it's sniper-like long range shot.",
         "img": "player/strider.svg",
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 200, "goop.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 500, "goop.svg"));
         },
         "feral": false,
         "cooldown": 40,
@@ -76,7 +76,7 @@ export const CHARACTERLIST = [
         "description": "Seemingly friendly, this bug feasts on others to survive.",
         "img": "player/ladybug.svg",
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 35, "goop.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 50, "goop.svg"));
         },
         "feral": false,
         "cooldown": 10,
@@ -89,7 +89,7 @@ export const CHARACTERLIST = [
         "description": "Native to the skin habitat, this bug's natural defense mechanism is a machine gun.",
         "img": "player/shell.svg",
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 20, "goop.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 40, "goop.svg"));
         },
         "feral": true,
         "cooldown": 4,
