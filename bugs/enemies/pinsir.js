@@ -3,16 +3,14 @@ import { Hitbox } from "../hbox.js";
 
 const SIZE = 100;
 const FRACTION = 0.7;
-const SPEED = 2;
-const MAXSPEED = 2;
+const SPEED = 60;
+const MINSPEED = 0.1;
 
-export class Beetle extends Enemy {
+export class Pinsir extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 20;
-
-        this.shook = 0;
-        this.targetDirection = 0;
+        this.state = 0;
 
         // Visible
         this.base = document.createElement("div");
@@ -21,11 +19,11 @@ export class Beetle extends Enemy {
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.base.classList.add("entity");
-        this.base.style.backgroundImage = "url('imgs/" + "enemies/beetle.svg" + "')";
+        this.base.style.backgroundImage = "url('imgs/" + "enemies/pinsir.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
 
         // Health
-        this.maxhealth = 200;
+        this.maxhealth = 100;
         this.health = this.maxhealth;
         this.healthbar = document.createElement("div");
         this.healthbar.style.width = SIZE + "px";
@@ -52,30 +50,27 @@ export class Beetle extends Enemy {
     }
 
     tick() {
-        this.shook += 1;
-        if (this.shook >= 5) {
-            this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
-            let rng = 0.05;
-            this.targetDirection += rng*2*Math.PI*(2*Math.random() - 1);
-            this.shook = 0;
-        }
-        if (this.x < this.player.x) {
-            this.vx += Math.cos(this.targetDirection);
-            this.vy += Math.sin(this.targetDirection);
+        if (this.state == 0) {
+            let targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
+            if (this.x < this.player.x) {
+                this.vx = SPEED*Math.cos(targetDirection);
+                this.vy = SPEED*Math.sin(targetDirection);
+            } else {
+                this.vx = -1*SPEED*Math.cos(targetDirection);
+                this.vy = -1*SPEED*Math.sin(targetDirection);
+            }
+            this.state = 1;
         } else {
-            this.vx += -1*Math.cos(this.targetDirection);
-            this.vy += -1*Math.sin(this.targetDirection);
+            if (this.vx*this.vx + this.vy*this.vy <= MINSPEED*MINSPEED) {
+                this.state = 0;
+            }
         }
-        if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
-            let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
-            this.vx *= dirp;
-            this.vy *= dirp;
-        }
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
 
-        this.vx *= 0.8;
-        this.vy *= 0.8;
+        this.x += this.vx;
+        this.y += this.vy;
+
+        this.vx *= 0.95;
+        this.vy *= 0.95;
 
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
 
