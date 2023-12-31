@@ -20,6 +20,8 @@ export class Player {
         this.moving = false;
         this.shooting = false;
         this.lastShot = 0;
+        this.maxhealth = 300;
+        this.health = this.maxhealth;
 
         // Visible
         this.base = document.createElement("div");
@@ -57,6 +59,8 @@ export class Player {
     // Tick for move
     // Called by move()
     tick() {
+        document.getElementById("health").style.width = Math.max(100*this.health/this.maxhealth, 0) + "%";
+
         if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
             let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
             this.vx *= dirp;

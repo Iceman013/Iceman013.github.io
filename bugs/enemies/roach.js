@@ -9,6 +9,8 @@ const MAXSPEED = 3;
 export class Roach extends Enemy {
     constructor(player) {
         super(player);
+        this.damage = 10;
+
         this.shook = 0;
         this.targetDirection = 0;
 

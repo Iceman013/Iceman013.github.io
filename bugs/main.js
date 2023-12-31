@@ -3,32 +3,9 @@ import { CHARACTERLIST } from "./characterList.js";
 
 export let characterChoice = 0;
 
-let screenList = ["title-screen","options","game"];
-function turnScreen(name, state) {
-    if (state) {
-        document.getElementById(name).style.display = "block";
-        document.getElementById(name).style.pointerEvents = "all";
-    } else {
-        document.getElementById(name).style.display = "none";
-        document.getElementById(name).style.pointerEvents = "none";
-    }
-}
-
-function clearScreen() {
-    for (let i = 0; i < screenList.length; i++) {
-        turnScreen(screenList[i], false);
-    }
-}
-
-function title() {
-    clearScreen();
-    turnScreen("title-screen", true);
+function startup() {
+    document.getElementById("restart").addEventListener("click", start);
     document.getElementById("enterTitle").addEventListener("click", options);
-}
-
-function options() {
-    clearScreen();
-    turnScreen("options", true);
     document.getElementById("enterOptions").addEventListener("click", game);
 
     for (let i = 0; i < CHARACTERLIST.length; i++) {
@@ -70,6 +47,32 @@ function options() {
         base.addEventListener("click", hangle);
     }
 }
+let screenList = ["title-screen","options","game"];
+function turnScreen(name, state) {
+    if (state) {
+        document.getElementById(name).style.display = "block";
+        document.getElementById(name).style.pointerEvents = "all";
+    } else {
+        document.getElementById(name).style.display = "none";
+        document.getElementById(name).style.pointerEvents = "none";
+    }
+}
+
+function clearScreen() {
+    for (let i = 0; i < screenList.length; i++) {
+        turnScreen(screenList[i], false);
+    }
+}
+
+function title() {
+    clearScreen();
+    turnScreen("title-screen", true);
+}
+
+function options() {
+    clearScreen();
+    turnScreen("options", true);
+}
 
 function game() {
     clearScreen();
@@ -77,7 +80,8 @@ function game() {
     startGame();
 }
 
-function start() {
+export function start() {
     title();
 }
+startup();
 start();

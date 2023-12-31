@@ -1,3 +1,5 @@
+import { start } from "./main.js";
+
 import { Player } from "./player.js";
 import { entityList } from "./entityList.js";
 import { characterChoice } from "./main.js";
@@ -10,6 +12,7 @@ const WIDTH = window.screen.width;
 const HEIGHT = window.screen.height;
 
 let player;
+let time;
 let controls = {
     "w": false,
     "a": false,
@@ -131,23 +134,49 @@ function tick() {
         }
     }
 
+    for (let i = 0; i < enemies.length; i++) {
+        if (hitting(player, enemies[i])) {
+            player.health -= enemies[i].damage;
+        }
+    }
+
     // Tick
     for (let i = 0; i < entityList.length; i++) {
         entityList[i].tick();
     }
 
-    if (Math.random() < 0.05) {
+    if (Math.random() < 0.02) {
+        new Roach(player);
+    }
+    if (Math.random() < 0.01) {
         new Fly(player);
     }
+    if (player.health <= 0) {
+        done = true;
+    }
+    document.getElementById("time").innerText = time;
+    time++;
 
     if (!done) {
         setTimeout(tick, TICK);
+    } else {
+        player.tick();
+        document.getElementById("restart").style.display = "block";
+        entityList.splice(0, entityList.length);
     }
 }
 export function startGame() {
     console.log("Start game");
+    while (document.getElementById("visible").firstChild) {
+        document.getElementById("visible").removeChild(document.getElementById("visible").firstChild);
+    }
+    while (document.getElementById("hitboxes").firstChild) {
+        document.getElementById("hitboxes").removeChild(document.getElementById("hitboxes").firstChild);
+    }
+    document.getElementById("restart").style.display = "none";
     addControls();
     player = new Player(characterChoice);
+    time = 0;
     player.x = WIDTH/2 - player.size/2;
     player.y = HEIGHT/2 - player.size/2;
 

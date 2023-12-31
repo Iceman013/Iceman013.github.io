@@ -53,3 +53,23 @@
     background-color: #60ff60;
     height: 100%;
 }
+
+#healthbar {
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+
+    background-color: #ff3030;
+    height: 10px;
+}
+#health {
+    background-color: #60ff60;
+    height: 100%;
+}
+
+#time {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
