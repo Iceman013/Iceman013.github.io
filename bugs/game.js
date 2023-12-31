@@ -6,6 +6,8 @@ import { characterChoice } from "./main.js";
 
 import { Roach } from "./enemies/roach.js";
 import { Fly } from "./enemies/fly.js";
+import { Tank } from "./enemies/tank.js";
+import { Beetle } from "./enemies/beetle.js";
 
 let TICK = 20;
 const WIDTH = window.screen.width;
@@ -151,11 +153,17 @@ function tick() {
         entityList[i].tick();
     }
 
-    if (Math.random() < 0.02) {
+    if (Math.random() < 0.015) {
         new Roach(player);
     }
     if (Math.random() < 0.01) {
+        new Beetle(player);
+    }
+    if (Math.random() < 0.005) {
         new Fly(player);
+    }
+    if (Math.random() < 0.005) {
+        new Tank(player);
     }
     if (player.health <= 0) {
         done = true;
