@@ -8,6 +8,9 @@ export const CHARACTERLIST = [
         "latin": "Defaulitium Bugicus",
         "description": "Certainly a generic bug, it should not be underestimated for its versatility and long range shots.",
         "img": "player/hex.svg",
+        "speed": 2,
+        "maxspeed": 9,
+        "slowdown": 0.8,
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 80, "goop.svg"));
         },
@@ -21,6 +24,9 @@ export const CHARACTERLIST = [
         "latin": "Incinaratus Bugicus",
         "description": "Known for its unique fire shooting ability, this bug excels at short range spewing.",
         "img": "player/firefly.svg",
+        "speed": 3,
+        "maxspeed": 9,
+        "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 0.3, 40, 10, 40, "fire.svg"));
         },
@@ -34,6 +40,9 @@ export const CHARACTERLIST = [
         "latin": "Arachnid Webicus",
         "description": "A dangerous and territorial bug, it is known for its dangerous web abilities.",
         "img": "player/spider.svg",
+        "speed": 2,
+        "maxspeed": 7,
+        "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 0, 0, 0, 1000, 50, 100, "web.svg"));
         },
@@ -47,8 +56,11 @@ export const CHARACTERLIST = [
         "latin": "Runicus Bugicus",
         "description": "Do not think this quick bug is afraid of combat. It is known for it's sniper-like long range shot.",
         "img": "player/strider.svg",
+        "speed": 3,
+        "maxspeed": 9,
+        "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 500, "goop.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 20, 500, "goop.svg"));
         },
         "feral": false,
         "cooldown": 40,
@@ -60,6 +72,9 @@ export const CHARACTERLIST = [
         "latin": "Moronicus Beetulus",
         "description": "A tank-like beetle, this bug excels at shooting a wide spray of deadly shots and can live through anything.",
         "img": "player/block.svg",
+        "speed": 2,
+        "maxspeed": 7,
+        "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 10; i++) {
                 entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 20, "goop.svg"));
@@ -75,6 +90,9 @@ export const CHARACTERLIST = [
         "latin": "Madupnamius Coccinellidae",
         "description": "Seemingly friendly, this bug feasts on others to survive.",
         "img": "player/ladybug.svg",
+        "speed": 2,
+        "maxspeed": 7,
+        "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 50, "goop.svg"));
         },
@@ -88,6 +106,9 @@ export const CHARACTERLIST = [
         "latin": "Rapidus Bugicus",
         "description": "Native to the skin habitat, this bug's natural defense mechanism is a machine gun.",
         "img": "player/shell.svg",
+        "speed": 2,
+        "maxspeed": 7,
+        "slowdown": 0.7,
         shoot: function(item, xt, yt, size, fraction) {
             entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 40, "goop.svg"));
         },
@@ -101,6 +122,9 @@ export const CHARACTERLIST = [
         "latin": "Berticus Odorius",
         "description": "This bug smells so bad, it can kill. It constantly spews odor to bugs nearby and eliminates them.",
         "img": "player/wide.svg",
+        "speed": 2,
+        "maxspeed": 7,
+        "slowdown": 0.5,
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 5; i++) {
                 entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40, 20, 10, "stink.svg"));

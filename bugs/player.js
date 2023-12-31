@@ -6,6 +6,7 @@ import { entityList } from "./entityList.js";
 const SPEED = 2;
 const MAXSPEED = 7;
 const FRICTION = 0.87;
+const SLOWDOWN = 0.6;
 const SIZE = 100;
 const FRACTION = 0.7;
 
@@ -64,13 +65,13 @@ export class Player {
         }
         document.getElementById("health").style.width = Math.max(100*this.health/this.maxhealth, 0) + "%";
 
-        if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
-            let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
+        if (this.vx*this.vx + this.vy*this.vy >= this.character.maxspeed*this.character.maxspeed) {
+            let dirp = this.character.maxspeed*this.character.maxspeed/(this.vx*this.vx + this.vy*this.vy);
             this.vx *= dirp;
             this.vy *= dirp;
         }
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
+        this.x += this.character.speed*this.vx;
+        this.y += this.character.speed*this.vy;
 
         if (this.x < 0) {
             this.x = 0;
@@ -86,8 +87,8 @@ export class Player {
         }
 
         if (this.shooting) {
-            this.vx *= 0.6;
-            this.vy *= 0.6;
+            this.vx *= this.character.slowdown;
+            this.vy *= this.character.slowdown;
             this.shooting = false;
         } else if (this.character.point) {
             this.turn();
