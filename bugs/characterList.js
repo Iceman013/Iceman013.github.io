@@ -9,7 +9,7 @@ export const CHARACTERLIST = [
         "description": "Certainly a generic bug, it should not be underestimated for its versatility and long range shots.",
         "img": "player/hex.svg",
         shoot: function(item, xt, yt, size, fraction) {
-            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 40, "goop.svg"));
+            entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 50, "goop.svg"));
         },
         "feral": false,
         "cooldown": 10,

@@ -138,8 +138,11 @@ function tick() {
     }
 
     for (let i = 0; i < enemies.length; i++) {
-        if (hitting(player, enemies[i])) {
+        if (hitting(player, enemies[i]) && enemies[i].recentHit >= 10) {
             player.health -= enemies[i].damage;
+            enemies[i].recentHit = 0;
+        } else {
+            enemies[i].recentHit++;
         }
     }
 

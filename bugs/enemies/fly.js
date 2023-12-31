@@ -18,6 +18,8 @@ export class Fly extends Enemy {
         this.base = document.createElement("div");
         this.base.style.width = SIZE + "px";
         this.base.style.height = SIZE + "px";
+        this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
+        this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.base.classList.add("entity");
         this.base.style.backgroundImage = "url('imgs/" + "enemies/fly.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
@@ -37,8 +39,7 @@ export class Fly extends Enemy {
         this.base.appendChild(this.healthbar);
 
         this.hitbox = new Hitbox(SIZE*FRACTION, "enemy");
-
-        this.hitbox = new Hitbox(SIZE*FRACTION, "enemy");
+        this.hitbox.updatePosition(this.x, this.y);
     }
 
     turn() {
