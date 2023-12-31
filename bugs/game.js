@@ -119,6 +119,9 @@ function tick() {
             if (hitting(enemies[i], bullets[j])) {
                 // On hit enemy
                 enemies[i].health -= bullets[j].damage;
+                if (player.character.id == 5) {
+                    player.health += 10;
+                }
                 deleteEntity(bullets[j]);
                 deled.push(j);
             }

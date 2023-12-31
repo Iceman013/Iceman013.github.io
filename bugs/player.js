@@ -59,6 +59,9 @@ export class Player {
     // Tick for move
     // Called by move()
     tick() {
+        if (this.health > this.maxhealth) {
+            this.health = this.maxhealth;
+        }
         document.getElementById("health").style.width = Math.max(100*this.health/this.maxhealth, 0) + "%";
 
         if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
