@@ -4,14 +4,7 @@ import { Player } from "./player.js";
 import { entityList } from "./entityList.js";
 import { characterChoice } from "./main.js";
 
-import { Roach } from "./enemies/roach.js";
-import { Fly } from "./enemies/fly.js";
-import { Tank } from "./enemies/tank.js";
-import { Beetle } from "./enemies/beetle.js";
-import { Gnat } from "./enemies/gnat.js";
-import { Pinsir } from "./enemies/pinsir.js";
-import { Charger } from "./enemies/charger.js";
-import { Rhino } from "./enemies/rhino.js";
+import { spawnWave } from "./enemyList.js";
 
 let TICK = 20;
 const WIDTH = window.screen.width;
@@ -19,6 +12,7 @@ const HEIGHT = window.screen.height;
 
 let player;
 let time;
+let wave;
 let controls = {
     "w": false,
     "a": false,
@@ -154,35 +148,19 @@ function tick() {
         }
     }
 
+    if (enemies.length == 0) {
+        for (let i = 0; i < 1; i++) {
+            spawnWave(player, 30*Math.pow(1.1, wave));
+        }
+        wave++;
+        document.getElementById("wave").innerText = "Wave " + wave;
+    }
+
     // Tick
     for (let i = 0; i < entityList.length; i++) {
         entityList[i].tick();
     }
-
-    if (Math.random() < 0.01) {
-        new Gnat(player);
-    }
-    if (Math.random() < 0.01) {
-        new Roach(player);
-    }
-    if (Math.random() < 0.003) {
-        new Fly(player);
-    }
-    if (Math.random() < 0.002) {
-        new Pinsir(player);
-    }
-    if (Math.random() < 0.01) {
-        new Charger(player);
-    }
-    if (Math.random() < 0.002) {
-        new Rhino(player);
-    }
-    if (Math.random() < 0.002) {
-        new Beetle(player);
-    }
-    if (Math.random() < 0.0005) {
-        new Tank(player);
-    }
+    
     if (player.health <= 0) {
         done = true;
     }
@@ -209,6 +187,7 @@ export function startGame() {
     addControls();
     player = new Player(characterChoice);
     time = 0;
+    wave = 0;
     player.x = WIDTH/2 - player.size/2;
     player.y = HEIGHT/2 - player.size/2;
 

@@ -8,6 +8,7 @@ export class Enemy {
         this.vx = 0;
         this.vy = 0;
         this.recentHit = 5;
+        this.points = 0;
 
         entityList.push(this);
 
@@ -15,12 +16,24 @@ export class Enemy {
     }
 
     spawn() {
-        let midpointx = window.screen.width/2;
-        let midpointy = document.body.clientHeight/2;
+        let width = window.screen.width;
+        let height = document.getElementById("game").clientHeight;
         let sng = 2*Math.PI*Math.random();
-        let distance = window.screen.width;
-        this.x = midpointx + distance*Math.cos(sng);
-        this.y = midpointy + distance*Math.sin(sng);
+        if (Math.random()*(width + height) < width) {
+            this.x = width/2 + (width)*Math.cos(sng);
+            if (Math.random() < 0.5) {
+                this.y = -200;
+            } else {
+                this.y = height + 200;
+            }
+        } else {
+            this.y = height/2 + (height)*Math.sin(sng);
+            if (Math.random() < 0.5) {
+                this.x = -200;
+            } else {
+                this.x = width + 200;
+            }
+        }
     }
     tick() {
         throw new Error("Function undefined");
