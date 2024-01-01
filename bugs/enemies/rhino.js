@@ -4,7 +4,7 @@ import { Hitbox } from "../hbox.js";
 const SIZE = 100;
 const FRACTION = 0.7;
 const SPEED = 100;
-const MINSPEED = 0.05;
+const MINSPEED = 0.02;
 
 export class Rhino extends Enemy {
     constructor(player) {

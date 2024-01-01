@@ -3,8 +3,8 @@ import { Hitbox } from "../hbox.js";
 
 const SIZE = 120;
 const FRACTION = 0.8;
-const SPEED = 3.5;
-const MAXSPEED = 3.5;
+const SPEED = 3.2;
+const MAXSPEED = 3.2;
 
 export class Beetle extends Enemy {
     constructor(player) {
