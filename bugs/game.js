@@ -178,7 +178,7 @@ function tick() {
 }
 function addMusic() {
     let music = document.getElementById("music");
-    music.innerHTML = "<embed src='./foley-small-fly-33566.mp3' 'autostart=true' 'loop=true'>";
+    music.innerHTML = "<embed src='./sounds/ambient.mp3' 'autostart=true' 'loop=true'>";
 }
 export function startGame() {
     console.log("Start game");
