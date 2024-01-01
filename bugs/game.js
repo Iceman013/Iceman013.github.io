@@ -173,7 +173,12 @@ function tick() {
         player.tick();
         document.getElementById("restart").style.display = "block";
         entityList.splice(0, entityList.length);
+        document.getElementById("music").innerHTML = "";
     }
+}
+function addMusic() {
+    let music = document.getElementById("music");
+    music.innerHTML = "<embed src='./foley-small-fly-33566.mp3' 'autostart=true' 'loop=true'>";
 }
 export function startGame() {
     console.log("Start game");
@@ -183,6 +188,7 @@ export function startGame() {
     while (document.getElementById("hitboxes").firstChild) {
         document.getElementById("hitboxes").removeChild(document.getElementById("hitboxes").firstChild);
     }
+    addMusic();
     document.getElementById("restart").style.display = "none";
     addControls();
     player = new Player(characterChoice);

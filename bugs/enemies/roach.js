@@ -3,8 +3,8 @@ import { Hitbox } from "../hbox.js";
 
 const SIZE = 100;
 const FRACTION = 0.7;
-const SPEED = 3;
-const MAXSPEED = 3;
+const SPEED = 4;
+const MAXSPEED = 4;
 
 export class Roach extends Enemy {
     constructor(player) {

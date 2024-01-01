@@ -4,7 +4,7 @@ import { Hitbox } from "../hbox.js";
 const SIZE = 100;
 const FRACTION = 0.7;
 const SPEED = 30;
-const MINSPEED = 2;
+const MINSPEED = 5;
 
 export class Charger extends Enemy {
     constructor(player) {

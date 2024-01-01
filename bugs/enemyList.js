@@ -21,12 +21,12 @@ let enemies = [
         "points": 4,
     },
     {
-        "type": Beetle,
-        "points": 6,
+        "type": Charger,
+        "points": 5,
     },
     {
-        "type": Charger,
-        "points": 7,
+        "type": Beetle,
+        "points": 6,
     },
     {
         "type": Pinsir,

@@ -9,7 +9,7 @@ const MINSPEED = 0.05;
 export class Rhino extends Enemy {
     constructor(player) {
         super(player);
-        this.damage = 50;
+        this.damage = 10;
         this.state = 0;
 
         // Visible
@@ -69,8 +69,8 @@ export class Rhino extends Enemy {
         this.x += this.vx;
         this.y += this.vy;
 
-        this.vx *= 0.95;
-        this.vy *= 0.95;
+        this.vx *= 0.8;
+        this.vy *= 0.8;
 
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
 

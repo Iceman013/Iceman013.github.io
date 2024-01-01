@@ -3,8 +3,8 @@ import { Hitbox } from "../hbox.js";
 
 const SIZE = 150;
 const FRACTION = 0.85;
-const SPEED = 2;
-const MAXSPEED = 2;
+const SPEED = 3;
+const MAXSPEED = 3;
 
 export class Tank extends Enemy {
     constructor(player) {

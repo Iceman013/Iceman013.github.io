@@ -77,7 +77,7 @@ export const CHARACTERLIST = [
         "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 10; i++) {
-                entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 20, "goop.svg"));
+                entityList.push(new Bullet(item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.2, 70, 10, 20, "goop.svg"));
             }
         },
         "feral": false,
