@@ -3,13 +3,13 @@ import { Hitbox } from "../hbox.js";
 
 const SIZE = 100;
 const FRACTION = 0.7;
-const SPEED = 2;
-const MAXSPEED = 10;
+const SPEED = 3.5;
+const MAXSPEED = 3.5;
 
-export class Fly extends Enemy {
+export class Ant extends Enemy {
     constructor(player) {
         super(player);
-        this.damage = 2;
+        this.damage = 10;
 
         this.shook = 0;
         this.targetDirection = 0;
@@ -21,7 +21,7 @@ export class Fly extends Enemy {
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.base.classList.add("entity");
-        this.base.style.backgroundImage = "url('imgs/" + "enemies/fly.svg" + "')";
+        this.base.style.backgroundImage = "url('imgs/" + "enemies/ant.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
 
         // Health
@@ -55,7 +55,7 @@ export class Fly extends Enemy {
         this.shook += 1;
         if (this.shook >= 5) {
             this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
-            let rng = 1;
+            let rng = 0.2;
             this.targetDirection += rng*2*Math.PI*(2*Math.random() - 1);
             this.shook = 0;
         }
@@ -66,34 +66,16 @@ export class Fly extends Enemy {
             this.vx += -1*Math.cos(this.targetDirection);
             this.vy += -1*Math.sin(this.targetDirection);
         }
-
-        let xoff = this.player.x - this.x;
-        let yoff = this.player.y - this.y;
-
-        if (Math.abs(xoff) > Math.abs(yoff)) {
-            if (this.player.x > this.x) {
-                this.vx += 1;
-            }
-            if (this.player.x < this.x) {
-                this.vx -= 1;
-            }
-        }
-        if (Math.abs(xoff) < Math.abs(yoff)) {
-            if (this.player.y > this.y) {
-                this.vy += 1;
-            }
-            if (this.player.y < this.y) {
-                this.vy -= 1;
-            }
-        }
         if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
             let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
             this.vx *= dirp;
             this.vy *= dirp;
         }
-
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;
+
+        this.vx *= 0.8;
+        this.vy *= 0.8;
 
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
 
@@ -101,7 +83,6 @@ export class Fly extends Enemy {
     }
 
     show() {
-        this.turn();
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
@@ -109,6 +90,8 @@ export class Fly extends Enemy {
         if (this.health < this.maxhealth) {
             this.healthbar.style.display = "block";
         }
+
+        this.turn();
     }
 
     delete() {

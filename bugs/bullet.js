@@ -3,7 +3,7 @@ import { entityList } from "./entityList.js";
 import { randomDigits } from "./helper.js";
 
 export class Bullet {
-    constructor(x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, damage, img) {
+    constructor(type, x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, damage, img) {
         this.x = x;
         this.y = y;
 
@@ -30,12 +30,13 @@ export class Bullet {
         this.base = document.createElement("div");
         this.base.style.width = 2*this.size + "px";
         this.base.style.height = 2*this.size + "px";
-        this.base.style.backgroundImage = "url('imgs/" + img + "')";
+        this.base.style.backgroundImage = "url('imgs/bullets/" + img + "')";
         this.base.classList.add("entity");
         this.base.id = randomDigits();
         document.getElementById("visible").appendChild(this.base);
 
-        this.hitbox = new Hitbox(this.size, "bullet");
+        this.hitbox = new Hitbox(this.size, type);
+        entityList.push(this);
     }
 
     turn() {

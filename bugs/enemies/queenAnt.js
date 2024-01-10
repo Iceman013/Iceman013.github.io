@@ -1,17 +1,21 @@
 import { Enemy } from "../enemy.js";
 import { Hitbox } from "../hbox.js";
+import { Bullet } from "../bullet.js";
+
+import { BabyAnt } from "./babyAnt.js";
 
 const SIZE = 100;
 const FRACTION = 0.7;
-const SPEED = 2;
+const SPEED = 1.5;
 const MAXSPEED = 10;
+const COOLDOWN = 40;
 
-export class Fly extends Enemy {
+export class QueenAnt extends Enemy {
     constructor(player) {
         super(player);
-        this.damage = 2;
+        this.damage = 1;
 
-        this.shook = 0;
+        this.fired = 0;
         this.targetDirection = 0;
 
         // Visible
@@ -21,11 +25,11 @@ export class Fly extends Enemy {
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.base.classList.add("entity");
-        this.base.style.backgroundImage = "url('imgs/" + "enemies/fly.svg" + "')";
+        this.base.style.backgroundImage = "url('imgs/" + "enemies/queenAnt.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
 
         // Health
-        this.maxhealth = 100;
+        this.maxhealth = 300;
         this.health = this.maxhealth;
         this.healthbar = document.createElement("div");
         this.healthbar.style.width = SIZE + "px";
@@ -50,50 +54,53 @@ export class Fly extends Enemy {
         this.base.style.transform = "rotate(" + angle + "rad)";
         this.healthbar.style.transform = "rotate(" + -1*angle + "rad)";
     }
+    shoot() {
+        if (this.fired >= COOLDOWN) {
+            this.fired = 0;
+            let child = new BabyAnt(this.player);
+            child.x = this.x;
+            child.y = this.y;
+        }
+    }
+    aim() {
+        this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
+        if (this.x > this.player.x) {
+            this.targetDirection += Math.PI;
+        }
+    }
+    move() {
+        this.vx += Math.cos(this.targetDirection);
+        this.vy += Math.sin(this.targetDirection);
 
-    tick() {
-        this.shook += 1;
-        if (this.shook >= 5) {
-            this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
-            let rng = 1;
-            this.targetDirection += rng*2*Math.PI*(2*Math.random() - 1);
-            this.shook = 0;
-        }
-        if (this.x < this.player.x) {
-            this.vx += Math.cos(this.targetDirection);
-            this.vy += Math.sin(this.targetDirection);
-        } else {
-            this.vx += -1*Math.cos(this.targetDirection);
-            this.vy += -1*Math.sin(this.targetDirection);
-        }
-
-        let xoff = this.player.x - this.x;
-        let yoff = this.player.y - this.y;
-
-        if (Math.abs(xoff) > Math.abs(yoff)) {
-            if (this.player.x > this.x) {
-                this.vx += 1;
-            }
-            if (this.player.x < this.x) {
-                this.vx -= 1;
-            }
-        }
-        if (Math.abs(xoff) < Math.abs(yoff)) {
-            if (this.player.y > this.y) {
-                this.vy += 1;
-            }
-            if (this.player.y < this.y) {
-                this.vy -= 1;
-            }
-        }
         if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
             let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
             this.vx *= dirp;
             this.vy *= dirp;
         }
+    }
+
+    tick() {
+        this.fired += 1;
+        let distance = Math.sqrt((this.x - this.player.x)*(this.x - this.player.x) + (this.y - this.player.y)*(this.y - this.player.y));
+        if (distance <= 500) {
+            // Run away
+            this.move();
+        } else if (distance <= 600) {
+            // Aim
+            this.aim();
+            this.targetDirection += Math.PI;
+            this.shoot();
+        } else {
+            // Run towards
+            this.aim();
+            this.move();
+        }
 
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;
+
+        this.vx *= 0.9;
+        this.vy *= 0.9;
 
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
 

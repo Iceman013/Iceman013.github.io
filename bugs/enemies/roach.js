@@ -25,8 +25,8 @@ export class Roach extends Enemy {
         document.getElementById("visible").appendChild(this.base);
 
         // Health
-        this.health = 100;
         this.maxhealth = 100;
+        this.health = this.maxhealth;
         this.healthbar = document.createElement("div");
         this.healthbar.style.width = SIZE + "px";
         this.healthbar.classList.add("healthbar");

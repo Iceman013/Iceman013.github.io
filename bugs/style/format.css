@@ -42,7 +42,7 @@
 .hitbox.enemy {
     outline: 4px solid #ffa0ff;
 }
-.hitbox.enemyBulltet {
+.hitbox.enemyBullet {
     outline: 4px solid #ff2080;
 }
 

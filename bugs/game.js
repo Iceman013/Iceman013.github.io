@@ -78,23 +78,30 @@ function handleInput() {
     player.move(xt, yt);
 }
 
+function deleteEntity(item) {
+    let ta = 0;
+    for (let i = 0; i < entityList.length; i++) {
+        if (entityList[i] == item) {
+            ta = i;
+            i = entityList.length;
+        }
+    }
+    entityList[ta].delete();
+    entityList.splice(ta, 1);
+}
+
+function hitting(a, b) {
+    let ra = a.hitbox.diameter/2;
+    let rb = b.hitbox.diameter/2;
+    return Math.sqrt(Math.pow((a.x + ra) - (b.x + rb), 2) + Math.pow((a.y + ra) - (b.y + rb), 2)) <= ra + rb;
+}
+
 function tick() {
     let done = false;
 
     // Tick elements
     handleInput();
 
-    function deleteEntity(item) {
-        let ta = 0;
-        for (let i = 0; i < entityList.length; i++) {
-            if (entityList[i] == item) {
-                ta = i;
-                i = entityList.length;
-            }
-        }
-        entityList[ta].delete();
-        entityList.splice(ta, 1);
-    }
     let enemies = [];
     let bullets = [];
     let ebullets = [];
@@ -109,9 +116,7 @@ function tick() {
             ebullets.push(entityList[i]);
         }
     }
-    function hitting(a, b) {
-        return Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2) <= Math.pow(a.hitbox.diameter/2 + b.hitbox.diameter/2, 2);
-    }
+
     // Enemy dealing withing
     for (let i = 0; i < enemies.length; i++) {
         let deled = [];
@@ -139,12 +144,21 @@ function tick() {
         }
     }
 
+    // Enemy touch player
     for (let i = 0; i < enemies.length; i++) {
         if (hitting(player, enemies[i]) && enemies[i].recentHit >= 10) {
             player.health -= enemies[i].damage;
             enemies[i].recentHit = 0;
         } else {
             enemies[i].recentHit++;
+        }
+    }
+
+    // Enemy bullet touch player
+    for (let i = 0; i < ebullets.length; i++) {
+        if (hitting(player, ebullets[i])) {
+            player.health -= ebullets[i].damage;
+            deleteEntity(ebullets[i]);
         }
     }
 

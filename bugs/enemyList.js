@@ -6,6 +6,9 @@ import { Gnat } from "./enemies/gnat.js";
 import { Pinsir } from "./enemies/pinsir.js";
 import { Charger } from "./enemies/charger.js";
 import { Rhino } from "./enemies/rhino.js";
+import { Bee } from "./enemies/bee.js";
+import { Ant } from "./enemies/ant.js";
+import { QueenAnt } from "./enemies/queenAnt.js";
 
 let enemies = [
     {
@@ -14,6 +17,10 @@ let enemies = [
     },
     {
         "type": Roach,
+        "points": 2,
+    },
+    {
+        "type": Ant,
         "points": 2,
     },
     {
@@ -29,6 +36,10 @@ let enemies = [
         "points": 6,
     },
     {
+        "type": Bee,
+        "points": 6,
+    },
+    {
         "type": Pinsir,
         "points": 10,
     },
@@ -38,6 +49,10 @@ let enemies = [
     },
     {
         "type": Tank,
+        "points": 25,
+    },
+    {
+        "type": QueenAnt,
         "points": 25,
     },
 ];

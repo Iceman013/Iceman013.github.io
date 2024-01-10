@@ -2,16 +2,15 @@ import { Enemy } from "../enemy.js";
 import { Hitbox } from "../hbox.js";
 
 const SIZE = 100;
-const FRACTION = 0.7;
-const SPEED = 2;
-const MAXSPEED = 10;
+const FRACTION = 0.8;
+const SPEED = 0.1;
+const MAXSPEED = 3.2;
 
-export class Fly extends Enemy {
+export class Worm extends Enemy {
     constructor(player) {
         super(player);
-        this.damage = 2;
+        this.damage = 20;
 
-        this.shook = 0;
         this.targetDirection = 0;
 
         // Visible
@@ -21,11 +20,11 @@ export class Fly extends Enemy {
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.base.classList.add("entity");
-        this.base.style.backgroundImage = "url('imgs/" + "enemies/fly.svg" + "')";
+        this.base.style.backgroundImage = "url('imgs/" + "enemies/beetle.svg" + "')";
         document.getElementById("visible").appendChild(this.base);
 
         // Health
-        this.maxhealth = 100;
+        this.maxhealth = 200;
         this.health = this.maxhealth;
         this.healthbar = document.createElement("div");
         this.healthbar.style.width = SIZE + "px";
@@ -52,13 +51,7 @@ export class Fly extends Enemy {
     }
 
     tick() {
-        this.shook += 1;
-        if (this.shook >= 5) {
-            this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
-            let rng = 1;
-            this.targetDirection += rng*2*Math.PI*(2*Math.random() - 1);
-            this.shook = 0;
-        }
+        this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
         if (this.x < this.player.x) {
             this.vx += Math.cos(this.targetDirection);
             this.vy += Math.sin(this.targetDirection);
@@ -66,34 +59,16 @@ export class Fly extends Enemy {
             this.vx += -1*Math.cos(this.targetDirection);
             this.vy += -1*Math.sin(this.targetDirection);
         }
-
-        let xoff = this.player.x - this.x;
-        let yoff = this.player.y - this.y;
-
-        if (Math.abs(xoff) > Math.abs(yoff)) {
-            if (this.player.x > this.x) {
-                this.vx += 1;
-            }
-            if (this.player.x < this.x) {
-                this.vx -= 1;
-            }
-        }
-        if (Math.abs(xoff) < Math.abs(yoff)) {
-            if (this.player.y > this.y) {
-                this.vy += 1;
-            }
-            if (this.player.y < this.y) {
-                this.vy -= 1;
-            }
-        }
         if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
             let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
             this.vx *= dirp;
             this.vy *= dirp;
         }
-
         this.x += SPEED*this.vx;
         this.y += SPEED*this.vy;
+
+        this.vx *= 0.99;
+        this.vy *= 0.99;
 
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
 
@@ -101,7 +76,6 @@ export class Fly extends Enemy {
     }
 
     show() {
-        this.turn();
         this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
         this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
@@ -109,6 +83,8 @@ export class Fly extends Enemy {
         if (this.health < this.maxhealth) {
             this.healthbar.style.display = "block";
         }
+
+        this.turn();
     }
 
     delete() {
