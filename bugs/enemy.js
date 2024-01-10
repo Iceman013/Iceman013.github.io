@@ -75,6 +75,7 @@ export class Enemy {
         this.buffsS.style.width = this.size + "px";
         this.buffsS.classList.add("buffs");
         this.buffsS.style.display = "none";
+        this.base.appendChild(this.buffsS);
 
         this.hitbox = new Hitbox(this.size*this.fraction, "enemy");
         this.hitbox.updatePosition(this.x, this.y);
@@ -89,6 +90,17 @@ export class Enemy {
 
     show() {
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
+        while (this.buffsS.firstChild) {
+            this.buffsS.removeChild(this.buffsS.firstChild);
+        }
+        for (let i = 0; i < this.buffs.length; i++) {
+            let newb = document.createElement("div");
+            newb.classList.add("enemyBuff");
+            newb.style.backgroundImage = "url('imgs/buffs/" + this.buffs[i].img + "')";
+            newb.style.width = this.size*0.25 + "px";
+            newb.style.height = this.size*0.25 + "px";
+            this.buffsS.appendChild(newb);
+        }
         this.base.style.left = this.x - (1 - this.fraction)*this.size/2 + "px";
         this.base.style.bottom = this.y - (1 - this.fraction)*this.size/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
