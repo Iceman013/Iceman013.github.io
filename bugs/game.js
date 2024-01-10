@@ -13,6 +13,8 @@ const HEIGHT = window.screen.height;
 let player;
 let time;
 let wave;
+
+// Controls and user input
 let controls = {
     "w": false,
     "a": false,
@@ -78,6 +80,7 @@ function handleInput() {
     player.move(xt, yt);
 }
 
+// Delete entity without breaking everything
 function deleteEntity(item) {
     let ta = 0;
     for (let i = 0; i < entityList.length; i++) {
@@ -90,12 +93,14 @@ function deleteEntity(item) {
     entityList.splice(ta, 1);
 }
 
+// Is a's hittbox touching b's hitbox
 function hitting(a, b) {
     let ra = a.hitbox.diameter/2;
     let rb = b.hitbox.diameter/2;
     return Math.sqrt(Math.pow((a.x + ra) - (b.x + rb), 2) + Math.pow((a.y + ra) - (b.y + rb), 2)) <= ra + rb;
 }
 
+// Gametick calls itself
 function tick() {
     let done = false;
 
@@ -119,11 +124,20 @@ function tick() {
 
     // Enemy dealing withing
     for (let i = 0; i < enemies.length; i++) {
+        // Buffs
+        for (let j = 0; j < enemies[i].buffs.length; j++) {
+            enemies[i].buffs[j].tick(enemies[i]);
+        }
+
+        // Hit by bullets
         let deled = [];
         for (let j = 0; j < bullets.length; j++) {
             if (hitting(enemies[i], bullets[j])) {
                 // On hit enemy
                 enemies[i].health -= bullets[j].damage;
+                for (let k = 0; k < bullets[j].buffs.length; k++) {
+                    enemies[i].buffs.push(bullets[j].buffs[k]);
+                }
                 if (player.character.id == 5) {
                     player.health += 2;
                 }
@@ -133,6 +147,7 @@ function tick() {
                 }
             }
         }
+        // Delete used bullets
         for (let k = 0; k < deled.length; k++) {
             bullets.splice(k, 1);
         }
@@ -190,10 +205,14 @@ function tick() {
         document.getElementById("music").innerHTML = "";
     }
 }
+
+// Adds background music
 function addMusic() {
     let music = document.getElementById("music");
     music.innerHTML = "<embed src='./sounds/ambient.mp3' 'autostart=true' 'loop=true'>";
 }
+
+// Start game main function
 export function startGame() {
     console.log("Start game");
     while (document.getElementById("visible").firstChild) {

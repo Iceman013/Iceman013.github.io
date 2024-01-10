@@ -3,7 +3,7 @@ import { entityList } from "./entityList.js";
 import { randomDigits } from "./helper.js";
 
 export class Bullet {
-    constructor(type, x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, damage, img) {
+    constructor(type, x, y, xtarget, ytarget, speed, friction, spread, lifespan, size, damage, buffs, img) {
         this.x = x;
         this.y = y;
 
@@ -25,6 +25,7 @@ export class Bullet {
         this.lifespan = lifespan;
         this.size = size;
         this.damage = damage;
+        this.buffs = buffs;
 
         // Visible
         this.base = document.createElement("div");

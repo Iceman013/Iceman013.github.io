@@ -1,4 +1,5 @@
 import { entityList } from "./entityList.js";
+import { Hitbox } from "./hbox.js";
 
 export class Enemy {
     constructor(player) {
@@ -9,6 +10,13 @@ export class Enemy {
         this.vy = 0;
         this.recentHit = 5;
         this.points = 0;
+        this.buffs = [];
+
+        // Display Stuff
+        this.size = 100;
+        this.fraction = 0.7;
+        this.maxhealth = 100;
+        this.img = "";
 
         entityList.push(this);
 
@@ -37,5 +45,64 @@ export class Enemy {
     }
     tick() {
         throw new Error("Function undefined");
+    }
+    createElements() {
+        // Visible
+        this.base = document.createElement("div");
+        this.base.style.width = this.size + "px";
+        this.base.style.height = this.size + "px";
+        this.base.style.left = this.x - (1 - this.fraction)*this.size/2 + "px";
+        this.base.style.bottom = this.y - (1 - this.fraction)*this.size/2 + "px";
+        this.base.classList.add("entity");
+        this.base.style.backgroundImage = "url('imgs/enemies/" + this.img + "')";
+        document.getElementById("visible").appendChild(this.base);
+
+        // Health
+        this.health = this.maxhealth;
+        this.healthbar = document.createElement("div");
+        this.healthbar.style.width = this.size + "px";
+        this.healthbar.classList.add("healthbar");
+        this.healthbar.style.display = "none";
+
+        this.hp = document.createElement("div");
+        this.hp.style.width = 100*this.health/this.maxhealth + "%";
+        this.hp.classList.add("health");
+        this.healthbar.appendChild(this.hp);
+        this.base.appendChild(this.healthbar);
+
+        // Buffs
+        this.buffsS = document.createElement("div");
+        this.buffsS.style.width = this.size + "px";
+        this.buffsS.classList.add("buffs");
+        this.buffsS.style.display = "none";
+
+        this.hitbox = new Hitbox(this.size*this.fraction, "enemy");
+        this.hitbox.updatePosition(this.x, this.y);
+    }
+
+    turn(angle) {
+        this.show();
+        this.base.style.transform = "rotate(" + angle + "rad)";
+        this.healthbar.style.transform = "rotate(" + -1*angle + "rad)";
+        this.buffsS.style.transform = "rotate(" + -1*angle + "rad)";
+    }
+
+    show() {
+        this.hp.style.width = 100*this.health/this.maxhealth + "%";
+        this.base.style.left = this.x - (1 - this.fraction)*this.size/2 + "px";
+        this.base.style.bottom = this.y - (1 - this.fraction)*this.size/2 + "px";
+        this.hitbox.updatePosition(this.x, this.y);
+
+        if (this.health < this.maxhealth) {
+            this.healthbar.style.display = "block";
+        }
+        if (this.buffs.length > 0) {
+            this.buffsS.style.display = "block";
+        }
+    }
+
+    delete() {
+        document.getElementById("visible").removeChild(this.base);
+        this.hitbox.delete();
     }
 }
