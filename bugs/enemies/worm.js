@@ -1,16 +1,30 @@
 import { Enemy } from "../enemy.js";
 
-const SPEED = 0.1;
-const MAXSPEED = 3.2;
+const SPEED = 5;
+const MAXSPEED = 4;
+const TURNSPEED = 0.05;
 
 export class Worm extends Enemy {
-    constructor(player) {
+    constructor(player, length = 10, parent = null) {
         super(player);
-        this.damage = 20;
+        this.damage = 3;
+        
+        this.parent = parent;
+        if (length - 1 > 0) {
+            new Worm(this.player, length - 1, this);
+        }
+
+        if (this.parent != null) {
+            this.x = this.parent.x;
+            this.y = this.parent.y;
+        }
+        this.formerXs = [];
+        this.formerYs = [];
+        this.behind = 2;
 
         this.targetDirection = 0;
 
-        this.size = 100;
+        this.size = 50;
         this.fraction = 0.8;
         this.maxhealth = 100;
         this.img = "wormBody.svg";
@@ -18,25 +32,43 @@ export class Worm extends Enemy {
     }
 
     tick() {
-        this.targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
-        if (this.x < this.player.x) {
-            this.vx += Math.cos(this.targetDirection);
-            this.vy += Math.sin(this.targetDirection);
+        this.formerXs.push(this.x);
+        this.formerYs.push(this.y);
+        if (this.parent != null && this.parent.health <= 0) {
+            this.parent = null;
+        }
+        if (this.parent != null) {
+            if (this.parent.formerXs.length >= this.behind && this.parent.formerYs.length >= this.behind) {
+                this.x = this.parent.formerXs[this.parent.formerXs.length - this.behind];
+                this.y = this.parent.formerYs[this.parent.formerYs.length - this.behind];
+                this.vx = this.parent.formerXs[this.parent.formerXs.length - this.behind + 1] - this.x;
+                this.vy = this.parent.formerYs[this.parent.formerYs.length - this.behind + 1] - this.y;
+            }
         } else {
+            let playerDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
+            if (this.x - this.player.x < 0) {
+                playerDirection += Math.PI;
+            }
+            let currentDirection = this.targetDirection;
+            playerDirection = playerDirection%(2*Math.PI);
+            currentDirection = currentDirection%(2*Math.PI);
+            if (currentDirection - playerDirection > Math.PI) {
+                playerDirection += 2*Math.PI;
+            } else if (playerDirection - currentDirection > Math.PI) {
+                currentDirection += 2*Math.PI;
+            }
+            this.targetDirection = (1 - TURNSPEED)*currentDirection + TURNSPEED*playerDirection;
+            this.targetDirection += 0.1*(Math.random() - 0.5)*2*Math.PI;
             this.vx += -1*Math.cos(this.targetDirection);
             this.vy += -1*Math.sin(this.targetDirection);
+            if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
+                let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
+                this.vx *= dirp;
+                this.vy *= dirp;
+            }
+            this.x += SPEED*this.vx;
+            this.y += SPEED*this.vy;
         }
-        if (this.vx*this.vx + this.vy*this.vy >= MAXSPEED*MAXSPEED) {
-            let dirp = MAXSPEED*MAXSPEED/(this.vx*this.vx + this.vy*this.vy);
-            this.vx *= dirp;
-            this.vy *= dirp;
-        }
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
-
-        this.vx *= 0.99;
-        this.vy *= 0.99;
-
         let angle = Math.atan(this.vx/this.vy);
         if (this.vy < 0) {
             angle = Math.PI + angle;

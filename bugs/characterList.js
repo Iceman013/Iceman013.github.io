@@ -123,9 +123,9 @@ export const CHARACTERLIST = [
         "latin": "Berticus Odorius",
         "description": "This bug smells so bad, it can kill. It constantly spews odor to bugs nearby and eliminates them.",
         "img": "player/wide.svg",
-        "speed": 2,
-        "maxspeed": 7,
-        "slowdown": 0.5,
+        "speed": 3,
+        "maxspeed": 9,
+        "slowdown": 0.3,
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 5; i++) {
                 new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40, 20, 10, [], "stink.svg");

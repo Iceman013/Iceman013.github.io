@@ -110,17 +110,23 @@ function tick() {
     let enemies = [];
     let bullets = [];
     let ebullets = [];
-    for (let i = 0; i < entityList.length; i++) {
-        if (entityList[i].hitbox.type == "bullet") {
-            bullets.push(entityList[i]);
-        }
-        if (entityList[i].hitbox.type == "enemy") {
-            enemies.push(entityList[i]);
-        }
-        if (entityList[i].hitbox.type == "enemyBullet") {
-            ebullets.push(entityList[i]);
+    function redefineLists() {
+        enemies = [];
+        bullets = [];
+        ebullets = [];
+        for (let i = 0; i < entityList.length; i++) {
+            if (entityList[i].hitbox.type == "bullet") {
+                bullets.push(entityList[i]);
+            }
+            if (entityList[i].hitbox.type == "enemy") {
+                enemies.push(entityList[i]);
+            }
+            if (entityList[i].hitbox.type == "enemyBullet") {
+                ebullets.push(entityList[i]);
+            }
         }
     }
+    redefineLists();
 
     // Enemy dealing withing
     for (let i = 0; i < enemies.length; i++) {
@@ -139,17 +145,22 @@ function tick() {
                     enemies[i].buffs.push(bullets[j].buffs[k]);
                 }
                 if (player.character.id == 5) {
-                    player.health += 2;
+                    player.health += 0.5;
                 }
                 if (player.character.id != 3) {
                     deleteEntity(bullets[j]);
-                    deled.push(j);
+                    deled.push(bullets[j]);
                 }
             }
         }
         // Delete used bullets
         for (let k = 0; k < deled.length; k++) {
-            bullets.splice(k, 1);
+            for (let m = 0; m < bullets.length; m++) {
+                if (bullets[m] == deled[k]) {
+                    bullets.splice(m, 1);
+                    m = bullets.length;
+                }
+            }
         }
     }
     for (let i = 0; i < enemies.length; i++) {

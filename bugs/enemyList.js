@@ -9,6 +9,7 @@ import { Rhino } from "./enemies/rhino.js";
 import { Bee } from "./enemies/bee.js";
 import { Ant } from "./enemies/ant.js";
 import { QueenAnt } from "./enemies/queenAnt.js";
+import { Worm } from "./enemies/worm.js";
 
 let enemies = [
     {
@@ -54,6 +55,10 @@ let enemies = [
     {
         "type": QueenAnt,
         "points": 25,
+    },
+    {
+        "type": Worm,
+        "points": 50,
     },
 ];
 
