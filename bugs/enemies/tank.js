@@ -1,15 +1,14 @@
 import { Enemy } from "../enemy.js";
 import { Hitbox } from "../hbox.js";
 
-const SIZE = 150;
-const FRACTION = 0.85;
-const SPEED = 3;
 const MAXSPEED = 3;
 
 export class Tank extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 40;
+        this.baseSpeed = 3;
+        this.speed = this.baseSpeed;
 
         this.shook = 0;
         this.targetDirection = 0;
@@ -41,8 +40,8 @@ export class Tank extends Enemy {
             this.vx *= dirp;
             this.vy *= dirp;
         }
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
+        this.x += this.speed*this.vx;
+        this.y += this.speed*this.vy;
 
         this.vx *= 0.8;
         this.vy *= 0.8;

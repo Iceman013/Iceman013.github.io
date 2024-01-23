@@ -1,12 +1,13 @@
 import { Enemy } from "../enemy.js";
 
-const SPEED = 5;
 const MAXSPEED = 5;
 
 export class Gnat extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 1;
+        this.baseSpeed = 5;
+        this.speed = this.baseSpeed;
 
         this.shook = 0;
         this.targetDirection = 0;
@@ -38,8 +39,8 @@ export class Gnat extends Enemy {
             this.vx *= dirp;
             this.vy *= dirp;
         }
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
+        this.x += this.speed*this.vx;
+        this.y += this.speed*this.vy;
 
         this.vx *= 0.8;
         this.vy *= 0.8;

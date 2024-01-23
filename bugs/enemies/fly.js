@@ -1,12 +1,13 @@
 import { Enemy } from "../enemy.js";
 
-const SPEED = 2;
 const MAXSPEED = 10;
 
 export class Fly extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 2;
+        this.baseSpeed = 2;
+        this.speed = this.baseSpeed;
 
         this.shook = 0;
         this.targetDirection = 0;
@@ -59,8 +60,8 @@ export class Fly extends Enemy {
             this.vy *= dirp;
         }
 
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
+        this.x += this.speed*this.vx;
+        this.y += this.speed*this.vy;
 
         let angle = Math.atan(this.vx/this.vy);
         if (this.vy < 0) {

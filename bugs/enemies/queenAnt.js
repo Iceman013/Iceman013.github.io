@@ -2,16 +2,16 @@ import { Enemy } from "../enemy.js";
 
 import { BabyAnt } from "./babyAnt.js";
 
-const SPEED = 1.5;
 const MAXSPEED = 10;
-const COOLDOWN = 40;
 
 export class QueenAnt extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 1;
+        this.baseSpeed = 1.5;
+        this.speed = this.baseSpeed;
 
-        this.fired = 0;
+        this.cooldownTime = 40;
         this.targetDirection = 0;
 
         this.size = 100;
@@ -22,8 +22,8 @@ export class QueenAnt extends Enemy {
     }
 
     shoot() {
-        if (this.fired >= COOLDOWN) {
-            this.fired = 0;
+        if (this.cooldown >= this.cooldownTime) {
+            this.cooldown = 0;
             let child = new BabyAnt(this.player);
             child.x = this.x;
             child.y = this.y;
@@ -47,7 +47,6 @@ export class QueenAnt extends Enemy {
     }
 
     tick() {
-        this.fired += 1;
         let distance = Math.sqrt((this.x - this.player.x)*(this.x - this.player.x) + (this.y - this.player.y)*(this.y - this.player.y));
         if (distance <= 500) {
             // Run away
@@ -63,8 +62,8 @@ export class QueenAnt extends Enemy {
             this.move();
         }
 
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
+        this.x += this.speed*this.vx;
+        this.y += this.speed*this.vy;
 
         this.vx *= 0.9;
         this.vy *= 0.9;

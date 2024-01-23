@@ -10,7 +10,18 @@ export class Enemy {
         this.vy = 0;
         this.recentHit = 5;
         this.points = 0;
+
         this.buffs = [];
+        this.buffTimers = [];
+        
+        this.baseSpeed = 1;
+        this.speed = this.baseSpeed;
+
+        this.cooldownTime = 1;
+        this.cooldown = 0;
+
+        this.armor = 0;
+        this.vulnerable = 1;
 
         // Display Stuff
         this.size = 100;
@@ -81,6 +92,26 @@ export class Enemy {
         this.hitbox.updatePosition(this.x, this.y);
     }
 
+    getHit(amount) {
+        let danger = amount - this.armor;
+        if (danger < 1) {
+            danger = 1;
+        }
+        danger *= this.vulnerable;
+        this.health -= danger;
+    }
+    cleanse() {
+        this.cooldown++;
+        this.speed = this.baseSpeed;
+        for (let i = 0; i < this.buffTimers.length; i++) {
+            this.buffTimers[i]++;
+            if (this.buffTimers[i] > this.buffs[i].time) {
+                this.buffTimers.splice(i, 1);
+                this.buffs.splice(i, 1);
+            }
+        }
+    }
+
     turn(angle) {
         this.show();
         this.base.style.transform = "rotate(" + angle + "rad)";
@@ -89,17 +120,33 @@ export class Enemy {
     }
 
     show() {
+        this.cleanse();
         this.hp.style.width = 100*this.health/this.maxhealth + "%";
         while (this.buffsS.firstChild) {
             this.buffsS.removeChild(this.buffsS.firstChild);
         }
+        let blist = [];
+        let bcount = [];
         for (let i = 0; i < this.buffs.length; i++) {
+            if (blist.indexOf(this.buffs[i]) == -1) {
+                blist.push(this.buffs[i]);
+                bcount.push(1);
+            } else {
+                bcount[blist.indexOf(this.buffs[i])] += 1;
+            }
+        }
+        for (let i = 0; i < blist.length; i++) {
             let newb = document.createElement("div");
             newb.classList.add("enemyBuff");
-            newb.style.backgroundImage = "url('imgs/buffs/" + this.buffs[i].img + "')";
+            newb.style.backgroundImage = "url('imgs/buffs/" + blist[i].img + "')";
             newb.style.width = this.size*0.25 + "px";
             newb.style.height = this.size*0.25 + "px";
             this.buffsS.appendChild(newb);
+
+            let count = document.createElement("div");
+            count.classList.add("enemyBuffCount");
+            count.innerText = bcount[i];
+            newb.appendChild(count);
         }
         this.base.style.left = this.x - (1 - this.fraction)*this.size/2 + "px";
         this.base.style.bottom = this.y - (1 - this.fraction)*this.size/2 + "px";

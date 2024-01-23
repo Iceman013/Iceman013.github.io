@@ -140,9 +140,12 @@ function tick() {
         for (let j = 0; j < bullets.length; j++) {
             if (hitting(enemies[i], bullets[j])) {
                 // On hit enemy
-                enemies[i].health -= bullets[j].damage;
+                enemies[i].getHit(bullets[j].damage);
                 for (let k = 0; k < bullets[j].buffs.length; k++) {
-                    enemies[i].buffs.push(bullets[j].buffs[k]);
+                    if (bullets[j].buffs[k].stack || enemies[i].buffs.indexOf(bullets[j].buffs[k]) == -1) {
+                        enemies[i].buffs.push(bullets[j].buffs[k]);
+                        enemies[i].buffTimers.push(0);
+                    }
                 }
                 if (player.character.id == 5) {
                     player.health += 0.5;

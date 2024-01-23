@@ -77,6 +77,11 @@
     background-size: cover;
     float: left;
 }
+.enemyBuffCount {
+    color: black;
+    transform: translate(85%, 85%);
+    font-size: small;
+}
 
 #time {
     margin-left: auto;

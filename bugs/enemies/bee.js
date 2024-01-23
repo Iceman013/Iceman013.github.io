@@ -1,17 +1,17 @@
 import { Enemy } from "../enemy.js";
 import { Bullet } from "../bullet.js";
 
-const SPEED = 2;
 const MAXSPEED = 10;
-const COOLDOWN = 20;
 
 export class Bee extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 2;
+        this.baseSpeed = 2;
+        this.speed = this.baseSpeed;
 
         this.shooting = false;
-        this.fired = 0;
+        this.cooldownTime = 20;
         this.targetDirection = 0;
 
         this.size = 100;
@@ -22,8 +22,8 @@ export class Bee extends Enemy {
     }
 
     shoot() {
-        if (this.fired >= COOLDOWN) {
-            this.fired = 0;
+        if (this.cooldown >= this.cooldownTime) {
+            this.cooldown = 0;
             new Bullet("enemyBullet", this.x + this.size*this.fraction/2, this.y + this.size*this.fraction/2, -1*Math.cos(this.targetDirection), -1*Math.sin(this.targetDirection), 40, 0.01, 0.1, 70, 10, 5, [], "thorn.svg");
         }
     }
@@ -45,7 +45,6 @@ export class Bee extends Enemy {
     }
 
     tick() {
-        this.fired += 1;
         let distance = Math.sqrt((this.x - this.player.x)*(this.x - this.player.x) + (this.y - this.player.y)*(this.y - this.player.y));
         if (distance <= 300) {
             // Run away
@@ -59,7 +58,6 @@ export class Bee extends Enemy {
             if (this.shooting) {
                 angle = -1*this.targetDirection + Math.PI/2;
             }
-            this.turn(angle);
             this.shoot();
             this.move();
         } else if (distance <= 500) {
@@ -74,7 +72,6 @@ export class Bee extends Enemy {
             if (this.shooting) {
                 angle = -1*this.targetDirection + Math.PI/2;
             }
-            this.turn(angle);
             this.shoot();
         } else {
             // Run towards
@@ -83,8 +80,8 @@ export class Bee extends Enemy {
             this.move();
         }
 
-        this.x += SPEED*this.vx;
-        this.y += SPEED*this.vy;
+        this.x += this.speed*this.vx;
+        this.y += this.speed*this.vy;
 
         this.vx *= 0.9;
         this.vy *= 0.9;

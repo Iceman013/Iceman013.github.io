@@ -1,13 +1,14 @@
 import { Enemy } from "../enemy.js";
 
-const SPEED = 100;
-const MINSPEED = 0.02;
+const MINSPEED = 0.0002;
 
 export class Rhino extends Enemy {
     constructor(player) {
         super(player);
         this.damage = 10;
         this.state = 0;
+        this.baseSpeed = 100;
+        this.speed = this.baseSpeed;
 
         this.size = 100;
         this.fraction = 0.7;
@@ -20,11 +21,11 @@ export class Rhino extends Enemy {
         if (this.state == 0) {
             let targetDirection = Math.atan((this.y - this.player.y)/(this.x - this.player.x));
             if (this.x < this.player.x) {
-                this.vx = SPEED*Math.cos(targetDirection);
-                this.vy = SPEED*Math.sin(targetDirection);
+                this.vx = Math.cos(targetDirection);
+                this.vy = Math.sin(targetDirection);
             } else {
-                this.vx = -1*SPEED*Math.cos(targetDirection);
-                this.vy = -1*SPEED*Math.sin(targetDirection);
+                this.vx = -1*Math.cos(targetDirection);
+                this.vy = -1*Math.sin(targetDirection);
             }
             this.state = 1;
         } else {
@@ -33,8 +34,8 @@ export class Rhino extends Enemy {
             }
         }
 
-        this.x += this.vx;
-        this.y += this.vy;
+        this.x += this.speed*this.vx;
+        this.y += this.speed*this.vy;
 
         this.vx *= 0.8;
         this.vy *= 0.8;

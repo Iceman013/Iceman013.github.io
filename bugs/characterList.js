@@ -1,5 +1,5 @@
 import { entityList } from "./entityList.js";
-import { buffList } from "./buffList.js";
+import { getBuff } from "./buffList.js";
 import { Bullet } from "./bullet.js";
 
 export const CHARACTERLIST = [
@@ -29,7 +29,7 @@ export const CHARACTERLIST = [
         "maxspeed": 9,
         "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
-            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 0.3, 40, 10, 40, [buffList[0]], "fire.svg");
+            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 0.3, 40, 10, 40, [getBuff("Burn")], "fire.svg");
         },
         "feral": true,
         "cooldown": 4,
@@ -45,7 +45,7 @@ export const CHARACTERLIST = [
         "maxspeed": 7,
         "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
-            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 0, 0, 0, 1000, 50, 100, [], "web.svg");
+            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 0, 0, 0, 1000, 50, 100, [getBuff("Webbed")], "web.svg");
         },
         "feral": true,
         "cooldown": 15,
@@ -78,11 +78,11 @@ export const CHARACTERLIST = [
         "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 10; i++) {
-                new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.2, 70, 10, 20, [], "goop.svg");
+                new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.3, 70, 10, 20, [], "goop.svg");
             }
         },
         "feral": false,
-        "cooldown": 20,
+        "cooldown": 40,
         "point": true,
     },
     {
@@ -95,10 +95,12 @@ export const CHARACTERLIST = [
         "maxspeed": 7,
         "slowdown": 0.6,
         shoot: function(item, xt, yt, size, fraction) {
-            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 50, [], "goop.svg");
+            for (let i = 0; i < 3; i++) {
+                new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.2, 40, 10, 20, [getBuff("Bleed")], "goop.svg");
+            }
         },
         "feral": false,
-        "cooldown": 10,
+        "cooldown": 20,
         "point": true,
     },
     {
@@ -111,7 +113,7 @@ export const CHARACTERLIST = [
         "maxspeed": 7,
         "slowdown": 0.7,
         shoot: function(item, xt, yt, size, fraction) {
-            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 40, [], "goop.svg");
+            new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 40, 0.03, 0.1, 70, 10, 40, [getBuff("Slow")], "goop.svg");
         },
         "feral": true,
         "cooldown": 4,
@@ -128,7 +130,7 @@ export const CHARACTERLIST = [
         "slowdown": 0.3,
         shoot: function(item, xt, yt, size, fraction) {
             for (let i = 0; i < 5; i++) {
-                new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40, 20, 10, [], "stink.svg");
+                new Bullet("bullet", item.x + size*fraction/2, item.y + size*fraction/2, xt - item.x, yt - item.y, 50, 0.1, 1, 40, 20, 10, [getBuff("Stink")], "stink.svg");
             }
         },
         "feral": true,

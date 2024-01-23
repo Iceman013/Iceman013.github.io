@@ -1,6 +1,5 @@
 import { Enemy } from "../enemy.js";
 
-const SPEED = 5;
 const MAXSPEED = 4;
 const TURNSPEED = 0.05;
 
@@ -8,6 +7,8 @@ export class Worm extends Enemy {
     constructor(player, length = 10, parent = null) {
         super(player);
         this.damage = 3;
+        this.baseSpeed = 5;
+        this.speed = this.baseSpeed;
         
         this.parent = parent;
         if (length - 1 > 0) {
@@ -66,8 +67,8 @@ export class Worm extends Enemy {
                 this.vx *= dirp;
                 this.vy *= dirp;
             }
-            this.x += SPEED*this.vx;
-            this.y += SPEED*this.vy;
+            this.x += this.speed*this.vx;
+            this.y += this.speed*this.vy;
         }
         let angle = Math.atan(this.vx/this.vy);
         if (this.vy < 0) {

@@ -1,7 +1,9 @@
 export class Buff {
-    constructor(name, img, effect) {
+    constructor(name, img, stack, time, effect) {
         this.name = name;
         this.img = img;
+        this.stack = stack;
+        this.time = time;
         this.effect = effect;
     }
 
