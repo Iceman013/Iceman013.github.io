@@ -4,7 +4,6 @@ import { CHARACTERLIST } from "./characterList.js";
 export let characterChoice = 0;
 
 function startup() {
-    document.addEventListener('contextmenu', event => event.preventDefault());
     document.getElementById("restart").addEventListener("click", start);
     document.getElementById("enterTitle").addEventListener("click", options);
     document.getElementById("enterOptions").addEventListener("click", game);

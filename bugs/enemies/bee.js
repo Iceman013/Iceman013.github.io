@@ -24,7 +24,7 @@ export class Bee extends Enemy {
     shoot() {
         if (this.cooldown >= this.cooldownTime) {
             this.cooldown = 0;
-            new Bullet("enemyBullet", this.x + this.size*this.fraction/2, this.y + this.size*this.fraction/2, -1*Math.cos(this.targetDirection), -1*Math.sin(this.targetDirection), 40, 0.01, 0.1, 70, 10, 5, [], "thorn.svg");
+            new Bullet("enemyBullet", this.x + this.size*this.fraction/2, this.y + this.size*this.fraction/2, -1*Math.cos(this.targetDirection), -1*Math.sin(this.targetDirection), 40, 0.01, 0.1, 70, 10, 5, [], "thorn.svg"), false;
         }
     }
     aim() {

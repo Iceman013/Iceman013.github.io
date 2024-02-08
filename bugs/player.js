@@ -3,36 +3,34 @@ import { Hitbox } from "./hbox.js";
 import { Bullet } from "./bullet.js";
 import { entityList } from "./entityList.js";
 
-const SPEED = 2;
-const MAXSPEED = 7;
-const FRICTION = 0.87;
-const SLOWDOWN = 0.6;
-const SIZE = 100;
-const FRACTION = 0.7;
-
 export class Player {
     constructor(character) {
         this.character = CHARACTERLIST[character];
+
+        this.friction = 0.87;
+        this.size = 100;
+        this.fraction = 0.7;
+
         this.x = 0;
         this.y = 0;
         this.vx = 0;
         this.vy = 0;
-        this.size = SIZE;
         this.moving = false;
         this.shooting = false;
         this.lastShot = 0;
+        this.lastTwoot = 0;
         this.maxhealth = 300;
         this.health = this.maxhealth;
 
         // Visible
         this.base = document.createElement("div");
-        this.base.style.width = SIZE + "px";
-        this.base.style.height = SIZE + "px";
+        this.base.style.width = this.size + "px";
+        this.base.style.height = this.size + "px";
         this.base.classList.add("entity");
         this.base.style.backgroundImage = "url('imgs/" + this.character.img + "')";
         document.getElementById("visible").appendChild(this.base);
 
-        this.hitbox = new Hitbox(FRACTION*SIZE, "player");
+        this.hitbox = new Hitbox(this.fraction*this.size, "player");
     }
 
     // Move
@@ -41,10 +39,10 @@ export class Player {
         this.vx += xpos;
         this.vy += ypos;
         if (xpos == 0) {
-            this.vx *= FRICTION;
+            this.vx *= this.friction;
         }
         if (ypos == 0) {
-            this.vy *= FRICTION;
+            this.vy *= this.friction;
         }
         this.tick();
     }
@@ -76,14 +74,14 @@ export class Player {
         if (this.x < 0) {
             this.x = 0;
         }
-        if (this.x > window.screen.availWidth - SIZE*FRACTION) {
-            this.x = window.screen.availWidth - SIZE*FRACTION;
+        if (this.x > window.screen.availWidth - this.size*this.fraction) {
+            this.x = window.screen.availWidth - this.size*this.fraction;
         }
         if (this.y < 0) {
             this.y = 0;
         }
-        if (this.y > document.getElementById("game").clientHeight - SIZE*FRACTION) {
-            this.y = document.getElementById("game").clientHeight - SIZE*FRACTION;
+        if (this.y > document.getElementById("game").clientHeight - this.size*this.fraction) {
+            this.y = document.getElementById("game").clientHeight - this.size*this.fraction;
         }
 
         if (this.shooting) {
@@ -97,16 +95,16 @@ export class Player {
             this.turn();
         }
 
-        this.base.style.left = this.x - (1 - FRACTION)*SIZE/2 + "px";
-        this.base.style.bottom = this.y - (1 - FRACTION)*SIZE/2 + "px";
+        this.base.style.left = this.x - (1 - this.fraction)*this.size/2 + "px";
+        this.base.style.bottom = this.y - (1 - this.fraction)*this.size/2 + "px";
         this.hitbox.updatePosition(this.x, this.y);
 
         this.lastShot++;
+        this.lastTwoot++;
     }
 
-    // Shoot at (xt, yt)
-    shoot(xt, yt) {
-        this.shooting = true;
+    // Aim at (xt, yt) before shooting
+    aim(xt, yt) {
         if (this.character.point) {
             let angle = Math.atan((xt - this.x)/(yt - this.y));
             if (yt - this.y < 0) {
@@ -114,10 +112,24 @@ export class Player {
             }
             this.base.style.transform = "rotate(" + angle + "rad)";
         }
+    }
+
+    // Shoot at (xt, yt)
+    shoot(xt, yt) {
+        this.shooting = true;
+        this.aim(xt, yt);
 
         if (this.lastShot >= this.character.cooldown) {
-            this.character.shoot(this, xt, yt, SIZE, FRACTION);
+            this.character.shoot(this, xt, yt, this.size, this.fraction);
             this.lastShot = 0;
+        }
+    }
+
+    // M2 Attack
+    twoot(xt, yt) {
+        if (this.lastTwoot >= this.character.twodown) {
+            this.character.twoot(this, xt, yt);
+            this.lastTwoot = 0;
         }
     }
 }
