@@ -22,8 +22,7 @@ export const buffList = [
     }),
     new Buff("Stink", "stink.svg", true, 50, function(enemy) {
         enemy.cooldown -= 1;
-        enemy.vx = 0;
-        enemy.vy = 0;
+        enemy.speed = enemy.speed*Math.random(0, 1);
     }),
     new Buff("Stunned", "zap.svg", false, 200, function(enemy) {
         enemy.speed = 0;

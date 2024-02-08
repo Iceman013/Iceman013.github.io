@@ -21,6 +21,7 @@ export class Player {
         this.lastTwoot = 0;
         this.maxhealth = 300;
         this.health = this.maxhealth;
+        this.dashing = 0;
 
         // Visible
         this.base = document.createElement("div");
@@ -63,11 +64,14 @@ export class Player {
         }
         document.getElementById("health").style.width = Math.max(100*this.health/this.maxhealth, 0) + "%";
 
-        if (this.vx*this.vx + this.vy*this.vy >= this.character.maxspeed*this.character.maxspeed) {
-            let dirp = this.character.maxspeed*this.character.maxspeed/(this.vx*this.vx + this.vy*this.vy);
-            this.vx *= dirp;
-            this.vy *= dirp;
+        if (this.dashing >= 10) {
+            if (this.vx*this.vx + this.vy*this.vy >= this.character.maxspeed*this.character.maxspeed) {
+                let dirp = this.character.maxspeed*this.character.maxspeed/(this.vx*this.vx + this.vy*this.vy);
+                this.vx *= dirp;
+                this.vy *= dirp;
+            }
         }
+        this.dashing++;
         this.x += this.character.speed*this.vx;
         this.y += this.character.speed*this.vy;
 
@@ -116,12 +120,14 @@ export class Player {
 
     // Shoot at (xt, yt)
     shoot(xt, yt) {
-        this.shooting = true;
-        this.aim(xt, yt);
+        if (this.dashing >= 10) {
+            this.shooting = true;
+            this.aim(xt, yt);
 
-        if (this.lastShot >= this.character.cooldown) {
-            this.character.shoot(this, xt, yt, this.size, this.fraction);
-            this.lastShot = 0;
+            if (this.lastShot >= this.character.cooldown) {
+                this.character.shoot(this, xt, yt, this.size, this.fraction);
+                this.lastShot = 0;
+            }
         }
     }
 
