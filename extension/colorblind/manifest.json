@@ -9,7 +9,12 @@
     
     "author": "Bret",
     
-    "permissions": ["storage", "activeTab", "scripting", "declarativeContent"],
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "declarativeContent"
+    ],
     
     "host_permissions": ["https://www.developer.chrome.com/*"],
 

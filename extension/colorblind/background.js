@@ -1,5 +1,5 @@
 function read(blindness) {
-    var output = "";
+    let output = "";
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < blindness[i].length; j++) {
             output += blindness[i][j].toString() + " ";
@@ -13,12 +13,12 @@ function prepareFilters() {
     if (document.getElementsByTagName("svg").length == 0) {
         document.body.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'svg'));
     }
-    var svg = document.getElementsByTagName("svg")[0];
+    let svg = document.getElementsByTagName("svg")[0];
     for (let i = 0; i < blinders.length; i++) {
         svg.innerHTML = svg.innerHTML + '\n\t\t<filter id="' + blinders[i].name + '">\n\t\t\t<feColorMatrix type="matrix" values="' + read(blinders[i].effect) + '"></feColorMatrix>\n\t\t</filter>\n\t';
     }
 
-    var style = document.createElement("style");
+    let style = document.createElement("style");
     style.textContent = "";
     for (let i = 0; i < blinders.length; i++) {
         style.textContent += '\n\t\t.' + blinders[i].name + ' {\n\t\t\tfilter: url(#' + blinders[i].name + ');\n\t\t}\n\t';

@@ -1,4 +1,4 @@
-var blinders = [
+const blinders = [
     new Blind("Normal", "normal", [[1, 0, 0],[0, 1, 0],[0, 0, 1]]),
 
     new Blind("Protanomaly", "protanomaly-blindness-filter", [[0.152286, 1.052583, -0.204868],[0.114503, 0.786281, 0.099216],[-0.003882, -0.048116, 1.051998]]),

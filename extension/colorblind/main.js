@@ -1,4 +1,4 @@
-var butFun = [
+let butFun = [
     function() {blind(0)},
     function() {blind(1)},
     function() {blind(2)},
@@ -9,14 +9,14 @@ var butFun = [
 
 function clearButtons() {
     for (let i = 0; i < blinders.length; i++) {
-        var base = document.getElementById(blinders[i].tag);
+        let base = document.getElementById(blinders[i].tag);
         base.classList.remove("active");
     }
 }
 
 function makeButtons() {
     for (let i = 0; i < blinders.length; i++) {
-        var button = document.createElement("button");
+        let button = document.createElement("button");
         button.id = blinders[i].tag;
         button.innerHTML = blinders[i].tag;
         button.classList.add("mode");
@@ -35,7 +35,7 @@ function makeButtons() {
             this.classList.add("active");
         });
 
-        button.addEventListener("click", async () => {
+        button.addEventListener("click", async function() {
             let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
             chrome.scripting.executeScript({
                 target: { tabId: tab.id },
