@@ -11,7 +11,12 @@ function read(blindness) {
 }
 function prepareFilters() {
     if (document.getElementsByTagName("svg").length == 0) {
-        document.body.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'svg'));
+        let newSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        newSVG.style.display = "none";
+        newSVG.style.width = "0px";
+        newSVG.style.height = "0px";
+        newSVG.style.position = "absolute";
+        document.body.appendChild(newSVG);
     }
     let svg = document.getElementsByTagName("svg")[0];
     for (let i = 0; i < blinders.length; i++) {
@@ -36,8 +41,9 @@ function changeFilter(type, element, mode) {
 function blind(type) {
     chrome.storage.sync.set({choice: type}, function() {
         console.log("Value is set to " + type);
-    })
-    changeFilter(type, document.getElementsByTagName("html")[0], true);
+    });
+    changeFilter(type, document.documentElement, true);
+    document.documentElement.style.height = "100vh";
 }
 function obscure(element, mode) {
     chrome.storage.sync.get(['choice'], function(result) {
