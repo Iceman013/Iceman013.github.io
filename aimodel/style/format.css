@@ -2,7 +2,33 @@
     font-family: "Alata";
     box-sizing: border-box;
 }
+body {
+    background-color: red;
+}
 
 .hidden {
     display: none;
+}
+
+.link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.bigButton {
+    border-radius: 50vh;
+    background-color: #0047FF;
+    border: none;
+    color: white;
+    padding: 0.4em 1em;
+    font-size: large;
+    cursor: pointer;
+}
+
+.imageDisplay {
+    height: 90vh;
+}
+img {
+    height: 100%;
 }

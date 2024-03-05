@@ -30,3 +30,10 @@ function handlePages() {
     showPage(0);
 }
 handlePages();
+
+function makeNewImage() {
+    let base = document.getElementById("image");
+    base.src = "https://thispersondoesnotexist.com/";
+}
+
+document.getElementById("refresh").addEventListener("click", makeNewImage);
