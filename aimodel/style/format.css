@@ -3,7 +3,8 @@
     box-sizing: border-box;
 }
 body {
-    background-color: red;
+    background-color: #002040;
+    color: aliceblue;
 }
 
 .hidden {
@@ -29,11 +30,21 @@ body {
 .display {
     height: 80vh;
     width: 100%;
-    display: grid;
+    display: flex;
 }
 
 .image {
     height: 100%;
     background-size: cover;
     pointer-events: none;
+}
+
+.controls {
+    padding: 0 0.8em;
+}
+
+td {
+    width: 20%;
+    padding: 0.2em 1em;
+    text-align: center;
 }
