@@ -29,11 +29,26 @@ function handlePages() {
 
     showPage(0);
 }
-handlePages();
 
-function makeNewImage() {
-    let base = document.getElementById("image");
-    base.src = "https://thispersondoesnotexist.com/";
+function addNewImage() {
+    // let url = "https://100k-faces.glitch.me/random-image";
+    let url = "https://thispersondoesnotexist.com/";
+    let base = document.getElementById("images");
+
+    let img = document.createElement("img");
+    img.classList.add("image");
+    img.id = "chosenImage";
+
+    if (!base.firstChild) {
+        base.appendChild(img);
+    }
+
+    document.getElementById("chosenImage").src = url;
 }
+function main() {
+    handlePages();
+    addNewImage();
 
-document.getElementById("refresh").addEventListener("click", makeNewImage);
+    document.getElementById("submit").addEventListener("click", addNewImage);
+}
+main();

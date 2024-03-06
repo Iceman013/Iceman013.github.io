@@ -26,9 +26,14 @@ body {
     cursor: pointer;
 }
 
-.imageDisplay {
-    height: 90vh;
+.display {
+    height: 80vh;
+    width: 100%;
+    display: grid;
 }
-img {
+
+.image {
     height: 100%;
+    background-size: cover;
+    pointer-events: none;
 }
