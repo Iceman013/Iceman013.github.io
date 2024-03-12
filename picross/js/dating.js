@@ -3,7 +3,7 @@ import { Conditions } from "./chatClasses/conditions.js";
 import { PLOT } from "./story/plot.js";
 import { DIALOGUE } from "./story/dialogue.js";
 
-import { getBackground } from "./assets/assets.js";
+import { getBackground, getCharacter } from "./assets/assets.js";
 
 let player;
 
@@ -139,7 +139,7 @@ function displayChat(chat) {
         document.getElementById("character").style.display = "none";
     } else {
         document.getElementById("character").style.display = "block";
-        let charUrl = chat.character;
+        let charUrl = getCharacter(chat.character, chat.emotion);
         document.getElementById("profile").src = charUrl;
     }
 

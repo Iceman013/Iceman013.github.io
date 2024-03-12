@@ -8,7 +8,7 @@ export const WIN = -3;
 
 export const PLOT = [
     // System messages
-    new Chat(-5, "none", "none", "none",
+    new Chat(-5, "night", "none", "none",
     new Conditions(),
     "You went home after school and went to bed.",
     [
@@ -16,7 +16,7 @@ export const PLOT = [
         new Popular(),
         new Conditions(0,0,0, ["Class 1"])),
     ]),
-    
+
     new Chat(-4, "none", "none", "none",
     new Conditions(),
     "Section not made. Check loose ends.",
