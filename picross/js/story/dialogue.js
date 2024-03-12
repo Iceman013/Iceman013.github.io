@@ -6,7 +6,8 @@ import { Conditions } from "../chatClasses/conditions.js";
 import { UNDONE, WIN } from "./plot.js";
 
 export const DIALOGUE = [
-    // Class 1 Day 1
+    // Day 1
+    // Class 1
     new Chat(1, "class1", "Ladybug", "none",
     new Conditions(0,0,1, ["Class 1"]),
     "Today we will be discussing Zambian rock.",
@@ -26,6 +27,7 @@ export const DIALOGUE = [
 
 
 
+    // Cafeteria
     new Chat(3, "cafeteria", "none", "none",
     new Conditions(0,0,1, ["Cafeteria"]),
     "Where do you want to sit?",
@@ -41,4 +43,25 @@ export const DIALOGUE = [
         new Popular(),
         new Conditions(0,0,0, ["Class 2"])),
     ]),
+
+
+
+    // Class 2
+    new Chat(5, "class2", "Queen Bee", "none",
+    new Conditions(0,0,1, ["Class 2"]),
+    "Grab your pencils and get ready for our topic today. It's nonograms.",
+    [
+        new ChatTarget(6, "Pay attention"),
+    ],
+    2),
+
+    new Chat(6, "class2", "Queen Bee", "none",
+    new Conditions(),
+    "Nonograms, also known as Hanjie, Paint by Numbers, Picross, Griddlers, and Pic-a-Pix are picture logic puzzles in which cells in a grid must be colored or left blank according to numbers at the edges of the grid to reveal a hidden picture.",
+    [
+        new ChatTarget(-1, "Keep paying attention",
+        new Popular(0,0,0,0,0.2,0,0.1,0,0,0,0,0,0,0,0,0.1),
+        new Conditions(0,0,0, ["Post C2"])),
+    ],
+    2),
 ];

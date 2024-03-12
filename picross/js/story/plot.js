@@ -8,6 +8,15 @@ export const WIN = -3;
 
 export const PLOT = [
     // System messages
+    new Chat(-5, "none", "none", "none",
+    new Conditions(),
+    "You went home after school and went to bed.",
+    [
+        new ChatTarget(-1, "Continue",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 1"])),
+    ]),
+    
     new Chat(-4, "none", "none", "none",
     new Conditions(),
     "Section not made. Check loose ends.",
@@ -167,7 +176,7 @@ export const PLOT = [
         new ChatTarget(16, "Hi. I'm {name}."),
         new ChatTarget(16, "Some of these bugs have already met me. I'm {name}.",
         new Popular(0,0,0,0,-0.2,0,-0.1,0,0,-0.1,-0.1,0,-0.1,0,0,-0.1)),
-        new ChatTarget(15, "Howdy. I'm {name}. Nice to meet you. I'm happy to BEE here.",
+        new ChatTarget(15, "Howdy. I'm {name}. Nice to meet you. I'm happy to <i>BEE</i> here.",
         new Popular(0,-0.1,0,0,0.5,0,0,0,0.1,0,0,0,0,0,0,0)),
     ]),
 
@@ -198,4 +207,26 @@ export const PLOT = [
         new Popular(),
         new Conditions(0,0,0, ["Class 2"])),
     ]),
+
+
+
+    // Post class 2
+    new Chat(18, "class2", "Queen Bee", "none",
+    new Conditions(0,0,0, ["Post C2"]),
+    "That'll <i>BEE</i> it for today.",
+    [
+        new ChatTarget(-1, "Leave class",
+        new Popular(),
+        new Conditions(0,0,0, ["After School"])),
+    ]),
+
+
+
+    // After School
+    new Chat(19, "hallway", "none", "none",
+    new Conditions(0,0,0, ["After School"]),
+    "Where would you like to go?",
+    [
+        new ChatTarget(-1, "Home")
+    ])
 ];

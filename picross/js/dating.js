@@ -3,12 +3,14 @@ import { Conditions } from "./chatClasses/conditions.js";
 import { PLOT } from "./story/plot.js";
 import { DIALOGUE } from "./story/dialogue.js";
 
+import { getBackground } from "./assets/assets.js";
+
 let player;
 
 function createPlayer() {
     player = {
         "name": "Bert",
-        "conditions": new Conditions(-1, -1, 0),
+        "conditions": new Conditions(-1, -1, 1),
         "story": "plot",
     };
 }
@@ -54,6 +56,10 @@ function meetConditions(cona, conb) {
         }
     }
 
+    if (cona.day != conb.day && conb.day != 0) {
+        out = false;
+    }
+
     return out;
 }
 
@@ -89,8 +95,12 @@ function chooseAnswer(chatTarget) {
                     player.story = "dialogue";
                     displayChat(DIALOGUE[i]);
                     i = DIALOGUE.length;
+                    inPlot = true;
                 }
             }
+        }
+        if (!inPlot) {
+            displayChat(getChat("plot", -4));
         }
     } else {
         if (player.story == "plot") {
@@ -118,11 +128,20 @@ function addAnswerChoice(chatTarget) {
 }
 
 function displayChat(chat) {
-    let url = chat.background;
+    if (chat.id == -5) {
+        player.conditions.day++;
+    }
+
+    let url = getBackground(chat.background);
     document.getElementById("dating").style.backgroundImage = "url('" + url + "')";
 
-    let charUrl = chat.character;
-    document.getElementById("profile").src = charUrl;
+    if (chat.character == "none") {
+        document.getElementById("character").style.display = "none";
+    } else {
+        document.getElementById("character").style.display = "block";
+        let charUrl = chat.character;
+        document.getElementById("profile").src = charUrl;
+    }
 
     let name = chat.character;
     if (name == "none") {
