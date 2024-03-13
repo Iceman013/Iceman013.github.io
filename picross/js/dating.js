@@ -6,6 +6,8 @@ import { DIALOGUE } from "./story/dialogue.js";
 
 import { getBackground, getCharacter, getCharacterEmotionUrl } from "./assets/assets.js";
 
+let SPEED = true;
+
 let player;
 
 function createPlayer() {
@@ -127,6 +129,10 @@ async function showText(text, base) {
     return await new Promise(resolve => {
         let splitText = text.split(" ");
         let i = 0;
+        let timer = 85;
+        if (SPEED) {
+            timer = 1;
+        }
         const interval = setInterval(function() {
             if (i < splitText.length) {
                 if (!splitText[i].includes("{stall}")) {
@@ -137,7 +143,7 @@ async function showText(text, base) {
                 clearInterval(interval);
             }
             i++;
-        }, 85);
+        }, timer);
     })
 }
 
