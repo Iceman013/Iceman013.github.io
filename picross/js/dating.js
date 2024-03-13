@@ -6,7 +6,7 @@ import { DIALOGUE } from "./story/dialogue.js";
 
 import { getBackground, getCharacter, getCharacterEmotionUrl } from "./assets/assets.js";
 
-let SPEED = true;
+let SPEED = false;
 
 let player;
 
