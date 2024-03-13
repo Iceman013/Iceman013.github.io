@@ -117,6 +117,10 @@
     cursor: pointer;
     line-height: var(--pixel-height);
 }
+.dialogue-button i, b {
+    font-family: var(--pixel-font);
+    line-height: var(--pixel-height);
+}
 #dialogue-options button:hover {
     background-color: grey;
 }
