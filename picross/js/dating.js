@@ -1,5 +1,6 @@
 import { Conditions } from "./chatClasses/conditions.js";
 
+import { intro } from "./story/intro.js";
 import { PLOT } from "./story/plot.js";
 import { DIALOGUE } from "./story/dialogue.js";
 
@@ -224,9 +225,14 @@ async function transitionScreen(newBackground) {
     })
 }
 
+function doIntro() {
+    player.name = window.prompt("What is your name?", "Bert");
+}
+
 export function startDating() {
     document.getElementById("dating-container").style.display = "block";
 
     createPlayer();
+    doIntro();
     displayChat(getChat(player.story, 0));
 }
