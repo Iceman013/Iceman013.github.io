@@ -8,7 +8,7 @@ export const WIN = -3;
 
 export const PLOT = [
     // System messages
-    new Chat(-5, "night", "none", "none",
+    new Chat(-5, "night", "none", "none", "normal",
     new Conditions(),
     "You went home after school and went to bed.",
     [
@@ -17,22 +17,22 @@ export const PLOT = [
         new Conditions(0,0,0, ["Class 1"])),
     ]),
 
-    new Chat(-4, "none", "none", "none",
+    new Chat(-4, "none", "none", "none", "normal",
     new Conditions(),
     "Section not made. Check loose ends.",
     []),
 
-    new Chat(-3, "none", "none", "none",
+    new Chat(-3, "none", "none", "none", "normal",
     new Conditions(),
     "Character specific path. Not yet finished",
     []),
 
-    new Chat(-2, "none", "none", "none",
+    new Chat(-2, "none", "none", "none", "normal",
     new Conditions(),
     "It seems you were not able to make any romantic relationships.",
     []),
 
-    new Chat(-1, "none", "none", "none",
+    new Chat(-1, "none", "none", "none", "normal",
     new Conditions(),
     "If you are reading this, there is an error. This is transition state.",
     []),
@@ -40,14 +40,14 @@ export const PLOT = [
 
 
     // Intro sequence
-    new Chat(0, "none", "none", "none",
+    new Chat(0, "none", "none", "none", "normal",
     new Conditions(),
     "You begin your new school year at Bug School, a place of higher education with students all above the age of 21.\nAlthough the school demographics are weirdly female heavy, you feel like this will be a great place to meet new people and make new friends.",
     [
         new ChatTarget(1, "Continue"),
     ]),
 
-    new Chat(1, "none", "none", "none",
+    new Chat(1, "none", "none", "none", "normal",
     new Conditions(),
     "Or maybe more than friends {stall} {stall} {stall} {stall} . {stall} {stall} {stall} {stall} . {stall} {stall} {stall} {stall} .",
     [
@@ -59,7 +59,7 @@ export const PLOT = [
 
 
     // First day of class 1
-    new Chat(2, "class1", "Ladybug", "none",
+    new Chat(2, "class1", "Ladybug", "none", "normal",
     new Conditions(-1,0,1, ["Class 1"]),
     "Welcome to class new student. Introduce yourself.",
     [
@@ -71,21 +71,21 @@ export const PLOT = [
         new Popular(0.3,0,0,0,0,0,0,0,0,0,0,0,0,-0.1,0,0)),
     ]),
 
-    new Chat(3, "class1", "Ladybug", "angry",
+    new Chat(3, "class1", "Ladybug", "angry", "normal",
     new Conditions(),
     "That is no way to introduce yourself.",
     [
         new ChatTarget(5, "Continue"),
     ]),
 
-    new Chat(4, "class1", "Ladybug", "angry",
+    new Chat(4, "class1", "Ladybug", "angry", "normal",
     new Conditions(),
     "Try being more polite next time.",
     [
         new ChatTarget(5, "Continue"),
     ]),
 
-    new Chat(5, "class1Layout", "none", "none",
+    new Chat(5, "class1Layout", "none", "none", "normal",
     new Conditions(),
     "Pick a seat.",
     [
@@ -97,7 +97,7 @@ export const PLOT = [
         new Conditions(2)),
     ]),
 
-    new Chat(6, "class1", "none", "none",
+    new Chat(6, "class1", "none", "none", "normal",
     new Conditions(),
     "Wow. You're a main character huh?",
     [
@@ -109,7 +109,7 @@ export const PLOT = [
 
 
     // Post class 1
-    new Chat(7, "class1", "Ladybug", "none",
+    new Chat(7, "class1", "Ladybug", "none", "normal",
     new Conditions(0,0,0, ["Post C1"]),
     "And that concludes our lecture.",
     [
@@ -121,7 +121,7 @@ export const PLOT = [
 
 
     // Lunch
-    new Chat(10, "hallway", "none", "none",
+    new Chat(10, "hallway", "none", "none", "normal",
     new Conditions(0,0,0, ["Hallway", "Lunch"]),
     "What do you want to do during lunch break?",
     [
@@ -131,7 +131,7 @@ export const PLOT = [
         new ChatTarget(11, "Explore the halls"),
     ]),
 
-    new Chat(11, "hallway", "none", "none",
+    new Chat(11, "hallway", "none", "none", "normal",
     new Conditions(),
     "Where would you like to go?",
     [
@@ -153,7 +153,7 @@ export const PLOT = [
 
 
     // First day of class 2
-    new Chat(12, "class2", "Queen Bee", "happy",
+    new Chat(12, "class2", "Queen Bee", "happy", "normal",
     new Conditions(0,-1,1, ["Class 2"]),
     "Howdy new student. Welcome to our little hive.",
     [
@@ -162,14 +162,14 @@ export const PLOT = [
         new Popular(0,-0.1,0,0,0.3,0,0.1,0,0.1,0,0,0,0,0,0.1,0)),
     ]),
 
-    new Chat(13, "class2", "Queen Bee", "happy",
+    new Chat(13, "class2", "Queen Bee", "happy", "normal",
     new Conditions(),
     "It seems you have a great sense of humor.",
     [
         new ChatTarget(14, "Continue"),
     ]),
 
-    new Chat(14, "class2", "Queen Bee", "happy",
+    new Chat(14, "class2", "Queen Bee", "happy", "normal",
     new Conditions(),
     "Introduce yourself to the rest of the class honey.",
     [
@@ -180,14 +180,14 @@ export const PLOT = [
         new Popular(0,-0.1,0,0,0.5,0,0,0,0.1,0,0,0,0,0,0,0)),
     ]),
 
-    new Chat(15, "class2", "Queen Bee", "very_happy",
+    new Chat(15, "class2", "Queen Bee", "very_happy", "normal",
     new Conditions(),
     "Great pun! Oh that was hillarious. I'm super happy to have you join us this year.",
     [
         new ChatTarget(16, "Continue"),
     ]),
 
-    new Chat(16, "class2Layout", "none", "none",
+    new Chat(16, "class2Layout", "none", "none", "normal",
     new Conditions(),
     "Pick a seat",
     [
@@ -199,7 +199,7 @@ export const PLOT = [
         new Conditions(0,2)),
     ]),
 
-    new Chat(17, "class2", "none", "none",
+    new Chat(17, "class2", "none", "none", "normal",
     new Conditions(),
     "Real original",
     [
@@ -211,7 +211,7 @@ export const PLOT = [
 
 
     // Post class 2
-    new Chat(18, "class2", "Queen Bee", "none",
+    new Chat(18, "class2", "Queen Bee", "none", "normal",
     new Conditions(0,0,0, ["Post C2"]),
     "That'll <i>BEE</i> it for today.",
     [
@@ -223,7 +223,7 @@ export const PLOT = [
 
 
     // After School
-    new Chat(19, "hallway", "none", "none",
+    new Chat(19, "hallway", "none", "none", "normal",
     new Conditions(0,0,0, ["After School"]),
     "Where would you like to go?",
     [

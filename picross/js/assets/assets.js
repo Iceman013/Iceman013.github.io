@@ -1,6 +1,7 @@
 import { Background } from "./background.js";
 import { Emotion } from "./emotion.js";
 import { Character } from "./character.js";
+import { Music } from "./music.js";
 
 const BACKGROUNDS = [
     new Background(1, "Class 1", "class1", "backgrounds/class1.jpg"),
@@ -102,4 +103,33 @@ export function getCharacterEmotionUrl(name, emotion) {
     }
     let url = "images/characters/" + character.folder + "/" + fancyE.url;
     return url;
+}
+
+export const MUSIC = [
+    new Music(1, "Netherplace", "normal", "Netherplace_Looping.mp3"),
+    new Music(2, "Intro", "intro", "RPG-Intro_v001_Looping.mp3"),
+    new Music(3, "Happy-Lazy", "calm", "happy-lazy-loop-109007.mp3"),
+];
+
+/**
+ * 
+ * @param {String} mood 
+ * @returns 
+ */
+export function getMusic(mood) {
+    let defalt;
+    let out;
+    for (let i = 0; i < MUSIC.length; i++) {
+        if (MUSIC[i].mood == "normal") {
+            defalt = MUSIC[i];
+        }
+        if (MUSIC[i].mood == mood) {
+            out = MUSIC[i];
+            i = MUSIC.length;
+        }
+    }
+    if (out == null) {
+        out = defalt;
+    }
+    return out;
 }

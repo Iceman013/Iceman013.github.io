@@ -4,7 +4,9 @@ import { intro } from "./story/intro.js";
 import { PLOT } from "./story/plot.js";
 import { DIALOGUE } from "./story/dialogue.js";
 
-import { getBackground, getCharacter, getCharacterEmotionUrl } from "./assets/assets.js";
+import { Music } from "./assets/music.js";
+
+import { getBackground, getCharacter, getCharacterEmotionUrl, getMusic, MUSIC } from "./assets/assets.js";
 
 let SPEED = false;
 
@@ -176,6 +178,8 @@ async function displayChat(chat) {
     }
     document.getElementById("dating").style.backgroundImage = "url('" + url + "')";
 
+    playMusic(chat.mood);
+
     if (chat.character == "none") {
         document.getElementById("character").style.display = "none";
     } else {
@@ -232,13 +236,46 @@ async function transitionScreen(newBackground) {
 }
 
 function doIntro() {
+    playMusic("intro");
     player.name = window.prompt("What is your name?", "Bert");
+}
+
+function clearMusic() {
+    let base = document.getElementById("audioCorner");
+    while (base.firstChild) {
+        base.removeChild(base.firstChild);
+    }
+
+    for (let i = 0; i < MUSIC.length; i++) {
+        let audio = document.createElement("audio");
+        base.appendChild(audio);
+        audio.volume = 0;
+        audio.type = "audio/mpeg";
+        audio.src = "music/" + MUSIC[i].url;
+        audio.id = "music_" + MUSIC[i].name;
+        audio.autoplay = true;
+        audio.loop = true;
+    }
+}
+
+function playMusic(mood) {
+    let targetMood = getMusic(mood);
+    for (let i = 0; i < MUSIC.length; i++) {
+        let audio = document.getElementById("music_" + MUSIC[i].name);
+        if (MUSIC[i].mood != targetMood.mood) {
+            audio.volume = 0;
+        }
+    }
+
+    let newA = document.getElementById("music_" + targetMood.name);
+    newA.volume = 1;
 }
 
 export function startDating() {
     document.getElementById("dating-container").style.display = "block";
 
     createPlayer();
+    clearMusic();
     doIntro();
     displayChat(getChat(player.story, 0));
 }
