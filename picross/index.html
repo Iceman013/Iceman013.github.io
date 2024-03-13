@@ -12,12 +12,34 @@
         <link rel="icon" type="image/x-icon" href="../main/images/lobster.png">
 
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+        <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
 
         <!-- My format -->
         <link rel="stylesheet" type="text/css" href="style/format.css"/>
+        <link rel="stylesheet" type="text/css" href="style/welcome.css"/>
         <link rel="stylesheet" type="text/css" href="style/dating.css"/>
     </head>
     <body>
+        <div id="welcome">
+            <div id="titlebox">
+                <h1 id="title">The LoveBug Puzzle</h1>
+                <h2>Where the real puzzle is finding love</h2>
+                <h3>Also Picross</h3>
+            </div>
+            <div id="welcome-description">
+                <h4>No peaking David or Trinta or Jon</h4>
+                <h5>
+                    This is a project made by me in a game creation challenge.
+                    The theme is "bugs picross dating sim" so this is what I made.
+                    I didn't come up with the theme so don't blame me for this being really weird.
+                </h5>
+                <h6>Gotta use all header sizes</h6>
+            </div>
+            <div id="gamemode">
+                <button id="beginDating">Dating Sim</button>
+                <button id="picross">Picross</button>
+            </div>
+        </div>
         <div id="dating-container">
             <div id="dating">
                 <div id="dialogue">
@@ -25,8 +47,10 @@
                         <img id="profile">
                     </div>
                     <div id="dialogue-options"></div>
-                    <text id="character-name"></text>
-                    <text id="text"></text>
+                    <div id="im-talking">
+                        <text id="character-name"></text>
+                        <text id="text"></text>
+                    </div>
                 </div>
             </div>
         </div>

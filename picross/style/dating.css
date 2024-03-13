@@ -3,6 +3,8 @@
         0px 0px 0.2em 0.1em blue,
         0px 0px 0.1em 0.55em lightblue,
         0px 0px 0px 0.7em blue;
+    --pixel-font: "Public Pixel", sans-serif;
+    --pixel-height: 1.75;
 }
 
 #dating {
@@ -27,23 +29,29 @@
     position: relative;
     align-self: flex-end;
     margin: 3vw;
-    padding: 2em;
+    padding: 1em 2em;
 
     background-color: black;
     border-radius: 10px;
     box-shadow: var(--pmd);
 
     color: white;
+    font-family: var(--pixel-font);
     font-size: larger;
 
     display: none;
+}
+
+#im-talking {
+    height: 100%;
+    overflow-y: auto;
 }
 
 #character {
     position: absolute;
     width: 30%;
     aspect-ratio: 1;
-    bottom: calc(100% - 1em);
+    bottom: 100%;
     left: 2em;
 
     border-radius: 10px;
@@ -63,14 +71,27 @@
 #character-name {
     color: cyan;
     padding-right: 0.5em;
+
+    font-family:var(--pixel-font);
 }
 #character-name::after {
     content: ":";
+    font-family: var(--pixel-font);
+}
+
+#text {
+    font-family: var(--pixel-font);
+    line-height: var(--pixel-height);
+}
+#text i, b {
+    font-family: var(--pixel-font);
+    line-height: var(--pixel-height);
 }
 
 #dialogue-options {
     position: absolute;
     width: 30%;
+    max-height: 50vh;
     bottom: calc(100% + 5em);
     right: 0px;
     padding: 0.5em;
@@ -80,17 +101,21 @@
     box-shadow: var(--pmd);
 
     display: none;
+    overflow-y: auto;
 }
 
-#dialogue-options button {
+.dialogue-button {
+    width: calc(100% - 1em);
+    margin: 0.5em;
+    
     background-color: #00000000;
     border: none;
     color: white;
+    font-family: var(--pixel-font);
     font-size: inherit;
-    width: 100%;
     text-align: left;
-    margin: 0.2em;
     cursor: pointer;
+    line-height: var(--pixel-height);
 }
 #dialogue-options button:hover {
     background-color: grey;

@@ -49,7 +49,7 @@ export const PLOT = [
 
     new Chat(1, "none", "none", "none",
     new Conditions(),
-    "Or maybe more than friends. . .",
+    "Or maybe more than friends {stall} {stall} {stall} {stall} . {stall} {stall} {stall} {stall} . {stall} {stall} {stall} {stall} .",
     [
         new ChatTarget(-1, "Begin your day",
         new Popular(),

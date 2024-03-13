@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "Love-Letters";
+    src:
+        url('../fonts/loveLetters.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url('../fonts/loveLetters.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+:root {
+    --heart: red;
+}
+
+#titlebox {
+    margin: 6em;
+    text-align: center;
+}
+#title {
+    font-family: "Love-Letters";
+    font-size: 5em;
+}
+
+#welcome-description {
+    margin: 3em;
+    text-align: center;
+}
+
+#gamemode {
+    margin: 6em;
+    display: flex;
+    justify-content: center;
+    column-gap: 200px;
+}
+
+#gamemode button {
+    padding: 1em;
+    font-size: x-large;
+    font-weight: 600;
+    cursor: pointer;
+
+    background-color: hotpink;
+    border: 1px solid black;
+    border-radius: 0.2em;
+}
+#gamemode button:hover {
+    filter: brightness(85%);
+}

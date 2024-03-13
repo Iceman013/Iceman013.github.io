@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
-#dating-container {
+#welcome {
     display: block;
+}
+
+#dating-container {
+    display: none;
 }

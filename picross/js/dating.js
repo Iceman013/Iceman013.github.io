@@ -64,7 +64,6 @@ function meetConditions(cona, conb) {
 }
 
 function chooseAnswer(chatTarget) {
-    console.log(chatTarget);
     // Change personal data
     let newConditions = chatTarget.conditionChange;
     if (player.conditions.classA == -1 && newConditions.classA != 0) {
@@ -76,7 +75,6 @@ function chooseAnswer(chatTarget) {
     if (chatTarget.target == -1) {
         player.conditions.events = newConditions.events;
     }
-    console.log(player.conditions);
 
     // Show next message
     if (chatTarget.target == -1) {
@@ -111,17 +109,33 @@ function chooseAnswer(chatTarget) {
     }
 }
 
+function replaceWords(text) {
+    const list = [
+        ["{name}", player.name],
+    ];
+
+    let output;
+    for (let i = 0; i < list.length; i++) {
+        output = text.replaceAll(list[i][0], list[i][1]);
+    }
+    return output;
+}
+
 async function showText(text, base) {
+    let stallEnd = 5;
     return await new Promise(resolve => {
         let splitText = text.split(" ");
         let i = 0;
         const interval = setInterval(function() {
-            base.innerHTML += splitText[i] + " ";
-            i++;
-            if (i >= splitText.length) {
+            if (i < splitText.length) {
+                if (!splitText[i].includes("{stall}")) {
+                    base.innerHTML += replaceWords(splitText[i]) + " ";
+                }
+            } else if (i >= splitText.length + stallEnd) {
                 resolve("OwO");
                 clearInterval(interval);
             }
+            i++;
         }, 85);
     })
 }
@@ -130,7 +144,8 @@ function addAnswerChoice(chatTarget) {
     let base = document.getElementById("dialogue-options");
     if (true) {
         let button = document.createElement("button");
-        button.innerHTML = chatTarget.text;
+        button.classList.add("dialogue-button");
+        button.innerHTML = replaceWords(chatTarget.text);
         button.addEventListener("click", function() {
             chooseAnswer(chatTarget);
         });
