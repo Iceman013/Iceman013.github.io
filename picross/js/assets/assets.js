@@ -1,4 +1,5 @@
 import { Background } from "./background.js";
+import { Emotion } from "./emotion.js";
 import { Character } from "./character.js";
 
 const BACKGROUNDS = [
@@ -31,46 +32,74 @@ export function getBackground(shortName) {
 }
 
 const CHARACTERS = [
-    new Character(1, "Moth", "none", "moth/none.jpg"),
-    new Character(2, "Butterfly", "none", "butterfly/none.png"),
-    new Character(3, "spider", "none", "spider/none.jpg"),
-    new Character(4, "Aphid", "none", "aphid/none.jpg"),
+    new Character(1, "Moth", "moth"),
+    new Character(2, "Butterfly", "butterfly"),
+    new Character(3, "Spider", "spider"),
+    new Character(4, "Aphid", "aphid"),
 
-    new Character(5, "Queen Bee", "none", "queenBee/none.jpeg"),
-    new Character(6, "Cockroach", "none", "cockroach/none.jpg"),
-    new Character(7, "Ant", "none", "ant/none.jpg"),
-    new Character(8, "Worm", "none", "worm/none.jpg"),
+    new Character(5, "Queen Bee", "queenBee"),
+    new Character(6, "Cockroach", "cockroach"),
+    new Character(7, "Ant", "ant"),
+    new Character(8, "Worm", "worm"),
 
-    new Character(9, "Mosquito", "none", "mosquito/none.jpg"),
-    new Character(10, "Beetle", "none", "beetle/none.jpg"),
-    new Character(11, "Gnat", "none", "gnat/none.jpg"),
-    new Character(12, "Dung Beetle", "none", "dungBeetle/none.png"),
+    new Character(9, "Mosquito", "mosquito"),
+    new Character(10, "Beetle", "beetle"),
+    new Character(11, "Gnat", "gnat"),
+    new Character(12, "Dung Beetle", "dungBeetle"),
 
-    new Character(13, "Firefly", "none", "firefly/none.jpg"),
-    new Character(14, "Ladybug", "none", "ladybug/none.jpg"),
-    new Character(15, "Fly", "none", "fly/none.jpg"),
-    new Character(16, "Centipede", "none", "centipede/none.jpg"),
+    new Character(13, "Firefly", "firefly"),
+    new Character(14, "Ladybug", "ladybug"),
+    new Character(15, "Fly", "fly"),
+    new Character(16, "Centipede", "centipede"),
 ];
 
-export function getCharacter(name, emotion) {
-    let out = "images/characters/";
-    let alt = "images/characters/";
-    let found = false;
+export function getCharacter(name) {
+    let out;
     for (let i = 0; i < CHARACTERS.length; i++) {
         if (CHARACTERS[i].name == name) {
-            if (CHARACTERS[i].emotion == "none") {
-                alt = alt + CHARACTERS[i].url;
-            }
-            if (CHARACTERS[i].emotion == emotion) {
-                out = out + CHARACTERS[i].url;
-                i = CHARACTERS.length;
-                found = true;
-            }
+            out = CHARACTERS[i];
+            i = CHARACTERS.length;
         }
     }
-    if (found) {
-        return out;
-    } else {
-        return alt;
+    return out;
+}
+
+// Adding characters' emotions
+function addEmotions() {
+    getCharacter("Moth").addEmotion(new Emotion(1, "none", "none.jpg"));
+    getCharacter("Butterfly").addEmotion(new Emotion(2, "none", "none.png"));
+    getCharacter("Spider").addEmotion(new Emotion(3, "none", "none.jpg"));
+    getCharacter("Aphid").addEmotion(new Emotion(4, "none", "none.jpg"));
+
+    getCharacter("Queen Bee").addEmotion(new Emotion(5, "none", "none.jpeg"));
+    getCharacter("Cockroach").addEmotion(new Emotion(6, "none", "none.jpg"));
+    getCharacter("Ant").addEmotion(new Emotion(7, "none", "none.jpg"));
+    getCharacter("Worm").addEmotion(new Emotion(8, "none", "none.jpg"));
+
+    getCharacter("Mosquito").addEmotion(new Emotion(9, "none", "none.jpg"));
+    getCharacter("Beetle").addEmotion(new Emotion(10, "none", "none.jpg"));
+    getCharacter("Gnat").addEmotion(new Emotion(11, "none", "none.jpg"));
+    getCharacter("Dung Beetle").addEmotion(new Emotion(12, "none", "none.png"));
+
+    getCharacter("Firefly").addEmotion(new Emotion(13, "none", "none.jpg"));
+    getCharacter("Ladybug").addEmotion(new Emotion(14, "none", "none.jpg"));
+    getCharacter("Fly").addEmotion(new Emotion(15, "none", "none.jpg"));
+    getCharacter("Centipede").addEmotion(new Emotion(16, "none", "none.jpg"));
+}
+addEmotions();
+
+/**
+ * 
+ * @param {String} name Name of character
+ * @param {String} emotion Target emotion
+ * @returns Image URL for chosen character emotion. Returns default emotion if does not exist.
+ */
+export function getCharacterEmotionUrl(name, emotion) {
+    let character = getCharacter(name);
+    let fancyE = character.getEmotion(emotion);
+    if (fancyE == null) {
+        fancyE = character.getEmotion("none");
     }
+    let url = "images/characters/" + character.folder + "/" + fancyE.url;
+    return url;
 }

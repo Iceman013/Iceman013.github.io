@@ -13,6 +13,7 @@
     left: 0px;
 
     overflow: hidden;
+    background-color: black;
     /* background-image: url("https://modelteaching.com/wp-content/uploads/2019/04/Classroom-Procedures-min.jpg"); */
     background-position: 50% 50%;
     background-size: cover;
@@ -34,6 +35,8 @@
 
     color: white;
     font-size: larger;
+
+    display: none;
 }
 
 #character {
@@ -47,6 +50,7 @@
     box-shadow: var(--pmd);
 
     overflow: hidden;
+    display: none;
 }
 
 #profile {
@@ -72,6 +76,8 @@
     background-color: black;
     border-radius: 10px;
     box-shadow: var(--pmd);
+
+    display: none;
 }
 
 #dialogue-options button {

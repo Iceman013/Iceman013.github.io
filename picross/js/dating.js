@@ -3,7 +3,7 @@ import { Conditions } from "./chatClasses/conditions.js";
 import { PLOT } from "./story/plot.js";
 import { DIALOGUE } from "./story/dialogue.js";
 
-import { getBackground, getCharacter } from "./assets/assets.js";
+import { getBackground, getCharacter, getCharacterEmotionUrl } from "./assets/assets.js";
 
 let player;
 
@@ -111,6 +111,21 @@ function chooseAnswer(chatTarget) {
     }
 }
 
+async function showText(text, base) {
+    return await new Promise(resolve => {
+        let splitText = text.split(" ");
+        let i = 0;
+        const interval = setInterval(function() {
+            base.innerHTML += splitText[i] + " ";
+            i++;
+            if (i >= splitText.length) {
+                resolve("OwO");
+                clearInterval(interval);
+            }
+        }, 85);
+    })
+}
+
 function addAnswerChoice(chatTarget) {
     let base = document.getElementById("dialogue-options");
     if (true) {
@@ -127,19 +142,23 @@ function addAnswerChoice(chatTarget) {
     }
 }
 
-function displayChat(chat) {
+async function displayChat(chat) {
     if (chat.id == -5) {
         player.conditions.day++;
     }
 
     let url = getBackground(chat.background);
+    let goalUrl = 'url("' + url + '")';
+    if (document.getElementById("dating").style.backgroundImage != goalUrl) {
+        await transitionScreen(goalUrl);
+    }
     document.getElementById("dating").style.backgroundImage = "url('" + url + "')";
 
     if (chat.character == "none") {
         document.getElementById("character").style.display = "none";
     } else {
         document.getElementById("character").style.display = "block";
-        let charUrl = getCharacter(chat.character, chat.emotion);
+        let charUrl = getCharacterEmotionUrl(chat.character, chat.emotion);
         document.getElementById("profile").src = charUrl;
     }
 
@@ -151,9 +170,13 @@ function displayChat(chat) {
         document.getElementById("character-name").innerHTML = name;
     }
 
-    let text = chat.text;
-    document.getElementById("text").innerHTML = text;
+    document.getElementById("dialogue-options").style.display = "none";
 
+    let text = chat.text;
+    document.getElementById("text").innerHTML = "";
+    await showText(text, document.getElementById("text"));
+
+    document.getElementById("dialogue-options").style.display = "block";
     let ans = document.getElementById("dialogue-options");
     while (ans.firstChild) {
         ans.removeChild(ans.firstChild);
@@ -163,10 +186,32 @@ function displayChat(chat) {
     }
 }
 
+async function transitionScreen(newBackground) {
+    return await new Promise(resolve => {
+        document.getElementById("dialogue").style.display = "none";
+        let i = 0;
+        function convertStep(input) {
+            return 100*Math.pow(Math.abs((input/100) - 1), 2);
+        }
+        const interval = setInterval(function() {
+            let percent = convertStep(i);
+            if (percent == 0) {
+                document.getElementById("dating").style.backgroundImage = newBackground;
+            }
+            document.getElementById("dating").style.filter = "brightness(" + percent + "%)";
+            if (i > 200) {
+                resolve("OwO");
+                document.getElementById("dialogue").style.display = "block";
+                clearInterval(interval);
+            }
+            i++;
+        }, 5);
+    })
+}
+
 export function startDating() {
     document.getElementById("dating-container").style.display = "block";
 
     createPlayer();
-
     displayChat(getChat(player.story, 0));
 }
