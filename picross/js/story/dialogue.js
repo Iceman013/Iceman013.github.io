@@ -146,4 +146,103 @@ export const DIALOGUE = [
         new Popular(),
         new Conditions(0,0,0, ["Class 2"])),
     ]),
+
+
+
+    // Bathroom
+    new Chat(15, "bathroom", "Dung Beetle", "none", "normal",
+    new Conditions(0,0,1, ["Bathroom"]),
+    "Excuse me. I'm headed to the bathroom.",
+    [
+        new ChatTarget(16, "Use the bathroom",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0.5,0,0,0,0)),
+        new ChatTarget(17, "Talk to the Dung Beetle"),
+    ]),
+
+    new Chat(16, "bathroom", "none", "none", "normal",
+    new Conditions(),
+    "Use the toilet.",
+    [
+        new ChatTarget(19, "Pee"),
+        new ChatTarget(18, "Poop",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0)),
+    ]),
+
+    new Chat(17, "bathroom", "Dung Beetle", "happy", "normal",
+    new Conditions(),
+    "This is actually the best bathroom in the whole school.",
+    [
+        new ChatTarget(16, "That's neat."),
+        new ChatTarget(16, "Well I will have to try it out then.",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0.3,0,0,0,0)),
+        new ChatTarget(18, "I have to take a giant shit.",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0)),
+    ]),
+
+    new Chat(18, "bathroom", "none", "none", "intense",
+    new Conditions(),
+    "POOP TIME!",
+    [
+        new ChatTarget(19, "Fight for your life"),
+    ],
+    5),
+
+    new Chat(19, "bathroom", "none", "none", "normal",
+    new Conditions(),
+    "You are done it the restroom. It is time to head back to class.",
+    [
+        new ChatTarget(-1, "Continue",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
+
+
+
+    // Roof
+    new Chat(20, "roof", "Moth", "none", "normal",
+    new Conditions(0,0,1, ["Roof"],
+    new Popular(0.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+    "Hey. Newbie. What're you doing on the roof?",
+    [
+        new ChatTarget(21, "Just exploring",
+        new Popular(-0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+        new ChatTarget(22, "I had to get out of there. This place is so annoying.",
+        new Popular(0.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+        new ChatTarget(23, "I was looking for you.",
+        new Popular(0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(21, "roof", "Moth", "annoyed", "normal",
+    new Conditions(0,0,1, ["Roof"]),
+    "This is my place so get out of here.",
+    [
+        new ChatTarget(-1, "Leave",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
+
+    new Chat(22, "roof", "Moth", "none", "normal",
+    new Conditions(),
+    "It so is. Ughh. I hate all those cheery bugs.",
+    [
+        new ChatTarget(23, "You don't seem too bad",
+        new Popular(0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+        new ChatTarget(24, "This roof isn't too bad."),
+    ]),
+
+    new Chat(23, "roof", "Moth", "happy", "normal",
+    new Conditions(),
+    "So you like me?",
+    [
+        new ChatTarget(24, "Continue"),
+    ]),
+
+    new Chat(24, "roof", "Moth", "none", "normal",
+    new Conditions(),
+    "Well, feel free to come up here and enjoy this crappy roof, but it is probably time to head back to class.",
+    [
+        new ChatTarget(-1, "Continue",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
 ];

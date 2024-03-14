@@ -8,7 +8,7 @@ import { Music } from "./assets/music.js";
 
 import { getBackground, getCharacter, getCharacterEmotionUrl, getMusic, MUSIC } from "./assets/assets.js";
 
-let SPEED = false;
+let SPEED = true;
 
 let player;
 
@@ -65,6 +65,13 @@ function meetConditions(cona, conb) {
         out = false;
     }
 
+    for (let i = 0; i < conb.popularity.list.length; i++) {
+        if (cona.popularity.list[i] < conb.popularity.list[i] && conb.popularity.list[i] != 0) {
+            out = false;
+            i = conb.popularity.list.length;
+        }
+    }
+
     return out;
 }
 
@@ -79,6 +86,10 @@ function chooseAnswer(chatTarget) {
     }
     if (chatTarget.target == -1) {
         player.conditions.events = newConditions.events;
+    }
+
+    for (let i = 0; i < chatTarget.popular.list.length; i++) {
+        player.conditions.popularity.list[i] += chatTarget.popular.list[i];
     }
 
     // Show next message
