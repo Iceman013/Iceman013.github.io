@@ -32,7 +32,7 @@ export function getBackground(shortName) {
     return out;
 }
 
-const CHARACTERS = [
+export const CHARACTERS = [
     new Character(1, "Moth", "moth"),
     new Character(2, "Butterfly", "butterfly"),
     new Character(3, "Spider", "spider"),
@@ -75,7 +75,7 @@ function addEmotions() {
     getCharacter("Queen Bee").addEmotion(new Emotion(5, "none", "none.jpeg"));
     getCharacter("Cockroach").addEmotion(new Emotion(6, "none", "none.jpg"));
     getCharacter("Ant").addEmotion(new Emotion(7, "none", "none.jpg"));
-    getCharacter("Worm").addEmotion(new Emotion(8, "none", "none.jpg"));
+    getCharacter("Worm").addEmotion(new Emotion(8, "none", "none.png"));
 
     getCharacter("Mosquito").addEmotion(new Emotion(9, "none", "none.jpg"));
     getCharacter("Beetle").addEmotion(new Emotion(10, "none", "none.jpg"));

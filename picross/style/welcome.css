@@ -29,17 +29,3 @@
     justify-content: center;
     column-gap: 200px;
 }
-
-#gamemode button {
-    padding: 1em;
-    font-size: x-large;
-    font-weight: 600;
-    cursor: pointer;
-
-    background-color: hotpink;
-    border: 1px solid black;
-    border-radius: 0.2em;
-}
-#gamemode button:hover {
-    filter: brightness(85%);
-}

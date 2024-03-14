@@ -1,12 +1,12 @@
-import { Conditions } from "./chatClasses/conditions.js";
+import { Conditions } from "../chatClasses/conditions.js";
 
-import { intro } from "./story/intro.js";
-import { PLOT } from "./story/plot.js";
-import { DIALOGUE } from "./story/dialogue.js";
+import { intro } from "../story/intro.js";
+import { PLOT } from "../story/plot.js";
+import { DIALOGUE } from "../story/dialogue.js";
 
-import { Music } from "./assets/music.js";
+import { Music } from "../assets/music.js";
 
-import { getBackground, getCharacter, getCharacterEmotionUrl, getMusic, MUSIC } from "./assets/assets.js";
+import { getBackground, getCharacter, getCharacterEmotionUrl, getMusic, MUSIC } from "../assets/assets.js";
 
 let SPEED = false;
 
@@ -249,10 +249,13 @@ async function transitionScreen(newBackground) {
 function doIntro() {
     playMusic("intro");
     player.name = window.prompt("What is your name?", "Bert");
+    if (player.name == "David") {
+        window.alert("Unfortunately, you were unable to get any women to talk to you. You lose.")
+    }
 }
 
 function clearMusic() {
-    let base = document.getElementById("audioCorner");
+    let base = document.getElementById("audio-corner");
     while (base.firstChild) {
         base.removeChild(base.firstChild);
     }

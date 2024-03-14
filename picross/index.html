@@ -18,6 +18,8 @@
         <link rel="stylesheet" type="text/css" href="style/format.css"/>
         <link rel="stylesheet" type="text/css" href="style/welcome.css"/>
         <link rel="stylesheet" type="text/css" href="style/dating.css"/>
+        <link rel="stylesheet" type="text/css" href="style/picrossSelect.css"/>
+        <link rel="stylesheet" type="text/css" href="style/picross.css"/>
     </head>
     <body>
         <div id="welcome">
@@ -36,8 +38,8 @@
                 <h6>Gotta use all header sizes</h6>
             </div>
             <div id="gamemode">
-                <button id="beginDating">Dating Sim</button>
-                <button id="picross">Picross</button>
+                <button id="beginDating" class="big-button">Dating Sim</button>
+                <button id="beginPicross" class="big-button">Picross</button>
             </div>
         </div>
         <div id="dating-container">
@@ -54,10 +56,42 @@
                 </div>
             </div>
         </div>
+        <div id="picross-select">
+            <div id="character-select-container">
+                <h2>Pick Your Character</h2>
+                <div id="character-select"></div>
+            </div>
+            <div>
+                <div class="picross-size">
+                    <p>Width:</p>
+                    <input type="number" id="pic-width" name="tentacles" value="10" min="2" max="30" />
+                </div>
+                <div class="picross-size">
+                    <p>Height:</p>
+                    <input type="number" id="pic-height" name="tentacles" value="10" min="2" max="30" />
+                </div>
+            </div>
+            <div class="center">
+                <button id="makePicross" class="big-button">Start</button>
+            </div>
+        </div>
+        <div id="picross">
+            <h1>Picross</h1>
+            <div>
+                <div>
+                    <h1>Controls</h1>
+                </div>
+                <table id="picross-board"></table>
+            </div>
+            <div>
+                <h1>Me tlak</h1>
+            </div>
+            <p>You're playing picross</p>
+        </div>
         <div id="blender"></div>
-        <div id="audioCorner"></div>
+        <div id="audio-corner"></div>
     </body>
     <footer>
-        <script src="js/main.js" type="module"></script>
+        <script src="js/main/main.js" type="module"></script>
     </footer>
 </html>

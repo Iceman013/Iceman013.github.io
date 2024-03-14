@@ -1,0 +1,56 @@
+.picross-size {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1.4fr 0.7fr;
+    font-size: x-large;
+    align-items: center;
+}
+
+.picross-size input {
+    font-size: x-large;
+    height: fit-content;
+}
+
+#character-select-container {
+    width: 100%;
+    padding: 1% 25%;
+    text-align: center;
+}
+
+#character-select {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.face-container {
+    border: 3px solid black;
+    border-radius: 0.3em;
+    width: 100%;
+    filter: grayscale(1);
+    cursor: pointer;
+}
+
+.face-container:hover, .chosen-character {
+    border-color: blue;
+    filter: grayscale(0);
+    transition: 0.2s;
+}
+
+.face-container img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.center {
+    text-align: center;
+}
+
+#makePicross {
+    font-size: xx-large;
+    padding: 0.5em 1em;
+    background-color: hotpink;
+}

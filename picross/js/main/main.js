@@ -1,7 +1,8 @@
 import { startDating } from "./dating.js";
+import { startPicross } from "./picross.js";
 
-function clear() {
-    let pages = ["welcome", "dating-container"];
+export function clear() {
+    let pages = ["welcome", "dating-container", "picross", "picross-select"];
     for (let i = 0; i < pages.length; i++) {
         document.getElementById(pages[i]).style.display = "none";
     }
@@ -35,10 +36,21 @@ async function dating() {
     startDating();
 }
 
+async function picross() {
+    clear();
+    startPicross();
+}
+
+export function welcome() {
+    clear();
+    document.getElementById("welcome").style.display = "block";
+}
+
 function start() {
     console.log("Begin creation");
 
     document.getElementById("beginDating").addEventListener("click", dating);
+    document.getElementById("beginPicross").addEventListener("click", picross);
 
     console.log("End of creation");
 }

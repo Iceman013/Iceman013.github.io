@@ -1,0 +1,46 @@
+#picross-board {
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.picross-row {
+    background-color: white;
+}
+
+.picross-count-vertical {
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.picross-count-horizontal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.horiz-count {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.table-box {
+    background-color: white;
+    width: 50px;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.picross-direct-hover {
+    background-color: #60b0ffc0;
+}
+.picross-hover {
+    background-color: #60b0ff40;
+}
+
+.picross-on {
+    background-color: blue;
+}
+.picross-off {
+    background-color: lightgray;
+}
