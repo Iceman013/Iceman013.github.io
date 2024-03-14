@@ -8,7 +8,7 @@ import { Music } from "./assets/music.js";
 
 import { getBackground, getCharacter, getCharacterEmotionUrl, getMusic, MUSIC } from "./assets/assets.js";
 
-let SPEED = true;
+let SPEED = false;
 
 let player;
 
