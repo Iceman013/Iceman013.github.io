@@ -9,6 +9,14 @@
     --heart: red;
 }
 
+#canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    pointer-events: none;
+}
+
 #titlebox {
     margin: 6em;
     text-align: center;
