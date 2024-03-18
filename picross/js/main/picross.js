@@ -86,7 +86,7 @@ function getRow(array) {
             out[out.length - 1]++;
         }
     }
-    if (out[out.length - 1] == 0) {
+    if (out[out.length - 1] == 0 && out.length > 1) {
         out.pop();
     }
 
@@ -143,11 +143,9 @@ function drawboard(code) {
         let nc = document.createElement("div");
         nb.appendChild(nc);
         for (let j = 0; j < scores.vertical[i].length; j++) {
-            if (scores.vertical[i][j] != 0) {
-                let nnn = document.createElement("p");
-                nnn.innerText = scores.vertical[i][j];
-                nc.appendChild(nnn);
-            }
+            let nnn = document.createElement("p");
+            nnn.innerText = scores.vertical[i][j];
+            nc.appendChild(nnn);
         }
         fr.appendChild(nb);
     }
@@ -165,12 +163,10 @@ function drawboard(code) {
             sc.style.borderBottom = "1px solid black";
         }
         for (let j = 0; j < scores.horizontal[i].length; j++) {
-            if (scores.horizontal[i][j] != 0) {
-                let nnn = document.createElement("p");
-                nnn.classList.add("horiz-count");
-                nnn.innerText = scores.horizontal[i][j];
-                sc.appendChild(nnn);
-            }
+            let nnn = document.createElement("p");
+            nnn.classList.add("horiz-count");
+            nnn.innerText = scores.horizontal[i][j];
+            sc.appendChild(nnn);
         }
         row.appendChild(sc);
 

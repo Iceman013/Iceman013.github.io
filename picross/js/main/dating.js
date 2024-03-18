@@ -326,7 +326,6 @@ export function startDating() {
         }
     }
     if (!quit) {
-        console.log("uwu")
         displayChat(getChat(player.story, 0));
     } else {
         displayEnd();
