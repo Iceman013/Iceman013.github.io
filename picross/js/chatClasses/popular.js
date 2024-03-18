@@ -69,4 +69,26 @@ export class Popular {
         this.list[14] = this.Fly;
         this.list[15] = this.Centipede;
     }
+
+    reverseUpdate() {
+        this.Moth = this.list[0];
+        this.Butterfly = this.list[1];
+        this.Spider = this.list[2];
+        this.Aphid = this.list[3];
+
+        this.QueenBee = this.list[4];
+        this.Cockroach = this.list[5];
+        this.Ant = this.list[6];
+        this.Worm = this.list[7];
+
+        this.Mosquito = this.list[8];
+        this.Beetle = this.list[9];
+        this.Gnat = this.list[10];
+        this.DungBeetle = this.list[11];
+
+        this.Firefly = this.list[12];
+        this.Ladybug = this.list[13];
+        this.Fly = this.list[14];
+        this.Centipede = this.list[15];
+    }
 }

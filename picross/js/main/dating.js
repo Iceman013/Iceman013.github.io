@@ -3,12 +3,16 @@ import { Conditions } from "../chatClasses/conditions.js";
 import { intro } from "../story/intro.js";
 import { PLOT } from "../story/plot.js";
 import { DIALOGUE } from "../story/dialogue.js";
+import { CODES } from "../story/codes.js";
 
 import { Music } from "../assets/music.js";
 
-import { getBackground, getCharacter, getCharacterEmotionUrl, getMusic, MUSIC } from "../assets/assets.js";
+import { getBackground, getCharacter, getCharacterEmotionUrl, getCharacterFromId, getMusic, MUSIC } from "../assets/assets.js";
+import { playPicross } from "./picross.js";
+import { clear } from "./main.js";
 
 let SPEED = false;
+let CHEAT = false;
 
 let player;
 
@@ -160,14 +164,36 @@ async function showText(text, base) {
     })
 }
 
-function addAnswerChoice(chatTarget) {
+function getPuzzleCode(id) {
+    let out;
+    for (let i = 0; i < CODES.length; i++) {
+        if (id == CODES[i].id) {
+            out = CODES[i].codes;
+            i = CODES.length;
+        }
+    }
+    if (CHEAT) {
+        out = [[1]];
+    }
+    return out;
+}
+
+function addAnswerChoice(chatTarget, chat) {
     let base = document.getElementById("dialogue-options");
     if (true) {
         let button = document.createElement("button");
         button.classList.add("dialogue-button");
         button.innerHTML = replaceWords(chatTarget.text);
         button.addEventListener("click", function() {
-            chooseAnswer(chatTarget);
+            if (chat.puzzle == 0) {
+                chooseAnswer(chatTarget);
+            } else {
+                playPicross(function() {
+                    clear();
+                    document.getElementById("dating-container").style.display = "block";
+                    chooseAnswer(chatTarget);
+                }, chat.character, getPuzzleCode(chat.puzzle));
+            }
         });
 
         let brek = document.createElement("br");
@@ -180,6 +206,9 @@ function addAnswerChoice(chatTarget) {
 async function displayChat(chat) {
     if (chat.id == -5) {
         player.conditions.day++;
+    } else if (chat.id == -4) {
+        displayEnd();
+        return;
     }
 
     let url = getBackground(chat.background);
@@ -219,7 +248,7 @@ async function displayChat(chat) {
         ans.removeChild(ans.firstChild);
     }
     for (let i = 0; i < chat.answers.length; i++) {
-        addAnswerChoice(chat.answers[i]);
+        addAnswerChoice(chat.answers[i], chat);
     }
 }
 
@@ -249,9 +278,6 @@ async function transitionScreen(newBackground) {
 function doIntro() {
     playMusic("intro");
     player.name = window.prompt("What is your name?", "Bert");
-    if (player.name == "David") {
-        window.alert("Unfortunately, you were unable to get any women to talk to you. You lose.")
-    }
 }
 
 function clearMusic() {
@@ -291,5 +317,55 @@ export function startDating() {
     createPlayer();
     clearMusic();
     doIntro();
-    displayChat(getChat(player.story, 0));
+    let fails = ["David", "david"];
+    let quit = false;
+    for (let i = 0; i < fails.length; i++) {
+        if (fails[i] == player.name) {
+            quit = true;
+            i = fails.length;
+        }
+    }
+    if (!quit) {
+        console.log("uwu")
+        displayChat(getChat(player.story, 0));
+    } else {
+        displayEnd();
+    }
+}
+
+function displayEnd() {
+    clear();
+    document.getElementById("dating-score").style.display = "block";
+    player.conditions.popularity.reverseUpdate();
+    console.log(player.conditions.popularity);
+
+    let pops = player.conditions.popularity.list;
+    let max;
+    for (let i = 0; i < pops.length; i++) {
+        if (pops[i] >= getCharacterFromId(i + 1).threshold) {
+            if (max == null) {
+                max = i;
+            } else {
+                if (pops[i] > pops[max]) {
+                    max = i;
+                }
+            }
+        }
+    }
+    let base = document.getElementById("readout");
+    while (base.firstChild) {
+        base.removeChild(base.firstChild);
+    }
+    if (max != null) {
+        let best = getCharacterFromId(max + 1);
+        
+        let mess = document.createElement("h1");
+        mess.innerText = "You found a romantic partner! " + best.name + " loves you!";
+        base.appendChild(mess);
+    } else {
+        let mess = document.createElement("h1");
+        mess.innerText = "You failed to find a partner that likes you. You lose.";
+
+        base.appendChild(mess);
+    }
 }

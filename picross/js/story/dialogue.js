@@ -36,6 +36,8 @@ export const DIALOGUE = [
     "Where do you want to sit?",
     [
         new ChatTarget(4, "Sit alone"),
+        new ChatTarget(31, "Sit next to fly"),
+        new ChatTarget(32, "Sit next to butterfly"),
     ]),
 
     new Chat(4, "cafeteria", "none", "none", "normal",
@@ -58,8 +60,7 @@ export const DIALOGUE = [
         new ChatTarget(-1, "Think about coding",
         new Popular(),
         new Conditions(0,0,0, ["Post C2"])),
-    ],
-    2),
+    ]),
 
     new Chat(6, "class2", "Queen Bee", "none", "normal",
     new Conditions(),
@@ -242,6 +243,177 @@ export const DIALOGUE = [
     "Well, feel free to come up here and enjoy this crappy roof, but it is probably time to head back to class.",
     [
         new ChatTarget(-1, "Continue",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
+
+
+
+    // Janitor's Closet
+    new Chat(25, "closet", "Cockroach", "suprised", "normal",
+    new Conditions(0,0,1, ["Closet"]),
+    "Ah! What are you doing here?!",
+    [
+        new ChatTarget(-1, "Sorry. I'll leave.",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+        new ChatTarget(26, "Just exploring"),
+        new ChatTarget(27, "Looking for some good stuff",
+        new Popular(0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(26, "closet", "Cockroach", "none", "normal",
+    new Conditions(),
+    "Well this is where I live.",
+    [
+        new ChatTarget(-1, "I'll let you be.",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+        new ChatTarget(27, "Can I join you?",
+        new Popular(0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(27, "closet", "Cockroach", "none", "normal",
+    new Conditions(),
+    "Okay. Here is some good stuff. It's my collection.",
+    [
+        new ChatTarget(-1, "Ew. You collected all this stuff?",
+        new Popular(0,0,0,0,0,-0.3,0,0,0,0,0,0,0,0,0,0),
+        new Conditions(0,0,0, ["Class 2"])),
+        new ChatTarget(28, "Dang. That's a nice collection.",
+        new Popular(0,0,0,0,0,0.3,0,0,0,0,0,0,0,0,0,0)),
+        new ChatTarget(29, "Can I try to make something with it?"),
+    ]),
+
+    new Chat(28, "closet", "Cockroach", "blush", "normal",
+    new Conditions(),
+    "Thanks. I spent a long time getting it all. Wanna build something with it?",
+    [
+        new ChatTarget(-1, "No thanks",
+        new Popular(0,0,0,0,0,-0.1,0,0,0,0,0,0,0,0,0,0),
+        new Conditions(0,0,0, ["Class 2"])),
+        new ChatTarget(29, "Sure"),
+    ]),
+
+    new Chat(29, "closet", "Cockroach", "none", "normal",
+    new Conditions(),
+    "Good luck making something cool.",
+    [
+        new ChatTarget(30, "BUILD"),
+    ],
+    6),
+
+    new Chat(30, "closet", "Cockroach", "happy", "normal",
+    new Conditions(),
+    "Wow! That's really cool. Thanks for dropping by. Feel free to come by any time.",
+    [
+        new ChatTarget(-1, "I'll see you later. I've got to head to class.",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
+
+
+
+    // Cafeteria fly
+    new Chat(31, "cafeteria", "Fly", "none", "normal",
+    new Conditions(),
+    "Hey. You're the new student right?",
+    [
+        new ChatTarget(33, "Yeah. Nice to meet you.",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.1,0)),
+        new ChatTarget(33, "You remembered me?",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2,0)),
+    ]),
+
+    new Chat(32, "cafeteria", "Butterfly", "angry", "normal",
+    new Conditions(),
+    "What makes you think this seat isn't reserved?",
+    [
+        new ChatTarget(4, "Sorry. I'll go sit somewhere else."),
+        new ChatTarget(37, "Of course someone as pretty as you wouldn't be sitting alone."),
+    ]),
+
+    new Chat(33, "cafeteria", "Fly", "none", "normal",
+    new Conditions(),
+    "Of course I remember you from our first class.",
+    [
+        new ChatTarget(34, "How has your day been.",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.1,0)),
+        new ChatTarget(34, "It's been great meeting you.",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3,0)),
+        new ChatTarget(35, "Well I'm starving."),
+    ]),
+
+    new Chat(34, "cafeteria", "Fly", "none", "normal",
+    new Conditions(),
+    "It's been great meeting you. That's been the highlight of my day.",
+    [
+        new ChatTarget(35, "Let's eat lunch together.",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2,0)),
+        new ChatTarget(36, "Aw thanks"),
+    ]),
+
+    new Chat(35, "cafeteria", "Fly", "blush", "normal",
+    new Conditions(),
+    "Wanna share?",
+    [
+        new ChatTarget(36, "Sure",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2,0)),
+        new ChatTarget(36, "No thanks"),
+    ]),
+
+    new Chat(36, "cafeteria", "none", "none", "normal",
+    new Conditions(),
+    "You ate your lunch.",
+    [
+        new ChatTarget(-1, "Go to your next class",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
+
+    new Chat(37, "cafeteria", "Butterfly", "none", "normal",
+    new Conditions(),
+    "I actually am sitting alone today.",
+    [
+        new ChatTarget(38, "Why?")
+    ]),
+
+    new Chat(38, "cafeteria", "Butterfly", "none", "normal",
+    new Conditions(),
+    "My boyfriend and I broke up.",
+    [
+        new ChatTarget(39, "How is that even possible?",
+        new Popular(0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+        new ChatTarget(4, "That makes sense",
+        new Popular(0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(39, "cafeteria", "Butterfly", "happy", "normal",
+    new Conditions(),
+    "He was an idiot.",
+    [
+        new ChatTarget(40, "He must have been if he broke up with you.",
+        new Popular(0,-0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+        new ChatTarget(41, "Obviously if he lost you.",
+        new Popular(0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(40, "cafeteria", "Butterfly", "angry", "normal",
+    new Conditions(),
+    "What makes you think <i>he</i> broke up with me?!",
+    [
+        new ChatTarget(41, "My bad"),
+        new ChatTarget(4, "Is that not what happened?"),
+    ]),
+
+    new Chat(41, "cafeteria", "Butterfly", "none", "normal",
+    new Conditions(),
+    "Yes. Well I'll let you sit here for today.",
+    [
+        new ChatTarget(-1, "Thank you.",
+        new Popular(0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
+        new Conditions(0,0,0, ["Class 2"])),
+        new ChatTarget(-1, "Great",
         new Popular(),
         new Conditions(0,0,0, ["Class 2"])),
     ]),

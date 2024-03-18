@@ -21,6 +21,7 @@ export class Chat {
         this.background = background;
         this.character = character;
         this.emotion = emotion;
+        this.mood = mood;
         
         this.conditions = conditions;
         this.text = text;

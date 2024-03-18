@@ -15,6 +15,10 @@ body {
     display: none;
 }
 
+#dating-score {
+    display: none;
+}
+
 #picross {
     display: none;
 }

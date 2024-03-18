@@ -6,11 +6,13 @@ export class Character {
      * @param {number} id 
      * @param {String} name 
      * @param {String} folder
+     * @param {number} threshold
      */
-    constructor(id, name, folder) {
+    constructor(id, name, folder, threshold) {
         this.id = id;
         this.name = name;
         this.folder = folder;
+        this.threshold = threshold;
         this.emotions = [];
     }
 

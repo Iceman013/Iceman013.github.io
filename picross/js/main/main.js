@@ -2,7 +2,7 @@ import { startDating } from "./dating.js";
 import { startPicross } from "./picross.js";
 
 export function clear() {
-    let pages = ["welcome", "dating-container", "picross", "picross-select"];
+    let pages = ["welcome", "dating-container", "dating-score", "picross", "picross-select"];
     for (let i = 0; i < pages.length; i++) {
         document.getElementById(pages[i]).style.display = "none";
     }
@@ -49,8 +49,11 @@ export function welcome() {
 function start() {
     console.log("Begin creation");
 
+    window.addEventListener("contextmenu", event => event.preventDefault());
+
     document.getElementById("beginDating").addEventListener("click", dating);
     document.getElementById("beginPicross").addEventListener("click", picross);
+    document.getElementById("restart").addEventListener("click", welcome);
 
     console.log("End of creation");
 }

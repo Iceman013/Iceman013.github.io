@@ -1,6 +1,13 @@
+#picross-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2%;
+}
+
 #picross-board {
     border: 0px;
     border-collapse: collapse;
+    user-select: none;
 }
 
 .picross-row {

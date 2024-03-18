@@ -7,6 +7,10 @@
     --pixel-height: 1.75;
 }
 
+#dating-score {
+    text-align: center;
+}
+
 #dating {
     width: 100%;
     height: 100vh;

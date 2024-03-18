@@ -2,6 +2,7 @@ import { CHARACTERS, getCharacterEmotionUrl } from "../assets/assets.js";
 import { clear, welcome } from "./main.js";
 
 let chosenCharacter;
+let afterFunction;
 
 function addFace(character) {
     let url = getCharacterEmotionUrl(character.name, "none");
@@ -193,7 +194,6 @@ function drawboard(code) {
             box.addEventListener("mouseleave", function() {
                 dealWithHover(code, -1, -1);
             });
-            box.addEventListener("contextmenu", event => event.preventDefault());
             box.addEventListener("mousedown", function(event) {
                 dealWithClick(code, i, j, event.which);
             });
@@ -233,19 +233,25 @@ function check(code) {
     }
 
     if (pass) {
-        welcome();
+        window.alert("Yay! You solved it.");
+        afterFunction();
     }
 }
 
 function dealWithClick(code, x, y, type) {
     let item = document.getElementById("picross-box(" + x + "," + y + ")");
-    item.classList.remove("picross-on");
-    item.classList.remove("picross-off");
-    item.value = "";
-    if (type == 1) {
+    if (item.value == 1 && type == 1) {
+        item.classList.remove("picross-on");
+        item.value = "";
+    } else if (item.value == "0" && type == 3) {
+        item.classList.remove("picross-off");
+        item.value = "";
+    } else if (type == 1) {
+        item.classList.remove("picross-off");
         item.classList.add("picross-on");
         item.value = "1";
     } else if (type == 3) {
+        item.classList.remove("picross-on");
         item.classList.add("picross-off");
         item.value = "0";
     }
@@ -269,6 +275,8 @@ function dealWithHover(code, x, y) {
 }
 
 export function playPicross(after, character, code) {
+    afterFunction = after;
+    chosenCharacter = character;
     clear();
     document.getElementById("picross").style.display = "block";
 

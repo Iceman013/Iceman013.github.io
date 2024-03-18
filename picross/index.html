@@ -57,6 +57,11 @@
                 </div>
             </div>
         </div>
+        <div id="dating-score">
+            <h3>Post Game Report</h3>
+            <div id="readout"></div>
+            <button id="restart" class="big-button">Restart</button>
+        </div>
         <div id="picross-select">
             <div id="character-select-container">
                 <h2>Pick Your Character</h2>
@@ -78,16 +83,24 @@
         </div>
         <div id="picross">
             <h1>Picross</h1>
-            <div>
+            <div id="picross-container">
                 <div>
-                    <h1>Controls</h1>
+                    <table id="picross-board"></table>
                 </div>
-                <table id="picross-board"></table>
+                <div>
+                    <h1>Instructions</h1>
+                    <p>Fill in the entire board based on the numbers on the sides.</p>
+                    <p>Each number represents consecutive black cells in that row or column.</p>
+                    <p>The consecutive black cells are in order based on the order of the numbers in the header.</p>
+                    <p>Listen, I made picross. You asked for this. You should know how this works.</p>
+                    <p>It might seem like there are 2 possible solutions for a board sometimes. If you do make a board that matches all the numbers, that will count as a success.</p>
+                    <h1>Controls</h1>
+                    <p>Left click to turn a cell on.</p>
+                    <p>Right click to turn a cell off.</p>
+                    <p>Click again to reset a cell to blank.</p>
+                    <p>Click and drag to select rows or columns quickly.</p>
+                </div>
             </div>
-            <div>
-                <h1>Me tlak</h1>
-            </div>
-            <p>You're playing picross</p>
         </div>
         <div id="blender"></div>
         <div id="audio-corner"></div>

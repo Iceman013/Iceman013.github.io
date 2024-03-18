@@ -33,31 +33,42 @@ export function getBackground(shortName) {
 }
 
 export const CHARACTERS = [
-    new Character(1, "Moth", "moth"),
-    new Character(2, "Butterfly", "butterfly"),
-    new Character(3, "Spider", "spider"),
-    new Character(4, "Aphid", "aphid"),
+    new Character(1, "Moth", "moth", 0.8),
+    new Character(2, "Butterfly", "butterfly", 1),
+    new Character(3, "Spider", "spider", 3),
+    new Character(4, "Aphid", "aphid", 1),
 
-    new Character(5, "Queen Bee", "queenBee"),
-    new Character(6, "Cockroach", "cockroach"),
-    new Character(7, "Ant", "ant"),
-    new Character(8, "Worm", "worm"),
+    new Character(5, "Queen Bee", "queenBee", 1),
+    new Character(6, "Cockroach", "cockroach", 1),
+    new Character(7, "Ant", "ant", 1),
+    new Character(8, "Worm", "worm", 1),
 
-    new Character(9, "Mosquito", "mosquito"),
-    new Character(10, "Beetle", "beetle"),
-    new Character(11, "Gnat", "gnat"),
-    new Character(12, "Dung Beetle", "dungBeetle"),
+    new Character(9, "Mosquito", "mosquito", 1),
+    new Character(10, "Beetle", "beetle", 1),
+    new Character(11, "Gnat", "gnat", 1),
+    new Character(12, "Dung Beetle", "dungBeetle", 1),
 
-    new Character(13, "Firefly", "firefly"),
-    new Character(14, "Ladybug", "ladybug"),
-    new Character(15, "Fly", "fly"),
-    new Character(16, "Centipede", "centipede"),
+    new Character(13, "Firefly", "firefly", 1),
+    new Character(14, "Ladybug", "ladybug", 1),
+    new Character(15, "Fly", "fly", 1),
+    new Character(16, "Centipede", "centipede", 1),
 ];
 
 export function getCharacter(name) {
     let out;
     for (let i = 0; i < CHARACTERS.length; i++) {
         if (CHARACTERS[i].name == name) {
+            out = CHARACTERS[i];
+            i = CHARACTERS.length;
+        }
+    }
+    return out;
+}
+
+export function getCharacterFromId(id) {
+    let out;
+    for (let i = 0; i < CHARACTERS.length; i++) {
+        if (CHARACTERS[i].id == id) {
             out = CHARACTERS[i];
             i = CHARACTERS.length;
         }
