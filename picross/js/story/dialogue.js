@@ -518,4 +518,136 @@ export const DIALOGUE = [
         new Popular(),
         new Conditions(0,0,0, ["Class 2"])),
     ]),
+
+
+
+    // After School
+    // Garden
+    new Chat(52, "garden", "Worm", "none", "normal",
+    new Conditions(0,0,1, ["After School", "Garden"]),
+    "Welcome to the school garden.",
+    [
+        new ChatTarget(53, "What do you do here?"),
+        new ChatTarget(53, "Oh wow. So neat.",
+        new Popular(0,0,0,0,0,0,0,0.2,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(53, "garden", "Worm", "none", "normal",
+    new Conditions(),
+    "The garden club grows plants here. We plant them, water them, and tend to them daily.",
+    [
+        new ChatTarget(54, "The garden club?"),
+        new ChatTarget(55, "Can I help?",
+        new Popular(0,0,0,0,0,0,0,0.4,0,0,0,0,0,0,0,0)),
+        new ChatTarget(-1, "Sounds like a lot of work.",
+        new Popular(0,0,0,0,0,0,0,-0.2,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(54, "garden", "Worm", "sad", "normal",
+    new Conditions(),
+    "Well so far I'm the only member.",
+    [
+        new ChatTarget(55, "Could I join?",
+        new Popular(0,0,0,0,0,0,0,0.2,0,0,0,0,0,0,0,0)),
+        new ChatTarget(-1, "Haha. Loser",
+        new Popular(0,0,0,0,0,0,0,-0.6,0,0,0,0,0,0,0,0)),
+        new ChatTarget(56, "How did you get this whole garden then?"),
+    ]),
+
+    new Chat(55, "garden", "Worm", "happy", "normal",
+    new Conditions(),
+    "I'd be thrilled to have your help. See if you can tend to the plants.",
+    [
+        new ChatTarget(57, "Help out",
+        new Popular(0,0,0,0,0,0,0,0.4,0,0,0,0,0,0,0,0)),
+    ],
+    8),
+
+    new Chat(56, "garden", "Worm", "none", "normal",
+    new Conditions(),
+    "I had to beg the school to get the money. I set it all up by myself.",
+    [
+        new ChatTarget(57, "Impressive"),
+        new ChatTarget(55, "Well I'd love to help out",
+        new Popular(0,0,0,0,0,0,0,0.3,0,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(57, "garden", "Worm", "happy", "normal",
+    new Conditions(),
+    "Well that's all the work for today. Feel free to drop by whenever.",
+    [
+        new ChatTarget(58, "Continue"),
+    ]),
+
+    new Chat(58, "garden", "none", "none", "normal",
+    new Conditions(),
+    "You have unlocked the garden. If you collect any seeds, you can plant them here.",
+    [
+        new ChatTarget(59, "Contine"),
+    ]),
+
+    new Chat(59, "garden", "none", "none", "normal",
+    new Conditions(),
+    "If you gain politics points, you can spend them to expand or upgrade the garden.",
+    [
+        new ChatTarget(60, "Contine"),
+    ]),
+
+    new Chat(60, "garden", "none", "none", "normal",
+    new Conditions(),
+    "Once you unlock summoning mana, you can summon any grown plant ally to battle. Plant allies are weak to fire and strong to water. Plant allies gain levels based on your gardening skill, nature blessing, and prestige bonuses.",
+    [
+        new ChatTarget(-1, "Contine"),
+    ]),
+
+
+
+    // Roof
+    new Chat(61, "night roof", "Firefly", "none", "calm",
+    new Conditions(0,0,1, ["After School", "Roof"]),
+    "Hi",
+    [
+        new ChatTarget(62, "Firefly. What're you doing here?"),
+    ]),
+
+    new Chat(62, "night roof", "Firefly", "none", "calm",
+    new Conditions(),
+    "Just enjoying the night.",
+    [
+        new ChatTarget(63, "Yeah. It's so nice and calm",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0)),
+        new ChatTarget(63, "Ok"),
+    ]),
+
+    new Chat(63, "night roof", "Firefly", "none", "calm",
+    new Conditions(),
+    "It's so quiet.",
+    [
+        new ChatTarget(64, "Night time is always better",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0)),
+        new ChatTarget(64, "Too quiet"),
+    ]),
+
+    new Chat(64, "night roof", "Firefly", "none", "calm",
+    new Conditions(),
+    "It's so peaceful.",
+    [
+        new ChatTarget(65, "Lay down",
+        new Popular(0,0,0,0,0,0,0,0,0,0,0,0,0.4,0,0,0)),
+        new ChatTarget(-1, "Leave"),
+    ]),
+
+    new Chat(65, "night roof", "Firefly", "happy", "calm",
+    new Conditions(),
+    "I'll lay down too.",
+    [
+        new ChatTarget(66, "Continue"),
+    ]),
+
+    new Chat(66, "night roof", "none", "none", "calm",
+    new Conditions(),
+    "You spent the evening relaxing under the stars.",
+    [
+        new ChatTarget(-1, "Continue"),
+    ]),
 ];

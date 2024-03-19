@@ -19,6 +19,7 @@ const BACKGROUNDS = [
     new Background(13, "Class 2 Layout", "class2Layout", "backgrounds/class2.jpg"),
     new Background(14, "Generic Background", "none", "backgrounds/generic.jpg"),
     new Background(15, "Night", "night", "backgrounds/night.jpg"),
+    new Background(16, "Night Roof", "night roof", "backgrounds/roofNight.png"),
 ];
 
 export function getBackground(shortName) {
@@ -41,14 +42,14 @@ export const CHARACTERS = [
     new Character(5, "Queen Bee", "queenBee", 1),
     new Character(6, "Cockroach", "cockroach", 1),
     new Character(7, "Ant", "ant", 1),
-    new Character(8, "Worm", "worm", 1),
+    new Character(8, "Worm", "worm", 0.6),
 
-    new Character(9, "Mosquito", "mosquito", 1),
+    new Character(9, "Mosquito", "mosquito", 0.7),
     new Character(10, "Beetle", "beetle", 1),
     new Character(11, "Gnat", "gnat", 1),
     new Character(12, "Dung Beetle", "dungBeetle", 1),
 
-    new Character(13, "Firefly", "firefly", 1),
+    new Character(13, "Firefly", "firefly", 0.8),
     new Character(14, "Ladybug", "ladybug", 1),
     new Character(15, "Fly", "fly", 1),
     new Character(16, "Centipede", "centipede", 1),

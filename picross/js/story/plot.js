@@ -8,7 +8,7 @@ export const WIN = -3;
 
 export const PLOT = [
     // System messages
-    new Chat(-5, "night", "none", "none", "normal",
+    new Chat(-5, "night", "none", "none", "calm",
     new Conditions(),
     "You went home after school and went to bed.",
     [
@@ -227,6 +227,25 @@ export const PLOT = [
     new Conditions(0,0,0, ["After School"]),
     "Where would you like to go?",
     [
-        new ChatTarget(-1, "Home")
-    ])
+        new ChatTarget(-1, "Home"),
+        new ChatTarget(-1, "Library"),
+        new ChatTarget(-1, "Garden",
+        new Popular(),
+        new Conditions(0,0,0, ["After School", "Garden"])),
+        new ChatTarget(-1, "Gym"),
+        new ChatTarget(20, "Explore the halls"),
+    ]),
+
+    new Chat(20, "hallway", "none", "none", "normal",
+    new Conditions(),
+    "Where would you like to go?",
+    [
+        new ChatTarget(19, "Go back a hall"),
+        new ChatTarget(-1, "Ladybug's classroom"),
+        new ChatTarget(-1, "Queen Bee's classroom"),
+        new ChatTarget(-1, "The roof",
+        new Popular(),
+        new Conditions(0,0,0, ["After School", "Roof"])),
+        new ChatTarget(-1, "Go to the next grade's hallway"),
+    ]),
 ];

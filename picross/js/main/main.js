@@ -2,7 +2,7 @@ import { startDating } from "./dating.js";
 import { startPicross } from "./picross.js";
 
 export function clear() {
-    let pages = ["welcome", "dating-container", "dating-score", "picross", "picross-select"];
+    let pages = ["welcome", "intro", "dating-container", "dating-score", "picross", "picross-select"];
     for (let i = 0; i < pages.length; i++) {
         document.getElementById(pages[i]).style.display = "none";
     }

@@ -11,6 +11,10 @@ body {
     display: block;
 }
 
+#intro {
+    display: none;
+}
+
 #dating-container {
     display: none;
 }

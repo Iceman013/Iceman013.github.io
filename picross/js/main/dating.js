@@ -277,7 +277,8 @@ async function transitionScreen(newBackground) {
 
 function doIntro() {
     playMusic("intro");
-    player.name = window.prompt("What is your name?", "Bert");
+    intro();
+    // player.name = window.prompt("What is your name?", "Bert");
 }
 
 function clearMusic() {
@@ -312,11 +313,14 @@ function playMusic(mood) {
 }
 
 export function startDating() {
+    clearMusic();
+    doIntro();
+}
+export function trulyBeingDating(name) {
     document.getElementById("dating-container").style.display = "block";
 
     createPlayer();
-    clearMusic();
-    doIntro();
+    player.name = name;
     let fails = ["David", "david"];
     let quit = false;
     for (let i = 0; i < fails.length; i++) {
@@ -326,6 +330,10 @@ export function startDating() {
         }
     }
     if (!quit) {
+        if (player.name == "bert") {
+            SPEED = true;
+            CHEAT = true;
+        }
         displayChat(getChat(player.story, 0));
     } else {
         displayEnd();

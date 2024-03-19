@@ -43,6 +43,8 @@ update(0);
 
 function update(t) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#FF00B0";
+    ctx.strokeStyle = "#FF00B0";
     ctx.moveTo(pointer.x, pointer.y);
     ctx.beginPath();
     ctx.fill();

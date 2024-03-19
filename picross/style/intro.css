@@ -1,0 +1,39 @@
+#intro {
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: var(--pixel-font);
+}
+#intro p {
+    position: relative;
+    font-family: inherit;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding-top: 40vh;
+    padding-left: 35%;
+    padding-right: 35%;
+    line-height: 2;
+    cursor: pointer;
+}
+#intro div, button, text {
+    text-align: center;
+    font-family: inherit;
+}
+
+#name-input {
+    margin-top: 35vh;
+}
+#input-name {
+    height: 2em;
+    margin-bottom: 2em;
+}
+.name-row {
+    text-align: center;
+}
