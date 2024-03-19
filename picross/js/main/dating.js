@@ -161,7 +161,7 @@ async function showText(text, base) {
             }
             i++;
         }, timer);
-    })
+    });
 }
 
 function getPuzzleCode(id) {

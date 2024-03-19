@@ -373,9 +373,27 @@ function dealWithHover(code, x, y, type) {
     }
 }
 
-function showMessage(message) {
+async function showMessage(message) {
     let base = document.getElementById("picross-text");
-    base.innerHTML = message;
+    base.innerHTML = "";
+
+    let stallEnd = 5;
+    await new Promise(resolve => {
+        let splitText = message.split(" ");
+        let i = 0;
+        let timer = 85;
+        const interval = setInterval(function() {
+            if (i < splitText.length) {
+                if (!splitText[i].includes("{stall}")) {
+                    base.innerHTML += splitText[i] + " ";
+                }
+            } else if (i >= splitText.length + stallEnd) {
+                resolve("OwO");
+                clearInterval(interval);
+            }
+            i++;
+        }, timer);
+    });
 }
 
 function end(code) {
