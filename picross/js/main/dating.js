@@ -192,7 +192,7 @@ function addAnswerChoice(chatTarget, chat) {
                     clear();
                     document.getElementById("dating-container").style.display = "block";
                     chooseAnswer(chatTarget);
-                }, chat.character, getPuzzleCode(chat.puzzle));
+                }, getCharacter(chat.character), getPuzzleCode(chat.puzzle));
             }
         });
 

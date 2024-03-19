@@ -1,6 +1,6 @@
 #picross-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     column-gap: 2%;
 }
 
@@ -50,4 +50,67 @@
 }
 .picross-off {
     background-color: lightgray;
+}
+
+.picross-mid-select {
+    background-color: #0000ff80;
+}
+
+
+
+/* Picross character stuff
+*/
+#picross-talking {
+    height: 15vh;
+    display: flex;
+    column-gap: 3%;
+}
+
+#picross-character {
+    aspect-ratio: 1;
+
+    border-radius: 10px;
+    box-shadow: var(--pmd);
+
+    margin: 10px;
+    height: calc(100% - 20px);
+}
+
+#picross-profile {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#shes-talking {
+    height: calc(100% - 20px);
+    width: 100%;
+    margin: 10px;
+    overflow-y: auto;
+    padding: 1em 2em;
+
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: var(--pmd);
+}
+
+#picross-character-name {
+    color: cyan;
+    padding-right: 0.5em;
+
+    font-family:var(--pixel-font);
+}
+#picross-character-name::after {
+    content: ":";
+    font-family: var(--pixel-font);
+}
+
+#picross-text {
+    color: white;
+    font-family: var(--pixel-font);
+    line-height: var(--pixel-height);
+}
+#picross-text i, b {
+    font-family: var(--pixel-font);
+    line-height: var(--pixel-height);
 }

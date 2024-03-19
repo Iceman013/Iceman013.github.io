@@ -1,8 +1,22 @@
-import { CHARACTERS, getCharacterEmotionUrl } from "../assets/assets.js";
+import { CHARACTERS, getCharacter, getCharacterEmotionUrl } from "../assets/assets.js";
 import { clear, welcome } from "./main.js";
 
 let chosenCharacter;
 let afterFunction;
+let interval;
+
+let mouseState = {
+    down: false,
+    which: 0,
+    start: {
+        x: -1,
+        y: -1,
+    },
+    end: {
+        x: -1,
+        y: -1,
+    },
+}
 
 function addFace(character) {
     let url = getCharacterEmotionUrl(character.name, "none");
@@ -185,10 +199,10 @@ function drawboard(code) {
 
             box.id = "picross-box(" + i + "," + j + ")";
             box.addEventListener("mouseover", function() {
-                dealWithHover(code, i, j);
+                dealWithHover(code, i, j, true);
             });
             box.addEventListener("mouseleave", function() {
-                dealWithHover(code, -1, -1);
+                dealWithHover(code, i, j, false);
             });
             box.addEventListener("mousedown", function(event) {
                 dealWithClick(code, i, j, event.which);
@@ -198,6 +212,10 @@ function drawboard(code) {
 
         base.appendChild(row);
     }
+
+    window.addEventListener("mouseup", function() {
+        dealWithRelease(code);
+    });
 }
 
 function check(code) {
@@ -229,52 +247,177 @@ function check(code) {
     }
 
     if (pass) {
-        window.alert("Yay! You solved it.");
-        afterFunction();
+        end(code);
     }
 }
 
-function dealWithClick(code, x, y, type) {
-    let item = document.getElementById("picross-box(" + x + "," + y + ")");
-    if (item.value == 1 && type == 1) {
-        item.classList.remove("picross-on");
-        item.value = "";
-    } else if (item.value == "0" && type == 3) {
-        item.classList.remove("picross-off");
-        item.value = "";
-    } else if (type == 1) {
-        item.classList.remove("picross-off");
-        item.classList.add("picross-on");
-        item.value = "1";
-    } else if (type == 3) {
-        item.classList.remove("picross-on");
-        item.classList.add("picross-off");
-        item.value = "0";
+function dealWithRelease(code) {
+    mouseState.down = false;
+    // Use mouseState.which to change all selected
+    let list = Array.prototype.slice.call(document.getElementsByClassName("picross-mid-select"));
+    
+    if (list.length == 1) {
+        let item = list[0];
+        item.classList.remove("picross-mid-select");
+        if (item.value == 1 && mouseState.which == 1) {
+            item.classList.remove("picross-on");
+            item.value = "";
+        } else if (item.value == "0" && mouseState.which == 3) {
+            item.classList.remove("picross-off");
+            item.value = "";
+        } else if (mouseState.which == 1) {
+            item.classList.remove("picross-off");
+            item.classList.add("picross-on");
+            item.value = "1";
+        } else if (mouseState.which == 3) {
+            item.classList.remove("picross-on");
+            item.classList.add("picross-off");
+            item.value = "0";
+        }
+    } else {
+        for (let i = 0; i < list.length; i++) {
+            list[i].classList.remove("picross-mid-select");
+            list[i].classList.remove("picross-on");
+            list[i].classList.remove("picross-off");
+            list[i].value = "";
+            if (mouseState.which == 1) {
+                list[i].classList.add("picross-on");
+                list[i].value = "1";
+            } else if (mouseState.which == 3) {
+                list[i].classList.add("picross-off");
+                list[i].value = "0";
+            }
+        }
     }
 
     check(code);
 }
+function dealWithClick(code, x, y, type) {
+    mouseState.down = true;
+    mouseState.which = type;
+    
+    let item = document.getElementById("picross-box(" + x + "," + y + ")");
+    item.classList.add("picross-mid-select");
 
-function dealWithHover(code, x, y) {
+    mouseState.start.x = x;
+    mouseState.start.y = y;
+    mouseState.end.x = x;
+    mouseState.end.y = y;
+}
+
+function dealWithHover(code, x, y, type) {
+    if (mouseState.down) {
+        mouseState.end.x = x;
+        mouseState.end.y = y;
+
+        for (let i = 0; i < code.length; i++) {
+            for (let j = 0; j < code[i].length; j++) {
+                let item = document.getElementById("picross-box(" + i + "," + j + ")");
+                item.classList.remove("picross-mid-select");
+            }
+        }
+        if (Math.abs(mouseState.start.x - mouseState.end.x) >= Math.abs(mouseState.start.y - mouseState.end.y)) {
+            if (mouseState.start.x <= mouseState.end.x) {
+                for (let i = mouseState.start.x; i <= mouseState.end.x; i++) {
+                    let item = document.getElementById("picross-box(" + i + "," + mouseState.start.y + ")");
+                    item.classList.add("picross-mid-select");
+                }
+            } else {
+                for (let i = mouseState.start.x; i >= mouseState.end.x; i--) {
+                    let item = document.getElementById("picross-box(" + i + "," + mouseState.start.y + ")");
+                    item.classList.add("picross-mid-select");
+                }
+            }
+        } else {
+            if (mouseState.start.y <= mouseState.end.y) {
+                for (let i = mouseState.start.y; i <= mouseState.end.y; i++) {
+                    let item = document.getElementById("picross-box(" + mouseState.start.x + "," + i + ")");
+                    item.classList.add("picross-mid-select");
+                }
+            } else {
+                for (let i = mouseState.start.y; i >= mouseState.end.y; i--) {
+                    let item = document.getElementById("picross-box(" + mouseState.start.x + "," + i + ")");
+                    item.classList.add("picross-mid-select");
+                }
+            }
+        }
+    }
+
     for (let a = 0; a < code.length; a++) {
         for (let b = 0; b < code[a].length; b++) {
             let item = document.getElementById("picross-box(" + a + "," + b + ")");
             item.classList.remove("picross-hover");
             item.classList.remove("picross-direct-hover");
-            if (a == x && b == y) {
-                item.classList.add("picross-direct-hover");
-            } else if (a == x || b == y) {
-                item.classList.add("picross-hover");
+            if (!mouseState.down) {
+                if (a == x && b == y) {
+                    item.classList.add("picross-direct-hover");
+                } else if (a == x || b == y) {
+                    item.classList.add("picross-hover");
+                }
+            } else {
+                if (mouseState.start.x == mouseState.end.x && mouseState.start.y == mouseState.end.y) {
+                    if (a == x || b == y) {
+                        item.classList.add("picross-hover");
+                    }
+                } else if (Math.abs(mouseState.start.x - mouseState.end.x) >= Math.abs(mouseState.start.y - mouseState.end.y)) {
+                    if (a == x) {
+                        item.classList.add("picross-hover");
+                    }
+                } else {
+                    if (b == y) {
+                        item.classList.add("picross-hover");
+                    }
+                }
             }
         }
     }
 }
 
+function showMessage(message) {
+    let base = document.getElementById("picross-text");
+    base.innerHTML = message;
+}
+
+function end(code) {
+    // Clear events
+    let list = Array.prototype.slice.call(document.getElementsByClassName("table-box"));
+    for (let i = 0; i < list.length; i++) {
+        let item = list[i];
+        let newItem = item.cloneNode(true);
+        item.parentNode.replaceChild(newItem, item);
+    }
+    window.removeEventListener("mouseup", function() {
+        dealWithRelease(code);
+    });
+
+    clearInterval(interval);
+
+    // Say YOU WIN
+    showMessage(chosenCharacter.getWin());
+
+    // Next
+    let afterPT;
+    afterPT = function() {
+        afterFunction();
+        window.removeEventListener("click", afterPT);
+    }
+    window.addEventListener("click", afterPT);
+}
+
 export function playPicross(after, character, code) {
     afterFunction = after;
     chosenCharacter = character;
+
     clear();
     document.getElementById("picross").style.display = "block";
 
     drawboard(code);
+
+    document.getElementById("picross-profile").src = getCharacterEmotionUrl(chosenCharacter.name, "none");
+    document.getElementById("picross-character-name").innerText = chosenCharacter.name;
+
+    showMessage(chosenCharacter.getSupport());
+    interval = setInterval(function() {
+        showMessage(chosenCharacter.getSupport());
+    }, 15*1000);
 }

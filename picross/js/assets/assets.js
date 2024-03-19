@@ -77,7 +77,7 @@ export function getCharacterFromId(id) {
 }
 
 // Adding characters' emotions
-function addEmotions() {
+function addCharacteristics() {
     getCharacter("Moth").addEmotion(new Emotion(1, "none", "none.jpg"));
     getCharacter("Butterfly").addEmotion(new Emotion(2, "none", "none.png"));
     getCharacter("Spider").addEmotion(new Emotion(3, "none", "none.jpg"));
@@ -97,8 +97,58 @@ function addEmotions() {
     getCharacter("Ladybug").addEmotion(new Emotion(14, "none", "none.jpg"));
     getCharacter("Fly").addEmotion(new Emotion(15, "none", "none.jpg"));
     getCharacter("Centipede").addEmotion(new Emotion(16, "none", "none.jpg"));
+
+    // Add lines
+    getCharacter("Moth").addSupport(["Do it or whatever.", "Beat it. Not that I care.", "Losing is lame."]);
+    getCharacter("Moth").addWin(["You beat it or whatever."]);
+
+    getCharacter("Butterfly").addSupport(["Cool guys don't lose", "I wouldn't be seen with a loser"]);
+    getCharacter("Butterfly").addWin(["Now that's better. You won."]);
+
+    getCharacter("Spider").addSupport(["A good boy solves picross", "If you mess up, I'll spank you", "Make a mistake and I'll punish you"]);
+    getCharacter("Spider").addWin(["Good boy. You won.", "I told you to solve picross and you did. Nice and obediant."]);
+
+    getCharacter("Aphid").addSupport(["This one is tough", "I need your help to solve this", "You're so smart"]);
+    getCharacter("Aphid").addWin(["Thanks for beating it."]);
+
+    getCharacter("Queen Bee").addSupport(["This one will <i>BEE</i> easy", "You've got it honey", "You're busy as a bee here", "Think about the clues. Don't just <i>WING</i> it."]);
+    getCharacter("Queen Bee").addSupport(["If you get one wrong, will you hear a buzz? Haha", "This game is the bee's knees"]);
+    getCharacter("Queen Bee").addWin(["Nice job honey!", "You solved it! I'm so proud of you."]);
+
+    getCharacter("Cockroach").addSupport(["You could look up a picross solver online"]);
+    getCharacter("Cockroach").addWin(["You won. Great. Wanna go find some trash with me?"]);
+
+    getCharacter("Ant").addSupport(["Ah. A puzzle of intellect.", "Use logical deductions.", "Maybe an algorithm would help."]);
+    getCharacter("Ant").addWin(["Good job. You may want to study this puzzle more later."]);
+
+    getCharacter("Worm").addSupport(["I'm sure you'll solve it", "Take your time and appreciate the puzzle"]);
+    getCharacter("Worm").addWin(["You won. You've improved so much."]);
+
+    getCharacter("Mosquito").addSupport(["You can do it darling", "I could watch you do this all day"]);
+    getCharacter("Mosquito").addWin(["You won. That's so hot."]);
+
+    getCharacter("Beetle").addSupport(["Work on those brain muscles", "This is great training!", "Go for speed"]);
+    getCharacter("Beetle").addWin(["Great job! Now do 100 more reps!"]);
+
+    getCharacter("Gnat").addSupport(["I believe in you"]);
+    getCharacter("Gnat").addWin(["Nice job"]);
+
+    getCharacter("Dung Beetle").addSupport(["I'm running out of poop jokes for this character. My bad"]);
+    getCharacter("Dung Beetle").addWin(["Now that's the shit! You won!"]);
+
+    getCharacter("Firefly").addSupport(["This is a pretty pattern.", "Isn't this nice and relaxing?"]);
+    getCharacter("Firefly").addWin(["Nice win"]);
+
+    getCharacter("Ladybug").addSupport(["You should've studied these patterns more", "This game is quite complicated for someone your age"]);
+    getCharacter("Ladybug").addWin(["A nice mature victory"]);
+
+    getCharacter("Fly").addSupport(["I believe in you.", "You can do it.", "Good luck"]);
+    getCharacter("Fly").addWin(["Yay. You won!", "Great job!"]);
+
+    getCharacter("Centipede").addSupport(["Go for it bro!", "Nice form dude!", "I love the way the sweat trickles down your forehead while playing this."]);
+    getCharacter("Centipede").addWin(["Sick victory bro!"]);
 }
-addEmotions();
+addCharacteristics();
 
 /**
  * 

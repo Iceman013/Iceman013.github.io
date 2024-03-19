@@ -181,7 +181,7 @@ export const DIALOGUE = [
         new Popular(0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0)),
     ]),
 
-    new Chat(18, "bathroom", "none", "none", "intense",
+    new Chat(18, "bathroom", "Dung Beetle", "none", "intense",
     new Conditions(),
     "POOP TIME!",
     [

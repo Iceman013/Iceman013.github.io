@@ -14,6 +14,9 @@ export class Character {
         this.folder = folder;
         this.threshold = threshold;
         this.emotions = [];
+
+        this.supportLines = [];
+        this.winLines = [];
     }
 
     /**
@@ -38,5 +41,47 @@ export class Character {
             }
         }
         return out;
+    }
+
+    /**
+     * 
+     * @param {String} line
+     */
+    addSupport(line) {
+        this.supportLines.push(line);
+    }
+
+    /**
+     * 
+     * @param {Array.<String>} lines
+     */
+    addSupport(lines) {
+        this.supportLines = this.supportLines.concat(lines);
+    }
+
+    /**
+     * 
+     * @param {String} line
+     */
+    addWin(line) {
+        this.winLines.push(line);
+    }
+
+    /**
+     * 
+     * @param {Array.<String>} lines
+     */
+    addWin(lines) {
+        this.winLines = this.winLines.concat(lines);
+    }
+
+    getSupport() {
+        let r = Math.floor(this.supportLines.length*Math.random());
+        return this.supportLines[r];
+    }
+
+    getWin() {
+        let r = Math.floor(this.winLines.length*Math.random());
+        return this.winLines[r];
     }
 }
