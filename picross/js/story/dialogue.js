@@ -36,8 +36,9 @@ export const DIALOGUE = [
     "Where do you want to sit?",
     [
         new ChatTarget(4, "Sit alone"),
-        new ChatTarget(31, "Sit next to fly"),
-        new ChatTarget(32, "Sit next to butterfly"),
+        new ChatTarget(31, "Sit next to Fly"),
+        new ChatTarget(32, "Sit next to Butterfly"),
+        new ChatTarget(42, "Sit next to Mosquito"),
     ]),
 
     new Chat(4, "cafeteria", "none", "none", "normal",
@@ -414,6 +415,106 @@ export const DIALOGUE = [
         new Popular(0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
         new Conditions(0,0,0, ["Class 2"])),
         new ChatTarget(-1, "Great",
+        new Popular(),
+        new Conditions(0,0,0, ["Class 2"])),
+    ]),
+
+    new Chat(42, "cafeteria", "Mosquito", "happy", "normal",
+    new Conditions(),
+    "You decided to sit next to me?",
+    [
+        new ChatTarget(43, "Is that a problem?"),
+        new ChatTarget(43, "You seemed nice.",
+        new Popular(0,0,0,0,0,0,0,0,0.2,0,0,0,0,0,0,0)),
+        new ChatTarget(43, "You're the prettiest girl here.",
+        new Popular(0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(43, "cafeteria", "Mosquito", "very_happy", "normal",
+    new Conditions(),
+    "Oh that's great! Can I tell you something?",
+    [
+        new ChatTarget(44, "Yes"),
+        new ChatTarget(44, "Sure"),
+        new ChatTarget(44, "Definitely"),
+        new ChatTarget(44, "Of course you can tell me anything",
+        new Popular(0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0)),
+        new ChatTarget(44, "Yep"),
+        new ChatTarget(44, "Heck yeah"),
+        new ChatTarget(44, "Yeah"),
+        new ChatTarget(44, "You betcha"),
+        new ChatTarget(44, "That'd brighten my day"),
+        new ChatTarget(44, "I can honestly and sincerely say I would love you to tell me something."),
+        new ChatTarget(44, "Go for it"),
+        new ChatTarget(44, "Hit me"),
+        new ChatTarget(44, "No . . . Just kidding yes"),
+        new ChatTarget(44, "Absolutely"),
+        new ChatTarget(45, "No"),
+    ]),
+
+    new Chat(44, "cafeteria", "Mosquito", "very_happy", "normal",
+    new Conditions(),
+    "I have a big crush on you.",
+    [
+        new ChatTarget(46, "I like you too.",
+        new Popular(0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0)),
+        new ChatTarget(47, "I don't know if I wanna date you or not.",
+        new Popular(0,0,0,0,0,0,0,0,-0.5,0,0,0,0,0,0,0)),
+    ]),
+
+    new Chat(45, "cafeteria", "Mosquito", "none", "normal",
+    new Conditions(),
+    "Huh?",
+    [
+        new ChatTarget(44, "Just kidding. Yes!"),
+    ]),
+
+    new Chat(46, "cafeteria", "Mosquito", "very_happy", "normal",
+    new Conditions(),
+    "Oh I just adore you. I'm so happy my little {name}-i-poo. My precious {name}-ykins!",
+    [
+        new ChatTarget(48, "Let's eat together."),
+        new ChatTarget(47, "I'm not really open to dating you"),
+    ]),
+
+    new Chat(47, "cafeteria", "Mosquito", "angry", "normal",
+    new Conditions(),
+    "Well I'm gonna marry you. You're my boyfriend and we love each other.",
+    [
+        new ChatTarget(46, "Continue"),
+    ]),
+
+    new Chat(48, "cafeteria", "Mosquito", "very_happy", "normal",
+    new Conditions(),
+    "I'm so hungry. Can I nibble on your sweet sweet blood?",
+    [
+        new ChatTarget(49, "Sure",
+        new Popular(0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0)),
+        new ChatTarget(50, "No"),
+    ]),
+
+    new Chat(49, "cafeteria", "Mosquito", "very_happy", "normal",
+    new Conditions(),
+    "Don't die from blood loss.",
+    [
+        new ChatTarget(51, "Try to not pass out"),
+    ],
+    7),
+
+    new Chat(50, "cafeteria", "Mosquito", "sad", "normal",
+    new Conditions(),
+    "Are you sure?",
+    [
+        new ChatTarget(49, "Fine. Go ahead.",
+        new Popular(0,0,0,0,0,0,0,0,0.2,0,0,0,0,0,0,0)),
+        new ChatTarget(51, "No. Don't eat me."),
+    ]),
+
+    new Chat(51, "cafeteria", "Mosquito", "happy", "normal",
+    new Conditions(),
+    "Well that was a fun lunch. Let's head back to class.",
+    [
+        new ChatTarget(-1, "Continue",
         new Popular(),
         new Conditions(0,0,0, ["Class 2"])),
     ]),
