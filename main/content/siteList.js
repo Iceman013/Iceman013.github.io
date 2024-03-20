@@ -79,4 +79,10 @@ var siteList = [
 
     new Site("CarpPool", ["Approved","Other"], "https://carppool.vercel.app/", "main/content/images/carppool.png",
     "This is a hackathon project for UGA Hackathon 2023. It is a car pool planner tool."),
+
+    new Site("Picross", ["Games"], "https://iceman013.github.io/picross/", "main/content/images/picross.png",
+    "This is a game I made in 1 week for a competition. The theme was bugs picross dating sim."),
+
+    new Site("Bugs", ["Games", "Approved", "https://iceman013.github.io/bugs/", "main/content/images/lobster.jpg",
+    "This is a roguelike game I made with multiple characters and enemy ai. There are different attack types and everything."]),
 ];
