@@ -72,14 +72,12 @@ function beginHost() {
 async function refreshPlayerJoin() {
     let messages = await getMessages(hostDetails.code, serverURL);
 
-    console.log(messages);
     let players = [];
     messages.forEach((i) => {
         if (players.indexOf(i.player) == -1 && i.player != "Host") {
             players.push(i.player);
         }
     });
-    console.log(players);
 
     let base = document.getElementById("player-list");
     while (base.firstChild) {

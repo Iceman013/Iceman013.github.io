@@ -89,12 +89,14 @@ export class Message {
 }
 
 export async function getMessages(input, serverURL) {
-    let got = await get(input, serverURL);
+    let got = await get(serverURL);
     let messages = [];
     for (let i = 0; i < got.length; i++) {
         let nep = new Message(serverURL);
         nep.read(got[i]);
-        messages.push(nep);
+        if (nep.gameId == input) {
+            messages.push(nep);
+        }
     }
 
     return messages;

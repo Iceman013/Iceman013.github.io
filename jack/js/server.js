@@ -1,4 +1,5 @@
 export function post(data, serverURL) {
+    console.log(JSON.stringify(data))
     fetch(serverURL, {
         method: "POST",
         mode: "no-cors",
@@ -11,9 +12,9 @@ export function post(data, serverURL) {
     });
 }
 
-export async function get(input, serverURL) {
+export async function get(serverURL) {
     // Fetch data
-    let response = await (fetch(serverURL + "/" + input));
+    let response = await (fetch(serverURL));
     let text = await response.text();
     let parser = new DOMParser();
 
