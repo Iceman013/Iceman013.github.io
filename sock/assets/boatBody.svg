@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="boatBody.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:lockguides="false"
+     inkscape:zoom="1.0662708"
+     inkscape:cx="377.95276"
+     inkscape:cy="377.95276"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="path4180"
+       inkscape:label="Body">
+      <path
+         style="color:#000000;fill:#4e3e2a;fill-opacity:1;stroke-width:1;stroke-linecap:round;-inkscape-stroke:none;paint-order:stroke fill markers"
+         d="M 99.999995,10 C 94.166663,40 65,40 65,100 c 0,60 29.166663,60 34.999995,90 5.833325,-30 34.999995,-30 34.999995,-90 0,-60 -29.16667,-60 -34.999995,-90 z"
+         id="path8653"
+         inkscape:label="Outline"
+         sodipodi:nodetypes="czcsc" />
+      <path
+         style="color:#000000;fill:#725a3d;fill-opacity:1;stroke-width:1;stroke-linecap:round;-inkscape-stroke:none;paint-order:stroke fill markers"
+         d="M 99.999998,12 C 94.999998,41.333333 70,41.333333 70,100 70,158.66667 94.999998,158.66667 99.999998,188 105,158.66667 130,158.66667 130,100 130,41.333333 105,41.333333 99.999998,12 Z"
+         id="path8653-9"
+         inkscape:label="Boat"
+         sodipodi:nodetypes="czcsc" />
+    </g>
+  </g>
+</svg>
