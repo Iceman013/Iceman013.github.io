@@ -83,6 +83,6 @@ var siteList = [
     new Site("Picross", ["Games"], "https://iceman013.github.io/picross/", "main/content/images/picross.png",
     "This is a game I made in 1 week for a competition. The theme was bugs picross dating sim."),
 
-    new Site("Bugs", ["Games", "Approved", "https://iceman013.github.io/bugs/", "main/content/images/lobster.jpg",
-    "This is a roguelike game I made with multiple characters and enemy ai. There are different attack types and everything."]),
+    new Site("Bugs", ["Games", "Approved"], "https://iceman013.github.io/bugs/", "main/content/images/lobster.jpg",
+    "This is a roguelike game I made with multiple characters and enemy ai. There are different attack types and everything."),
 ];
