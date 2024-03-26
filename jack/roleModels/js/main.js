@@ -1,19 +1,20 @@
-import { getAll } from "../../js/server.js";
 import { Message, getMessages } from "../../js/message.js";
 import * as Constants from "../../js/constants.js";
 import { roleModel } from "./game.js";
+import { play } from "./player.js";
 
 let hostDetails = {
     code: "",
     round: 0,
+    players: 0,
+    serverURL: "",
 }
 
 let joinDetails = {
     code: "",
     name: "",
+    serverURL: "",
 }
-
-let serverURL = "";
 
 // Generate Game Code
 function getRandomID() {
@@ -53,25 +54,26 @@ function join() {
 }
 
 // Actually start hosting
-function beginHost() {
+async function beginHost() {
     hostDetails = {
         code: getRandomID(),
         round: 0,
+        players: 0,
     };
-    serverURL = document.getElementById("host-game-ip").value;
+    hostDetails.serverURL = document.getElementById("host-game-ip").value;
 
-    let firstMessage = new Message(serverURL, hostDetails.code, "Host", hostDetails.round, "status", "start");
-    firstMessage.send();
+    let firstMessage = new Message(hostDetails.serverURL, hostDetails.code, "Host", hostDetails.round, "status", "start");
+    await firstMessage.send();
 
     clear();
     document.getElementById("main-game").style.display = "block";
 
     document.getElementById("code").innerText = hostDetails.code;
-    document.getElementById("host-tell-ip").innerText = serverURL;
+    document.getElementById("host-tell-ip").innerText = hostDetails.serverURL;
 }
 
 async function refreshPlayerJoin() {
-    let messages = await getMessages(hostDetails.code, serverURL);
+    let messages = await getMessages(hostDetails.code, hostDetails.serverURL);
 
     let players = [];
     messages.forEach((i) => {
@@ -97,30 +99,41 @@ async function beginJoin() {
     joinDetails = {
         code: document.getElementById("join-game-id").value,
         name: document.getElementById("join-game-name").value,
+        serverURL: document.getElementById("join-game-ip").value,
     }
-    serverURL = document.getElementById("join-game-ip").value;
 
-    let current = await getAll(serverURL, joinDetails.code);
+    let current = await getMessages(joinDetails.code, joinDetails.serverURL);
     if (current.length == 0) {
         window.alert("Game not found");
     } else {
-        let join = new Message(serverURL, joinDetails.code, joinDetails.name, 0, "join", "I joined");
-        join.send();
+        let join = new Message(joinDetails.serverURL, joinDetails.code, joinDetails.name, 0, "join", "I joined");
+        await join.send();
 
         clear();
         document.getElementById("player-game-code").innerText = joinDetails.code;
         document.getElementById("player-name").innerText = joinDetails.name;
-        document.getElementById("player-ip").innerText = serverURL;
+        document.getElementById("player-ip").innerText = joinDetails.serverURL;
         document.getElementById("join-game").style.display = "block";
+
+        play(joinDetails);
     }
 }
 
 // Start the main game
-function startGame() {
+async function startGame() {
     clear();
     document.getElementById("actual-game").style.display = "block";
 
-    roleModel();
+    let list = await getMessages(hostDetails.code, hostDetails.serverURL);
+    let players = [];
+    list.forEach((i) => {
+        if (players.indexOf(i.player) == -1 && i.player != "Host") {
+            players.push(i.player);
+        }
+    });
+    hostDetails.players = players.length;
+
+    roleModel(hostDetails);
 }
 
 // Add button click events
@@ -135,6 +148,7 @@ function addEvents() {
     // Join
     document.getElementById("begin-join").addEventListener("click", beginJoin);
 
+    // Start actual game
     document.getElementById("refresh-players").addEventListener("click", refreshPlayerJoin);
     document.getElementById("start-game").addEventListener("click", startGame);
 }

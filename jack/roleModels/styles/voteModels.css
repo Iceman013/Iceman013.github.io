@@ -1,0 +1,35 @@
+#player-game-box {
+    padding: 1em;
+    text-align: center;
+}
+
+.prompt-vote-option {
+    display: block;
+    width: 100%;
+    font-size: x-large;
+    background-color: black;
+    color: white;
+    border-radius: 50vh;
+    padding: 0.5em;
+}
+
+:checked + .prompt-vote-option {
+    background-color: blue;
+}
+
+.game-big-button {
+    padding: 1em;
+    font-size: x-large;
+    font-weight: 600;
+    cursor: pointer;
+
+    background-color: hotpink;
+    border: 1px solid black;
+    border-radius: 0.2em;
+
+    margin: 0.8em;
+}
+
+.game-big-button:hover {
+    filter: brightness(85%);
+}

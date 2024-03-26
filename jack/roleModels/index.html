@@ -21,6 +21,9 @@
 
         <link rel="stylesheet" type="text/css" href="styles/player.css"/>
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+
+        <link rel="stylesheet" type="text/css" href="styles/roleModels.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/voteModels.css"/>
     </head>
     <body>
         <div id="welcome">
@@ -77,17 +80,28 @@
         </div>
 
         <div id="join-game">
-            <div class="header">
-                <div class="header-details">
-                    <p class="header-left" id="player-game-code"></p>
-                    <p class="header-right" id="player-ip"></p>
+            <div id="join-container">
+                <div class="header">
+                    <div class="header-details">
+                        <p class="header-left" id="player-game-code"></p>
+                        <p class="header-right" id="player-ip"></p>
+                    </div>
+                    <p class="header-item" id="player-name"></p>
                 </div>
-                <p class="header-item" id="player-name"></p>
+                <div id="player-game-box"></div>
+                <div class="footer">
+                    <button id="player-refresh-button" class="big-button">Refresh</button>
+                </div>
             </div>
         </div>
 
         <div id="actual-game">
-            <h1>I'm a real boy</h1>
+            <div id="--intro"></div>
+            <div id="--category"></div>
+            <div id="--vote"></div>
+            <div id="--roles"></div>
+            <div id="--score"></div>
+            <div id="--final"></div>
         </div>
     </body>
     <footer>

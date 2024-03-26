@@ -1,5 +1,5 @@
-export function post(data, serverURL) {
-    fetch(serverURL, {
+export async function post(data, serverURL) {
+    let response = await fetch(serverURL, {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -7,7 +7,7 @@ export function post(data, serverURL) {
         },
         body: JSON.stringify(data),
     }).catch(error => {
-        // Ignore empty error
+        console.log(error);
     });
 }
 
@@ -26,18 +26,6 @@ export async function get(serverURL) {
             output.push(JSON.parse(array[i]));
         }
     }
-
-    return output;
-}
-
-export async function getAll(serverURL, gameId) {
-    let current = await get(serverURL);
-    let output = [];
-    current.forEach((i) => {
-        if (i.game == gameId) {
-            output.push(i);
-        }
-    });
 
     return output;
 }

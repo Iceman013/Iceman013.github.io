@@ -1,6 +1,5 @@
 import { post, get } from "./server.js";
 import * as Constants from "./constants.js";
-import { MessageIDLength } from "./constants.js";
 
 let conversions = [
     {
@@ -67,7 +66,7 @@ export class Message {
         this.uniqueId = getRandomID();
     }
 
-    send() {
+    async send() {
         let json = {
             game: this.gameId,
             player: encodeString(this.player),
@@ -76,7 +75,7 @@ export class Message {
             type: this.type,
             data: encodeString(this.data),
         };
-        post(json, this.serverURL);
+        await post(json, this.serverURL);
     }
 
     read(input) {
