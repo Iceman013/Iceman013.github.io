@@ -1,2 +1,2 @@
-export const GameIDLength = 6;
+export const GameIDLength = 4;
 export const MessageIDLength = 20;

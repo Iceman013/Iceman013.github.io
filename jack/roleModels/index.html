@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Role Models</title>
+
+        <!-- Meta content -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#11B5E4">
+        <meta property="og:image" content="../../main/images/lobster.png">
+        <link rel="icon" type="image/x-icon" href="../../main/images/lobster.png">
+
+        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+
+        <!-- My format -->
+        <link rel="stylesheet" type="text/css" href="styles/format.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/welcomeFormat.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/hostPage.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/joinPage.css"/>
+
+        <link rel="stylesheet" type="text/css" href="styles/player.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    </head>
+    <body>
+        <div id="welcome">
+            <h1>Role Models 2</h1>
+            <p>The funniest game.</p>
+            <button id="host" class="big-button">Host a Game</button>
+            <button id="join" class="big-button">Join a Game</button>
+        </div>
+
+        <div id="host-page">
+            <h1>Host a Game</h1>
+            <br>
+            <p>Server IP Address</p>
+            <input type="url" placeholder="https://jackbox-vercel.vercel.app/api/" value="https://jackbox-vercel.vercel.app/api/" pattern="https://.*" required id="host-game-ip">
+            <br><br><br>
+            <button id="begin-host" class="big-button">Begin Hosting</button>
+        </div>
+
+        <div id="join-page">
+            <h1>Join a Game</h1>
+            <br>
+            <p>Server IP Address</p>
+            <input type="url" placeholder="https://jackbox-vercel.vercel.app/api/" value="https://jackbox-vercel.vercel.app/api/" pattern="https://.*" required id="join-game-ip">
+            <br>
+            <p>Game ID</p>
+            <input type="text" placeholder="ABCD" required id="join-game-id" autocomplete="off">
+            <br>
+            <p>Name</p>
+            <input type="text" placeholder="Whitty Joke" required id="join-game-name" autocomplete="off">
+            <br><br><br>
+            <button id="begin-join" class="big-button">Join</button>
+        </div>
+
+        <div id="main-game">
+            <div class="game-titles">
+                <div>
+                    <h1>Role Models 2</h1>
+                    <p>It's so friggin funny</p>
+                </div>
+                <div>
+                    <h3>Room IP</h3>
+                    <p id="host-tell-ip"></p>
+                    <h3>Room Code</h3>
+                    <p id="code"></p>
+                </div>
+                <div>
+                    <button class="big-button" id="refresh-players">Refresh Players</button>
+                    <br>
+                    <button class="big-button" id="start-game">Play</button>
+                </div>
+            </div>
+            <h2>Players</h2>
+            <div id="player-list"></div>
+        </div>
+
+        <div id="join-game">
+            <div class="header">
+                <div class="header-details">
+                    <p class="header-left" id="player-game-code"></p>
+                    <p class="header-right" id="player-ip"></p>
+                </div>
+                <p class="header-item" id="player-name"></p>
+            </div>
+        </div>
+
+        <div id="actual-game">
+            <h1>I'm a real boy</h1>
+        </div>
+    </body>
+    <footer>
+        <script src="js/main.js" type="module"></script>
+    </footer>
+</html>

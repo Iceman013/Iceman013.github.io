@@ -1,0 +1,28 @@
+* {
+    font-family: "Alata";
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+}
+
+input {
+    font-size: x-large;
+}
+
+.big-button {
+    padding: 1em;
+    font-size: x-large;
+    font-weight: 600;
+    cursor: pointer;
+
+    background-color: hotpink;
+    border: 1px solid black;
+    border-radius: 0.2em;
+
+    margin: 0.8em;
+}
+
+.big-button:hover {
+    filter: brightness(85%);
+}

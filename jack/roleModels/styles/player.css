@@ -1,0 +1,26 @@
+.header {
+    background-color: #00B0FF;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.header-details {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #4060E0;
+    padding: 0.3em 0.6em;
+}
+.header-left {
+    text-align: left;
+    margin: 0px;
+}
+.header-right {
+    text-align: right;
+    margin: 0px;
+}
+.header-item {
+    text-align: center;
+    font-weight: 600;
+    font-size: x-large;
+}

@@ -1,5 +1,4 @@
 export function post(data, serverURL) {
-    console.log(JSON.stringify(data))
     fetch(serverURL, {
         method: "POST",
         mode: "no-cors",
@@ -27,6 +26,18 @@ export async function get(serverURL) {
             output.push(JSON.parse(array[i]));
         }
     }
+
+    return output;
+}
+
+export async function getAll(serverURL, gameId) {
+    let current = await get(serverURL);
+    let output = [];
+    current.forEach((i) => {
+        if (i.game == gameId) {
+            output.push(i);
+        }
+    });
 
     return output;
 }
