@@ -7,6 +7,7 @@ let deferreds =[];
 let bigPromise = new Promise(function(resolve, reject) {
     deferreds.push({resolve: resolve, reject: reject});
 });
+let donezo = false;
 
 /**
  * Get categories
@@ -107,6 +108,12 @@ function showVotes(catList, counts) {
     }
 }
 
+/**
+ * 
+ * @param {*} hostDetails json of host details
+ * @param {Category.<Array>} catList Array of categories
+ * @returns Highest scoring categories
+ */
 async function checkVotes(hostDetails, catList) {
     let list = await getMessages(hostDetails.code, hostDetails.serverURL);
     let votes = [];
@@ -117,6 +124,7 @@ async function checkVotes(hostDetails, catList) {
     });
 
     let counts = new Array(catList.length).fill(0);
+    let total = 0;
     votes.forEach(i => {
         let pos = 0;
         for (let j = 0; j < catList.length; j++) {
@@ -126,6 +134,7 @@ async function checkVotes(hostDetails, catList) {
             }
         }
         counts[pos]++;
+        total++;
     });
 
     showVotes(catList, counts);
@@ -144,10 +153,30 @@ async function checkVotes(hostDetails, catList) {
         output.push(catList[max[i]]);
     }
 
-    console.log(output);
+    if (total == hostDetails.players) {
+        submit(output);
+    }
     return output;
 }
 
+/**
+ * 
+ * @param {Category.<Array>} votes Top picked categories
+ */
+function submit(votes) {
+    // Forces end of voting
+    if (!donezo) {
+        donezo = true;
+        deferreds[0].resolve(votes);
+    }
+}
+
+/**
+ * 
+ * @param {Element} base Base to draw on
+ * @param {*} hostDetails json of host details
+ * @param {Category.<Array>} catList Array of categories
+ */
 function addButtons(base, hostDetails, catList) {
     let ref = document.createElement("button");
     ref.classList.add("big-button");
@@ -156,7 +185,17 @@ function addButtons(base, hostDetails, catList) {
         await checkVotes(hostDetails, catList);
     });
 
+    let sub = document.createElement("button");
+    sub.classList.add("big-button");
+    sub.innerText = "Go Ahead";
+    sub.id = "submit-categories";
+    sub.addEventListener("click", async function() {
+        let votes = await checkVotes(hostDetails, catList);
+        submit(votes);
+    });
+
     base.appendChild(ref);
+    base.appendChild(sub);
 }
 
 /**
@@ -187,9 +226,9 @@ export async function pickCategory(amount, hostDetails) {
     // Add basic buttons
     addButtons(base, hostDetails, catList);
 
-    console.log(deferreds);
-    await bigPromise;
+    let result = await bigPromise;
+    let truResult = result[Math.floor(result.length*Math.random())];
 
     // When done
-    return 0;
+    return truResult;
 }

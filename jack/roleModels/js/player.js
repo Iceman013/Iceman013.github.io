@@ -1,4 +1,5 @@
 import { Message, getMessages } from "../../js/message.js";
+import { Category } from "./category.js";
 
 let joinDetails = {
     code: "",
@@ -7,6 +8,9 @@ let joinDetails = {
 }
 let base;
 
+/**
+ * Refresh for new content
+ */
 async function refresh() {
     let messages = await getMessages(joinDetails.code, joinDetails.serverURL);
 
@@ -52,12 +56,18 @@ async function refresh() {
     }
 }
 
+/**
+ * Clear page
+ */
 function clear() {
     while (base.firstChild) {
         base.removeChild(base.firstChild);
     }
 }
 
+/**
+ * Display "Wait for more instructions"
+ */
 function displayDefault() {
     clear();
     let title = document.createElement("h1");
@@ -65,6 +75,12 @@ function displayDefault() {
     base.appendChild(title);
 }
 
+/**
+ * 
+ * @param {Element} parent Parent element to add new category to
+ * @param {Message} item Message to convert into a button
+ * @param {Number} index Index for id purposes
+ */
 function addCategoryVote(parent, item, index) {
     let input = document.createElement("input");
     input.style.display = "none";
@@ -83,6 +99,10 @@ function addCategoryVote(parent, item, index) {
     parent.appendChild(document.createElement("br"));
 }
 
+/**
+ * 
+ * @param {Array} catList List of categories to vote for
+ */
 function makeCategoriesVote(catList) {
     clear();
 
@@ -123,6 +143,10 @@ function makeCategoriesVote(catList) {
     base.appendChild(button);
 }
 
+/**
+ * 
+ * @param {*} njoinDetails JSON object with important player details
+ */
 export function play(njoinDetails) {
     joinDetails = njoinDetails;
     base = document.getElementById("player-game-box");
