@@ -37,11 +37,11 @@
 
 #scrollText {
     position: relative;
-    width: 50%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
 
-    text-align: left;
+    text-align: justify;
     line-height: 150%;
 
     transform-style: preserve-3d;
