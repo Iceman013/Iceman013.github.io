@@ -29,8 +29,6 @@ function starWar() {
 
     let show = true;
 
-    let height = base.clientHeight;
-    console.log(height);
     let i = 0;
     function getY(input) {
         return input*0.025;

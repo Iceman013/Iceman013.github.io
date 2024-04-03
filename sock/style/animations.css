@@ -1,0 +1,37 @@
+@keyframes talk {
+    0% { transform: translate(0px, 0px);}
+    50% { transform: translate(0px, 10px);}
+}
+
+@keyframes waveLU {
+    0% { transform: rotate(0deg);}
+    50% { transform: rotate(-5deg);}
+}
+@keyframes waveL {
+    0% { transform: scaleX(-1) rotate(180deg);}
+    50% { transform: scaleX(-1) rotate(200deg);}
+    100% { transform: scaleX(-1) rotate(180deg);}
+}
+
+@keyframes hungryRU {
+    0% { transform: rotate(40deg);}
+    25% { transform: rotate(30deg);}
+    75% { transform: rotate(50deg);}
+    100% { transform: rotate(40deg);}
+}
+@keyframes hungryR {
+    0% { transform: rotate(10deg);}
+    50% { transform: rotate(30deg);}
+    100% { transform: rotate(10deg);}
+}
+
+@keyframes oddLU {
+    0% { transform: rotate(-30deg);}
+    50% { transform: rotate(-35deg);}
+    100% { transform: rotate(-30deg);}
+}
+@keyframes oddL {
+    0% { transform: scaleY(1.4) rotate(0deg);}
+    50% { transform: scaleY(1.4) rotate(-10deg);}
+    100% { transform: scaleY(1.4) rotate(0deg);}
+}

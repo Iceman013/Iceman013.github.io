@@ -1,8 +1,8 @@
-import { startGame } from "./game.js";
 import { intro } from "./intro.js";
+import { speak } from "./dialog.js";
 
 export function clear() {
-    let pages = ["welcome", "intro", "main"];
+    let pages = ["welcome", "intro", "main", "dialog"];
     for (let i = 0; i < pages.length; i++) {
         document.getElementById(pages[i]).style.display = "none";
     }
@@ -49,5 +49,7 @@ function start() {
     document.getElementById("start").addEventListener("click", intro);
 
     console.log("End of creation");
+    
+    speak();
 }
 start();

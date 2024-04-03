@@ -1,0 +1,14 @@
+.jon-container {
+    background-color: red;
+    width: 500px;
+    height: 500px;
+    margin: 200px;
+}
+
+.jon-bod {
+    position: absolute;
+    background-size: cover;
+
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}

@@ -52,3 +52,7 @@
 
     color: #feda4a;
 }
+
+#skip {
+    z-index: 3;
+}
