@@ -62,8 +62,8 @@ function makeCard(base, card) {
     }
 
     var svgbase = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgbase.style.width = base.clientWidth;
-    svgbase.style.height = base.clientHeight;
+    svgbase.style.width = base.clientWidth - 4;
+    svgbase.style.height = base.clientHeight - 4;
     base.appendChild(svgbase);
     if (card == null) {
         return;
