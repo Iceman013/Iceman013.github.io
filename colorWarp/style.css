@@ -1,0 +1,21 @@
+.space-mono {
+    font-family: "Space Mono";
+    letter-spacing: 0px;
+}
+.doto {
+    font-family: "Doto";
+    letter-spacing: 0.3px;
+}
+.ubuntu-mono {
+    font-family: "Ubuntu Mono";
+    letter-spacing: 2.3px;
+}
+
+.classic {
+    color: black;
+    background-color: white;
+}
+.dark {
+    color: white;
+    background-color: black;
+}
