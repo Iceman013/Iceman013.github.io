@@ -1,65 +1,13 @@
-const BALLCOUNT = 6;
-const DRAWCOUNT = 3;
-function start() {
-	let balls = [];
-	for (let i = 1; i <= BALLCOUNT; i++) {
-		let item = i;
-		balls.push(item);
-	}
+function drawMap() {
+    var location = [33.95561066337365, -83.3744229314417];
+    var map = L.map('map').setView(location, 20);
 
-	function sort(input) {
-		for (let i = 0; i < input.length; i++) {
-			let min = i;
-			for (let j = i + 1; j < input.length; j++) {
-				if (input[j] < input[min]) {
-					min = j;
-				}
-			}
-			let temp = input[i];
-			input[i] = input[min];
-			input[min] = temp;
-		}
-		return input;
-	}
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-	let list = [];
-	for (let i = 0; i < balls.length; i++) {
-		for (let j = 0; j < balls.length; j++) {
-			for (let k = 0; k < balls.length; k++) {
-				let item = [];
-				item.push(balls[i]);
-				item.push(balls[j]);
-				item.push(balls[k]);
-				list.push(item);
-			}
-		}
-	}
-
-	let sortedList = [];
-	for (let i = 0; i < list.length; i++) {
-		sortedList.push(sort(list[i]));
-	}
-
-	let noDupeList = [];
-	for (let i = 0; i < sortedList.length; i++) {
-		let included = false;
-		for (let j = 0; j < noDupeList.length; j++) {
-			let thisOne = false;
-			for (let k = 0; k < noDupeList[j].length; k++) {
-				if (noDupeList[j][k] != sortedList[i][k]) {
-					thisOne = true;
-				}
-			}
-			if (thisOne == false) {
-				included = true;
-			}
-		}
-		if (!included) {
-			noDupeList.push(sortedList[i]);
-		}
-	}
-
-	console.log(noDupeList);
+    var marker = new L.Marker(location);
+    marker.bindPopup("Juggling Club").openPopup();
+    marker.addTo(map);
 }
-
-start();
+drawMap();

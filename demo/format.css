@@ -2,3 +2,8 @@
     box-sizing: border-box;
     font-family: "Alata";
 }
+#map {
+    width: 500px;
+    aspect-ratio: 1/1;
+    z-index: 1;
+}
