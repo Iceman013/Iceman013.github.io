@@ -1,11 +1,15 @@
+import { Card } from "./card.js";
+
+const spill = 0.24
+
 function makeShape(base, id, card, offset) {
-    var CWIDTH = base.clientWidth;
-    var CHEIGHT = base.clientHeight;
-    const spill = 0.24;
+    let CWIDTH = base.clientWidth;
+    let CHEIGHT = base.clientHeight;
     const width = (CWIDTH/3)*(1 - spill);
     const height = CHEIGHT*(1 - spill);
+    
     function scale(shape) {
-        var out = [];
+        let out = [];
         for (let i = 0; i < shape.length; i++) {
             out[i] = [0,0];
             out[i][0] = width*(shape[i][0] + spill/2) + offset;
@@ -14,9 +18,10 @@ function makeShape(base, id, card, offset) {
         return out;
     }
 
-    var area;    
+    let area;
+    let areaGenerator;
     if (card.getShape() == "Oval") {
-        var path = [
+        let path = [
             [0.5, 0],
             [0.95, 0.2],
             [0.95, 0.8],
@@ -27,7 +32,7 @@ function makeShape(base, id, card, offset) {
         areaGenerator = d3.line().curve(d3.curveCardinalClosed);
         area = areaGenerator(scale(path));
     } else if (card.getShape() == "Diamond") {
-        var path = [
+        let path = [
             [0.5, 0],
             [1, 0.5],
             [0.5, 1],
@@ -37,7 +42,7 @@ function makeShape(base, id, card, offset) {
         areaGenerator = d3.line();
         area = areaGenerator(scale(path));
     } else if (card.getShape() == "Squiggle") {
-        var path = [
+        let path = [
             [0, 0.2],
             [0.25, 0],
             [1, 0.25],
@@ -56,12 +61,13 @@ function makeShape(base, id, card, offset) {
         .attr("d", area)
         .attr("class", card.getColor() + " " + card.getFill());
 }
-function makeCard(base, card) {
+
+export function makeCard(base, card) {
     while (base.firstChild) {
         base.removeChild(base.firstChild);
     }
 
-    var svgbase = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    let svgbase = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svgbase.style.width = base.clientWidth - 4;
     svgbase.style.height = base.clientHeight - 4;
     base.appendChild(svgbase);
@@ -70,10 +76,10 @@ function makeCard(base, card) {
     }
     
     for (let i = 0; i < card.count + 1; i++) {
-        var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
         g.id = base.id + "c" + i;
         svgbase.appendChild(g);
-        var offset = (2 - card.count)*(base.clientWidth/6) + i*(base.clientWidth/3);
+        let offset = (2 - card.count)*(base.clientWidth/6) + i*(base.clientWidth/3);
         makeShape(base, g.id, card, offset);
     }
 }

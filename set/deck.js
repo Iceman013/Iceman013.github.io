@@ -1,9 +1,12 @@
-var deck = [];
-var displayed = [];
+import { Card, isSet } from "./card.js";
+import { makeCard } from "./draw.js";
+
+let deck = [];
+let displayed = [];
 const pick = new Event("pick");
 
-var time = 0;
-var timer;
+let time = 0;
+let timer;
 document.body.onresize = function() {
     drawThem();
 }
@@ -11,33 +14,39 @@ document.body.onresize = function() {
 function clear() {
     clearInterval(timer);
 
-    var base = document.getElementById("board");
+    document.getElementById("board").style.display = "none";
+    document.getElementById("overtime").style.display = "block";
+
+    let base = document.getElementById("overtime");
     while (base.firstChild) {
         base.removeChild(base.firstChild);
     }
     
-    var message = document.createElement("div");
+    let message = document.createElement("div");
 
-    var p = document.createElement("p");
+    let p = document.createElement("h1");
     p.innerHTML = "Puzzle completed. Congratulations!";
     message.appendChild(p);
 
-    var but = document.createElement("button");
+    message.appendChild(document.createElement("br"));
+
+    let but = document.createElement("button");
     but.onclick = function() { start() };
     but.innerHTML = "Play Again";
     message.appendChild(but);
 
     base.appendChild(message);
 }
+
 function getAnswer(list) {
-    var answers = [];
+    let answers = [];
     for (let i = 0; i < list.length - 2; i++) {
         for (let j = i + 1; j < list.length - 1; j++) {
             for (let k = j + 1; k < list.length; k++) {
                 if (isSet(list[i].card, list[j].card, list[k].card)) {
-                    var thisAnswer = [i,j,k];
+                    let thisAnswer = [i,j,k];
                     answers.push(thisAnswer);
-                    //console.log((i+1) + " " + (j+1) + " " + (k+1));
+                    // console.log((i+1) + " " + (j+1) + " " + (k+1));
                     // Save time or check for all answers
                     if (true) {
                         i = list.length;
@@ -51,11 +60,14 @@ function getAnswer(list) {
     }
     return answers;
 }
+
 function checkDisplay(list) {
     return (getAnswer(list).length != 0);
 }
+
 function replace(trio) {
-    var cdis = [];
+    // Remove 3
+    let currentDisplay = [];
     for (let i = 0; i < displayed.length; i++) {
         if (trio.includes(displayed[i])) {
             if (displayed[i].base.classList.contains("clue")) {
@@ -65,48 +77,69 @@ function replace(trio) {
             makeCard(displayed[i].base, displayed[i].card);
             displayed[i].activate();
         }
-        cdis[i] = displayed[i];
+        currentDisplay[i] = displayed[i];
     }
     
-    if (!checkDisplay(cdis) && deck.length == 0) {
+    // If game is over
+    if (deck.length == 0) {
+        if (!checkDisplay(displayed)) {
+            clear();
+            return;
+        } else {
+            return;
+        }
+    }
+
+    let found = false;
+    let triplet = [];
+    for (let i = 0; i < deck.length && !found; i++) {
+        trio[0].card = deck[i];
+        for (let j = i + 1; j < deck.length && !found; j++) {
+            trio[1].card = deck[j];
+            for (let k = j + 1; k < deck.length && !found; k++) {
+                trio[2].card = deck[k];
+                if (checkDisplay(displayed)) {
+                    found = true;
+                    triplet = [i,j,k];
+                }
+            }
+        }
+    }
+    if (found) {
+        for (let i = triplet.length - 1; i >= 0; i--) {
+            deck.splice(triplet[i], 1);
+        }
+    } else {
         clear();
         return;
     }
 
-    var met = false;
-    var added = trio;
-    while (!met) {
-        var cdek = [];
-        for (let i = 0; i < deck.length; i++) {
-            cdek[i] = deck[i];
-        }
-        for (let i = 0; i < 3; i++) {
-            var cardpos = Math.floor(cdek.length*Math.random());
-            added[i].card = cdek[cardpos];
-            cdek.splice(cardpos, 1);
-        }
-        met = checkDisplay(cdis);
-    }
-    deck = [];
-    for (let i = 0; i < cdek.length; i++) {
-        deck[i] = cdek[i];
-    }
-    displayed = [];
-    for (let i = 0; i < cdis.length; i++) {
-        displayed[i] = cdis[i];
-    }
-    for (let i = 0; i < added.length; i++) {
-        makeCard(added[i].base, added[i].card);
+    for (let i = 0; i < trio.length; i++) {
+        makeCard(trio[i].base, trio[i].card);
     }
     document.getElementById("remain").innerHTML = deck.length;
+
+    // Auto-play
+    // if (deck.length != 0) {
+    //     setTimeout(function() {
+    //         let answers = getAnswer(displayed)[0];
+    //         const delay = 10;
+    //         for (let i = 0; i < answers.length; i++) {
+    //             setTimeout(function() {
+    //                 displayed[answers[i]].base.click();
+    //             }, (i+1)*delay);
+    //         }
+    //     }, 500);
+    // }
 }
+
 function chose(base) {
     for (let i = 0; i < displayed.length; i++) {
         if (base == displayed[i].base) {
             displayed[i].activate();
         }
     }
-    var selected = [];
+    let selected = [];
     for (let i = 0; i < displayed.length; i++) {
         if (displayed[i].active) {
             selected.push(displayed[i]);
@@ -118,6 +151,7 @@ function chose(base) {
         }
     }
 }
+
 function Slot(card, base) {
     this.card = card;
     this.base = base;
@@ -136,22 +170,26 @@ function Slot(card, base) {
     }
     this.setBase();
 }
+
 function drawThem() {
     for (let i = 0; i < displayed.length; i++) {
         makeCard(displayed[i].base, displayed[i].card);
     }
 }
 function showAnswer() {
-    var answers = getAnswer(displayed);
+    let answers = getAnswer(displayed);
     for (let i = 0; i < answers[0].length; i++) {
-        var base = displayed[answers[0][i]].base;
+        let base = displayed[answers[0][i]].base;
         if (!base.classList.contains("clue")) {
             base.classList.add("clue");
         }
     }
 }
 function start() {
-    var board = document.getElementById("board");
+    document.getElementById("board").style.display = "grid";
+    document.getElementById("overtime").style.display = "none";
+
+    let board = document.getElementById("board");
     while (board.firstChild) {
         board.removeChild(board.firstChild);
     }
@@ -159,30 +197,51 @@ function start() {
     displayed = [];
 
     for (let i = 0; i < 81; i++) {
-        deck[i] = new Card(i);
+        deck.splice(Math.floor(i*Math.random()), 0, new Card(i));
     }
-    var built = false;
-    while (!built) {
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 4; j++) {
-                var card = document.createElement("div");
-                card.id = "a" + i + "b" + j;
-                board.appendChild(card);
-                var cardpos = Math.floor(deck.length*Math.random());
-                displayed.push(new Slot(deck[cardpos], card));
-                deck.splice(cardpos, 1);
-            }
+
+    // Create display
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 4; j++) {
+            let cardDiv = document.createElement("div");
+            cardDiv.id = "a" + i + "b" + j;
+            board.appendChild(cardDiv);
+
+            displayed.push(new Slot(null, cardDiv));
         }
-        built = checkDisplay(displayed);
     }
+
+    // Add cards
+    for (let i = 0; i < 12; i++) {
+        let cardpos = Math.floor(deck.length*Math.random());
+        displayed[i].card = deck[cardpos];
+        deck.splice(cardpos, 1);
+    }
+    
+    // Ensure they have a set
+    while (!checkDisplay(displayed)) {
+        let rep = Math.floor(12*Math.random());
+        deck.splice(0, 0, displayed[rep].card);
+        displayed[rep].card = deck.pop();
+    }
+
     drawThem();
     document.getElementById("remain").innerHTML = deck.length;
 
-    time = 0;
+    time = Date.now();
+    clearInterval(timer);
     timer = setInterval(function() {
-        var output = document.getElementById("time");
-        output.innerHTML = Math.round(10*time)/10;
-        time += 0.1;
+        let output = document.getElementById("time");
+        let timeDiff = Date.now() - time;
+        output.innerHTML = Math.floor(timeDiff/100)/10;
     }, 100);
 }
-start();
+
+function startPage() {
+    document.getElementById("newGame").addEventListener("click", start);
+    document.getElementById("showAnswer").addEventListener("click", showAnswer);
+
+    document.getElementById("board").style.display = "none";
+    document.getElementById("overtime").style.display = "block";
+}
+startPage();

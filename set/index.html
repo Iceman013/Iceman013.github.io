@@ -26,22 +26,24 @@
                     </div>
                 </div>
                 <hr>
-                <button onclick="showAnswer()">Show Answer</button>
-                <button onclick="start()">New Game</button>
+                <button id="showAnswer">Show Answer</button>
+                <button id="newGame">New Game</button>
                 <hr>
                 <h3>Instructions</h3>
                 <a href="https://en.wikipedia.org/wiki/Set_(card_game)">Wikipedia link</a>
             </div>
             <div id="board" class="board"></div>
+            <div id="overtime" class="overtime">
+                <h1>Hello</h1>
+                <p>Welcome to the game of set</p>
+                <br>
+                <p>Click <b>New Game</b> to start!</p>
+            </div>
         </div>
     </body>
     <footer>
         <script src="https://d3js.org/d3.v4.min.js"></script>
 
-        <script src="card.js" type="text/javascript"></script>
-
-        <script src="draw.js" type="text/javascript"></script>
-
-        <script src="deck.js" type="text/javascript"></script>
+        <script src="deck.js" type="module"></script>
     </footer>
 </html>

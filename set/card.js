@@ -1,35 +1,41 @@
-function Card(number) {
-    var setter = number;
-    this.color = setter % 3;
-    setter = (setter - this.color)/3;
-    this.shape = setter % 3;
-    setter = (setter - this.shape)/3;
-    this.count = setter % 3;
-    setter = (setter - this.count)/3;
-    this.fill = setter % 3;
+export class Card {
+    constructor(number) {
+        let setter = number;
+        this.color = setter % 3;
+        setter = (setter - this.color)/3;
+        this.shape = setter % 3;
+        setter = (setter - this.shape)/3;
+        this.count = setter % 3;
+        setter = (setter - this.count)/3;
+        this.fill = setter % 3;
+    }
 
-    this.getColor = function() {
-        var colors = ["Red", "Green", "Purple"];
+    getColor() {
+        let colors = ["Red", "Green", "Purple"];
         return colors[this.color];
     }
-    this.getShape = function() {
-        var shapes = ["Oval", "Diamond", "Squiggle"];
+
+    getShape() {
+        let shapes = ["Oval", "Diamond", "Squiggle"];
         return shapes[this.shape];
     }
-    this.getCount = function() {
-        var counts = ["1", "2", "3"];
+
+    getCount() {
+        let counts = ["1", "2", "3"];
         return counts[this.count];
     }
-    this.getFill = function() {
-        var fills = ["Empty", "Lines", "Full"];
+
+    getFill() {
+        let fills = ["Empty", "Lines", "Full"];
         return fills[this.fill];
     }
 }
 
-function isSet(carda, cardb, cardc) {
+export function isSet(carda, cardb, cardc) {
     if (carda == null || cardb == null || cardc == null) {
         return false;
     }
+
     function checkTrio(a, b, c) {
         if (a == b && b == c && c == a) {
             return true;
@@ -39,6 +45,7 @@ function isSet(carda, cardb, cardc) {
         }
         return false;
     }
+
     if (!checkTrio(carda.color, cardb.color, cardc.color)) {
         return false;
     }
@@ -51,5 +58,6 @@ function isSet(carda, cardb, cardc) {
     if (!checkTrio(carda.fill, cardb.fill, cardc.fill)) {
         return false;
     }
+    
     return true;
 }

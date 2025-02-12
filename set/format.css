@@ -28,6 +28,12 @@ button {
     row-gap: 1vh;
 }
 
+.overtime {
+    width: 100%;
+    text-align: center;
+    padding-top: 20vh;
+}
+
 .card {
     aspect-ratio: 1.5;
     width: 100%;
@@ -39,7 +45,7 @@ button {
     backdrop-filter: brightness(95%);
 }
 .clue {
-    background-color: #ffd70040;
+    background-color: #ffd70060;
 }
 .active {
     border-color: blue;
