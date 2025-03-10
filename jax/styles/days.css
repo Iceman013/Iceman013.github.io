@@ -1,0 +1,20 @@
+#days {
+    display: grid;
+    width: 100%;
+}
+
+.day {
+    background-color: #ffffff80;
+    margin: 1em;
+    border-radius: 1em;
+    padding: 1em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.day h3 {
+    margin: 0px;
+}
+.day p {
+    margin: 0px;
+}

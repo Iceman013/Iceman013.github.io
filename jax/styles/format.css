@@ -1,0 +1,11 @@
+* {
+    font-family: "Alata";
+}
+body {
+    background-color: aqua;
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr;
+}
