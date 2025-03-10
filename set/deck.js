@@ -28,6 +28,9 @@ function clear() {
     p.innerHTML = "Puzzle completed. Congratulations!";
     message.appendChild(p);
 
+    let confUrl = "https://www.icegif.com/wp-content/uploads/2023/05/icegif-1104.gif";
+    base.style.backgroundImage = "url('" + confUrl + "')";
+
     message.appendChild(document.createElement("br"));
 
     let but = document.createElement("button");
