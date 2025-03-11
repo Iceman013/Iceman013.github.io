@@ -26,10 +26,10 @@ function makeDay(count) {
     base.classList.add("day");
     
     let dow = document.createElement("h3");
-    dow.innerText = days[future.getUTCDay()];
+    dow.innerText = days[future.getDay()];
 
     let date = document.createElement("p");
-    date.innerText = (future.getUTCMonth() + 1) + "/" + future.getUTCDate() + "/" + future.getUTCFullYear();
+    date.innerText = (future.getMonth() + 1) + "/" + future.getDate() + "/" + future.getFullYear();
 
     base.appendChild(dow);
     base.appendChild(date);

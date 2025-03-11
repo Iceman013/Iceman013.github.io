@@ -17,7 +17,7 @@ export function getCall() {
     }
     let base = "https://api.open-meteo.com/v1/forecast?";
     let coords = "latitude=" + latitude + "&longitude=" + longitude;
-    let end = "&current_weather=true&hourly=temperature_2m,precipitation_probability,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph";
+    let end = "&current_weather=true&hourly=temperature_2m,precipitation_probability,weathercode&temperature_unit=fahrenheit&windspeed_unit=mph&timezone=auto";
     return base + coords + end;
 }
 
