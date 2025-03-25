@@ -1,0 +1,54 @@
+.test {
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+
+    grid-template-rows: 85% 15%;
+}
+
+.question {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.question img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.viewer {
+    width: 100%;
+    height: 100%;
+}
+
+.answer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 25% 75%;
+    text-align: center;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.list {
+    height: 100%;
+    column-gap: 8pt;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.list img {
+    height: 100%;
+}
+
+.buttonRow {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.buttonRow button {
+    padding: 1%;
+    width: 100%;
+    cursor: pointer;
+}
