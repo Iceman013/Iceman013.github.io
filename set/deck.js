@@ -236,7 +236,10 @@ function start() {
     timer = setInterval(function() {
         let output = document.getElementById("time");
         let timeDiff = Date.now() - time;
-        output.innerHTML = Math.floor(timeDiff/100)/10;
+        let elap = Math.floor(timeDiff/100)/10
+        output.innerHTML = elap;
+        let total = (deck.length + displayed.length)/((81 - (deck.length + displayed.length))/elap) + elap;
+        document.getElementById("total").innerText = Math.floor(total*10)/10;
     }, 100);
 }
 

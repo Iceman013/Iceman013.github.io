@@ -152,6 +152,7 @@ function showCash(id, arr, named) {
     var a = 0;
     while (a < arr.length) {
         group = document.createElement("div");
+        group.classList.add("boxy-foxy");
         imag = document.createElement("img");
         imag.src = upgrades[0].costs[a][1];
         li = document.createElement("text");
@@ -163,7 +164,6 @@ function showCash(id, arr, named) {
         group.appendChild(imag);
         group.appendChild(li);
         document.getElementById(id).appendChild(group);
-        document.getElementById(id).appendChild(document.createElement("br"));
         a = a + 1;
     }
 }

@@ -122,18 +122,22 @@
     width: 25%;
     height: 100%;
     outline: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.boxy-foxy {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
 }
 .sys .resource {
-    width: 33%;
-    float: left;
+    width: 100%;
 }
 .sys .resource img {
-    float: left;
-    width: 30%;
+    width: 100%;
 }
 .sys .resource text {
-    float: left;
     font-size: 30px;
     font-weight: bold;
-    width: 70%;
+    width: 100%;
 }
