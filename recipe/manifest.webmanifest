@@ -1,16 +1,20 @@
 {
-    "name": "Example PWA - standalone",
+    "name": "Recipe Registry",
     "display": "standalone",
     "start_url": "./index.html",
     "theme_color": "#254B85",
     "icons": [
         {
-            "src": "48x48.png",
+            "src": "icons/48x48.png",
             "sizes": "48x48"
         },
         {
-            "src": "144x144.png",
+            "src": "icons/144x144.png",
             "sizes": "144x144"
+        },
+        {
+            "src": "icons/512x512.png",
+            "sizes": "512x512"
         }
     ]
 }
