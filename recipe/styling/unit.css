@@ -1,0 +1,16 @@
+.unit-box {
+    margin: 5px;
+    padding: 1em;
+    border: 1px solid #aaaaaa;
+    border-radius: 1em;
+}
+.unit-title {
+    font-size: large;
+}
+.unit-units {
+    color: #aaaaaa;
+    font-size: x-small;
+}
+.unit-desc {
+    padding-top: 0.5em;
+}

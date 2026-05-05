@@ -1,3 +1,18 @@
 {
-    "dog": 12
+    "units": [
+        {
+            "id": 1,
+            "name": "Cup",
+            "singular": "cup",
+            "plural": "cups",
+            "description": "A standard American cup"
+        },
+        {
+            "id": 2,
+            "name": "Gallon",
+            "singular": "gallon",
+            "plural": "gallons",
+            "description": "A standard American gallon"
+        }
+    ]
 }

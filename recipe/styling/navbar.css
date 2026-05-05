@@ -1,0 +1,24 @@
+#navbar {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--accent-color);
+    border-top: 1px solid var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
+}
+.nav-link.selected {
+    background-color: var(--accent-color);
+    color: var(--primary-color)
+}
+.nav-link:nth-child(n+2) {
+    border-left: 1px solid var(--accent-color);
+}

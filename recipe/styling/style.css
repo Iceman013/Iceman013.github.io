@@ -1,0 +1,48 @@
+:root {
+    --primary-color: #aabbff;
+    --secondary-color: #99aaff;
+    --accent-color: #0044ff;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Alata";
+}
+body {
+    margin: 0px;
+}
+
+#page-holder {
+    padding: 0.5em;
+}
+
+.page-header {
+    font-size: x-large;
+    text-align: center;
+    width: 100%;
+}
+
+#modal {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    height: 100vh;
+    top: 0;
+    backdrop-filter: blur(1px) grayscale(10%) brightness(90%);
+}
+#modal-content {
+    display: none;
+    position: absolute;
+    width: 90vw;
+    left: 5vw;
+    right: 5vw;
+    top: 5vh;
+    background-color: white;
+    filter: drop-shadow(1px 1px 3px);
+    padding: 5px;
+}
+
+input, textarea {
+    width: 100%;
+}

@@ -6,15 +6,39 @@
         <title>Recipe Book</title>
         <link rel="icon" type="image/png" href="icons/512x512.png">
         <link rel="manifest" href="./manifest.webmanifest">
+
+        <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+
+        <link rel="stylesheet" href="styling/style.css">
+        <link rel="stylesheet" href="styling/navbar.css">
+        <link rel="stylesheet" href="styling/unit.css">
     </head>
 
     <body>
+        <div id="navbar"></div>
+        <div id="page-holder">
+            <div id="home-page" class="a-page">
+                <h1>Hiya howdy and welcome to my home</h1>
+            </div>
+            <div id="units-page" class="a-page">
+                <div style="display: flex;">
+                    <div class="page-header">Units</div>
+                    <button style="margin-left: auto" id="add-unit">Add</button>
+                </div>
+                <div id="unit-list"></div>
+            </div>
+        </div>
+        <div id="modal">
+            <div id="modal-content"></div>
+        </div>
         <h1>Welcome</h1>
         <button id="b1">Try To Read File</button>
         <p id="output"></p>
     </body>
 
     <footer>
-        <script src="app.js"></script>
+        <script src="registerWorker.js"></script>
+        <script src="fileReader.js" type="module"></script>
+        <script src="pageController.js" type="module"></script>
     </footer>
 </html>

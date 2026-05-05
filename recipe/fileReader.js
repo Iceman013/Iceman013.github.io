@@ -1,19 +1,3 @@
-// Service worker ?
-const registerServiceWorker = async () => {
-    try {
-        await navigator.serviceWorker.register('/recipe/sw.js', { scope: '/recipe/'});
-        console.log('Service worker registered');
-    } catch (e) {
-        console.log(`Registration failed: ${e}`);
-    }
-}
-  
-if (navigator.serviceWorker) {
-    registerServiceWorker();
-}
-
-
-
 // Create IndexedDB
 const dbName = "RecentFiles";
 
@@ -113,19 +97,13 @@ async function getFileHandle() {
     // Uhhhhh if they dont give permission, I have no clue mate
 }
 
-async function readFile() {
+export async function readFile() {
     let handle = await getFileHandle();
     let file = await handle.getFile();
-    console.log(file);
     let cont = await file.text();
-    console.log(cont);
     let oby = JSON.parse(cont);
-    console.log(oby);
-    document.getElementById("output").innerText = JSON.stringify(oby);
+    return oby;
 }
 
-// document.getElementById("b3").addEventListener("click", verifyPermission);
-
-
-let butOpenFile = document.getElementById("b1");
-butOpenFile.addEventListener('click', readFile);
+// let butOpenFile = document.getElementById("b1");
+// butOpenFile.addEventListener('click', readFile);
