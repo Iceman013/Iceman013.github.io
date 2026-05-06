@@ -1,4 +1,4 @@
-import { readFile } from "./fileReader.js";
+import { readFile, writeToFile } from "./fileReader.js";
 
 class Unit {
     constructor(object) {
@@ -24,8 +24,8 @@ export async function getUnits() {
 
 function showUnits(units) {
     let base = document.getElementById("unit-list");
-    while (base.firstChild) {
-        base.remove(base.firstChild);
+    while (base.hasChildNodes()) {
+        base.removeChild(base.firstChild);
     }
     units.forEach(unit => {
         let element = document.createElement("div");
@@ -52,6 +52,13 @@ function closeModal() {
     document.getElementById("modal-content").style.display = "none";
 }
 
+async function addUnit(unit) {
+    let data = await readFile();
+    data.units.push(unit);
+    await writeToFile(data);
+    showUnitPage();
+}
+
 export async function showUnitPage() {
     document.getElementById("units-page").style.display = "block";
     let units = await getUnits();
@@ -59,11 +66,11 @@ export async function showUnitPage() {
     document.getElementById("add-unit").addEventListener("click", function() {
         let modal = document.getElementById("modal");
         modal.style.display = "block";
-        modal.addEventListener("click", closeModal);
+        // modal.addEventListener("click", closeModal);
 
         let base = document.getElementById("modal-content");
         base.style.display = "block";
-        while (base.firstChild) {
+        while (base.hasChildNodes()) {
             base.removeChild(base.firstChild);
         }
 
@@ -118,8 +125,8 @@ export async function showUnitPage() {
                 "plural": pluInput.value,
                 "description": descInput.value
             });
+            addUnit(uni);
             closeModal();
-            console.log(uni);
         })
     });
 }

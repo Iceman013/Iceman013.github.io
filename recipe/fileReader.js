@@ -77,7 +77,7 @@ async function readPublicData() {
     return json;
 }
 
-async function writeToFile(data) {
+export async function writeToFile(data) {
     let handle = await getStoredFileHandle();
     const writable = await handle.createWritable();
     await writable.write(JSON.stringify(data));

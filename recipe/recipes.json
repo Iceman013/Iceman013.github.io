@@ -1,18 +1,1 @@
-{
-    "units": [
-        {
-            "id": 1,
-            "name": "Cup",
-            "singular": "cup",
-            "plural": "cups",
-            "description": "A standard American cup"
-        },
-        {
-            "id": 2,
-            "name": "Gallon",
-            "singular": "gallon",
-            "plural": "gallons",
-            "description": "A standard American gallon"
-        }
-    ]
-}
+{"units":[{"id":1,"name":"Cup","singular":"cup","plural":"cups","description":"A standard American cup"},{"id":2,"name":"Gallon","singular":"gallon","plural":"gallons","description":"A standard American gallon"},{"id":3,"name":"Ounce","singular":"ounce","plural":"ounces","description":"A standard American ounce"},{"id":4,"name":"Quart","singular":"quart","plural":"quarts","description":"A standard American quart"},{"id":5,"name":"Teaspoon","singular":"tsp","plural":"tsps","description":"A standard American teaspoon"},{"id":6,"name":"Tablespoon","singular":"tbsp","plural":"tbsps","description":"A standard American tablespoon"}]}

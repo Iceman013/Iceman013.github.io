@@ -1,0 +1,9 @@
+#json-holder {
+    border: 1px solid black;
+    padding: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 5px;
+    word-break: break-word;
+    max-height: 10em;
+    overflow-y: scroll;
+}

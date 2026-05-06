@@ -11,6 +11,7 @@
 
         <link rel="stylesheet" href="styling/style.css">
         <link rel="stylesheet" href="styling/navbar.css">
+        <link rel="stylesheet" href="styling/homeStyle.css">
         <link rel="stylesheet" href="styling/unit.css">
     </head>
 
@@ -19,6 +20,9 @@
         <div id="page-holder">
             <div id="home-page" class="a-page">
                 <h1>Hiya howdy and welcome to my home</h1>
+                <button id="allow-file">Give me access to your files?</button>
+                <div id="json-holder">{}</div>
+                <button id="refresh-data">Pull Data From GitHub</button>
             </div>
             <div id="units-page" class="a-page">
                 <div style="display: flex;">
@@ -31,9 +35,6 @@
         <div id="modal">
             <div id="modal-content"></div>
         </div>
-        <h1>Welcome</h1>
-        <button id="b1">Try To Read File</button>
-        <p id="output"></p>
     </body>
 
     <footer>
